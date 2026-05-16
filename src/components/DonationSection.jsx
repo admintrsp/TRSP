@@ -40,14 +40,23 @@ export default function DonationSection() {
           </div>
         </div>
 
-        <a
-          href="https://YOUR-DONATION-LINK.com"
-          target="_blank"
-          rel="noreferrer"
-          className="inline-block bg-white text-blue-900 px-10 py-4 rounded-xl font-semibold hover:bg-slate-200 transition"
-        >
-          Donate Now
-        </a>
+       <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="https://givebutter.com/general-fund-iz0pzq"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block bg-white text-blue-900 px-10 py-4 rounded-xl font-semibold hover:bg-slate-200 transition"
+          >
+            Donate Now
+          </a>
+
+          <a
+            href="mailto:therenewedstrengthproject@gmail.com"
+            className="inline-block bg-slate-800 text-white px-10 py-4 rounded-xl font-semibold hover:bg-slate-700 transition"
+          >
+            Contact
+          </a>
+        </div>
       </div>
     </section>
   )

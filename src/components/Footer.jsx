@@ -14,7 +14,12 @@ export default function Footer() {
         </div>
 
         <div>
-          <div>Email: info@yourdomain.org</div>
+          <a
+            href="mailto:therenewedstrengthproject@gmail.com"
+            className="hover:text-white transition"
+          >
+            therenewedstrengthproject@gmail.com
+          </a>
         </div>
       </div>
     </footer>
