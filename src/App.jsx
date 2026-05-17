@@ -53,9 +53,11 @@ function Hero() {
             </a>
 
             <a
-              href="mailto:therenewedstrengthproject@gmail.com"
+              href="https://forms.gle/XiRrN38kGjsYaFNb6"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-slate-800 hover:bg-slate-700 px-8 py-4 rounded-xl font-medium text-center transition"
-            >
+             >
               Apply / Refer a Participant
             </a>
           </div>
