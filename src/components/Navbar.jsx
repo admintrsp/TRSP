@@ -8,7 +8,7 @@ return (
       <div className="flex items-center gap-3">
         <a
           href="mailto:therenewedstrengthproject@gmail.com"
-          className="bg-slate-800 hover:bg-slate-700 text-white px-5 py-2 rounded-lg transition"
+          className="bg-slate-800 hover:bg-slate-700 text-white px-5 py-2 rounded-lg transition inline-flex items-center justify-       center min-w-[110px]"
         >
           Contact
         </a>
@@ -17,7 +17,7 @@ return (
           href="https://givebutter.com/general-fund-iz0pzq"
           target="_blank"
           rel="noreferrer"
-          className="bg-blue-700 hover:bg-blue-600 text-white px-5 py-2 rounded-lg transition"
+          className="bg-blue-700 hover:bg-blue-600 text-white px-5 py-2 rounded-lg transition inline-flex items-center justify- center min-w-[110px]"
         >
           Donate
         </a>
