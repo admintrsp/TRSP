@@ -12,6 +12,13 @@ export default function Navbar() {
         >
           Donate
         </a>
+
+        <a
+          href="mailto:therenewedstrengthproject@gmail.com"
+          className="inline-block bg-slate-800 text-white px-10 py-4 rounded-xl font-semibold hover:bg-slate-700 transition"
+        >
+          Contact
+        </a>
       </div>
     </nav>
   )
