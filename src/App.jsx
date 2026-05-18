@@ -221,9 +221,8 @@ function DonationSection() {
           </p>
 
           <p>
-            Every dollar goes toward helping someone maintain strength,
-            improve function, and regain confidence during one of the most
-            challenging seasons of life.
+            Your donation directly supports programs that help individuals
+            navigating cancer treatment regain strength, improve function, and rebuild confidence.
           </p>
         </div>
 
