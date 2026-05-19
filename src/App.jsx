@@ -38,7 +38,13 @@ function Navbar() {
 
 function Hero() {
   return (
- <section className="min-h-screen bg-gradient-to-br from-[#071B34] via-[#04111F] to-black text-white flex items-center pt-24">   <section className="min-h-screen bg-slate-950 text-white flex items-center pt-24">
+ <section 
+  className="min-h-screen text-white flex items-center pt-24 bg-cover bg-center relative"
+  style={{
+    backgroundImage:
+      "linear-gradient(rgba(2,6,23,0.82), rgba(2,6,23,0.92)), url('/hero-bg.png')",
+  }}
+> }>
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
