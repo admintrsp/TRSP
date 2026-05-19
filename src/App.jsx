@@ -55,7 +55,7 @@ function Hero() {
               href="https://givebutter.com/general-fund-iz0pzq"
               target="_blank"
               rel="noreferrer"
-              className="bg-blue-700 hover:bg-blue-600 px-8 py-4 rounded-xl font-medium text-center transition"
+              className="bg-[#C58A5C] hover:bg-[#B6794C] px-8 py-4 rounded-xl font-medium text-center transition"
             >
               Donate Now
             </a>
