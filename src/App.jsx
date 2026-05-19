@@ -16,7 +16,7 @@ function Navbar() {
 
         <div className="flex items-center gap-3">
           <a
-            href="mailto:therenewedstrengthproject@gmail.com"
+            href="mailto:info@therenewedstrengthproject.org"
             className="bg-slate-800 hover:bg-slate-700 text-white px-5 py-2 rounded-lg transition inline-flex items-center justify-center min-w-[110px]"
           >
             Contact
