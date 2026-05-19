@@ -304,10 +304,10 @@ function Footer() {
 
         <div>
           <a
-            href="mailto:therenewedstrengthproject@gmail.com"
+            href="mailto:info@therenewedstrengthproject.org"
             className="hover:text-white transition"
           >
-            therenewedstrengthproject@gmail.com
+            therenewedstrengthproject.org
           </a>
         </div>
       </div>
