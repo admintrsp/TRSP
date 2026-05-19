@@ -320,6 +320,26 @@ export default function App() {
     <div className="font-sans">
       <Navbar />
       <Hero />
+      <section className="bg-white py-20 px-6">
+    <div className="max-w-5xl mx-auto">
+      <div className="text-center mb-10">
+        <h2 className="text-4xl font-bold text-slate-900 mb-4">
+          Support Renewed Strength
+        </h2>
+
+        <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+          Your donation helps remove financial barriers to evidence-based
+          cancer recovery and strength training services.
+        </p>
+      </div>
+
+      <div className="flex justify-center">
+        <givebutter-widget id="p5MWwO"></givebutter-widget>
+      </div>
+    </div>
+  </section>
+
+  
       <WhatWeDo />
       <WhyItMatters />
       <HowItWorks />
