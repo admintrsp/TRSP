@@ -38,14 +38,13 @@ function Navbar() {
 
 function Hero() {
   return (
- <section 
+<section
   className="min-h-screen text-white flex items-center pt-24 bg-cover bg-center relative"
   style={{
-    backgroundImage:
-      "linear-gradient(rgba(2,6,23,0.82), rgba(2,6,23,0.92)), url('/hero-bg.png')",
+    backgroundImage: "url('/hero-bg.png')",
   }}
-> }>
-      <div className="max-w-6xl mx-auto px-6">
+>   
+ <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
             Empowering renewed strength.
