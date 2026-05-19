@@ -34,7 +34,7 @@ function Hero() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-            Renewing strength through cancer.
+            Empowering renewed strength.
           </h1>
 
           <p className="text-xl text-slate-300 mb-10 leading-relaxed">
