@@ -39,10 +39,10 @@ function Navbar() {
 function Hero() {
   return (
 <section
-  className="min-h-screen text-white flex items-center pt-24 bg-cover bg-center relative"
-  style={{
-    backgroundImage: "url('/hero-bg.png')",
-  }}
+className="min-h-screen text-white flex items-center pt-24 bg-cover bg-center relative bg-slate-950"
+style={{
+  backgroundImage: "url('/hero-bg.png')",
+}}  
 >   
  <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl">
