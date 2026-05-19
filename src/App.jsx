@@ -6,7 +6,7 @@ function Navbar() {
   <img
     src="/rsp-logo.png"
     alt="RSP Logo"
-    className="w-12 h-12 object-contain"
+    className="w-12 h-12 object-contain -mt-1"
   />
 
   <span className="text-white font-semibold text-lg">
