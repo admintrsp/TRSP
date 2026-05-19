@@ -307,7 +307,7 @@ function Footer() {
             href="mailto:info@therenewedstrengthproject.org"
             className="hover:text-white transition"
           >
-            therenewedstrengthproject.org
+            info@therenewedstrengthproject.org
           </a>
         </div>
       </div>
