@@ -56,11 +56,15 @@ style={{
           </p>
 
 <button
-  data-givebutter-widget-open="p5MWwO"
+  onClick={() => {
+    window.Givebutter?.openWidget?.("p5MWwO")
+  }}
   className="bg-[#C58A5C] hover:bg-[#B6794C] px-8 py-4 rounded-xl font-medium text-center transition"
 >
   Donate Now
-</button>        
+</button>
+
+<givebutter-widget id="p5MWwO"></givebutter-widget>
 
             <a
               href="https://forms.gle/XiRrN38kGjsYaFNb6"
