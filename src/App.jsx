@@ -55,15 +55,12 @@ style={{
             individuals across the cancer continuum in Northern Colorado.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="https://givebutter.com/general-fund-iz0pzq"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-[#C58A5C] hover:bg-[#B6794C] px-8 py-4 rounded-xl font-medium text-center transition"
-            >
-              Donate Now
-            </a>
+<button
+  data-givebutter-widget-open="p5MWwO"
+  className="bg-[#C58A5C] hover:bg-[#B6794C] px-8 py-4 rounded-xl font-medium text-center transition"
+>
+  Donate Now
+</button>        
 
             <a
               href="https://forms.gle/XiRrN38kGjsYaFNb6"
@@ -339,7 +336,7 @@ export default function App() {
     </div>
   </section>
 
-  
+
       <WhatWeDo />
       <WhyItMatters />
       <HowItWorks />
