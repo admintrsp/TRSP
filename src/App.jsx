@@ -26,7 +26,7 @@ function Navbar() {
             href="https://givebutter.com/general-fund-iz0pzq"
             target="_blank"
             rel="noreferrer"
-            className="bg-blue-700 hover:bg-blue-600 text-white px-5 py-2 rounded-lg transition inline-flex items-center justify-center min-w-[110px]"
+            className="bg-[#C58A5C] hover:bg-[#B6794C] text-white px-5 py-2 rounded-lg transition inline-flex items-center justify-center min-w-[110px]"
           >
             Donate
           </a>
