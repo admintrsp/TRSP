@@ -1,24 +1,27 @@
 function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-slate-950/90 backdrop-blur border-b border-slate-800 z-50">
-<div className="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">       <div className="flex items-center gap-3">
-  <img
-    src="/rsp-logo.png"
-    alt="RSP Logo"
-className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
-  />
+      <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 
-  <span className="text-white font-semibold text-base sm:text-lg leading-tight">    Renewed Strength Project
-  </span>
-</div>
+        <div className="flex items-center gap-3">
+          <img
+            src="/rsp-logo.png"
+            alt="RSP Logo"
+            className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+          />
 
-<div className="flex items-center justify-center sm:justify-end gap-2 sm:gap-3 flex-wrap">
-            <a
-            href="mailto:info@therenewedstrengthproject.org"
+          <span className="text-white font-semibold text-base sm:text-lg leading-tight">
+            Renewed Strength Project
+          </span>
+        </div>
+
+<div className="flex items-center justify-center sm:justify-end gap-2 sm:gap-3 flex-wrap">          
+<a
+  href="mailto:info@therenewedstrengthproject.org"
   className="border border-slate-600 hover:border-slate-400 text-white px-6 py-3 rounded-xl transition inline-flex items-center justify-center"
-            Contact
-          </a>
-
+>
+  Contact
+</a>
 <a
 href="https://forms.gle/XiRrN38kGjsYaFNb6"
   target="_blank"
