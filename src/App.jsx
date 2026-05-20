@@ -61,7 +61,7 @@ style={{
     rel="noopener noreferrer"
     className="bg-slate-800 hover:bg-slate-700 px-8 py-4 rounded-xl font-medium text-center transition"
   >
-    Apply / Refer a Participant
+    Apply 
   </a>
 </div>
           </div>
