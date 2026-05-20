@@ -26,8 +26,7 @@ function Navbar() {
   href="https://forms.gle/XiRrN38kGjsYaFNb6"
   target="_blank"
   rel="noopener noreferrer"
-  className="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl font-medium transition"
->
+className="border border-slate-500 text-white hover:bg-slate-800 px-6 py-3 rounded-xl font-medium transition">
   Apply
 </a>
 
