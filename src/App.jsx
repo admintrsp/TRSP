@@ -1,21 +1,19 @@
 function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-slate-950/90 backdrop-blur border-b border-slate-800 z-50">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-       <div className="flex items-center gap-3">
+<div className="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">       <div className="flex items-center gap-3">
   <img
     src="/rsp-logo.png"
     alt="RSP Logo"
-    className="w-12 h-12 object-contain -mt-1"
+className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
   />
 
-  <span className="text-white font-semibold text-lg">
-    Renewed Strength Project
+  <span className="text-white font-semibold text-base sm:text-lg leading-tight">    Renewed Strength Project
   </span>
 </div>
 
-        <div className="flex items-center gap-3">
-          <a
+<div className="flex items-center justify-center sm:justify-end gap-2 sm:gap-3 flex-wrap">
+            <a
 href="mailto:info@therenewedstrengthproject.org"
   className="border border-slate-600 hover:border-slate-400 text-white px-5 py-2 rounded-xl transition inline-flex items-center justify-center min-w-[110px]"          >
             Contact
@@ -40,15 +38,17 @@ href="https://forms.gle/XiRrN38kGjsYaFNb6"
 
 function Hero() {
   return (
-<section
-className="min-h-screen text-white flex items-center pt-24 bg-cover bg-center relative bg-slate-950"
-style={{
-  backgroundImage: "url('/hero-bg.png')",
-}}  
->   
- <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-3xl">
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
+    <section
+      className="min-h-screen text-white flex items-center pt-24 bg-cover bg-center relative bg-slate-950"
+      style={{
+        backgroundImage: "url('/hero-bg.png')",
+      }}
+    >
+      <div className="absolute inset-0 bg-slate-950/45"></div>
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">         
+        <div className="max-w-2xl">
+         <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
             Empowering renewed strength.
           </h1>
 
@@ -57,13 +57,8 @@ style={{
             individuals across the cancer continuum in Northern Colorado.
           </p>
 
-<div className="flex flex-col sm:flex-row gap-4">
- 
-
-
 </div>
   </div>
-    </div>
       </section>
   )
 }
