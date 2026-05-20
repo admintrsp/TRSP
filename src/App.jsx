@@ -25,7 +25,7 @@ function Navbar() {
 <button
   onClick={() => {
     document
-      .getElementById("donate")
+      .getElementById("support")
       ?.scrollIntoView({ behavior: "smooth" })
   }}
   className="bg-[#C58A5C] hover:bg-[#B6794C] text-white px-5 py-2 rounded-lg transition inline-flex items-center justify-center min-w-[110px]"
@@ -62,7 +62,7 @@ style={{
   <button
     onClick={() => {
       document
-        .getElementById("donate")
+        .getElementById("support")
         ?.scrollIntoView({ behavior: "smooth" })
     }}
     className="bg-[#C58A5C] hover:bg-[#B6794C] px-8 py-4 rounded-xl font-medium text-center transition"
@@ -223,7 +223,7 @@ function FoundingStory() {
 
 function ImpactSection() {
   return (
-    <section id="donate" className="py-24 bg-blue-900 text-white">
+    <section className="py-24 bg-blue-900 text-white">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold mb-8">
           Help Someone Rebuild Their Strength
@@ -318,7 +318,7 @@ export default function App() {
     <div className="font-sans">
       <Navbar />
       <Hero />
-<section id="donate" className="bg-white py-20 px-6">    
+<section id="support" className="bg-white py-20 px-6">    
       <div className="text-center mb-10">
         <h2 className="text-4xl font-bold text-slate-900 mb-4">
           Support Renewed Strength
@@ -347,3 +347,4 @@ export default function App() {
     </div>
   )
 }
+
