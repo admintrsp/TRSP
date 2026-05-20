@@ -47,7 +47,7 @@ function Hero() {
         backgroundImage: "url('/hero-bg.png')",
       }}
     >
-      <div className="absolute inset-0 bg-slate-950/45"></div>
+      <div className="absolute inset-0 bg-slate-950/55"></div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">         
         <div className="max-w-2xl">
