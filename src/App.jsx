@@ -156,6 +156,45 @@ function HowItWorks() {
   )
 }
 
+function PhilosophySection() {
+  return (
+    <section className="py-24 bg-slate-100 text-slate-900">
+      <div className="max-w-4xl mx-auto px-6">
+
+        <h2 className="text-4xl font-bold mb-8">
+          Evidence-Informed. Individualized. Safety-Driven.
+        </h2>
+
+        <div className="space-y-6 text-lg leading-relaxed text-slate-700">
+
+          <p>
+            Cancer treatment changes the body, but it does not eliminate the
+            body’s ability to adapt, regain strength, and rebuild confidence.
+          </p>
+
+          <p>
+            Our training approach is individualized, progressive, and rooted
+            in safety. Every participant receives programming tailored to their
+            current capacity, treatment history, and functional baseline.
+          </p>
+
+          <p>
+            We emphasize structured progression, clinical awareness, and
+            appropriate supervision to support meaningful improvements in
+            strength, mobility, confidence, and quality of life.
+          </p>
+
+          <p className="text-slate-900 font-medium italic pt-4">
+            “Safe, structured, evidence-informed movement is not optional in
+            recovery — it is foundational.”
+          </p>
+
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function FoundingStory() {
   return (
     <section className="py-24 bg-slate-950 text-white">
@@ -318,6 +357,7 @@ export default function App() {
       <WhatWeDo />
       <WhyItMatters />
       <HowItWorks />
+      <PhilosophySection />
       <FoundingStory />
       <ImpactSection />
       <TrustSection />
