@@ -65,7 +65,8 @@ style={{
   </a>
 </div>
   </div>
-    </section>
+    </div>
+      </section>
   )
 }
 
