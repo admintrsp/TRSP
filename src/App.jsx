@@ -57,7 +57,7 @@ style={{
             We remove financial barriers to evidence-based personal training for
             individuals across the cancer continuum in Northern Colorado.
           </p>
-          
+
 <div className="flex flex-col sm:flex-row gap-4">
   <button
     onClick={() => {
@@ -221,7 +221,7 @@ function FoundingStory() {
   )
 }
 
-function DonationSection() {
+function ImpactSection() {
   return (
     <section id="donate" className="py-24 bg-blue-900 text-white">
       <div className="max-w-4xl mx-auto px-6 text-center">
@@ -341,7 +341,7 @@ export default function App() {
       <WhyItMatters />
       <HowItWorks />
       <FoundingStory />
-      
+      <ImpactSection />
       <TrustSection />
       <Footer />
     </div>
