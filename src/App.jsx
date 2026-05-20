@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-slate-950/90 backdrop-blur border-b border-slate-800 z-50">
@@ -16,6 +18,14 @@ function Navbar() {
         </div>
 
 <div className="flex items-center justify-center sm:justify-end gap-2 sm:gap-3 flex-wrap">          
+
+
+<Link
+  to="/about"
+  className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition"
+>
+  About
+</Link>
 <a
   href="mailto:info@therenewedstrengthproject.org"
 className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition inline-flex items-center justify-center">
