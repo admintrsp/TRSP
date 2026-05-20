@@ -14,8 +14,8 @@ className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
 
 <div className="flex items-center justify-center sm:justify-end gap-2 sm:gap-3 flex-wrap">
             <a
-href="mailto:info@therenewedstrengthproject.org"
-  className="border border-slate-600 hover:border-slate-400 text-white px-5 py-2 rounded-xl transition inline-flex items-center justify-center min-w-[110px]"          >
+            href="mailto:info@therenewedstrengthproject.org"
+  className="border border-slate-600 hover:border-slate-400 text-white px-6 py-3 rounded-xl transition inline-flex items-center justify-center"
             Contact
           </a>
 
