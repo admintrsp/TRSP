@@ -8,7 +8,6 @@ function Navbar() {
     alt="RSP Logo"
     className="w-12 h-12 object-contain -mt-1"
   />
-<givebutter-widget id="p5MWwO"></givebutter-widget>
 
   <span className="text-white font-semibold text-lg">
     Renewed Strength Project
