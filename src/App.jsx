@@ -22,14 +22,17 @@ function Navbar() {
             Contact
           </a>
 
-          <a
-            href="https://givebutter.com/general-fund-iz0pzq"
-            target="_blank"
-            rel="noreferrer"
-            className="bg-[#C58A5C] hover:bg-[#B6794C] text-white px-5 py-2 rounded-lg transition inline-flex items-center justify-center min-w-[110px]"
-          >
-            Donate
-          </a>
+<button
+  onClick={() => {
+    document
+      .getElementById("donate")
+      ?.scrollIntoView({ behavior: "smooth" })
+  }}
+  className="bg-[#C58A5C] hover:bg-[#B6794C] text-white px-5 py-2 rounded-lg transition inline-flex items-center justify-center min-w-[110px]"
+>
+  Donate
+</button>            
+        
         </div>
       </div>
     </nav>
@@ -54,26 +57,28 @@ style={{
             We remove financial barriers to evidence-based personal training for
             individuals across the cancer continuum in Northern Colorado.
           </p>
+          
+<div className="flex flex-col sm:flex-row gap-4">
+  <button
+    onClick={() => {
+      document
+        .getElementById("donate")
+        ?.scrollIntoView({ behavior: "smooth" })
+    }}
+    className="bg-[#C58A5C] hover:bg-[#B6794C] px-8 py-4 rounded-xl font-medium text-center transition"
+  >
+    Donate Now
+  </button>
 
-<button
-  onClick={() => {
-    window.Givebutter?.openWidget?.("p5MWwO")
-  }}
-  className="bg-[#C58A5C] hover:bg-[#B6794C] px-8 py-4 rounded-xl font-medium text-center transition"
->
-  Donate Now
-</button>
-
-<givebutter-widget id="p5MWwO"></givebutter-widget>
-
-            <a
-              href="https://forms.gle/XiRrN38kGjsYaFNb6"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-slate-800 hover:bg-slate-700 px-8 py-4 rounded-xl font-medium text-center transition"
-             >
-              Apply / Refer a Participant
-            </a>
+  <a
+    href="https://forms.gle/XiRrN38kGjsYaFNb6"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-slate-800 hover:bg-slate-700 px-8 py-4 rounded-xl font-medium text-center transition"
+  >
+    Apply / Refer a Participant
+  </a>
+</div>
           </div>
         </div>
       </div>
@@ -257,14 +262,6 @@ function DonationSection() {
           </div>
         </div>
 
-        <a
-          href="https://givebutter.com/general-fund-iz0pzq"
-          target="_blank"
-          rel="noreferrer"
-          className="inline-block bg-white text-blue-900 px-10 py-4 rounded-xl font-semibold hover:bg-slate-200 transition"
-        >
-          Donate Now
-        </a>
       </div>
     </section>
   )
@@ -321,8 +318,7 @@ export default function App() {
     <div className="font-sans">
       <Navbar />
       <Hero />
-      <section className="bg-white py-20 px-6">
-    <div className="max-w-5xl mx-auto">
+<section id="donate" className="bg-white py-20 px-6">    
       <div className="text-center mb-10">
         <h2 className="text-4xl font-bold text-slate-900 mb-4">
           Support Renewed Strength
@@ -345,7 +341,7 @@ export default function App() {
       <WhyItMatters />
       <HowItWorks />
       <FoundingStory />
-      <DonationSection />
+      
       <TrustSection />
       <Footer />
     </div>
