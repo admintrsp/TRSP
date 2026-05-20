@@ -22,6 +22,14 @@ function Navbar() {
             Contact
           </a>
 
+<a
+  href="https://forms.gle/XiRrN38kGjsYaFNb6"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-slate-800 hover:bg-slate-700 px-6 py-3 rounded-xl font-medium transition"
+>
+  Apply
+</a>
 
           <givebutter-widget id="p5MWwO"></givebutter-widget>
 
@@ -55,14 +63,6 @@ style={{
  
 
 
-  <a
-    href="https://forms.gle/XiRrN38kGjsYaFNb6"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-slate-800 hover:bg-slate-700 px-8 py-4 rounded-xl font-medium text-center transition"
-  >
-    Apply 
-  </a>
 </div>
   </div>
     </div>
