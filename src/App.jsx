@@ -55,16 +55,7 @@ style={{
 <div className="flex flex-col sm:flex-row gap-4">
  
 =======
-  <button
-    onClick={() => {
-      document
-        .getElementById("support")
-        ?.scrollIntoView({ behavior: "smooth" })
-    }}
-    className="bg-[#C58A5C] hover:bg-[#B6794C] px-8 py-4 rounded-xl font-medium text-center transition"
-  >
-    Donate Now
-  </button>
+  
 >>>>>>> 5e3922d4e7ab9ab632b88943f15a0383e6b87c22
 
   <a
