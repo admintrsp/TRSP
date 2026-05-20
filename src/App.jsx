@@ -112,6 +112,48 @@ function WhyItMatters() {
   )
 }
 
+function AboutFounder() {
+  return (
+    <section className="py-24 bg-white text-slate-900">
+      <div className="max-w-4xl mx-auto px-6">
+
+        <h2 className="text-4xl font-bold mb-8">
+          Founded Through Experience
+        </h2>
+
+        <div className="space-y-6 text-lg leading-relaxed text-slate-700">
+
+          <p>
+            The Renewed Strength Project was founded by Scott Anderson, M.S., CPT,
+            whose background is in exercise science, strength training, and
+            exercise oncology.
+          </p>
+
+          <p>
+            Through both professional experience and personal life experiences,
+            Scott saw firsthand how profoundly movement, strength, and supportive
+            coaching can impact quality of life during and after cancer treatment.
+          </p>
+
+          <p>
+            While working with individuals recovering from cancer treatment,
+            he repeatedly encountered the same heartbreaking reality:
+            many people wanted access to evidence-based training support,
+            but simply could not afford it.
+          </p>
+
+          <p>
+            The Renewed Strength Project was created to help remove that barrier
+            and provide safe, individualized, evidence-informed strength training
+            support grounded in both science and compassion.
+          </p>
+
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function HowItWorks() {
   const steps = [
     {
@@ -356,6 +398,7 @@ export default function App() {
 
       <WhatWeDo />
       <WhyItMatters />
+      <AboutFounder />
       <HowItWorks />
       <PhilosophySection />
       <FoundingStory />
