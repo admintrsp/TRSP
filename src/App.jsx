@@ -18,16 +18,14 @@ function Navbar() {
 <div className="flex items-center justify-center sm:justify-end gap-2 sm:gap-3 flex-wrap">          
 <a
   href="mailto:info@therenewedstrengthproject.org"
-  className="border border-slate-600 hover:border-slate-400 text-white px-6 py-3 rounded-xl transition inline-flex items-center justify-center"
->
+className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition inline-flex items-center justify-center">
   Contact
 </a>
 <a
 href="https://forms.gle/XiRrN38kGjsYaFNb6"
   target="_blank"
   rel="noopener noreferrer"
-  className="border border-slate-500 hover:border-slate-300 text-white px-6 py-3 rounded-xl font-medium transition"
->  Apply
+className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition inline-flex items-center justify-center">  Apply
 </a>
 
           <givebutter-widget id="p5MWwO"></givebutter-widget>
