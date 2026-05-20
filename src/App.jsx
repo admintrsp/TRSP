@@ -8,6 +8,7 @@ function Navbar() {
     alt="RSP Logo"
     className="w-12 h-12 object-contain -mt-1"
   />
+<givebutter-widget id="p5MWwO"></givebutter-widget>
 
   <span className="text-white font-semibold text-lg">
     Renewed Strength Project
@@ -22,6 +23,9 @@ function Navbar() {
             Contact
           </a>
 
+<<<<<<< HEAD
+          <givebutter-widget id="p5MWwO"></givebutter-widget>
+=======
 <button
   onClick={() => {
     document
@@ -32,6 +36,7 @@ function Navbar() {
 >
   Donate
 </button>            
+>>>>>>> 5e3922d4e7ab9ab632b88943f15a0383e6b87c22
         
         </div>
       </div>
@@ -59,6 +64,9 @@ style={{
           </p>
 
 <div className="flex flex-col sm:flex-row gap-4">
+<<<<<<< HEAD
+ 
+=======
   <button
     onClick={() => {
       document
@@ -69,6 +77,7 @@ style={{
   >
     Donate Now
   </button>
+>>>>>>> 5e3922d4e7ab9ab632b88943f15a0383e6b87c22
 
   <a
     href="https://forms.gle/XiRrN38kGjsYaFNb6"
@@ -318,24 +327,30 @@ export default function App() {
     <div className="font-sans">
       <Navbar />
       <Hero />
+<<<<<<< HEAD
+<section id="support" className="bg-white py-20 px-6">
+  <div className="text-center mb-10">
+    <h2 className="text-4xl font-bold text-slate-900 mb-4">
+      Support Renewed Strength
+    </h2>
+=======
 <section id="support" className="bg-white py-20 px-6">    
       <div className="text-center mb-10">
         <h2 className="text-4xl font-bold text-slate-900 mb-4">
           Support Renewed Strength
         </h2>
+>>>>>>> 5e3922d4e7ab9ab632b88943f15a0383e6b87c22
 
-        <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-          Your donation helps remove financial barriers to evidence-based
-          cancer recovery and strength training services.
-        </p>
-      </div>
+    <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+      Your donation helps remove financial barriers to evidence-based
+      cancer recovery and strength training services.
+    </p>
+  </div>
 
-      <div className="flex justify-center">
-        <givebutter-widget id="p5MWwO"></givebutter-widget>
-      </div>
-    </div>
-  </section>
-
+  <div className="flex justify-center">
+    <givebutter-widget id="p5MWwO"></givebutter-widget>
+  </div>
+</section>
 
       <WhatWeDo />
       <WhyItMatters />
