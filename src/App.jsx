@@ -23,20 +23,9 @@ function Navbar() {
             Contact
           </a>
 
-<<<<<<< HEAD
+
           <givebutter-widget id="p5MWwO"></givebutter-widget>
-=======
-<button
-  onClick={() => {
-    document
-      .getElementById("support")
-      ?.scrollIntoView({ behavior: "smooth" })
-  }}
-  className="bg-[#C58A5C] hover:bg-[#B6794C] text-white px-5 py-2 rounded-lg transition inline-flex items-center justify-center min-w-[110px]"
->
-  Donate
-</button>            
->>>>>>> 5e3922d4e7ab9ab632b88943f15a0383e6b87c22
+
         
         </div>
       </div>
@@ -64,7 +53,6 @@ style={{
           </p>
 
 <div className="flex flex-col sm:flex-row gap-4">
-<<<<<<< HEAD
  
 =======
   <button
@@ -327,19 +315,13 @@ export default function App() {
     <div className="font-sans">
       <Navbar />
       <Hero />
-<<<<<<< HEAD
+
 <section id="support" className="bg-white py-20 px-6">
   <div className="text-center mb-10">
     <h2 className="text-4xl font-bold text-slate-900 mb-4">
       Support Renewed Strength
     </h2>
-=======
-<section id="support" className="bg-white py-20 px-6">    
-      <div className="text-center mb-10">
-        <h2 className="text-4xl font-bold text-slate-900 mb-4">
-          Support Renewed Strength
-        </h2>
->>>>>>> 5e3922d4e7ab9ab632b88943f15a0383e6b87c22
+
 
     <p className="text-slate-600 text-lg max-w-2xl mx-auto">
       Your donation helps remove financial barriers to evidence-based
