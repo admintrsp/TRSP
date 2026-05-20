@@ -54,9 +54,7 @@ style={{
 
 <div className="flex flex-col sm:flex-row gap-4">
  
-=======
-  
->>>>>>> 5e3922d4e7ab9ab632b88943f15a0383e6b87c22
+
 
   <a
     href="https://forms.gle/XiRrN38kGjsYaFNb6"
