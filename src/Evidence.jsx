@@ -158,7 +158,7 @@ export default function Evidence() {
   <div className="grid gap-6">
 
 <a
-  href="https://pubmed.ncbi.nlm.nih.gov/30418448/"
+  href="https://pubmed.ncbi.nlm.nih.gov/31626056/"
   target="_blank"
   rel="noopener noreferrer"
   className="bg-slate-900 border border-[#d8a066] rounded-2xl p-8 hover:border-[#e6b684] transition block mb-8"
@@ -175,8 +175,12 @@ export default function Evidence() {
     Foundational exercise oncology guidance outlining evidence-based recommendations for physical activity during and after cancer treatment.
   </p>
 
-  <div className="text-slate-400 mb-6">
-    Medicine & Science in Sports & Exercise • 2019
+  <div className="text-slate-400 mb-6 text-sm tracking-wide">
+    Patel AV, Friedenreich CM, Moore SC, et al.
+    <span className="mx-2">•</span>
+    Medicine & Science in Sports & Exercise
+    <span className="mx-2">•</span>
+    2019
   </div>
 
   <div className="text-[#d8a066] text-lg">
@@ -184,6 +188,32 @@ export default function Evidence() {
   </div>
 </a>
 
+<a
+  href="https://pubmed.ncbi.nlm.nih.gov/10499138/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-slate-900/40 border border-slate-700 rounded-2xl p-6 hover:border-[#d8a066] transition block backdrop-blur"
+>
+  <h3 className="text-2xl font-semibold text-white mb-2">
+    Physical Exercise and Quality of Life Following Cancer Diagnosis
+  </h3>
+
+  <p className="text-slate-300 leading-relaxed mb-4">
+    Courneya and Friedenreich review evidence supporting exercise interventions to improve physical, psychological, and functional quality-of-life outcomes following cancer diagnosis.
+  </p>
+
+  <div className="text-slate-400 mb-4 text-sm tracking-wide">
+    Courneya KS, Friedenreich CM
+    <span className="mx-2">•</span>
+    Sports Medicine
+    <span className="mx-2">•</span>
+    1999
+  </div>
+
+  <div className="text-[#d8a066]">
+    View Publication →
+  </div>
+</a>
 
 <a
   href="https://pubmed.ncbi.nlm.nih.gov/29931181/"
@@ -199,8 +229,12 @@ export default function Evidence() {
     Schmitz et al. discuss the integration of exercise into oncology care and the growing role of exercise professionals within supportive cancer treatment.
   </p>
 
-  <div className="text-slate-400 mb-4">
-    CA: A Cancer Journal for Clinicians • 2019
+  <div className="text-slate-400 mb-4 text-sm tracking-wide">
+    Schmitz KH, Campbell AM, Stuiver MM, et al.
+    <span className="mx-2">•</span>
+    CA: A Cancer Journal for Clinicians
+    <span className="mx-2">•</span>
+    2019
   </div>
 
   <div className="text-[#d8a066]">
@@ -208,7 +242,32 @@ export default function Evidence() {
   </div>
 </a>
 
+<a
+  href="https://pubmed.ncbi.nlm.nih.gov/31626055/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-slate-900/40 border border-slate-700 rounded-2xl p-6 hover:border-[#d8a066] transition block backdrop-blur"
+>
+  <h3 className="text-2xl font-semibold text-white mb-2">
+    Exercise Guidelines for Cancer Survivors
+  </h3>
 
+  <p className="text-slate-300 leading-relaxed mb-4">
+    Evidence supporting exercise interventions for fatigue reduction, improved physical function, strength preservation, and enhanced quality of life among cancer survivors.
+  </p>
+
+  <div className="text-slate-400 mb-4 text-sm tracking-wide">
+    Campbell KL, Winters-Stone KM, Wiskemann J, et al.
+    <span className="mx-2">•</span>
+    Medicine & Science in Sports & Exercise
+    <span className="mx-2">•</span>
+    2019
+  </div>
+
+  <div className="text-[#d8a066]">
+    View Publication →
+  </div>
+</a>
 
   </div>
 </section>
