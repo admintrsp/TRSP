@@ -68,7 +68,7 @@ function Hero() {
             individuals across the cancer continuum in Northern Colorado.
           </p>
 
-</div>
+
   </div>
       </section>
   )
@@ -388,23 +388,7 @@ export default function App() {
       <Navbar />
       <Hero />
 
-<section id="support" className="bg-white py-20 px-6">
-  <div className="text-center mb-10">
-    <h2 className="text-4xl font-bold text-slate-900 mb-4">
-      Support Renewed Strength
-    </h2>
-
-
-    <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-      Your donation helps remove financial barriers to evidence-based
-      cancer recovery and strength training services.
-    </p>
-  </div>
-
-  <div className="flex justify-center">
-    <givebutter-widget id="p5MWwO"></givebutter-widget>
-  </div>
-</section>
+  
 
       <WhatWeDo />
       <WhyItMatters />
