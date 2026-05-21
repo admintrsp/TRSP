@@ -21,7 +21,39 @@ export default function Evidence() {
         </p>
 
         <div className="space-y-10">
+<div className="grid md:grid-cols-3 gap-6 mb-16">
 
+  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+    <div className="text-4xl font-bold text-[#d8a066] mb-3">
+      30+
+    </div>
+
+    <p className="text-slate-300 leading-relaxed">
+      Years of growing research supporting exercise oncology interventions.
+    </p>
+  </div>
+
+  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+    <div className="text-4xl font-bold text-[#d8a066] mb-3">
+      ACSM
+    </div>
+
+    <p className="text-slate-300 leading-relaxed">
+      Published international exercise guidelines for individuals living with and beyond cancer.
+    </p>
+  </div>
+
+  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+    <div className="text-4xl font-bold text-[#d8a066] mb-3">
+      QoL
+    </div>
+
+    <p className="text-slate-300 leading-relaxed">
+      Exercise has been associated with improved quality of life and functional outcomes.
+    </p>
+  </div>
+
+</div>
           <section>
             <h2 className="text-3xl font-semibold mb-4">
               Why Exercise Matters
