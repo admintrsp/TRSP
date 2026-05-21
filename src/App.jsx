@@ -39,12 +39,9 @@ className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-
 >
   Apply
 </a>
-<a
-  href="#donate"
-  className="bg-[#d8a066] hover:bg-[#c99050] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold transition shadow-lg"
->
-  Donate Now
-</a>
+<section id="donate">
+  <givebutter-widget id="p5MWwO"></givebutter-widget>
+</section>
   
 
         
@@ -336,12 +333,6 @@ function ImpactSection() {
             <div>Supports a full participant experience</div>
           </div>
         </div>
-
-<section id="donate" className="mt-12">
-  <givebutter-widget id="p5MWwO"></givebutter-widget>
-</section>
-
-
       </div>
     </section>
   )
