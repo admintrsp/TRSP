@@ -39,12 +39,14 @@ className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-
 >
   Apply
 </a>
-<a
-  href="#support"
+<button
+  onClick={() => window.Givebutter?.modal?.open()}
   className="bg-[#d8a066] hover:bg-[#c99050] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold transition shadow-lg"
 >
   Donate Now
-</a>
+</button>
+
+  
 
         
         </div>
