@@ -23,7 +23,7 @@ export default function Evidence() {
         <div className="space-y-10">
 <div className="grid md:grid-cols-3 gap-6 mb-16">
 
-  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+  <div className="bg-slate-900/40 border border-slate-700 rounded-2xl p-6 backdrop-blur">
     <div className="text-4xl font-bold text-[#d8a066] mb-3">
       30+
     </div>
@@ -33,7 +33,7 @@ export default function Evidence() {
     </p>
   </div>
 
-  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+  <div className="bg-slate-900/40 border border-slate-700 rounded-2xl p-6 backdrop-blur">
     <div className="text-4xl font-bold text-[#d8a066] mb-3">
       ACSM
     </div>
@@ -43,7 +43,7 @@ export default function Evidence() {
     </p>
   </div>
 
-  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+  <div className="bg-slate-900/40 border border-slate-700 rounded-2xl p-6 backdrop-blur">
     <div className="text-4xl font-bold text-[#d8a066] mb-3">
       QoL
     </div>
@@ -53,8 +53,7 @@ export default function Evidence() {
     </p>
   </div>
 
-</div>
-          <section>
+</div>          <section>
             <h2 className="text-3xl font-semibold mb-4">
               Why Exercise Matters
             </h2>
@@ -209,28 +208,6 @@ export default function Evidence() {
   </div>
 </a>
 
-    <a
-      href="https://pubmed.ncbi.nlm.nih.gov/29931181/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-[#d8a066] transition block"
-    >
-      <h3 className="text-2xl font-semibold text-white mb-2">
-        Exercise is Medicine in Oncology: Engaging Clinicians to Help Patients Move Through Cancer
-      </h3>
-
-      <p className="text-slate-300 leading-relaxed mb-4">
-        Schmitz et al. discuss the integration of exercise into oncology care and the growing role of exercise professionals in supportive cancer treatment.
-      </p>
-
-      <div className="text-slate-400 mb-4">
-        CA: A Cancer Journal for Clinicians • 2019
-      </div>
-
-      <div className="text-[#d8a066]">
-        View Publication →
-      </div>
-    </a>
 
 
   </div>
