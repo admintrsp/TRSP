@@ -58,6 +58,7 @@ className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-
 <div className="md:hidden absolute top-full left-0 w-full bg-slate-950 border-b border-slate-800 p-4 flex flex-col gap-4">
     <Link
       to="/about"
+      onClick={() => setIsMenuOpen(false)}
       className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
     >
       About
@@ -65,6 +66,7 @@ className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-
 
     <a
       href="mailto:info@therenewedstrengthproject.org"
+      onClick={() => setIsMenuOpen(false)}
       className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
     >
       Contact
@@ -72,6 +74,7 @@ className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-
 
     <a
       href="https://forms.gle/XiRrN38kGjsYaFNb6"
+      onClick={() => setIsMenuOpen(false)}
       target="_blank"
       rel="noopener noreferrer"
       className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
