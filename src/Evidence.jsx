@@ -1,8 +1,15 @@
+import { Link } from 'react-router-dom'
+
 export default function Evidence() {
   return (
     <div className="min-h-screen bg-slate-950 text-white pt-32 pb-24">
       <div className="max-w-4xl mx-auto px-6">
-
+<Link
+  to="/"
+  className="inline-block mb-10 border border-slate-600 hover:border-slate-400 text-white px-5 py-3 rounded-xl transition"
+>
+  ← Return Home
+</Link>
         <h1 className="text-5xl font-bold mb-8">
           Evidence & Research
         </h1>
