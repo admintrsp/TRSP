@@ -216,7 +216,7 @@ export default function Evidence() {
 </a>
 
 <a
-  href="https://pubmed.ncbi.nlm.nih.gov/29931181/"
+  href="https://acsjournals.onlinelibrary.wiley.com/doi/full/10.3322/caac.21579"
   target="_blank"
   rel="noopener noreferrer"
   className="bg-slate-900/40 border border-slate-700 rounded-2xl p-6 hover:border-[#d8a066] transition block backdrop-blur"
