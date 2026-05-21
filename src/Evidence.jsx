@@ -186,28 +186,28 @@ export default function Evidence() {
 </a>
 
 
-    <a
-      href="https://pubmed.ncbi.nlm.nih.gov/30418448/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-[#d8a066] transition block"
-    >
-      <h3 className="text-2xl font-semibold text-white mb-2">
-        ACSM Roundtable Report on Physical Activity, Sedentary Behavior, and Cancer Prevention & Control
-      </h3>
+<a
+  href="https://pubmed.ncbi.nlm.nih.gov/29931181/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-slate-900/40 border border-slate-700 rounded-2xl p-6 hover:border-[#d8a066] transition block backdrop-blur"
+>
+  <h3 className="text-2xl font-semibold text-white mb-2">
+    Exercise is Medicine in Oncology
+  </h3>
 
-      <p className="text-slate-300 leading-relaxed mb-4">
-        Foundational exercise oncology guidance outlining evidence-based recommendations for physical activity during and after cancer treatment.
-      </p>
+  <p className="text-slate-300 leading-relaxed mb-4">
+    Schmitz et al. discuss the integration of exercise into oncology care and the growing role of exercise professionals within supportive cancer treatment.
+  </p>
 
-      <div className="text-slate-400 mb-4">
-        Medicine & Science in Sports & Exercise • 2019
-      </div>
+  <div className="text-slate-400 mb-4">
+    CA: A Cancer Journal for Clinicians • 2019
+  </div>
 
-      <div className="text-[#d8a066]">
-        View Publication →
-      </div>
-    </a>
+  <div className="text-[#d8a066]">
+    View Publication →
+  </div>
+</a>
 
     <a
       href="https://pubmed.ncbi.nlm.nih.gov/29931181/"
