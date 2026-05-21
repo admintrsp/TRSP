@@ -199,48 +199,6 @@ function WhyItMatters() {
   )
 }
 
-function AboutFounder() {
-  return (
-    <section className="py-24 bg-slate-950 text-white border-t border-slate-800">
-      <div className="max-w-4xl mx-auto px-6">
-
-        <h2 className="text-4xl font-bold mb-8">
-          Founded Through Experience
-        </h2>
-
-        <div className="space-y-6 text-lg leading-relaxed text-slate-300">
-
-          <p>
-            The Renewed Strength Project was founded by Scott Anderson, M.S., CPT,
-            whose background is in exercise science, strength training, and
-            exercise oncology.
-          </p>
-
-          <p>
-            Through both professional experience and personal life experiences,
-            Scott saw firsthand how profoundly movement, strength, and supportive
-            coaching can impact quality of life during and after cancer treatment.
-          </p>
-
-          <p>
-            While working with individuals recovering from cancer treatment,
-            he repeatedly encountered the same heartbreaking reality:
-            many people wanted access to evidence-based training support,
-            but simply could not afford it.
-          </p>
-
-          <p>
-            The Renewed Strength Project was created to help remove that barrier
-            and provide safe, individualized, evidence-informed strength training
-            support grounded in both science and compassion.
-          </p>
-
-        </div>
-      </div>
-    </section>
-  )
-}
-
 function HowItWorks() {
   const steps = [
     {
@@ -288,6 +246,74 @@ function HowItWorks() {
   )
 }
 
+function WhyRenewedStrengthExists() {
+  return (
+    <section className="py-32 bg-slate-950 border-t border-slate-800 text-white">
+      <div className="max-w-4xl mx-auto px-6">
+
+        <h2 className="text-4xl font-bold mb-10">
+          Why Renewed Strength Exists
+        </h2>
+
+        <div className="space-y-6 text-lg leading-relaxed text-slate-300">
+
+          <p>
+            The Renewed Strength Project was founded through both professional
+            experience and deeply personal experiences witnessing the impact
+            cancer treatment can have on physical function, confidence,
+            independence, and everyday life.
+          </p>
+
+          <p>
+            Founder Scott Anderson, M.S., CPT, has worked in strength and
+            conditioning, personal training, and exercise oncology settings
+            with individuals navigating and recovering from cancer treatment.
+          </p>
+
+          <p>
+            Throughout that experience, one reality continued to repeat itself:
+            many individuals wanted access to evidence-based training support,
+            but simply could not afford it during treatment and recovery.
+          </p>
+
+          <div className="border-l-4 border-[#d8a066] pl-6 py-2 my-10">
+            <p className="text-xl leading-relaxed text-white italic">
+              “I would love to do this, but I can’t afford it.”
+            </p>
+          </div>
+
+          <p>
+            The Renewed Strength Project was created to help remove that barrier
+            and improve access to individualized, professionally guided,
+            evidence-informed exercise support for individuals across the cancer continuum.
+          </p>
+
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function MissionStatement() {
+  return (
+    <section className="py-32 border-t border-slate-800 bg-slate-900/30 backdrop-blur">
+      <div className="max-w-3xl mx-auto px-6 text-center">
+
+        <p className="text-4xl md:text-5xl leading-tight font-light text-white">
+          The goal of exercise oncology is not simply performance.
+        </p>
+
+        <p className="text-xl text-slate-300 leading-relaxed mt-10">
+          It is helping individuals move through treatment and recovery
+          with greater resilience, function, and the ability to stay engaged
+          in everyday life.
+        </p>
+
+      </div>
+    </section>
+  )
+}
+
 function PhilosophySection() {
   return (
     <section className="py-24 bg-slate-950 border-t border-slate-800 text-white">
@@ -319,52 +345,6 @@ function PhilosophySection() {
           <p className="text-white font-medium italic pt-4">
             “Safe, structured, evidence-informed movement is not optional in
             recovery — it is foundational.”
-          </p>
-
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function FoundingStory() {
-  return (
-    <section className="py-24 bg-slate-950 border-t border-slate-800 text-white">
-      <div className="max-w-4xl mx-auto px-6">
-
-        <h2 className="text-4xl font-bold mb-10">
-          Why This Exists
-        </h2>
-
-        <div className="space-y-6 text-lg leading-relaxed text-slate-300">
-
-          <p>
-            The Renewed Strength Project was created out of a simple but
-            consistent reality: people navigating cancer often lose access to
-            the very things that help them feel strong, capable, and in control
-            of their bodies.
-          </p>
-
-          <p>
-            Exercise is one of the most powerful tools available to support
-            individuals through treatment and recovery—but for many, personal
-            training is simply not financially accessible during that time.
-          </p>
-
-          <p>
-            This organization exists to remove that barrier.
-          </p>
-
-          <p>
-            Our goal is to make evidence-based personal training available to
-            those who need it most, helping individuals maintain strength,
-            improve quality of life, and regain a sense of control during and
-            after cancer.
-          </p>
-
-          <p>
-            We’re starting locally in Northern Colorado, with a focus on doing
-            this well for a small number of individuals—and growing from there.
           </p>
 
         </div>
@@ -480,10 +460,10 @@ export default function App() {
       <Hero />
       <WhatWeDo />
       <WhyItMatters />
-      <AboutFounder />
       <HowItWorks />
+      <WhyRenewedStrengthExists />
+      <MissionStatement />
       <PhilosophySection />
-      <FoundingStory />
       <ImpactSection />
       <TrustSection />
       <Footer />
