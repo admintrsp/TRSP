@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <nav className="fixed top-0 left-0 w-full bg-slate-950/90 backdrop-blur border-b border-slate-800 z-50">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-
+<div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <img
             src="/rsp-logo.png"
@@ -17,7 +19,16 @@ function Navbar() {
           </span>
         </div>
 
-<div className="flex items-center justify-center sm:justify-end gap-2 sm:gap-3 flex-wrap">          
+        <div className="md:hidden">
+  <button
+    onClick={() => setIsMenuOpen(!isMenuOpen)}
+    className="text-white text-3xl"
+  >
+    ☰
+  </button>
+</div>
+
+<div className="hidden md:flex items-center justify-end gap-3">
 
 
 <Link
@@ -42,10 +53,39 @@ className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-
 <section id="donate">
   <givebutter-widget id="p5MWwO"></givebutter-widget>
 </section>
-  
+  </div>
+{isMenuOpen && (
+<div className="md:hidden absolute top-full left-0 w-full bg-slate-950 border-b border-slate-800 p-4 flex flex-col gap-4">
+    <Link
+      to="/about"
+      className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
+    >
+      About
+    </Link>
 
+    <a
+      href="mailto:info@therenewedstrengthproject.org"
+      className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
+    >
+      Contact
+    </a>
+
+    <a
+      href="https://forms.gle/XiRrN38kGjsYaFNb6"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
+    >
+      Apply
+    </a>
+
+    <div className="max-w-[220px] mx-auto">
+      <givebutter-widget id="p5MWwO"></givebutter-widget>
+    </div>
+
+  </div>
+)}
         
-        </div>
       </div>
     </nav>
   )
