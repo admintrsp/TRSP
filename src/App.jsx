@@ -37,6 +37,14 @@ function Navbar() {
 >
   About
 </Link>
+
+<Link
+  to="/evidence"
+  className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition"
+>
+  Evidence
+</Link>
+
 <a
   href="mailto:info@therenewedstrengthproject.org"
 className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition inline-flex items-center justify-center">
@@ -63,6 +71,14 @@ className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-
     >
       About
     </Link>
+
+<Link
+  to="/evidence"
+  onClick={() => setIsMenuOpen(false)}
+  className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
+>
+  Evidence
+</Link>
 
     <a
       href="mailto:info@therenewedstrengthproject.org"

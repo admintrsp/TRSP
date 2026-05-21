@@ -10,6 +10,7 @@ import {
 
 import App from './App.jsx'
 import About from './About.jsx'
+import Evidence from './Evidence.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/about" element={<About />} />
+        <Route path="/evidence" element={<Evidence />} />
       </Routes>
 
     </BrowserRouter>
