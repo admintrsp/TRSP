@@ -38,7 +38,6 @@ href="https://forms.gle/XiRrN38kGjsYaFNb6"
 className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition inline-flex items-center justify-center">  Apply
 </a>
 
-          <givebutter-widget id="p5MWwO"></givebutter-widget>
 
         
         </div>
