@@ -65,7 +65,7 @@ export default function Evidence() {
             </p>
           </section>
 <div className="border-l-4 border-[#d8a066] pl-6 py-2 mt-8">
-  <p className="text-2xl leading-relaxed text-white italic">
+  <p className="text-xl leading-relaxed text-white italic">
     “Exercise is now recognized as an important supportive component of cancer care.”
   </p>
 
@@ -74,11 +74,11 @@ export default function Evidence() {
   </p>
 </div>
 
-<p className="text-slate-300 leading-relaxed text-lg mt-10">
-  The goal of exercise oncology is not simply performance — it is helping individuals move through treatment and recovery with greater resilience, function, and the ability to stay engaged in everyday life.
-</p>
-
-          <section>
+<div className="max-w-2xl mt-12 mb-16">
+  <p className="text-xl leading-relaxed text-white font-light">
+    The goal of exercise oncology is not simply performance — it is helping individuals move through treatment and recovery with greater resilience, function, and the ability to stay engaged in everyday life.
+  </p>
+</div>          <section>
             <h2 className="text-3xl font-semibold mb-4">
               Evidence-Informed Approach
             </h2>

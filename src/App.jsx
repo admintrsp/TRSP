@@ -6,7 +6,8 @@ function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-slate-950/90 backdrop-blur border-b border-slate-800 z-50">
-<div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+
         <div className="flex items-center gap-3">
           <img
             src="/rsp-logo.png"
@@ -20,91 +21,96 @@ function Navbar() {
         </div>
 
         <div className="md:hidden">
-  <button
-    onClick={() => setIsMenuOpen(!isMenuOpen)}
-    className="text-white text-3xl"
-  >
-    ☰
-  </button>
-</div>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-white text-3xl"
+          >
+            ☰
+          </button>
+        </div>
 
-<div className="hidden md:flex items-center justify-end gap-3">
+        <div className="hidden md:flex items-center justify-end gap-3">
 
+          <Link
+            to="/about"
+            className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition"
+          >
+            About
+          </Link>
 
-<Link
-  to="/about"
-  className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition"
->
-  About
-</Link>
+          <Link
+            to="/evidence"
+            className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition"
+          >
+            Evidence
+          </Link>
 
-<Link
-  to="/evidence"
-  className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition"
->
-  Evidence
-</Link>
+          <a
+            href="mailto:info@therenewedstrengthproject.org"
+            className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition inline-flex items-center justify-center"
+          >
+            Contact
+          </a>
 
-<a
-  href="mailto:info@therenewedstrengthproject.org"
-className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition inline-flex items-center justify-center">
-  Contact
-</a>
-<a
-  href="https://forms.gle/XiRrN38kGjsYaFNb6"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition inline-flex items-center justify-center"
->
-  Apply
-</a>
-<section id="donate">
-  <givebutter-widget id="p5MWwO"></givebutter-widget>
-</section>
-  </div>
-{isMenuOpen && (
-<div className="md:hidden absolute top-full left-0 w-full bg-slate-950 border-b border-slate-800 p-4 flex flex-col gap-4">
-    <Link
-      to="/about"
-      onClick={() => setIsMenuOpen(false)}
-      className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
-    >
-      About
-    </Link>
+          <a
+            href="https://forms.gle/XiRrN38kGjsYaFNb6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition inline-flex items-center justify-center"
+          >
+            Apply
+          </a>
 
-<Link
-  to="/evidence"
-  onClick={() => setIsMenuOpen(false)}
-  className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
->
-  Evidence
-</Link>
+          <section id="donate">
+            <givebutter-widget id="p5MWwO"></givebutter-widget>
+          </section>
 
-    <a
-      href="mailto:info@therenewedstrengthproject.org"
-      onClick={() => setIsMenuOpen(false)}
-      className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
-    >
-      Contact
-    </a>
+        </div>
 
-    <a
-      href="https://forms.gle/XiRrN38kGjsYaFNb6"
-      onClick={() => setIsMenuOpen(false)}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
-    >
-      Apply
-    </a>
+        {isMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 w-full bg-slate-950 border-b border-slate-800 p-4 flex flex-col gap-4">
 
-    <div className="max-w-[220px] mx-auto">
-      <givebutter-widget id="p5MWwO"></givebutter-widget>
-    </div>
+            <Link
+              to="/about"
+              onClick={() => setIsMenuOpen(false)}
+              className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
+            >
+              About
+            </Link>
 
-  </div>
-)}
-        
+            <Link
+              to="/evidence"
+              onClick={() => setIsMenuOpen(false)}
+              className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
+            >
+              Evidence
+            </Link>
+
+            <a
+              href="mailto:info@therenewedstrengthproject.org"
+              onClick={() => setIsMenuOpen(false)}
+              className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
+            >
+              Contact
+            </a>
+
+            <a
+              href="https://forms.gle/XiRrN38kGjsYaFNb6"
+              onClick={() => setIsMenuOpen(false)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
+            >
+              Apply
+            </a>
+
+            <div className="max-w-[220px] mx-auto">
+              <givebutter-widget id="p5MWwO"></givebutter-widget>
+            </div>
+
+          </div>
+        )}
+
       </div>
     </nav>
   )
@@ -113,15 +119,17 @@ className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-
 function Hero() {
   return (
     <section
-  className="min-h-screen text-white flex items-center pt-32 bg-cover bg-center relative bg-slate-950"
-  style={{
-    backgroundImage: "url('/hero-bg.png')",
-  }}
->      <div className="absolute inset-0 bg-slate-950/55"></div>
+      className="min-h-screen text-white flex items-center pt-32 bg-cover bg-center relative bg-slate-950"
+      style={{
+        backgroundImage: "url('/hero-bg.png')",
+      }}
+    >
+      <div className="absolute inset-0 bg-slate-950/55"></div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">         
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="max-w-2xl">
-         <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
+
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
             Empowering renewed strength.
           </h1>
 
@@ -130,28 +138,32 @@ function Hero() {
             individuals across the cancer continuum in Northern Colorado.
           </p>
 
-</div>
-  </div>
-      </section>
+        </div>
+      </div>
+    </section>
   )
 }
 
 function WhatWeDo() {
   return (
-    <section className="pt-32 pb-24 bg-white text-slate-900">
+    <section className="pt-32 pb-24 bg-slate-950 text-white border-t border-slate-800">
       <div className="max-w-3xl mx-auto px-6">
-        <h2 className="text-4xl font-bold mb-8">What We Do</h2>
 
-        <p className="text-lg leading-relaxed text-slate-700">
+        <h2 className="text-4xl font-bold mb-8">
+          What We Do
+        </h2>
+
+        <p className="text-lg leading-relaxed text-slate-300">
           The Renewed Strength Project provides financial support for
           individuals impacted by cancer to access professional,
           evidence-based personal training.
         </p>
 
-        <p className="text-lg leading-relaxed text-slate-700 mt-6">
+        <p className="text-lg leading-relaxed text-slate-300 mt-6">
           Our goal is simple: help people maintain strength, function, and
           quality of life during and after cancer treatment.
         </p>
+
       </div>
     </section>
   )
@@ -159,13 +171,15 @@ function WhatWeDo() {
 
 function WhyItMatters() {
   return (
-    <section className="pt-32 pb-24 bg-slate-100 text-slate-900">
+    <section className="pt-32 pb-24 bg-slate-900/30 border-t border-slate-800 text-white">
       <div className="max-w-3xl mx-auto px-6">
-        <h2 className="text-4xl font-bold mb-8 text-slate-900">
+
+        <h2 className="text-4xl font-bold mb-8">
           Why It Matters
         </h2>
 
-        <div className="space-y-6 text-lg leading-relaxed text-slate-700">
+        <div className="space-y-6 text-lg leading-relaxed text-slate-300">
+
           <p>
             Cancer impacts strength, energy, confidence, and daily life.
           </p>
@@ -178,6 +192,7 @@ function WhyItMatters() {
           <p>
             We exist to remove that barrier.
           </p>
+
         </div>
       </div>
     </section>
@@ -186,14 +201,14 @@ function WhyItMatters() {
 
 function AboutFounder() {
   return (
-    <section className="py-24 bg-white text-slate-900">
+    <section className="py-24 bg-slate-950 text-white border-t border-slate-800">
       <div className="max-w-4xl mx-auto px-6">
 
         <h2 className="text-4xl font-bold mb-8">
           Founded Through Experience
         </h2>
 
-        <div className="space-y-6 text-lg leading-relaxed text-slate-700">
+        <div className="space-y-6 text-lg leading-relaxed text-slate-300">
 
           <p>
             The Renewed Strength Project was founded by Scott Anderson, M.S., CPT,
@@ -243,27 +258,30 @@ function HowItWorks() {
   ]
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-slate-900/30 border-t border-slate-800 text-white">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl font-bold mb-14 text-slate-900">
+
+        <h2 className="text-4xl font-bold mb-14">
           How It Works
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8">
+
           {steps.map((step) => (
             <div
               key={step.title}
-              className="bg-slate-100 rounded-2xl p-8"
+              className="bg-slate-900/40 border border-slate-800 rounded-2xl p-8 backdrop-blur"
             >
-              <h3 className="text-2xl font-semibold mb-4 text-slate-900">
+              <h3 className="text-2xl font-semibold mb-4 text-white">
                 {step.title}
               </h3>
 
-              <p className="text-slate-700 leading-relaxed">
+              <p className="text-slate-300 leading-relaxed">
                 {step.text}
               </p>
             </div>
           ))}
+
         </div>
       </div>
     </section>
@@ -272,14 +290,14 @@ function HowItWorks() {
 
 function PhilosophySection() {
   return (
-    <section className="py-24 bg-slate-100 text-slate-900">
+    <section className="py-24 bg-slate-950 border-t border-slate-800 text-white">
       <div className="max-w-4xl mx-auto px-6">
 
         <h2 className="text-4xl font-bold mb-8">
           Evidence-Informed. Individualized. Safety-Driven.
         </h2>
 
-        <div className="space-y-6 text-lg leading-relaxed text-slate-700">
+        <div className="space-y-6 text-lg leading-relaxed text-slate-300">
 
           <p>
             Cancer treatment changes the body, but it does not eliminate the
@@ -298,7 +316,7 @@ function PhilosophySection() {
             strength, mobility, confidence, and quality of life.
           </p>
 
-          <p className="text-slate-900 font-medium italic pt-4">
+          <p className="text-white font-medium italic pt-4">
             “Safe, structured, evidence-informed movement is not optional in
             recovery — it is foundational.”
           </p>
@@ -311,13 +329,15 @@ function PhilosophySection() {
 
 function FoundingStory() {
   return (
-    <section className="py-24 bg-slate-950 text-white">
+    <section className="py-24 bg-slate-950 border-t border-slate-800 text-white">
       <div className="max-w-4xl mx-auto px-6">
+
         <h2 className="text-4xl font-bold mb-10">
           Why This Exists
         </h2>
 
         <div className="space-y-6 text-lg leading-relaxed text-slate-300">
+
           <p>
             The Renewed Strength Project was created out of a simple but
             consistent reality: people navigating cancer often lose access to
@@ -346,6 +366,7 @@ function FoundingStory() {
             We’re starting locally in Northern Colorado, with a focus on doing
             this well for a small number of individuals—and growing from there.
           </p>
+
         </div>
       </div>
     </section>
@@ -354,13 +375,15 @@ function FoundingStory() {
 
 function ImpactSection() {
   return (
-    <section className="py-24 bg-slate-900 text-white">
+    <section className="py-24 bg-slate-900 border-t border-slate-800 text-white">
       <div className="max-w-4xl mx-auto px-6 text-center">
+
         <h2 className="text-4xl font-bold mb-8">
           Help Someone Rebuild Their Strength
         </h2>
 
         <div className="space-y-6 text-lg leading-relaxed text-slate-300 mb-10">
+
           <p>
             We are currently launching our first group of participants.
           </p>
@@ -374,23 +397,26 @@ function ImpactSection() {
             Your donation directly supports programs that help individuals
             navigating cancer treatment regain strength, improve function, and rebuild confidence.
           </p>
+
         </div>
 
         <div className="grid sm:grid-cols-3 gap-6 mb-10 text-left">
-          <div className="bg-slate-800 rounded-2xl p-6">
+
+          <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
             <div className="text-3xl font-bold mb-2">$100</div>
             <div>Supports a session</div>
           </div>
 
-          <div className="bg-slate-800 rounded-2xl p-6">
+          <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
             <div className="text-3xl font-bold mb-2">$500</div>
             <div>Supports a month of training</div>
           </div>
 
-          <div className="bg-slate-800 rounded-2xl p-6">
+          <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
             <div className="text-3xl font-bold mb-2">$1,500+</div>
             <div>Supports a full participant experience</div>
           </div>
+
         </div>
       </div>
     </section>
@@ -399,20 +425,22 @@ function ImpactSection() {
 
 function TrustSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-slate-950 border-t border-slate-800 text-white">
       <div className="max-w-4xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold mb-6 text-slate-900">
+
+        <h2 className="text-3xl font-bold mb-6">
           A Registered 501(c)(3) Nonprofit
         </h2>
 
-        <p className="text-lg text-slate-700 leading-relaxed">
+        <p className="text-lg text-slate-300 leading-relaxed">
           The Renewed Strength Project Nonprofit Corporation is a registered
           501(c)(3) organization.
         </p>
 
-        <p className="text-lg text-slate-700 leading-relaxed mt-4">
+        <p className="text-lg text-slate-300 leading-relaxed mt-4">
           All donations are tax-deductible.
         </p>
+
       </div>
     </section>
   )
@@ -422,6 +450,7 @@ function Footer() {
   return (
     <footer className="bg-slate-950 border-t border-slate-800 text-slate-400 py-10">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6">
+
         <div>
           <div className="text-white font-semibold mb-2">
             Renewed Strength Project Nonprofit Corporation
@@ -438,6 +467,7 @@ function Footer() {
             info@therenewedstrengthproject.org
           </a>
         </div>
+
       </div>
     </footer>
   )
@@ -445,12 +475,9 @@ function Footer() {
 
 export default function App() {
   return (
-    <div className="font-sans">
+    <div className="font-sans bg-slate-950">
       <Navbar />
       <Hero />
-
-  
-
       <WhatWeDo />
       <WhyItMatters />
       <AboutFounder />
@@ -463,4 +490,3 @@ export default function App() {
     </div>
   )
 }
-
