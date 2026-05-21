@@ -73,6 +73,11 @@ export default function Evidence() {
     — American College of Sports Medicine
   </p>
 </div>
+
+<p className="text-slate-300 leading-relaxed text-lg mt-10">
+  The goal of exercise oncology is not simply performance — it is helping individuals move through treatment and recovery with greater resilience, function, and the ability to stay engaged in everyday life.
+</p>
+
           <section>
             <h2 className="text-3xl font-semibold mb-4">
               Evidence-Informed Approach
