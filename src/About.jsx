@@ -28,11 +28,11 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-24 px-6">
+      <section className="py-32 px-6 border-b border-slate-800">
         <div className="max-w-4xl mx-auto">
 
-          <h2 className="text-4xl font-bold mb-8">
-            Why This Exists
+          <h2 className="text-4xl font-bold mb-10">
+            Why Renewed Strength Exists
           </h2>
 
           <div className="space-y-6 text-lg leading-relaxed text-slate-300">
@@ -40,8 +40,8 @@ export default function About() {
             <p>
               The Renewed Strength Project was founded through both professional
               experience and deeply personal experiences witnessing the impact
-              cancer treatment can have on strength, physical function,
-              confidence, and quality of life.
+              cancer treatment can have on physical function, confidence,
+              independence, and everyday life.
             </p>
 
             <p>
@@ -50,16 +50,47 @@ export default function About() {
               with individuals navigating and recovering from cancer treatment.
             </p>
 
-            <p className="text-white font-medium italic">
-              “I would love to do this, but I can’t afford it.”
+            <p>
+              Throughout that experience, one reality continued to repeat itself:
+              many individuals wanted access to evidence-based training support,
+              but simply could not afford it during treatment and recovery.
+            </p>
+
+            <div className="border-l-4 border-[#d8a066] pl-6 py-2 my-10">
+              <p className="text-xl leading-relaxed text-white italic">
+                “I would love to do this, but I can’t afford it.”
+              </p>
+            </div>
+
+            <p>
+              The Renewed Strength Project was created to help remove that barrier
+              and improve access to individualized, professionally guided,
+              evidence-informed exercise support for individuals across the cancer continuum.
             </p>
 
             <p>
-              That repeated reality ultimately became part of the motivation
-              behind creating The Renewed Strength Project.
+              Exercise oncology is not simply about performance or fitness.
+              It is about helping individuals maintain function, rebuild confidence,
+              and stay engaged in everyday life throughout treatment and recovery.
             </p>
 
           </div>
+
+        </div>
+      </section>
+
+      <section className="py-32 bg-slate-900/30 backdrop-blur border-b border-slate-800">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+
+          <p className="text-4xl md:text-5xl leading-tight font-light text-white">
+            The goal of exercise oncology is not simply performance.
+          </p>
+
+          <p className="text-xl text-slate-300 leading-relaxed mt-10">
+            It is helping individuals move through treatment and recovery
+            with greater resilience, function, and the ability to stay engaged
+            in everyday life.
+          </p>
 
         </div>
       </section>
@@ -102,7 +133,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-24 px-6">
+      <section className="py-24 px-6 border-b border-slate-800">
         <div className="max-w-4xl mx-auto">
 
           <h2 className="text-4xl font-bold mb-8">
