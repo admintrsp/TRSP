@@ -44,12 +44,42 @@ export default function Evidence() {
               Key Organizations & Guidelines
             </h2>
 
-            <ul className="space-y-4 text-slate-300">
-              <li>• American College of Sports Medicine (ACSM)</li>
-              <li>• American Cancer Society (ACS)</li>
-              <li>• National Comprehensive Cancer Network (NCCN)</li>
-            </ul>
-          </section>
+<ul className="space-y-4 text-slate-300">
+
+  <li>
+    <a
+      href="https://www.acsm.org"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#d8a066] hover:text-[#c99050] transition"
+    >
+      American College of Sports Medicine (ACSM)
+    </a>
+  </li>
+
+  <li>
+    <a
+      href="https://www.cancer.org"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#d8a066] hover:text-[#c99050] transition"
+    >
+      American Cancer Society (ACS)
+    </a>
+  </li>
+
+  <li>
+    <a
+      href="https://www.nccn.org"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#d8a066] hover:text-[#c99050] transition"
+    >
+      National Comprehensive Cancer Network (NCCN)
+    </a>
+  </li>
+
+</ul>          </section>
 
         </div>
       </div>
