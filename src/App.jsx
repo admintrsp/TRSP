@@ -32,12 +32,19 @@ className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-
   Contact
 </a>
 <a
-href="https://forms.gle/XiRrN38kGjsYaFNb6"
+  href="https://forms.gle/XiRrN38kGjsYaFNb6"
   target="_blank"
   rel="noopener noreferrer"
-className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition inline-flex items-center justify-center">  Apply
+  className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition inline-flex items-center justify-center"
+>
+  Apply
 </a>
-
+<a
+  href="#support"
+  className="bg-[#d8a066] hover:bg-[#c99050] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold transition shadow-lg"
+>
+  Donate Now
+</a>
 
         
         </div>
@@ -49,12 +56,11 @@ className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-
 function Hero() {
   return (
     <section
-      className="min-h-screen text-white flex items-center pt-24 bg-cover bg-center relative bg-slate-950"
-      style={{
-        backgroundImage: "url('/hero-bg.png')",
-      }}
-    >
-      <div className="absolute inset-0 bg-slate-950/55"></div>
+  className="min-h-screen text-white flex items-center pt-32 bg-cover bg-center relative bg-slate-950"
+  style={{
+    backgroundImage: "url('/hero-bg.png')",
+  }}
+>      <div className="absolute inset-0 bg-slate-950/55"></div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">         
         <div className="max-w-2xl">
@@ -67,7 +73,7 @@ function Hero() {
             individuals across the cancer continuum in Northern Colorado.
           </p>
 
-
+</div>
   </div>
       </section>
   )
