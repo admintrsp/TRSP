@@ -61,9 +61,14 @@ function Navbar() {
             Apply
           </a>
 
-          <section id="donate">
-            <givebutter-widget id="p5MWwO"></givebutter-widget>
-          </section>
+          <a
+            href="https://givebutter.com/general-fund-iz0pzq"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 font-semibold px-5 py-3 rounded-xl transition duration-300"
+          >
+            Donate
+          </a>
 
         </div>
 
@@ -104,9 +109,14 @@ function Navbar() {
               Apply
             </a>
 
-            <div className="max-w-[220px] mx-auto">
-              <givebutter-widget id="p5MWwO"></givebutter-widget>
-            </div>
+            <a
+              href="https://givebutter.com/general-fund-iz0pzq"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 font-semibold px-5 py-3 rounded-xl transition duration-300 text-center"
+            >
+              Donate
+            </a>
 
           </div>
         )}
@@ -375,29 +385,70 @@ function ImpactSection() {
 
           <p>
             Your donation directly supports programs that help individuals
-            navigating cancer treatment regain strength, improve function, and rebuild confidence.
+            navigating cancer treatment regain strength, improve function,
+            and rebuild confidence.
           </p>
 
         </div>
 
         <div className="grid sm:grid-cols-3 gap-6 mb-10 text-left">
 
-          <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
-            <div className="text-3xl font-bold mb-2">$100</div>
-            <div>Supports a session</div>
-          </div>
+          <a
+            href="https://givebutter.com/general-fund-iz0pzq"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-slate-800 rounded-2xl p-6 border border-slate-700 hover:border-[#d8a066] hover:-translate-y-1 hover:bg-slate-800/90 transition duration-300 block"
+          >
+            <div className="text-3xl font-bold mb-2 text-white">
+              $100
+            </div>
 
-          <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
-            <div className="text-3xl font-bold mb-2">$500</div>
-            <div>Supports a month of training</div>
-          </div>
+            <div className="text-slate-300">
+              Supports a session
+            </div>
+          </a>
 
-          <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
-            <div className="text-3xl font-bold mb-2">$1,500+</div>
-            <div>Supports a full participant experience</div>
-          </div>
+          <a
+            href="https://givebutter.com/general-fund-iz0pzq"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-slate-800 rounded-2xl p-6 border border-slate-700 hover:border-[#d8a066] hover:-translate-y-1 hover:bg-slate-800/90 transition duration-300 block"
+          >
+            <div className="text-3xl font-bold mb-2 text-white">
+              $500
+            </div>
+
+            <div className="text-slate-300">
+              Supports a month of training
+            </div>
+          </a>
+
+          <a
+            href="https://givebutter.com/general-fund-iz0pzq"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-slate-800 rounded-2xl p-6 border border-slate-700 hover:border-[#d8a066] hover:-translate-y-1 hover:bg-slate-800/90 transition duration-300 block"
+          >
+            <div className="text-3xl font-bold mb-2 text-white">
+              $1,500+
+            </div>
+
+            <div className="text-slate-300">
+              Supports a full participant experience
+            </div>
+          </a>
 
         </div>
+
+        <a
+          href="https://givebutter.com/general-fund-iz0pzq"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center border border-[#d8a066] hover:bg-[#d8a066] hover:text-slate-950 text-white px-8 py-4 rounded-2xl transition duration-300 text-lg"
+        >
+          Donate to Renewed Strength Project
+        </a>
+
       </div>
     </section>
   )
