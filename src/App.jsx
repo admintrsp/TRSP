@@ -163,16 +163,39 @@ function Hero() {
       <div className="absolute inset-0 bg-slate-950/55"></div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <div className="max-w-2xl">
+        <div className="max-w-4xl">
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-            Empowering renewed strength.
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-8 max-w-4xl">
+            Reclaiming strength, function, and everyday life.
           </h1>
 
-          <p className="text-xl text-slate-300 mb-10 leading-relaxed">
-            We remove financial barriers to evidence-based personal training for
-            individuals across the cancer continuum in Northern Colorado.
+          <p className="text-xl text-slate-300 leading-relaxed max-w-2xl mb-10">
+            Through individualized exercise support and meaningful human connection,
+            we help individuals rebuild confidence, resilience, and hope during
+            and after treatment.
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-4">
+
+            <a
+              href="https://forms.gle/XiRrN38kGjsYaFNb6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 font-semibold px-8 py-4 rounded-2xl transition duration-300 text-center"
+            >
+              Apply for Support
+            </a>
+
+            <a
+              href="https://givebutter.com/general-fund-iz0pzq"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-slate-500 hover:border-slate-300 text-white px-8 py-4 rounded-2xl transition duration-300 text-center"
+            >
+              Support the Mission
+            </a>
+
+          </div>
 
         </div>
       </div>
@@ -236,52 +259,86 @@ function WhyItMatters() {
 }
 
 function HowItWorks() {
-  const steps = [
-    {
-      title: 'Apply or Refer',
-      text: 'Individuals apply or are referred to the program.',
-    },
-    {
-      title: 'We Fund Training',
-      text: 'Approved participants receive financial support.',
-    },
-    {
-      title: 'Train & Rebuild',
-      text: 'Participants work with qualified coaches to regain strength and function.',
-    },
-  ]
-
   return (
-    <section className="py-24 bg-slate-900/30 border-t border-slate-800 text-white">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-32 bg-slate-900/30 border-t border-slate-800 text-white">
+      <div className="max-w-4xl mx-auto px-6">
 
-        <h2 className="text-4xl font-bold mb-14">
-          How It Works
-        </h2>
+        <div className="text-center mb-20">
 
-        <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-5xl font-bold mb-8">
+            You Are Not Alone
+          </h2>
 
-          {steps.map((step) => (
-            <div
-              key={step.title}
-              className="bg-slate-900/40 border border-slate-800 rounded-2xl p-8 backdrop-blur"
-            >
-              <h3 className="text-2xl font-semibold mb-4 text-white">
-                {step.title}
-              </h3>
-
-              <p className="text-slate-300 leading-relaxed">
-                {step.text}
-              </p>
-            </div>
-          ))}
+          <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
+            The Renewed Strength Project exists to help individuals navigating
+            and recovering from cancer reconnect with strength, function,
+            confidence, and hope through individualized exercise support.
+          </p>
 
         </div>
+
+        <div className="space-y-20">
+
+          <div className="relative pl-10 border-l border-slate-700">
+
+            <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-[#d8a066]"></div>
+
+            <h3 className="text-3xl font-semibold mb-6">
+              Reach Out
+            </h3>
+
+            <p className="text-slate-300 text-lg leading-relaxed">
+              Participation begins when an individual chooses to take the first step.
+              Whether someone is actively navigating treatment or years into survivorship,
+              the process starts with connection, conversation, and understanding.
+            </p>
+
+          </div>
+
+          <div className="relative pl-10 border-l border-slate-700">
+
+            <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-[#d8a066]"></div>
+
+            <h3 className="text-3xl font-semibold mb-6">
+              Build a Plan Together
+            </h3>
+
+            <p className="text-slate-300 text-lg leading-relaxed">
+              We take time to learn each person’s story, current challenges,
+              goals, treatment history, and physical capacity in order to
+              create an individualized path forward grounded in safety,
+              professionalism, and support.
+            </p>
+
+          </div>
+
+<div className="relative pl-10 border-l border-slate-700">
+
+  <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-[#d8a066]"></div>
+
+  <h3 className="text-3xl font-semibold mb-6">
+    Rebuild Strength, Function, and Hope
+  </h3>
+
+  <p className="text-slate-300 text-lg leading-relaxed">
+    As resources and program capacity allow, individuals may receive
+    support to engage in evidence-informed exercise and personal
+    training designed to help restore autonomy, resilience,
+    confidence, and participation in everyday life during and after treatment.
+  </p>
+
+  <p className="text-slate-400 text-base leading-relaxed mt-6">
+    Because the program is intentionally individualized and relationship-driven,
+    availability may vary based on current capacity and funding.
+  </p>
+
+</div>
+        </div>
+
       </div>
     </section>
   )
 }
-
 function WhyRenewedStrengthExists() {
   return (
     <section className="py-32 bg-slate-950 border-t border-slate-800 text-white">
