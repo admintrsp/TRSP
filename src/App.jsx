@@ -205,7 +205,7 @@ function Hero() {
 
 function WhatWeDo() {
   return (
-    <section className="relative overflow-hidden py-36 bg-gradient-to-b from-slate-950 via-[#071124] to-[#111827] text-white border-t border-slate-800/40">
+    <section className="relative overflow-hidden pt-24 pb-20 bg-gradient-to-b from-slate-950 via-[#071124] to-[#111827] text-white border-t border-slate-800/40">
 
       <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
 
@@ -230,9 +230,10 @@ function WhatWeDo() {
     </section>
   )
 }
+
 function WhyItMatters() {
   return (
-    <section className="relative overflow-hidden py-36 bg-gradient-to-b from-[#111827] via-slate-900 to-[#161616] border-t border-slate-800/40 text-white">
+    <section className="relative overflow-hidden py-24 bg-gradient-to-b from-[#111827] via-slate-900 to-[#161616] border-t border-slate-800/40 text-white">
 
       <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
 
@@ -262,11 +263,10 @@ function WhyItMatters() {
     </section>
   )
 }
+
 function HowItWorks() {
   return (
-    <section className="relative overflow-hidden py-36 bg-gradient-to-b from-[#161616] via-slate-900 to-[#111827] border-t border-slate-800/40 text-white">
-
-      <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+<section className="relative overflow-hidden pt-28 pb-20 bg-gradient-to-b from-[#161616] via-slate-900 to-[#111827] border-t border-slate-800/40 text-white">
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
 
@@ -346,8 +346,7 @@ function HowItWorks() {
       </div>
     </section>
   )
-}
-function WhyRenewedStrengthExists() {
+}function WhyRenewedStrengthExists() {
   return (
     <section className="relative overflow-hidden py-36 bg-gradient-to-b from-[#111827] via-slate-950 to-[#161616] border-t border-slate-800/40 text-white">
 
@@ -402,7 +401,8 @@ function WhyRenewedStrengthExists() {
 
 function MissionStatement() {
   return (
-    <section className="relative overflow-hidden py-44 border-t border-slate-800/40 bg-gradient-to-b from-[#161616] via-slate-900 to-slate-950 backdrop-blur text-white">
+    <section className="relative overflow-hidden pt-20 pb-24
+     border-t border-slate-800/40 bg-gradient-to-b from-[#161616] via-slate-900 to-slate-950 backdrop-blur text-white">
 
       <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
 

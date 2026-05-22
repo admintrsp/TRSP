@@ -1,20 +1,147 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Menu, X } from 'lucide-react'
 
 export default function About() {
+
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
+
     <div className="bg-slate-950 text-white min-h-screen">
+{/* NAVBAR */}
+<header className="fixed top-0 left-0 w-full z-50 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur-xl">
 
-      <section className="bg-slate-950 text-white py-24 px-6 border-b border-slate-800">
-        <div className="max-w-5xl mx-auto">
+  <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
 
-          <Link
-            to="/"
-            className="inline-flex items-center border border-slate-600 hover:border-slate-400 text-white px-4 py-2 rounded-xl transition mb-8"
-          >
-            ← Back to Home
-          </Link>
+    {/* LOGO */}
+    <Link to="/" className="flex items-center gap-4">
 
-          <h1 className="text-5xl font-bold mb-6">
+      <img
+        src="/rsp-logo.png"
+        alt="Renewed Strength Project"
+        className="w-14 h-14 object-contain"
+      />
+
+      <span className="text-2xl font-semibold text-white">
+        Renewed Strength Project
+      </span>
+
+    </Link>
+
+    {/* DESKTOP NAV */}
+    <nav className="hidden md:flex items-center gap-4">
+
+      <Link
+        to="/about"
+        className="border border-slate-700 hover:border-[#d8a066] px-6 py-3 rounded-2xl transition"
+      >
+        About
+      </Link>
+
+      <Link
+        to="/evidence"
+        className="border border-slate-700 hover:border-[#d8a066] px-6 py-3 rounded-2xl transition"
+      >
+        Evidence
+      </Link>
+
+      <Link
+        to="/contact"
+        className="border border-slate-700 hover:border-[#d8a066] px-6 py-3 rounded-2xl transition"
+      >
+        Contact
+      </Link>
+
+      <Link
+        to="/apply"
+        className="border border-slate-700 hover:border-[#d8a066] px-6 py-3 rounded-2xl transition"
+      >
+        Apply
+      </Link>
+
+      <a
+        href="https://givebutter.com/general-fund-iz0pzq"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-[#d8a066] hover:bg-[#e5b278] text-slate-950 font-medium px-6 py-3 rounded-2xl transition"
+      >
+        Donate
+      </a>
+
+    </nav>
+
+    {/* MOBILE BUTTON */}
+    <button
+      onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      className="md:hidden text-white"
+    >
+      {mobileMenuOpen ? <X size={36} /> : <Menu size={36} />}
+    </button>
+
+  </div>
+
+  {/* MOBILE MENU */}
+  {mobileMenuOpen && (
+    <div className="md:hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur-xl">
+
+      <div className="flex flex-col px-6 py-6 gap-4">
+
+        <Link
+          to="/about"
+          onClick={() => setMobileMenuOpen(false)}
+          className="text-lg"
+        >
+          About
+        </Link>
+
+        <Link
+          to="/evidence"
+          onClick={() => setMobileMenuOpen(false)}
+          className="text-lg"
+        >
+          Evidence
+        </Link>
+
+        <Link
+          to="/contact"
+          onClick={() => setMobileMenuOpen(false)}
+          className="text-lg"
+        >
+          Contact
+        </Link>
+
+        <Link
+          to="/apply"
+          onClick={() => setMobileMenuOpen(false)}
+          className="text-lg"
+        >
+          Apply
+        </Link>
+
+        <a
+          href="https://givebutter.com/general-fund-iz0pzq"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-[#d8a066] text-slate-950 text-center font-medium px-6 py-4 rounded-2xl mt-2"
+        >
+          Donate
+        </a>
+
+      </div>
+
+    </div>
+  )}
+
+</header>
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-[#071124] to-[#111827] pt-32 pb-20 px-6 border-b border-slate-800/40">
+
+        <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+        <div className="max-w-5xl mx-auto relative z-10">
+
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 max-w-4xl leading-tight">
             About The Renewed Strength Project
           </h1>
 
@@ -26,10 +153,15 @@ export default function About() {
           </p>
 
         </div>
+
       </section>
 
-      <section className="py-32 px-6 border-b border-slate-800">
-        <div className="max-w-4xl mx-auto">
+      {/* WHY IT EXISTS */}
+      <section className="relative overflow-hidden py-24 px-6 border-b border-slate-800/40 bg-gradient-to-b from-[#111827] via-slate-900 to-[#161616]">
+
+        <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+        <div className="max-w-4xl mx-auto relative z-10">
 
           <h2 className="text-4xl font-bold mb-10">
             Why Renewed Strength Exists
@@ -56,8 +188,8 @@ export default function About() {
               but simply could not afford it during treatment and recovery.
             </p>
 
-            <div className="border-l-4 border-[#d8a066] pl-6 py-2 my-10">
-              <p className="text-xl leading-relaxed text-white italic">
+            <div className="border border-[#d8a066]/30 rounded-3xl p-8 bg-white/[0.02] my-10">
+              <p className="text-3xl italic text-white leading-relaxed">
                 “I would love to do this, but I can’t afford it.”
               </p>
             </div>
@@ -77,26 +209,36 @@ export default function About() {
           </div>
 
         </div>
+
       </section>
 
-      <section className="py-32 bg-slate-900/30 backdrop-blur border-b border-slate-800">
-        <div className="max-w-3xl mx-auto px-6 text-center">
+      {/* MISSION STATEMENT */}
+      <section className="relative overflow-hidden pt-20 pb-20 px-6 border-b border-slate-800/40 bg-gradient-to-b from-[#161616] via-slate-900 to-[#111827]">
 
-          <p className="text-4xl md:text-5xl leading-tight font-light text-white">
+        <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+        <div className="max-w-4xl mx-auto relative z-10 text-center">
+
+          <p className="text-4xl md:text-6xl leading-tight font-light text-white">
             The goal of exercise oncology is not simply performance.
           </p>
 
-          <p className="text-xl text-slate-300 leading-relaxed mt-10">
+          <p className="text-xl text-slate-300 leading-relaxed mt-10 max-w-3xl mx-auto">
             It is helping individuals move through treatment and recovery
             with greater resilience, function, and the ability to stay engaged
             in everyday life.
           </p>
 
         </div>
+
       </section>
 
-      <section className="py-24 bg-slate-900/40 backdrop-blur border-y border-slate-800 px-6">
-        <div className="max-w-4xl mx-auto">
+      {/* WHAT WE BELIEVE */}
+      <section className="relative overflow-hidden py-20 px-6 border-b border-slate-800/40 bg-gradient-to-b from-[#111827] via-slate-900 to-[#161616]">
+
+        <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+        <div className="max-w-4xl mx-auto relative z-10">
 
           <h2 className="text-4xl font-bold mb-8">
             What We Believe
@@ -131,10 +273,15 @@ export default function About() {
           </div>
 
         </div>
+
       </section>
 
-      <section className="py-24 px-6 border-b border-slate-800">
-        <div className="max-w-4xl mx-auto">
+      {/* OUR APPROACH */}
+      <section className="relative overflow-hidden py-20 px-6 border-b border-slate-800/40 bg-gradient-to-b from-[#161616] via-slate-900 to-[#111827]">
+
+        <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+        <div className="max-w-4xl mx-auto relative z-10">
 
           <h2 className="text-4xl font-bold mb-8">
             Our Approach
@@ -174,10 +321,15 @@ export default function About() {
           </div>
 
         </div>
+
       </section>
 
-      <section className="py-24 bg-slate-900/40 backdrop-blur border-y border-slate-800 px-6">
-        <div className="max-w-4xl mx-auto">
+      {/* WHO WE SERVE */}
+      <section className="relative overflow-hidden py-20 px-6 bg-gradient-to-b from-[#111827] via-slate-900 to-slate-950">
+
+        <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+        <div className="max-w-4xl mx-auto relative z-10">
 
           <h2 className="text-4xl font-bold mb-8">
             Who We Serve
@@ -214,6 +366,7 @@ export default function About() {
           </div>
 
         </div>
+
       </section>
 
     </div>
