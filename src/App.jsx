@@ -205,8 +205,11 @@ function Hero() {
 
 function WhatWeDo() {
   return (
-    <section className="pt-32 pb-24 bg-slate-950 text-white border-t border-slate-800">
-      <div className="max-w-3xl mx-auto px-6">
+    <section className="relative overflow-hidden py-36 bg-gradient-to-b from-slate-950 via-[#071124] to-[#111827] text-white border-t border-slate-800/40">
+
+      <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
 
         <h2 className="text-4xl font-bold mb-8">
           What We Do
@@ -227,11 +230,13 @@ function WhatWeDo() {
     </section>
   )
 }
-
 function WhyItMatters() {
   return (
-    <section className="pt-32 pb-24 bg-slate-900/30 border-t border-slate-800 text-white">
-      <div className="max-w-3xl mx-auto px-6">
+    <section className="relative overflow-hidden py-36 bg-gradient-to-b from-[#111827] via-slate-900 to-[#161616] border-t border-slate-800/40 text-white">
+
+      <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
 
         <h2 className="text-4xl font-bold mb-8">
           Why It Matters
@@ -257,11 +262,13 @@ function WhyItMatters() {
     </section>
   )
 }
-
 function HowItWorks() {
   return (
-    <section className="py-32 bg-slate-900/30 border-t border-slate-800 text-white">
-      <div className="max-w-4xl mx-auto px-6">
+    <section className="relative overflow-hidden py-36 bg-gradient-to-b from-[#161616] via-slate-900 to-[#111827] border-t border-slate-800/40 text-white">
+
+      <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
 
         <div className="text-center mb-20">
 
@@ -312,27 +319,28 @@ function HowItWorks() {
 
           </div>
 
-<div className="relative pl-10 border-l border-slate-700">
+          <div className="relative pl-10 border-l border-slate-700">
 
-  <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-[#d8a066]"></div>
+            <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-[#d8a066]"></div>
 
-  <h3 className="text-3xl font-semibold mb-6">
-    Rebuild Strength, Function, and Hope
-  </h3>
+            <h3 className="text-3xl font-semibold mb-6">
+              Rebuild Strength, Function, and Hope
+            </h3>
 
-  <p className="text-slate-300 text-lg leading-relaxed">
-    As resources and program capacity allow, individuals may receive
-    support to engage in evidence-informed exercise and personal
-    training designed to help restore autonomy, resilience,
-    confidence, and participation in everyday life during and after treatment.
-  </p>
+            <p className="text-slate-300 text-lg leading-relaxed">
+              As resources and program capacity allow, individuals may receive
+              support to engage in evidence-informed exercise and personal
+              training designed to help restore autonomy, resilience,
+              confidence, and participation in everyday life during and after treatment.
+            </p>
 
-  <p className="text-slate-400 text-base leading-relaxed mt-6">
-    Because the program is intentionally individualized and relationship-driven,
-    availability may vary based on current capacity and funding.
-  </p>
+            <p className="text-slate-400 text-base leading-relaxed mt-6">
+              Because the program is intentionally individualized and relationship-driven,
+              availability may vary based on current capacity and funding.
+            </p>
 
-</div>
+          </div>
+
         </div>
 
       </div>
@@ -341,8 +349,11 @@ function HowItWorks() {
 }
 function WhyRenewedStrengthExists() {
   return (
-    <section className="py-32 bg-slate-950 border-t border-slate-800 text-white">
-      <div className="max-w-4xl mx-auto px-6">
+    <section className="relative overflow-hidden py-36 bg-gradient-to-b from-[#111827] via-slate-950 to-[#161616] border-t border-slate-800/40 text-white">
+
+      <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
 
         <h2 className="text-4xl font-bold mb-10">
           Why Renewed Strength Exists
@@ -369,10 +380,12 @@ function WhyRenewedStrengthExists() {
             but simply could not afford it during treatment and recovery.
           </p>
 
-          <div className="border-l-4 border-[#d8a066] pl-6 py-2 my-10">
-            <p className="text-xl leading-relaxed text-white italic">
+          <div className="border border-[#d8a066]/30 bg-[#d8a066]/5 rounded-2xl p-8 my-12 backdrop-blur">
+
+            <p className="text-2xl leading-relaxed text-white italic font-light">
               “I would love to do this, but I can’t afford it.”
             </p>
+
           </div>
 
           <p>
@@ -389,10 +402,13 @@ function WhyRenewedStrengthExists() {
 
 function MissionStatement() {
   return (
-    <section className="py-32 border-t border-slate-800 bg-slate-900/30 backdrop-blur">
-      <div className="max-w-3xl mx-auto px-6 text-center">
+    <section className="relative overflow-hidden py-44 border-t border-slate-800/40 bg-gradient-to-b from-[#161616] via-slate-900 to-slate-950 backdrop-blur text-white">
 
-        <p className="text-4xl md:text-5xl leading-tight font-light text-white">
+      <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+      <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
+
+        <p className="text-4xl md:text-6xl leading-[1.2] font-light text-white">
           The goal of exercise oncology is not simply performance.
         </p>
 
@@ -409,10 +425,13 @@ function MissionStatement() {
 
 function PhilosophySection() {
   return (
-    <section className="py-24 bg-slate-950 border-t border-slate-800 text-white">
-      <div className="max-w-4xl mx-auto px-6">
+    <section className="relative overflow-hidden py-32 bg-gradient-to-b from-slate-950 via-[#111827] to-[#161616] border-t border-slate-800/40 text-white">
 
-        <h2 className="text-4xl font-bold mb-8">
+      <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
+
+        <h2 className="text-4xl font-bold mb-10">
           Evidence-Informed. Individualized. Safety-Driven.
         </h2>
 
@@ -435,7 +454,7 @@ function PhilosophySection() {
             strength, mobility, confidence, and quality of life.
           </p>
 
-          <p className="text-white font-medium italic pt-4">
+          <p className="text-white italic pt-6 text-xl leading-relaxed">
             “Safe, structured, evidence-informed movement is not optional in
             recovery — it is foundational.”
           </p>
@@ -448,14 +467,17 @@ function PhilosophySection() {
 
 function ImpactSection() {
   return (
-    <section className="py-24 bg-slate-900 border-t border-slate-800 text-white">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+    <section className="relative overflow-hidden py-32 bg-gradient-to-b from-[#161616] via-slate-900 to-slate-950 border-t border-slate-800/40 text-white">
+
+      <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+      <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
 
         <h2 className="text-4xl font-bold mb-8">
           Help Someone Rebuild Their Strength
         </h2>
 
-        <div className="space-y-6 text-lg leading-relaxed text-slate-300 mb-10">
+        <div className="space-y-6 text-lg leading-relaxed text-slate-300 mb-12">
 
           <p>
             We are currently launching our first group of participants.
@@ -474,13 +496,13 @@ function ImpactSection() {
 
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-6 mb-10 text-left">
+        <div className="grid sm:grid-cols-3 gap-6 mb-12 text-left">
 
           <a
             href="https://givebutter.com/general-fund-iz0pzq"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-slate-800 rounded-2xl p-6 border border-slate-700 hover:border-[#d8a066] hover:-translate-y-1 hover:bg-slate-800/90 transition duration-300 block"
+            className="bg-slate-800/70 backdrop-blur rounded-2xl p-6 border border-slate-700/60 hover:border-[#d8a066]/60 hover:-translate-y-1 hover:bg-slate-800/90 transition duration-300 block shadow-xl"
           >
             <div className="text-3xl font-bold mb-2 text-white">
               $100
@@ -495,7 +517,7 @@ function ImpactSection() {
             href="https://givebutter.com/general-fund-iz0pzq"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-slate-800 rounded-2xl p-6 border border-slate-700 hover:border-[#d8a066] hover:-translate-y-1 hover:bg-slate-800/90 transition duration-300 block"
+            className="bg-slate-800/70 backdrop-blur rounded-2xl p-6 border border-slate-700/60 hover:border-[#d8a066]/60 hover:-translate-y-1 hover:bg-slate-800/90 transition duration-300 block shadow-xl"
           >
             <div className="text-3xl font-bold mb-2 text-white">
               $500
@@ -510,7 +532,7 @@ function ImpactSection() {
             href="https://givebutter.com/general-fund-iz0pzq"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-slate-800 rounded-2xl p-6 border border-slate-700 hover:border-[#d8a066] hover:-translate-y-1 hover:bg-slate-800/90 transition duration-300 block"
+            className="bg-slate-800/70 backdrop-blur rounded-2xl p-6 border border-slate-700/60 hover:border-[#d8a066]/60 hover:-translate-y-1 hover:bg-slate-800/90 transition duration-300 block shadow-xl"
           >
             <div className="text-3xl font-bold mb-2 text-white">
               $1,500+
@@ -527,7 +549,7 @@ function ImpactSection() {
           href="https://givebutter.com/general-fund-iz0pzq"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center border border-[#d8a066] hover:bg-[#d8a066] hover:text-slate-950 text-white px-8 py-4 rounded-2xl transition duration-300 text-lg"
+          className="inline-flex items-center justify-center border border-[#d8a066] hover:bg-[#d8a066] hover:text-slate-950 text-white px-10 py-5 rounded-2xl transition duration-300 text-lg shadow-lg"
         >
           Donate to Renewed Strength Project
         </a>
@@ -536,13 +558,15 @@ function ImpactSection() {
     </section>
   )
 }
-
 function TrustSection() {
   return (
-    <section className="py-20 bg-slate-950 border-t border-slate-800 text-white">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+    <section className="relative overflow-hidden py-24 bg-gradient-to-b from-slate-950 via-[#111827] to-black border-t border-slate-800/40 text-white">
 
-        <h2 className="text-3xl font-bold mb-6">
+      <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+      <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+
+        <h2 className="text-4xl font-bold mb-6">
           A Registered 501(c)(3) Nonprofit
         </h2>
 
@@ -559,27 +583,35 @@ function TrustSection() {
     </section>
   )
 }
-
 function Footer() {
   return (
-    <footer className="bg-slate-950 border-t border-slate-800 text-slate-400 py-10">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6">
+    <footer className="relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black border-t border-slate-800/40 text-slate-400 py-14">
+
+      <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-10 relative z-10">
 
         <div>
-          <div className="text-white font-semibold mb-2">
+
+          <div className="text-white font-semibold mb-3 text-lg">
             Renewed Strength Project Nonprofit Corporation
           </div>
 
-          <div>Northern Colorado</div>
+          <div className="text-slate-400 leading-relaxed">
+            Northern Colorado
+          </div>
+
         </div>
 
         <div>
+
           <a
             href="mailto:info@therenewedstrengthproject.org"
-            className="hover:text-white transition"
+            className="hover:text-white transition duration-300"
           >
             info@therenewedstrengthproject.org
           </a>
+
         </div>
 
       </div>
