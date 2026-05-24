@@ -1,204 +1,56 @@
-import { Link } from 'react-router-dom'
-import { useState, useEffect, useRef } from 'react'
-
-function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  const menuRef = useRef(null)
-  const buttonRef = useRef(null)
-
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target) &&
-        buttonRef.current &&
-        !buttonRef.current.contains(event.target)
-      ) {
-        setIsMenuOpen(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
-
+import Navbar from './components/Navbar'
+     
+function Hero() {
   return (
-    <nav className="fixed top-0 left-0 w-full bg-slate-950/90 backdrop-blur border-b border-slate-800 z-50">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <section className="relative min-h-screen overflow-hidden flex items-center bg-black text-white">
 
-        <div className="flex items-center gap-3">
-          <img
-            src="/rsp-logo.png"
-            alt="RSP Logo"
-            className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
-          />
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/mountains.jpg')"
+        }}
+      />
 
-          <span className="text-white font-semibold text-base sm:text-lg leading-tight">
-            Renewed Strength Project
-          </span>
-        </div>
+      <div className="absolute inset-0 bg-slate-950/70"></div>
 
-        <div className="md:hidden">
-          <button
-            ref={buttonRef}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-white text-3xl"
-          >
-            ☰
-          </button>
-        </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/20 to-slate-950"></div>
 
-        <div className="hidden md:flex items-center justify-end gap-3">
+      <div className="max-w-5xl mx-auto px-6 relative z-10 pt-32">
 
-          <Link
-            to="/about"
-            className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition"
-          >
-            About
-          </Link>
+        <h1 className="text-5xl md:text-7xl font-bold leading-tight max-w-4xl mb-8">
+          Reclaiming strength, function, and everyday life.
+        </h1>
 
-          <Link
-            to="/evidence"
-            className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition"
-          >
-            Evidence
-          </Link>
+        <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mb-10">
+          Through individualized exercise support and meaningful human connection,
+          we help individuals rebuild confidence, resilience, and hope during
+          and after treatment.
+        </p>
 
-          <a
-            href="mailto:info@therenewedstrengthproject.org"
-            className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition inline-flex items-center justify-center"
-          >
-            Contact
-          </a>
+        <div className="flex flex-col sm:flex-row gap-4">
 
           <a
             href="https://forms.gle/XiRrN38kGjsYaFNb6"
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-slate-600 hover:border-slate-400 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition inline-flex items-center justify-center"
+            className="bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 font-semibold px-8 py-5 rounded-2xl transition duration-300 text-lg text-center"
           >
-            Apply
+            Apply for Support
           </a>
 
           <a
             href="https://givebutter.com/general-fund-iz0pzq"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 font-semibold px-5 py-3 rounded-xl transition duration-300"
+            className="border border-slate-500 hover:border-[#d8a066] hover:bg-white/5 text-white px-8 py-5 rounded-2xl transition duration-300 text-lg text-center"
           >
-            Donate
+            Support the Mission
           </a>
 
         </div>
 
-        {isMenuOpen && (
-          <div
-            ref={menuRef}
-            className="md:hidden absolute top-full left-0 w-full bg-slate-950 border-b border-slate-800 p-4 flex flex-col gap-4"
-          >
-
-            <Link
-              to="/about"
-              onClick={() => setIsMenuOpen(false)}
-              className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
-            >
-              About
-            </Link>
-
-            <Link
-              to="/evidence"
-              onClick={() => setIsMenuOpen(false)}
-              className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
-            >
-              Evidence
-            </Link>
-
-            <a
-              href="mailto:info@therenewedstrengthproject.org"
-              onClick={() => setIsMenuOpen(false)}
-              className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
-            >
-              Contact
-            </a>
-
-            <a
-              href="https://forms.gle/XiRrN38kGjsYaFNb6"
-              onClick={() => setIsMenuOpen(false)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-slate-600 text-white px-4 py-3 rounded-xl text-center"
-            >
-              Apply
-            </a>
-
-            <a
-              href="https://givebutter.com/general-fund-iz0pzq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 font-semibold px-5 py-3 rounded-xl transition duration-300 text-center"
-            >
-              Donate
-            </a>
-
-          </div>
-        )}
-
       </div>
-    </nav>
-  )
-}
 
-function Hero() {
-  return (
-    <section
-      className="min-h-screen text-white flex items-center pt-32 bg-cover bg-center relative bg-slate-950"
-      style={{
-        backgroundImage: "url('/hero-bg.png')",
-      }}
-    >
-      <div className="absolute inset-0 bg-slate-950/55"></div>
-
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <div className="max-w-4xl">
-
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-8 max-w-4xl">
-            Reclaiming strength, function, and everyday life.
-          </h1>
-
-          <p className="text-xl text-slate-300 leading-relaxed max-w-2xl mb-10">
-            Through individualized exercise support and meaningful human connection,
-            we help individuals rebuild confidence, resilience, and hope during
-            and after treatment.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-
-            <a
-              href="https://forms.gle/XiRrN38kGjsYaFNb6"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 font-semibold px-8 py-4 rounded-2xl transition duration-300 text-center"
-            >
-              Apply for Support
-            </a>
-
-            <a
-              href="https://givebutter.com/general-fund-iz0pzq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-slate-500 hover:border-slate-300 text-white px-8 py-4 rounded-2xl transition duration-300 text-center"
-            >
-              Support the Mission
-            </a>
-
-          </div>
-
-        </div>
-      </div>
     </section>
   )
 }

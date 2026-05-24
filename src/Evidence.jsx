@@ -1,125 +1,12 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import Navbar from './components/Navbar'
 
 export default function Evidence() {
-  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <div className="bg-slate-950 text-white min-h-screen">
 
-      {/* NAVBAR */}
-
-      <header className="fixed top-0 left-0 w-full z-50 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur-xl">
-
-        <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-
-          <Link to="/" className="flex items-center gap-4">
-
-            <img
-              src="/rsp-logo.png"
-              alt="Renewed Strength Project"
-              className="w-12 h-12 object-contain"
-            />
-
-            <span className="text-2xl font-semibold text-white">
-              Renewed Strength Project
-            </span>
-
-          </Link>
-
-          {/* DESKTOP NAV */}
-
-          <nav className="hidden md:flex items-center gap-4">
-
-            <Link
-              to="/about"
-              className="border border-slate-700 hover:border-slate-500 px-6 py-3 rounded-2xl transition"
-            >
-              About
-            </Link>
-
-            <Link
-              to="/evidence"
-              className="border border-[#d8a066] text-[#d8a066] px-6 py-3 rounded-2xl"
-            >
-              Evidence
-            </Link>
-
-            <Link
-              to="/contact"
-              className="border border-slate-700 hover:border-slate-500 px-6 py-3 rounded-2xl transition"
-            >
-              Contact
-            </Link>
-
-            <Link
-              to="/apply"
-              className="border border-slate-700 hover:border-slate-500 px-6 py-3 rounded-2xl transition"
-            >
-              Apply
-            </Link>
-
-            <a
-              href="https://givebutter.com/general-fund-iz0pzq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 px-6 py-3 rounded-2xl font-semibold transition"
-            >
-              Donate
-            </a>
-
-          </nav>
-
-          {/* MOBILE BUTTON */}
-
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-white"
-          >
-            {menuOpen ? <X size={36} /> : <Menu size={36} />}
-          </button>
-
-        </div>
-
-        {/* MOBILE MENU */}
-
-        {menuOpen && (
-          <div className="md:hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur-xl">
-
-            <div className="flex flex-col px-6 py-6 gap-4 text-lg">
-
-              <Link to="/about" onClick={() => setMenuOpen(false)}>
-                About
-              </Link>
-
-              <Link to="/evidence" onClick={() => setMenuOpen(false)}>
-                Evidence
-              </Link>
-
-              <Link to="/contact" onClick={() => setMenuOpen(false)}>
-                Contact
-              </Link>
-
-              <Link to="/apply" onClick={() => setMenuOpen(false)}>
-                Apply
-              </Link>
-
-              <a
-                href="https://givebutter.com/general-fund-iz0pzq"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#d8a066]"
-              >
-                Donate
-              </a>
-
-            </div>
-
-          </div>
-        )}
-
-      </header>
+      <Navbar />
+     
 
       {/* HERO */}
 
