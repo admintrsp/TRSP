@@ -142,36 +142,47 @@ export default function FoundingStory() {
 
       </header>
 
-      {/* HERO */}
+{/* HERO */}
 
-      <section className="pt-44 pb-24 px-6 border-b border-slate-800">
+<section className="pt-52 pb-24 px-6 border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900">
 
-        <div className="max-w-4xl mx-auto">
+  <div className="max-w-5xl mx-auto">
 
-          <p className="text-[#d8a066] uppercase tracking-[0.25em] text-sm mb-6">
-            Our Founding Story
-          </p>
+    <p className="text-[#d8a066] uppercase tracking-[0.3em] text-sm mb-6 font-medium">
+      Our Founding Story
+    </p>
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-8">
-            Built Through Experience. Guided by Purpose.
-          </h1>
+    <h1 className="text-5xl md:text-7xl font-bold leading-tight max-w-5xl mb-10">
+      Built Through Experience.
+      <span className="block text-[#d8a066]">
+        Guided by Purpose.
+      </span>
+    </h1>
 
-          <div className="text-slate-300 text-xl leading-relaxed space-y-3">
+    <div className="space-y-5 max-w-3xl">
 
-            <p className="font-medium text-white">
-              Scott Anderson, M.S. Exercise Science, B.S. Kinesiology, CPT
-            </p>
+      <p className="text-2xl md:text-3xl font-semibold text-white leading-relaxed">
+        Scott Anderson, M.S. Exercise Science,
+        B.S. Kinesiology, CPT
+      </p>
 
-            <p>
-              Founder, Renewed Strength Project
-            </p>
+      <p className="text-slate-400 text-xl">
+        Founder, Renewed Strength Project
+      </p>
 
-          </div>
+      <div className="w-24 h-[2px] bg-[#d8a066] rounded-full mt-8"></div>
 
-        </div>
+      <p className="text-slate-300 text-xl leading-relaxed pt-4">
+        A nonprofit organization focused on expanding access to
+        individualized, evidence-informed exercise support for
+        individuals impacted by cancer.
+      </p>
 
-      </section>
+    </div>
 
+  </div>
+
+</section>
       {/* CONTENT */}
 
       <section className="py-24 px-6">
