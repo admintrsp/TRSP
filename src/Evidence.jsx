@@ -151,8 +151,7 @@ export default function Evidence() {
             <div className="grid gap-6">
 
               <a
-                href="https://www.acsm.org"
-                target="_blank"
+                href="https://acsm.org/physical-activity-guidelines-cancer-infographic/"                target="_blank"
                 rel="noopener noreferrer"
                 className="bg-slate-900/40 border border-slate-700 rounded-2xl p-5 backdrop-blur hover:border-[#d8a066] hover:-translate-y-1 transition duration-300 block"
               >
