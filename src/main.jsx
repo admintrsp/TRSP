@@ -12,10 +12,14 @@ import App from './App.jsx'
 import About from './About.jsx'
 import Evidence from './Evidence.jsx'
 import FoundingStory from './FoundingStory.jsx'
+import ScrollToTop from './components/ScrollToTop'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+
     <BrowserRouter>
+
+      <ScrollToTop />
 
       <Routes>
         <Route path="/" element={<App />} />
@@ -25,5 +29,6 @@ createRoot(document.getElementById('root')).render(
       </Routes>
 
     </BrowserRouter>
+
   </StrictMode>,
 )
