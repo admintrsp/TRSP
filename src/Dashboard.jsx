@@ -1,3 +1,4 @@
+import RestorationModel from './RestorationModel'
 import SystemDomains from './SystemDomains.jsx'
 import ParticipantFlow from './ParticipantFlow.jsx'
 export default function Dashboard() {
@@ -31,6 +32,7 @@ export default function Dashboard() {
         <div className="grid lg:grid-cols-2 gap-8">
 
             <ParticipantFlow />
+            <RestorationModel />
             <SystemDomains />
         
 
