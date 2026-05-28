@@ -1,3 +1,4 @@
+import SystemDomains from './SystemDomains.jsx'
 import ParticipantFlow from './ParticipantFlow.jsx'
 export default function Dashboard() {
   return (
@@ -30,6 +31,8 @@ export default function Dashboard() {
         <div className="grid lg:grid-cols-2 gap-8">
 
             <ParticipantFlow />
+            <SystemDomains />
+        
 
           {/* NORTH STAR */}
           <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
