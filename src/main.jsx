@@ -12,23 +12,27 @@ import App from './App.jsx'
 import About from './About.jsx'
 import Evidence from './Evidence.jsx'
 import FoundingStory from './FoundingStory.jsx'
-import ScrollToTop from './components/ScrollToTop'
+import ScrollToTop from './components/ScrollToTop.jsx'
+import FounderDashboard from './FounderDashboard.jsx'
+import Dashboard from './Dashboard.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
 
     <BrowserRouter>
 
-      <ScrollToTop />
+<ScrollToTop />
 
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/about" element={<About />} />
         <Route path="/evidence" element={<Evidence />} />
         <Route path="/founding-story" element={<FoundingStory />} />
+        <Route path="/founder-dashboard" element={<FounderDashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
 
     </BrowserRouter>
 
-  </StrictMode>,
+  </StrictMode>
 )
