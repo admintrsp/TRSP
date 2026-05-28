@@ -122,13 +122,13 @@ links: [
 
     links: [
       {
-        name: 'Board Agendas',
-        url: 'https://google.com',
+        name: 'Board Governance and Agendas',
+        url: 'https://www.notion.so/RSP-Dashboard-19f4cd963c4f80c589ffd794a6434c31?source=copy_link',
       },
 
       {
-        name: 'Strategic Planning',
-        url: 'https://google.com',
+        name: 'By Laws',
+        url: 'https://drive.google.com/file/d/1zwhD2KeM3LcJ5v8l3peVGZ91ltWtBBqY/view?usp=sharing    ',
       },
 
       {
@@ -141,10 +141,6 @@ links: [
         url: 'https://google.com',
       },
 
-      {
-        name: 'Meeting Cadence',
-        url: 'https://google.com',
-      },
     ],
   },
 ]
