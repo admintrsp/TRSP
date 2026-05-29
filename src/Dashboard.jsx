@@ -1,6 +1,6 @@
-import RestorationModel from './RestorationModel'
-import SystemDomains from './SystemDomains.jsx'
+import TRSPRestorationFramework from './TRSPRestorationFramework'
 import ParticipantFlow from './ParticipantFlow.jsx'
+import SystemDomains from './SystemDomains'
 export default function Dashboard() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
@@ -32,8 +32,8 @@ export default function Dashboard() {
         <div className="grid lg:grid-cols-2 gap-8">
 
             <ParticipantFlow />
-            <RestorationModel />
-            <SystemDomains />
+<TRSPRestorationFramework />       
+     <SystemDomains />
         
 
           {/* NORTH STAR */}
