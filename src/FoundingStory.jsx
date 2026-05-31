@@ -254,22 +254,37 @@ export default function FoundingStory() {
     I found myself thinking often about individuals entering treatment without a history of exercise or physical training — especially older adults already struggling with mobility, strength, fatigue, or other health limitations before treatment even begins.
   </p>
 
-  <p>
-    Through both personal experience and professional work, I have seen firsthand the physical, mental, emotional, and even spiritual impact that structured movement and supportive training can have before, during, and after cancer treatment.
+<p>
+  Through both personal experience and professional work, I have seen firsthand the physical, mental, emotional, and even spiritual impact that structured movement and supportive training can have before, during, and after cancer treatment.
+</p>
+
+<p>
+  Yet throughout these experiences, one question continued to surface:
+</p>
+
+<div className="border-l-4 border-[#d8a066] pl-8 py-4 my-10">
+
+  <p className="text-4xl md:text-5xl leading-tight text-white italic font-light">
+    What happens after treatment ends?
   </p>
 
-  <div className="border-l-4 border-[#d8a066] pl-6 py-2">
+</div>
 
-    <p className="text-2xl leading-relaxed text-white italic">
-      “Many individuals navigating cancer treatment want help rebuilding strength and function, but access to qualified support is often financially out of reach.”
-    </p>
+<p>
+  While treatment may have ended, many individuals were still working to reclaim pieces of life that cancer had disrupted. They were searching for a path forward — one that could help them rebuild strength, restore confidence, reconnect with community, and return to the activities and experiences that gave their lives meaning.
+</p>
 
-  </div>
+<p>
+  Yet access to qualified support for that journey was often limited by cost, availability, or awareness.
+</p>
 
-  <p>
-    That gap is what led to the creation of The Renewed Strength Project.
-  </p>
+<p>
+  We recognized a gap in survivorship care — not simply in exercise services, but in access to guidance, community, and support during the restoration process.
+</p>
 
+<p>
+  That gap is what led to the creation of The Renewed Strength Project.
+</p>
           </div>
 {/* BACKGROUND */}
 
