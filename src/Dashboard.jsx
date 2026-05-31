@@ -25,17 +25,6 @@ export default function Dashboard() {
         </div>
       </section>
 
-
-      {/* MAIN CONTENT */}
-      <section className="max-w-7xl mx-auto px-8 py-12">
-
-        <div className="grid lg:grid-cols-2 gap-8">
-
-            <ParticipantFlow />
-<TRSPRestorationFramework />       
-     <SystemDomains />
-        
-
           {/* NORTH STAR */}
           <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
             <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
@@ -58,6 +47,181 @@ export default function Dashboard() {
             </p>
           </div>
 
+
+{/* FOUNDER COMMAND CENTER */}
+
+<section className="max-w-7xl mx-auto px-8 py-10">
+
+  <div className="mb-8">
+    <p className="uppercase tracking-widest text-slate-500 text-sm mb-2">
+      Live Operations
+    </p>
+
+    <h2 className="text-4xl font-bold">
+      Founder Command Center
+    </h2>
+
+    <p className="text-slate-400 mt-2">
+      Daily operational pulse of The Renewed Strength Project.
+    </p>
+  </div>
+
+  <div className="grid md:grid-cols-4 gap-4">
+
+    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+      <p className="text-slate-500 text-sm">
+        Active Participants
+      </p>
+      <p className="text-5xl font-bold mt-3">
+        12
+      </p>
+    </div>
+
+    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+      <p className="text-slate-500 text-sm">
+        Applications
+      </p>
+      <p className="text-5xl font-bold mt-3">
+        8
+      </p>
+    </div>
+
+    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+      <p className="text-slate-500 text-sm">
+        Waitlist
+      </p>
+      <p className="text-5xl font-bold mt-3">
+        3
+      </p>
+    </div>
+
+    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+      <p className="text-slate-500 text-sm">
+        Sessions This Month
+      </p>
+      <p className="text-5xl font-bold mt-3">
+        41
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+{/* PARTICIPANT JOURNEY */}
+
+<section className="max-w-7xl mx-auto px-8 pb-8">
+
+  <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+
+    <p className="uppercase tracking-widest text-slate-500 text-sm mb-4">
+      Participant Journey
+    </p>
+
+    <div className="grid md:grid-cols-5 gap-8 text-center">
+
+      <div>
+        <p className="text-4xl font-bold">20</p>
+        <p className="text-slate-500 mt-2">Referrals</p>
+      </div>
+
+      <div>
+        <p className="text-4xl font-bold">14</p>
+        <p className="text-slate-500 mt-2">Applications</p>
+      </div>
+
+      <div>
+        <p className="text-4xl font-bold">8</p>
+        <p className="text-slate-500 mt-2">Onboarding</p>
+      </div>
+
+      <div>
+        <p className="text-4xl font-bold">5</p>
+        <p className="text-slate-500 mt-2">Ready To Start</p>
+      </div>
+
+      <div>
+        <p className="text-4xl font-bold">12</p>
+        <p className="text-slate-500 mt-2">Active</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{/* RESTORATION IN PROGRESS */}
+
+<section className="max-w-7xl mx-auto px-8 pb-12">
+
+  <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+
+    <p className="uppercase tracking-widest text-slate-500 text-sm mb-4">
+      Restoration In Progress
+    </p>
+
+    <h2 className="text-3xl font-semibold mb-8">
+      Most Common Restoration Goals
+    </h2>
+
+    <div className="grid md:grid-cols-2 gap-4">
+
+      <div className="border border-slate-800 rounded-2xl p-5">
+        <p className="text-2xl mb-2">🥾</p>
+        <h3 className="font-semibold">
+          Return To Hiking
+        </h3>
+        <p className="text-slate-500 mt-2">
+          4 Participants
+        </p>
+      </div>
+
+      <div className="border border-slate-800 rounded-2xl p-5">
+        <p className="text-2xl mb-2">💼</p>
+        <h3 className="font-semibold">
+          Return To Work
+        </h3>
+        <p className="text-slate-500 mt-2">
+          3 Participants
+        </p>
+      </div>
+
+      <div className="border border-slate-800 rounded-2xl p-5">
+        <p className="text-2xl mb-2">👨‍👩‍👧</p>
+        <h3 className="font-semibold">
+          Play With Grandchildren
+        </h3>
+        <p className="text-slate-500 mt-2">
+          2 Participants
+        </p>
+      </div>
+
+      <div className="border border-slate-800 rounded-2xl p-5">
+        <p className="text-2xl mb-2">✈️</p>
+        <h3 className="font-semibold">
+          Travel Again
+        </h3>
+        <p className="text-slate-500 mt-2">
+          1 Participant
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+      {/* MAIN CONTENT */}
+      <section className="max-w-7xl mx-auto px-8 py-12">
+
+        <div className="grid lg:grid-cols-2 gap-8">
+
+            <ParticipantFlow />
+<TRSPRestorationFramework />       
+     <SystemDomains />
+        
 
           {/* CURRENT PHASE */}
           <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
