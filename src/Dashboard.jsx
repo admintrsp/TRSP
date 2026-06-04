@@ -25,29 +25,6 @@ export default function Dashboard() {
         </div>
       </section>
 
-          {/* NORTH STAR */}
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
-            <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
-              North Star
-            </p>
-
-            <h2 className="text-3xl font-semibold mb-6">
-              Why This Exists
-            </h2>
-
-            <p className="text-slate-300 leading-relaxed text-lg">
-              Cancer treatment saves lives.
-              Survivorship restoration helps people live again.
-            </p>
-
-            <p className="text-slate-500 mt-6 leading-relaxed">
-              They survived treatment.
-              Now help them reclaim strength, confidence, function,
-              and participation in life.
-            </p>
-          </div>
-
-
 {/* FOUNDER COMMAND CENTER */}
 
 <section className="max-w-7xl mx-auto px-8 py-10">
@@ -108,6 +85,10 @@ export default function Dashboard() {
 
 </section>
 
+
+
+
+
 {/* PARTICIPANT JOURNEY */}
 
 <section className="max-w-7xl mx-auto px-8 pb-8">
@@ -150,6 +131,207 @@ export default function Dashboard() {
   </div>
 
 </section>
+
+{/* Todays Priorities */}
+
+<section className="max-w-7xl mx-auto px-8 pb-8">
+
+  <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+
+    <p className="uppercase tracking-widest text-slate-500 text-sm mb-4">
+      Immediate Attention
+    </p>
+
+    <h2 className="text-3xl font-semibold mb-8">
+      Today's Priorities
+    </h2>
+
+    <div className="space-y-4">
+
+      <div className="border border-slate-800 rounded-2xl p-4">
+        Review New Applications
+      </div>
+
+      <div className="border border-slate-800 rounded-2xl p-4">
+        Schedule Assessments
+      </div>
+
+      <div className="border border-slate-800 rounded-2xl p-4">
+        Follow Up Participants
+      </div>
+
+      <div className="border border-slate-800 rounded-2xl p-4">
+        Board & Partnership Tasks
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{/* ACTIVE PARTICIPANTS */}
+
+<section className="max-w-7xl mx-auto px-8 pb-8">
+
+  <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+
+    <div className="flex items-center justify-between mb-8">
+
+      <div>
+        <p className="uppercase tracking-widest text-slate-500 text-sm mb-2">
+          Active Participants
+        </p>
+
+        <h2 className="text-3xl font-semibold">
+          Current Caseload
+        </h2>
+      </div>
+
+      <div className="text-slate-400">
+        1 Active Participant
+      </div>
+
+    </div>
+
+    <div className="grid gap-4">
+
+      <div className="border border-slate-800 rounded-2xl p-6">
+
+        <div className="flex justify-between items-start">
+
+          <div>
+            <h3 className="text-xl font-semibold">
+              Kent Becker
+            </h3>
+
+            <p className="text-slate-400 mt-1">
+              TRSP001
+            </p>
+          </div>
+
+          <div className="text-right">
+            <p className="text-sm text-slate-500">
+              Coach
+            </p>
+
+            <p>
+              Scott
+            </p>
+          </div>
+
+        </div>
+
+        <div className="grid md:grid-cols-4 gap-4 mt-6">
+
+          <div>
+            <p className="text-slate-500 text-sm">
+              Cancer Type
+            </p>
+
+            <p>
+              Non-Hodgkins Lymphoma
+            </p>
+          </div>
+
+          <div>
+            <p className="text-slate-500 text-sm">
+              Stage
+            </p>
+
+            <p>
+              Stage 1
+            </p>
+          </div>
+
+          <div>
+            <p className="text-slate-500 text-sm">
+              Sessions
+            </p>
+
+            <p>
+              2
+            </p>
+          </div>
+
+          <div>
+            <p className="text-slate-500 text-sm">
+              Status
+            </p>
+
+            <p>
+              Active Participant
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section className="max-w-7xl mx-auto px-8 pb-8">
+
+  <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+
+    <p className="uppercase tracking-widest text-slate-500 text-sm mb-4">
+      Program Health
+    </p>
+
+    <div className="grid md:grid-cols-4 gap-4">
+
+      <div className="border border-slate-800 rounded-2xl p-4">
+        <p className="text-slate-500 text-sm">Assessments Due</p>
+        <p className="text-3xl font-bold">0</p>
+      </div>
+
+      <div className="border border-slate-800 rounded-2xl p-4">
+        <p className="text-slate-500 text-sm">Pending Applications</p>
+        <p className="text-3xl font-bold">0</p>
+      </div>
+
+      <div className="border border-slate-800 rounded-2xl p-4">
+        <p className="text-slate-500 text-sm">Follow Ups Needed</p>
+        <p className="text-3xl font-bold">0</p>
+      </div>
+
+      <div className="border border-slate-800 rounded-2xl p-4">
+        <p className="text-slate-500 text-sm">Participants At Risk</p>
+        <p className="text-3xl font-bold">0</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+          {/* NORTH STAR */}
+          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+            <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
+              North Star
+            </p>
+
+            <h2 className="text-3xl font-semibold mb-6">
+              Why This Exists
+            </h2>
+
+            <p className="text-slate-300 leading-relaxed text-lg">
+              Cancer treatment saves lives.
+              Survivorship restoration helps people live again.
+            </p>
+
+            <p className="text-slate-500 mt-6 leading-relaxed">
+              They survived treatment.
+              Now help them reclaim strength, confidence, function,
+              and participation in life.
+            </p>
+          </div>
+
 
 {/* RESTORATION IN PROGRESS */}
 
