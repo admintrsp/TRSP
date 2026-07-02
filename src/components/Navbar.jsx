@@ -82,6 +82,13 @@ export default function Navbar() {
   Founding Story
 </Link>
 
+<Link
+  to="/community-partners"
+  className="border border-slate-700 hover:border-[#d8a066] text-white px-6 py-3 rounded-2xl transition duration-300"
+>
+  Community Partners
+</Link>
+
           <a
             href="mailto:info@therenewedstrengthproject.org"
             className="border border-slate-700 hover:border-[#d8a066] text-white px-6 py-3 rounded-2xl transition duration-300 inline-flex items-center justify-center"
@@ -137,6 +144,14 @@ export default function Navbar() {
   className="border border-slate-700 text-white px-4 py-4 rounded-2xl text-center"
 >
   Founding Story
+</Link>
+
+<Link
+  to="/community-partners"
+  onClick={() => setIsMenuOpen(false)}
+  className="border border-slate-700 text-white px-4 py-4 rounded-2xl text-center"
+>
+  Community Partners
 </Link>
 
             <a
