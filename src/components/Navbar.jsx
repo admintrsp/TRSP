@@ -86,7 +86,7 @@ transition duration-300"          >
           </Link>
 
 <Link
-  to="/Our-story"
+  to="/founding-story"
   className="border border-slate-700 hover:border-[#d8a066] text-white
 px-5 py-3
 min-w-[145px]
@@ -98,7 +98,7 @@ transition duration-300"
 </Link>
 
 <Link
-  to="/Community-Partners"
+  to="/community-partners"
   className="border border-slate-700 hover:border-[#d8a066] text-white
 px-5 py-3
 min-w-[170px]
