@@ -34,7 +34,7 @@ export default function Navbar() {
 
         <Link
           to="/"
-          className="flex items-center gap-4"
+          className="flex items-center gap-3"
         >
           <img
             src="/rsp-logo.png"
@@ -42,7 +42,7 @@ export default function Navbar() {
             className="w-12 h-12 object-contain"
           />
 
-          <span className="text-white font-semibold text-xl md:text-2xl tracking-tight">
+          <span className="text-white font-semibold text-xl md:text-xl tracking-tight">
             Renewed Strength Project
           </span>
         </Link>
@@ -59,40 +59,62 @@ export default function Navbar() {
           )}
         </button>
 
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-2">
 
           <Link
             to="/about"
-            className="border border-slate-700 hover:border-[#d8a066] text-white px-6 py-3 rounded-2xl transition duration-300"
-          >
+className="border border-slate-700 hover:border-[#d8a066] text-white
+px-5 py-3
+min-w-[110px]
+text-center
+rounded-2xl
+transition duration-300"          >
             About
           </Link>
 
           <Link
             to="/evidence"
-            className="border border-slate-700 hover:border-[#d8a066] text-white px-6 py-3 rounded-2xl transition duration-300"
-          >
+className="border border-slate-700 hover:border-[#d8a066] text-white
+px-5 py-3
+min-w-[110px]
+text-center
+rounded-2xl
+transition duration-300"          >
             Evidence
           </Link>
 
 <Link
   to="/founding-story"
-  className="border border-slate-700 hover:border-[#d8a066] text-white px-6 py-3 rounded-2xl transition duration-300"
+  className="border border-slate-700 hover:border-[#d8a066] text-white
+px-5 py-3
+min-w-[145px]
+text-center
+rounded-2xl
+transition duration-300"
 >
   Founding Story
 </Link>
 
 <Link
   to="/community-partners"
-  className="border border-slate-700 hover:border-[#d8a066] text-white px-6 py-3 rounded-2xl transition duration-300"
+  className="border border-slate-700 hover:border-[#d8a066] text-white
+px-5 py-3
+min-w-[170px]
+text-center
+rounded-2xl
+transition duration-300"
 >
   Community Partners
 </Link>
 
           <a
             href="mailto:info@therenewedstrengthproject.org"
-            className="border border-slate-700 hover:border-[#d8a066] text-white px-6 py-3 rounded-2xl transition duration-300 inline-flex items-center justify-center"
-          >
+className="border border-slate-700 hover:border-[#d8a066] text-white
+px-5 py-3
+min-w-[110px]
+text-center
+rounded-2xl
+transition duration-300"          >
             Contact
           </a>
 
@@ -100,8 +122,12 @@ export default function Navbar() {
             href="https://forms.gle/XiRrN38kGjsYaFNb6"
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-slate-700 hover:border-[#d8a066] text-white px-6 py-3 rounded-2xl transition duration-300 inline-flex items-center justify-center"
-          >
+            className="border border-slate-700 hover:border-[#d8a066] text-white
+px-5 py-3
+min-w-[110px]
+text-center
+rounded-2xl
+transition duration-300"          >
             Apply
           </a>
 
@@ -109,8 +135,15 @@ export default function Navbar() {
             href="https://givebutter.com/general-fund-iz0pzq"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 font-semibold px-6 py-3 rounded-2xl transition duration-300"
-          >
+className="bg-[#d8a066]
+hover:bg-[#e6b684]
+text-slate-950
+font-semibold
+px-5 py-3
+min-w-[110px]
+text-center
+rounded-2xl
+transition duration-300"          >
             Donate
           </a>
 
@@ -139,19 +172,19 @@ export default function Navbar() {
             </Link>
 
 <Link
-  to="/founding-story"
+  to="/Our-Story"
   onClick={() => setIsMenuOpen(false)}
   className="border border-slate-700 text-white px-4 py-4 rounded-2xl text-center"
 >
-  Founding Story
+  Our Story
 </Link>
 
 <Link
-  to="/community-partners"
+  to="/Partners"
   onClick={() => setIsMenuOpen(false)}
   className="border border-slate-700 text-white px-4 py-4 rounded-2xl text-center"
 >
-  Community Partners
+  Partners
 </Link>
 
             <a
