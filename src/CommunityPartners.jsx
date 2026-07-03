@@ -463,6 +463,88 @@ support makes possible as our organization grows.        </p>
   </div>
 
 </section>
+{/* HOW PARTNERSHIP BEGINS */}
+
+<section className="py-24 px-6 bg-slate-900">
+
+  <div className="max-w-5xl mx-auto text-center">
+
+    <p className="text-[#d8a066] uppercase tracking-[0.25em] text-sm font-semibold mb-5">
+      How Partnership Begins
+    </p>
+
+    <h2 className="text-4xl md:text-5xl font-bold mb-8">
+      Every Partnership
+      <span className="block text-[#d8a066]">
+        Starts With A Conversation
+      </span>
+    </h2>
+
+    <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto mb-16">
+      We believe meaningful partnerships should be collaborative—not
+      transactional. Every organization has different goals, strengths,
+      and ways to give back. We'd love to learn about yours.
+    </p>
+
+    <div className="grid md:grid-cols-3 gap-8">
+
+      <div className="bg-slate-950 rounded-3xl border border-slate-800 p-8">
+
+        <div className="text-5xl font-bold text-[#d8a066] mb-5">
+          1
+        </div>
+
+        <h3 className="text-2xl font-bold mb-4">
+          Connect
+        </h3>
+
+        <p className="text-slate-300">
+          Schedule a conversation so we can learn about your organization
+          and answer any questions.
+        </p>
+
+      </div>
+
+      <div className="bg-slate-950 rounded-3xl border border-slate-800 p-8">
+
+        <div className="text-5xl font-bold text-[#d8a066] mb-5">
+          2
+        </div>
+
+        <h3 className="text-2xl font-bold mb-4">
+          Collaborate
+        </h3>
+
+        <p className="text-slate-300">
+          Together we'll explore opportunities that align with your
+          mission, employees, and community goals.
+        </p>
+
+      </div>
+
+      <div className="bg-slate-950 rounded-3xl border border-slate-800 p-8">
+
+        <div className="text-5xl font-bold text-[#d8a066] mb-5">
+          3
+        </div>
+
+        <h3 className="text-2xl font-bold mb-4">
+          Make an Impact
+        </h3>
+
+        <p className="text-slate-300">
+          Every partnership directly expands access to evidence-informed
+          exercise support for individuals impacted by cancer.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 {/* FINAL CALL TO ACTION */}
 
 <section className="py-32 px-6 bg-gradient-to-b from-slate-950 to-slate-900">
