@@ -5,7 +5,7 @@ export default function CommunityPartners() {
   return (
     <div className="bg-slate-950 text-white min-h-screen">
 
-   {/* <Navbar /> */}
+<Navbar />
 
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 to-slate-950 py-32 px-6">
