@@ -43,7 +43,9 @@ export default function Navbar() {
 />
 
           <span className="text-white font-semibold text-xl md:text-xl tracking-tight">
-            Renewed Strength Project
+            Renewed Strength 
+             <br />
+            Project
           </span>
         </Link>
 
