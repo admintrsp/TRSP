@@ -174,21 +174,20 @@ transition duration-300"          >
             </Link>
 
 <Link
-  to="/Our-Story"
+  to="/founding-story"
   onClick={() => setIsMenuOpen(false)}
   className="border border-slate-700 text-white px-4 py-4 rounded-2xl text-center"
 >
-  Our Story
+  Founding Story
 </Link>
 
 <Link
-  to="/Partners"
+  to="/community-partners"
   onClick={() => setIsMenuOpen(false)}
   className="border border-slate-700 text-white px-4 py-4 rounded-2xl text-center"
 >
-  Partners
+  Community Partners
 </Link>
-
             <a
               href="mailto:info@therenewedstrengthproject.org"
               onClick={() => setIsMenuOpen(false)}
