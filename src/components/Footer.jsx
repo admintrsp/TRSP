@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-slate-950 border-t border-slate-800">
 
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-6 py-24">
 
         <div className="grid md:grid-cols-3 gap-12">
 
@@ -17,7 +17,7 @@ export default function Footer() {
               <img
                 src="/rsp-logo.png"
                 alt="Renewed Strength Project"
-                className="w-12 h-12"
+                className="w-16 h-16"
               />
 
               <div>
@@ -116,7 +116,9 @@ export default function Footer() {
           </p>
 
           <p>
-            501(c)(3) Nonprofit Organization
+            © 2026 Renewed Strength Project
+
+    A Colorado 501(c)(3) nonprofit organization.
           </p>
 
         </div>
