@@ -415,12 +415,11 @@ support makes possible as our organization grows.        </p>
           Building a Legacy
         </h3>
 
-        <p className="text-slate-300 leading-relaxed">
-          Your partnership helps establish a lasting resource that will
-          continue serving individuals and families impacted by cancer
-          for years to come.
-        </p>
-
+<p className="text-slate-300 leading-relaxed">
+  Your partnership helps create meaningful change. We'll share
+  important milestones, participant stories, and the progress
+  your support makes possible as our organization grows.
+</p>
       </div>
 
     </div>
@@ -430,77 +429,85 @@ support makes possible as our organization grows.        </p>
     <div className="bg-slate-900 rounded-3xl border border-dashed border-[#d8a066]/40 p-12 text-center">
 
       <h3 className="text-3xl font-bold mb-6">
-        Our Founding Community Partners
-      </h3>
+            Reserved for Our
+            Founding Partners      </h3>
 
       <p className="text-slate-400 text-lg mb-10">
-        We're currently inviting the first organizations to help build
-        this mission.
-      </p>
+        Four organizations will forever be recognized as the founding
+        partners who helped launch The Renewed Strength Project.      </p>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
 
-        <div className="border border-slate-700 rounded-2xl h-32 flex items-center justify-center text-slate-500">
-<div className="text-center px-4">
+<div className="border border-dashed border-[#d8a066]/40 rounded-2xl h-52 flex items-center justify-center p-6">
 
-  <h4 className="text-lg font-semibold text-[#d8a066] mb-3">
-    Founding Partner
-  </h4>
+  <div className="text-center px-4">
 
-  <p className="text-sm text-slate-400 leading-relaxed">
-    This space is reserved for one of the first organizations helping
-    establish the Renewed Strength Project.
-  </p>
+    <h4 className="text-lg font-semibold text-[#d8a066] mb-3">
+      Founding Partner I
+    </h4>
 
-</div>        </div>
-
-        <div className="border border-slate-700 rounded-2xl h-32 flex items-center justify-center text-slate-500">
-<div className="text-center px-4">
-
-  <h4 className="text-lg font-semibold text-[#d8a066] mb-3">
-    Founding Partner
-  </h4>
-
-  <p className="text-sm text-slate-400 leading-relaxed">
-    This space is reserved for one of the first organizations helping
-    establish the Renewed Strength Project.
-  </p>
-
-</div>        </div>
-
-        <div className="border border-slate-700 rounded-2xl h-32 flex items-center justify-center text-slate-500">
-<div className="text-center px-4">
-
-  <h4 className="text-lg font-semibold text-[#d8a066] mb-3">
-    Founding Partner
-  </h4>
-
-  <p className="text-sm text-slate-400 leading-relaxed">
-    This space is reserved for one of the first organizations helping
-    establish the Renewed Strength Project.
-  </p>
-
-</div>        </div>
-
-        <div className="border border-slate-700 rounded-2xl h-32 flex items-center justify-center text-slate-500">
-<div className="text-center px-4">
-
-  <h4 className="text-lg font-semibold text-[#d8a066] mb-3">
-    Founding Partner
-  </h4>
-
-  <p className="text-sm text-slate-400 leading-relaxed">
-    This space is reserved for one of the first organizations helping
-    establish the Renewed Strength Project.
-  </p>
-
-</div>        </div>
-
-      </div>
-
-    </div>
+    <p className="text-sm text-slate-400 leading-relaxed">
+      This space is reserved for one of the first organizations helping
+      establish the Renewed Strength Project.
+    </p>
 
   </div>
+
+</div>
+<div className="border border-dashed border-[#d8a066]/40 rounded-2xl h-52 flex items-center justify-center p-6">
+
+  <div className="text-center px-4">
+
+    <h4 className="text-lg font-semibold text-[#d8a066] mb-3">
+      Founding Partner II
+    </h4>
+
+    <p className="text-sm text-slate-400 leading-relaxed">
+      This space is reserved for one of the first organizations helping
+      establish the Renewed Strength Project.
+    </p>
+
+  </div>
+
+</div>
+<div className="border border-dashed border-[#d8a066]/40 rounded-2xl h-52 flex items-center justify-center p-6">
+
+  <div className="text-center px-4">
+
+    <h4 className="text-lg font-semibold text-[#d8a066] mb-3">
+      Founding Partner III
+    </h4>
+
+    <p className="text-sm text-slate-400 leading-relaxed">
+      This space is reserved for one of the first organizations helping
+      establish the Renewed Strength Project.
+    </p>
+
+  </div>
+
+</div>
+<div className="border border-dashed border-[#d8a066]/40 rounded-2xl h-52 flex items-center justify-center p-6">
+
+  <div className="text-center px-4">
+
+    <h4 className="text-lg font-semibold text-[#d8a066] mb-3">
+      Founding Partner IV
+    </h4>
+
+    <p className="text-sm text-slate-400 leading-relaxed">
+      This space is reserved for one of the first organizations helping
+      establish the Renewed Strength Project.
+    </p>
+
+  </div>
+
+</div>
+
+      </div>   {/* End grid */}
+
+    </div>     {/* End logo placeholder */}
+
+  </div>       {/* End max-w-6xl */}
 
 </section>
 {/* HOW PARTNERSHIP BEGINS */}
