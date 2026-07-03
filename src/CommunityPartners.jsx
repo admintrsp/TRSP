@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 export default function CommunityPartners() {
   return (
@@ -692,7 +693,10 @@ support makes possible as our organization grows.        </p>
   </div>
 
 </section>
-    </div>
+
+<Footer />
+
+</div>
 
 )
-}
+}   
