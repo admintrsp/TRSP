@@ -441,20 +441,60 @@ support makes possible as our organization grows.        </p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
 
         <div className="border border-slate-700 rounded-2xl h-32 flex items-center justify-center text-slate-500">
-          Your Logo Here
-        </div>
+<div className="text-center px-4">
+
+  <h4 className="text-lg font-semibold text-[#d8a066] mb-3">
+    Founding Partner
+  </h4>
+
+  <p className="text-sm text-slate-400 leading-relaxed">
+    This space is reserved for one of the first organizations helping
+    establish the Renewed Strength Project.
+  </p>
+
+</div>        </div>
 
         <div className="border border-slate-700 rounded-2xl h-32 flex items-center justify-center text-slate-500">
-          Your Logo Here
-        </div>
+<div className="text-center px-4">
+
+  <h4 className="text-lg font-semibold text-[#d8a066] mb-3">
+    Founding Partner
+  </h4>
+
+  <p className="text-sm text-slate-400 leading-relaxed">
+    This space is reserved for one of the first organizations helping
+    establish the Renewed Strength Project.
+  </p>
+
+</div>        </div>
 
         <div className="border border-slate-700 rounded-2xl h-32 flex items-center justify-center text-slate-500">
-          Your Logo Here
-        </div>
+<div className="text-center px-4">
+
+  <h4 className="text-lg font-semibold text-[#d8a066] mb-3">
+    Founding Partner
+  </h4>
+
+  <p className="text-sm text-slate-400 leading-relaxed">
+    This space is reserved for one of the first organizations helping
+    establish the Renewed Strength Project.
+  </p>
+
+</div>        </div>
 
         <div className="border border-slate-700 rounded-2xl h-32 flex items-center justify-center text-slate-500">
-          Your Logo Here
-        </div>
+<div className="text-center px-4">
+
+  <h4 className="text-lg font-semibold text-[#d8a066] mb-3">
+    Founding Partner
+  </h4>
+
+  <p className="text-sm text-slate-400 leading-relaxed">
+    This space is reserved for one of the first organizations helping
+    establish the Renewed Strength Project.
+  </p>
+
+</div>        </div>
 
       </div>
 
