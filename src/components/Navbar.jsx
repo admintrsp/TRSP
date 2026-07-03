@@ -36,11 +36,11 @@ export default function Navbar() {
           to="/"
           className="flex items-center gap-3"
         >
-          <img
-            src="/rsp-logo.png"
-            alt="RSP Logo"
-            className="w-12 h-12 object-contain"
-          />
+<img
+  src="/rsp-logo.png"
+  alt="RSP Logo"
+  className="w-10 h-10 flex-shrink-0 object-contain"
+/>
 
           <span className="text-white font-semibold text-xl md:text-xl tracking-tight">
             Renewed Strength Project
