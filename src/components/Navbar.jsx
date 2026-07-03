@@ -2,6 +2,13 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
 import { Menu, X } from 'lucide-react'
 
+const navLinks = [
+  { label: "About", to: "/about", width: "min-w-[110px]" },
+  { label: "Evidence", to: "/evidence", width: "min-w-[110px]" },
+  { label: "Our Story", to: "/founding-story", width: "min-w-[145px]" },
+  { label: "Community Partners", to: "/community-partners", width: "min-w-[170px]" },
+]
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -63,52 +70,24 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-2">
 
-          <Link
-            to="/about"
-className="border border-slate-700 hover:border-[#d8a066] text-white
-px-5 py-3
-min-w-[110px]
-text-center
-rounded-2xl
-transition duration-300"          >
-            About
-          </Link>
-
-          <Link
-            to="/evidence"
-className="border border-slate-700 hover:border-[#d8a066] text-white
-px-5 py-3
-min-w-[110px]
-text-center
-rounded-2xl
-transition duration-300"          >
-            Evidence
-          </Link>
-
-<Link
-  to="/founding-story"
-  className="border border-slate-700 hover:border-[#d8a066] text-white
-px-5 py-3
-min-w-[145px]
-text-center
-rounded-2xl
-transition duration-300"
->
-   Our Story
-</Link>
-
-<Link
-  to="/community-partners"
-  className="border border-slate-700 hover:border-[#d8a066] text-white
-px-5 py-3
-min-w-[170px]
-text-center
-rounded-2xl
-transition duration-300"
->
-  Community Partners
-</Link>
-
+{navLinks.map((link) => (
+  <Link
+    key={link.to}
+    to={link.to}
+    className={`
+      border border-slate-700
+      hover:border-[#d8a066]
+      text-white
+      px-5 py-3
+      ${link.width}
+      text-center
+      rounded-2xl
+      transition duration-300
+    `}
+  >
+    {link.label}
+  </Link>
+))}
           <a
             href="mailto:info@therenewedstrengthproject.org"
 className="border border-slate-700 hover:border-[#d8a066] text-white
