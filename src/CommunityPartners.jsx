@@ -385,14 +385,13 @@ export default function CommunityPartners() {
       <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
 
         <h3 className="text-2xl font-bold text-[#d8a066] mb-4">
-          Annual Impact Updates
+          Shared Impact
         </h3>
 
         <p className="text-slate-300 leading-relaxed">
-          Receive annual updates highlighting participant stories,
-          organizational growth, and the impact your partnership has made
-          within our community.
-        </p>
+Your partnership helps create meaningful change. We'll share
+important milestones, participant stories, and the progress your
+support makes possible as our organization grows.        </p>
 
       </div>
 
