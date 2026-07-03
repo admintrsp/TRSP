@@ -14,12 +14,11 @@ export default function Footer() {
 
             <div className="flex items-center gap-3 mb-5">
 
-              <img
-                src="/rsp-logo.png"
-                alt="Renewed Strength Project"
-                className="w-16 h-16"
-              />
-
+        <img
+        src="/rsp-logo.png"
+         alt="Renewed Strength Project"
+         className="w-16 aspect-square object-contain flex-shrink-0"
+/>
               <div>
 
                 <h3 className="font-bold text-xl text-white">
