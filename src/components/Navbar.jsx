@@ -136,38 +136,17 @@ transition duration-300"          >
             className="md:hidden absolute top-full left-0 w-full bg-slate-950/95 backdrop-blur-xl border-b border-slate-800 px-6 py-6 flex flex-col gap-4"
           >
 
-            <Link
-              to="/about"
-              onClick={() => setIsMenuOpen(false)}
-              className="border border-slate-700 text-white px-4 py-4 rounded-2xl text-center"
-            >
-              About
-            </Link>
-
-            <Link
-              to="/evidence"
-              onClick={() => setIsMenuOpen(false)}
-              className="border border-slate-700 text-white px-4 py-4 rounded-2xl text-center"
-            >
-              Evidence
-            </Link>
-
-<Link
-  to="/founding-story"
-  onClick={() => setIsMenuOpen(false)}
-  className="border border-slate-700 text-white px-4 py-4 rounded-2xl text-center"
->
-  Founding Story
-</Link>
-
-<Link
-  to="/community-partners"
-  onClick={() => setIsMenuOpen(false)}
-  className="border border-slate-700 text-white px-4 py-4 rounded-2xl text-center"
->
-  Community Partners
-</Link>
-            <a
+{navLinks.map((link) => (
+  <Link
+    key={link.to}
+    to={link.to}
+    onClick={() => setIsMenuOpen(false)}
+    className="border border-slate-700 text-white px-4 py-4 rounded-2xl text-center"
+  >
+    {link.label}
+  </Link>
+))}     
+       <a
               href="mailto:info@therenewedstrengthproject.org"
               onClick={() => setIsMenuOpen(false)}
               className="border border-slate-700 text-white px-4 py-4 rounded-2xl text-center"
