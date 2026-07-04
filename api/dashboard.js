@@ -1,0 +1,38 @@
+export default async function handler(req, res) {
+  if (req.method !== "GET") {
+    return res.status(405).json({
+      success: false,
+      error: "Method not allowed",
+    });
+  }
+
+  const scriptUrl = process.env.GOOGLE_DASHBOARD_SCRIPT_URL;
+
+  if (!scriptUrl) {
+    return res.status(500).json({
+      success: false,
+      error: "Missing GOOGLE_DASHBOARD_SCRIPT_URL",
+    });
+  }
+
+  try {
+    const response = await fetch(scriptUrl);
+
+    if (!response.ok) {
+      throw new Error(`Dashboard script failed with status ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate=300");
+
+    return res.status(200).json(data);
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+}

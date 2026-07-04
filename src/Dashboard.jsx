@@ -1,29 +1,74 @@
+import { useEffect, useMemo, useState } from 'react'
 import ParticipantFlow from './ParticipantFlow.jsx'
 import SystemDomains from './SystemDomains'
 import TRSPRestorationFramework from './TRSPRestorationFramework'
 
-const pilotStats = [
-  {
-    label: 'Fall Pilot Capacity',
-    value: '5',
-    detail: 'Loveland participants',
-  },
-  {
-    label: 'Program Model',
-    value: '16',
-    detail: 'training sessions per participant',
-  },
-  {
-    label: 'Sessions To Fund',
-    value: '80',
-    detail: 'total pilot sessions',
-  },
-  {
-    label: 'Primary Service',
-    value: 'PT',
-    detail: 'personal training only for now',
-  },
-]
+const fallbackDashboard = {
+  pilotCapacity: 5,
+  sessionsPerParticipant: 16,
+  costPerParticipant: 1500,
+  estimatedFundingGoal: 7500,
+  totalSessionsNeeded: 80,
+  applications: 0,
+  approved: 0,
+  sessionsCompleted: 0,
+  dollarsDeployed: 0,
+  followUpsDue: 0,
+  highPriority: 0,
+  active: 0,
+  waitlisted: 0,
+  fundingRaised: 0,
+  remainingGoal: 7500,
+  intakeComplete: 0,
+  outcomeComplete: 0,
+}
+
+function formatCurrency(value) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+  }).format(Number(value) || 0)
+}
+
+function formatNumber(value) {
+  return new Intl.NumberFormat('en-US').format(Number(value) || 0)
+}
+
+function buildPilotStats(dashboard) {
+  const capacity = dashboard.pilotCapacity || fallbackDashboard.pilotCapacity
+  const sessionsPerParticipant =
+    dashboard.sessionsPerParticipant || fallbackDashboard.sessionsPerParticipant
+  const totalSessions =
+    dashboard.totalSessionsNeeded || capacity * sessionsPerParticipant
+  const fundingGoal =
+    dashboard.estimatedFundingGoal ||
+    dashboard.remainingGoal ||
+    fallbackDashboard.estimatedFundingGoal
+
+  return [
+    {
+      label: 'Fall Pilot Capacity',
+      value: formatNumber(capacity),
+      detail: 'Loveland participants',
+    },
+    {
+      label: 'Program Model',
+      value: formatNumber(sessionsPerParticipant),
+      detail: 'training sessions per participant',
+    },
+    {
+      label: 'Sessions To Fund',
+      value: formatNumber(totalSessions),
+      detail: 'total pilot sessions',
+    },
+    {
+      label: 'Funding Goal',
+      value: formatCurrency(fundingGoal),
+      detail: `${formatCurrency(dashboard.costPerParticipant || fallbackDashboard.costPerParticipant)} per participant`,
+    },
+  ]
+}
 
 const readinessItems = [
   {
@@ -58,14 +103,16 @@ const readinessItems = [
   },
 ]
 
-const pipelineStages = [
-  { label: 'Inquiry', count: '0', description: 'Initial interest or referral' },
-  { label: 'Applied', count: '0', description: 'Google Form submitted' },
-  { label: 'Review', count: '0', description: 'Eligibility and fit check' },
-  { label: 'Approved', count: '0', description: 'Ready for onboarding' },
-  { label: 'Active', count: '0', description: 'Training has started' },
-  { label: 'Complete', count: '0', description: 'Pilot block finished' },
-]
+function buildPipelineStages(dashboard) {
+  return [
+    { label: 'Applied', count: dashboard.applications, description: 'Google Form submitted' },
+    { label: 'Approved', count: dashboard.approved, description: 'Ready for onboarding' },
+    { label: 'Active', count: dashboard.active, description: 'Training has started' },
+    { label: 'Waitlisted', count: dashboard.waitlisted, description: 'Holding for funding or timing' },
+    { label: 'Intake Complete', count: dashboard.intakeComplete, description: 'Core start documents complete' },
+    { label: 'Outcome Complete', count: dashboard.outcomeComplete, description: 'Pilot block finished' },
+  ]
+}
 
 const priorities = [
   'Confirm pilot cost per participant',
@@ -118,14 +165,45 @@ const externalTools = [
   },
 ]
 
-const impactMeasures = [
-  'People served',
-  'Sessions funded',
-  'Sessions completed',
-  'Dollars raised',
-  'Dollars deployed',
-  'Participant-defined restoration goals',
-]
+function buildImpactMeasures(dashboard) {
+  const totalSessions =
+    dashboard.totalSessionsNeeded ||
+    (dashboard.pilotCapacity || fallbackDashboard.pilotCapacity) *
+      (dashboard.sessionsPerParticipant || fallbackDashboard.sessionsPerParticipant)
+
+  return [
+    {
+      label: 'People Planned',
+      value: formatNumber(dashboard.pilotCapacity),
+      detail: 'Fall pilot capacity',
+    },
+    {
+      label: 'Sessions Funded',
+      value: formatNumber(totalSessions),
+      detail: 'Target sessions for the pilot',
+    },
+    {
+      label: 'Sessions Completed',
+      value: formatNumber(dashboard.sessionsCompleted),
+      detail: 'Recorded training sessions',
+    },
+    {
+      label: 'Funding Raised',
+      value: formatCurrency(dashboard.fundingRaised),
+      detail: 'Entered in the Google Sheet',
+    },
+    {
+      label: 'Remaining Goal',
+      value: formatCurrency(dashboard.remainingGoal),
+      detail: 'Still needed for the pilot',
+    },
+    {
+      label: 'Dollars Deployed',
+      value: formatCurrency(dashboard.dollarsDeployed),
+      detail: 'Paid or payable training cost',
+    },
+  ]
+}
 
 function SectionHeader({ eyebrow, title, description }) {
   return (
@@ -156,6 +234,45 @@ function Panel({ children, className = '' }) {
 }
 
 export default function Dashboard() {
+  const [dashboard, setDashboard] = useState(fallbackDashboard)
+  const [dataStatus, setDataStatus] = useState('Loading live data...')
+  const [lastUpdated, setLastUpdated] = useState('')
+
+  useEffect(() => {
+    let isMounted = true
+
+    async function loadDashboardData() {
+      try {
+        const response = await fetch('/api/dashboard')
+        if (!response.ok) {
+          throw new Error('Live dashboard data is unavailable.')
+        }
+
+        const data = await response.json()
+        if (!isMounted) return
+
+        setDashboard({ ...fallbackDashboard, ...(data.dashboard || {}) })
+        setLastUpdated(data.updatedAt || '')
+        setDataStatus('Live Google Sheet data')
+      } catch (error) {
+        console.error(error)
+        if (!isMounted) return
+        setDashboard(fallbackDashboard)
+        setDataStatus('Showing fallback values')
+      }
+    }
+
+    loadDashboardData()
+
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
+  const pilotStats = useMemo(() => buildPilotStats(dashboard), [dashboard])
+  const pipelineStages = useMemo(() => buildPipelineStages(dashboard), [dashboard])
+  const impactMeasures = useMemo(() => buildImpactMeasures(dashboard), [dashboard])
+
   return (
     <div className="min-h-screen bg-slate-950 text-white">
 
@@ -172,8 +289,20 @@ export default function Dashboard() {
           <p className="text-slate-400 text-xl mt-8 max-w-3xl leading-relaxed">
             A private operating hub for the fall pilot, core documents,
             weekly priorities, and the systems that support local cancer
-            survivorship restoration work.
+            treatment restoration work.
           </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-slate-400">
+            <span className="border border-[#d8a066]/40 text-[#d8a066] rounded-full px-4 py-2">
+              {dataStatus}
+            </span>
+
+            {lastUpdated && (
+              <span>
+                Last updated {new Date(lastUpdated).toLocaleString()}
+              </span>
+            )}
+          </div>
         </div>
       </section>
 
@@ -268,7 +397,7 @@ export default function Dashboard() {
                   className="border border-slate-800 rounded-2xl p-5 bg-slate-950"
                 >
                   <p className="text-4xl font-bold">
-                    {stage.count}
+                    {formatNumber(stage.count)}
                   </p>
                   <h3 className="text-lg font-semibold mt-4">
                     {stage.label}
@@ -346,10 +475,18 @@ export default function Dashboard() {
             <div className="grid md:grid-cols-2 gap-4">
               {impactMeasures.map((measure) => (
                 <div
-                  key={measure}
-                  className="border border-slate-800 rounded-2xl p-4 bg-slate-950 text-slate-300"
+                  key={measure.label}
+                  className="border border-slate-800 rounded-2xl p-5 bg-slate-950"
                 >
-                  {measure}
+                  <p className="text-slate-500 text-sm">
+                    {measure.label}
+                  </p>
+                  <p className="text-3xl font-bold mt-2">
+                    {measure.value}
+                  </p>
+                  <p className="text-slate-500 mt-2">
+                    {measure.detail}
+                  </p>
                 </div>
               ))}
             </div>
@@ -365,8 +502,8 @@ export default function Dashboard() {
             </h2>
 
             <p className="text-slate-300 leading-relaxed text-lg">
-              Cancer treatment saves lives. Survivorship restoration helps
-              people live again.
+              Cancer treatment saves lives. Restoration helps people work
+              toward the life and activities they value.
             </p>
 
             <p className="text-slate-500 mt-6 leading-relaxed">
