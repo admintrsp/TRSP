@@ -3,7 +3,10 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 export default function PartnerInquiry() {
+const [isSubmitting, setIsSubmitting] = useState(false);
+const [successMessage, setSuccessMessage] = useState("");
 const [formData, setFormData] = useState({
+
   organization: "",
   contact: "",
   email: "",
@@ -15,6 +18,7 @@ const [formData, setFormData] = useState({
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+  setIsSubmitting(true);
 
   try {
     const response = await fetch("/api/partner", {
@@ -29,12 +33,26 @@ const handleSubmit = async (e) => {
 
     console.log(text);
 
-    alert("Success! The API received your form.");
+setSuccessMessage(
+  "Thank you! Your partnership inquiry has been received. A member of our leadership team will contact you within two business days."
+);
+
+setFormData({
+  organization: "",
+  contact: "",
+  email: "",
+  phone: "",
+  organizationType: "",
+  partnershipInterest: [],
+  message: "",
+});
 
   } catch (error) {
     console.error(error);
     alert("Something went wrong.");
-  }
+  } finally {
+  setIsSubmitting(false);
+}
 };
 
 const partnershipOptions = [
@@ -255,6 +273,17 @@ const partnershipOptions = [
   onSubmit={handleSubmit}
   className="space-y-8"
 >
+    {successMessage && (
+  <div className="bg-emerald-900/30 border border-emerald-500 rounded-2xl p-6">
+    <h3 className="text-emerald-400 text-xl font-semibold mb-2">
+      Thank You!
+    </h3>
+
+    <p className="text-slate-200 leading-relaxed">
+      {successMessage}
+    </p>
+  </div>
+)}
 
   <div className="grid md:grid-cols-2 gap-6">
 
@@ -428,12 +457,15 @@ const partnershipOptions = [
 
 <div className="pt-6 space-y-5">
 
-  <button
-    type="submit"
-    className="
+<button
+  type="submit"
+  disabled={isSubmitting}
+  className="
       w-full
       bg-[#d8a066]
       hover:bg-[#e6b684]
+      disabled:bg-slate-600
+      disabled:cursor-not-allowed
       text-slate-950
       font-semibold
       text-lg
@@ -445,8 +477,10 @@ const partnershipOptions = [
       hover:shadow-[#d8a066]/30
     "
   >
-    Start the Conversation
-  </button>
+{isSubmitting
+  ? "Submitting..."
+  : "Start the Conversation"}
+    </button>
 
   <p className="text-center text-sm text-slate-400 leading-relaxed max-w-xl mx-auto">
     We respect your privacy. The information you share will only be used
