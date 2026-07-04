@@ -67,9 +67,14 @@ export default function Footer() {
                 Community Partners
               </Link>
 
-              <Link to="/apply" className="block text-slate-400 hover:text-[#d8a066] transition">
+              <a
+                href="https://forms.gle/XiRrN38kGjsYaFNb6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-slate-400 hover:text-[#d8a066] transition"
+              >
                 Apply
-              </Link>
+              </a>
 
             </div>
 
@@ -99,9 +104,14 @@ export default function Footer() {
 
             </div>
 
-            <button className="mt-8 bg-[#d8a066] hover:bg-[#c89453] transition px-6 py-3 rounded-xl text-slate-950 font-semibold">
+            <a
+              href="https://givebutter.com/general-fund-iz0pzq"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex mt-8 bg-[#d8a066] hover:bg-[#c89453] transition px-6 py-3 rounded-xl text-slate-950 font-semibold"
+            >
               Donate
-            </button>
+            </a>
 
           </div>
 

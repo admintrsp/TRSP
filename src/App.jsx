@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
      
 function Hero() {
   return (
@@ -491,42 +492,6 @@ function TrustSection() {
     </section>
   )
 }
-function Footer() {
-  return (
-    <footer className="relative overflow-hidden bg-gradient-to-b from-black via-slate-950 to-black border-t border-slate-800/40 text-slate-400 py-14">
-
-      <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
-
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-10 relative z-10">
-
-        <div>
-
-          <div className="text-white font-semibold mb-3 text-lg">
-            Renewed Strength Project Nonprofit Corporation
-          </div>
-
-          <div className="text-slate-400 leading-relaxed">
-            Northern Colorado
-          </div>
-
-        </div>
-
-        <div>
-
-          <a
-            href="mailto:info@therenewedstrengthproject.org"
-            className="hover:text-white transition duration-300"
-          >
-            info@therenewedstrengthproject.org
-          </a>
-
-        </div>
-
-      </div>
-    </footer>
-  )
-}
-
 export default function App() {
   return (
     <div className="font-sans bg-slate-950">

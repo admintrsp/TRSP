@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 export default function Evidence() {
 
@@ -337,6 +338,8 @@ export default function Evidence() {
         </div>
 
       </div>
+
+      <Footer />
 
     </div>
   )
