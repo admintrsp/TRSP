@@ -43,12 +43,14 @@ export default function FoundingStory() {
 
           </div>
 
-          <figure className="mt-16">
-            <img
-              src="/our-story-family-colorado.png"
-              alt="The Anderson family in a Colorado mountain setting"
-              className="w-full max-h-[720px] object-cover object-center rounded-3xl border border-slate-800 shadow-2xl shadow-black/30"
-            />
+          <figure className="mt-16 max-w-3xl">
+            <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-3 shadow-2xl shadow-black/30">
+              <img
+                src="/our-story-family-colorado.png"
+                alt="The Anderson family in a Colorado mountain setting"
+                className="w-full h-auto rounded-2xl"
+              />
+            </div>
 
             <figcaption className="mt-4 text-sm text-slate-500 leading-relaxed max-w-3xl">
               The Renewed Strength Project grew from both family experience and
