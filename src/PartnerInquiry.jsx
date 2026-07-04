@@ -14,10 +14,32 @@ const [formData, setFormData] = useState({
 });
 
 const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    console.log("Form submitted");
-  };
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbyjFSeuEKzv-Z9MEDBEaJy4-HzybFBvRL_Ms8k78_ODct7bMFGPRgK0nRSLWFfk9Bzx/exec",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
+
+    const result = await response.json();
+
+    console.log(result);
+
+    alert("Thank you! Your partnership inquiry has been submitted.");
+
+  } catch (error) {
+    console.error(error);
+
+    alert("Something went wrong. Please try again.");
+  }
+};
 
   return (
     <div className="bg-slate-950 text-white min-h-screen">
