@@ -97,6 +97,16 @@ const externalTools = [
     url: 'https://forms.gle/XiRrN38kGjsYaFNb6',
   },
   {
+    name: 'Participant Info',
+    purpose: 'Secure Google Sheet for pilot status and operations',
+    url: 'https://docs.google.com/spreadsheets/d/1Hp3tjcPxWeE81ZWiAHah9HgqDcvZGu49/edit',
+  },
+  {
+    name: 'CoachRX',
+    purpose: 'Training delivery and session notes',
+    url: 'https://www.coachrx.app/',
+  },
+  {
     name: 'Givebutter',
     purpose: 'Donations and campaigns',
     url: 'https://givebutter.com/general-fund-iz0pzq',
@@ -105,11 +115,6 @@ const externalTools = [
     name: 'Squarespace',
     purpose: 'Public website',
     url: 'https://www.therenewedstrengthproject.org/',
-  },
-  {
-    name: 'CoachRX',
-    purpose: 'Training delivery and session notes',
-    url: 'https://www.coachrx.app/',
   },
 ]
 
