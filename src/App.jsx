@@ -315,9 +315,9 @@ function PhilosophySection() {
             mobility, confidence, and participation in daily life.
           </p>
 
-          <p className="text-white italic pt-6 text-xl leading-relaxed">
-            “The work is not about promising everything back. It is about
-            helping restore what can be restored, safely and with care.”
+          <p className="text-white pt-6 text-xl leading-relaxed">
+            Safe, structured, evidence-informed movement can help people work
+            toward what cancer treatment has disrupted.
           </p>
 
         </div>
