@@ -1,317 +1,356 @@
-import TRSPRestorationFramework from './TRSPRestorationFramework'
 import ParticipantFlow from './ParticipantFlow.jsx'
 import SystemDomains from './SystemDomains'
+import TRSPRestorationFramework from './TRSPRestorationFramework'
+
+const pilotStats = [
+  {
+    label: 'Fall Pilot Capacity',
+    value: '5',
+    detail: 'Loveland participants',
+  },
+  {
+    label: 'Program Model',
+    value: '16',
+    detail: 'training sessions per participant',
+  },
+  {
+    label: 'Sessions To Fund',
+    value: '80',
+    detail: 'total pilot sessions',
+  },
+  {
+    label: 'Primary Service',
+    value: 'PT',
+    detail: 'personal training only for now',
+  },
+]
+
+const readinessItems = [
+  {
+    title: 'Participant Application',
+    status: 'Live',
+    note: 'Google Form is the intake front door.',
+  },
+  {
+    title: 'Participant Documents',
+    status: 'Built',
+    note: 'Waiver, clearance, readiness, and welcome materials are organized.',
+  },
+  {
+    title: 'Training Delivery',
+    status: 'Active',
+    note: 'Sessions are delivered through the gym and tracked in CoachRX.',
+  },
+  {
+    title: 'Funding Pathway',
+    status: 'Active',
+    note: 'Givebutter remains the donation and campaign system.',
+  },
+  {
+    title: 'Payment Workflow',
+    status: 'Define',
+    note: 'Confirm invoice timing, cost per session, and payment recordkeeping.',
+  },
+  {
+    title: 'Outcome Snapshot',
+    status: 'Define',
+    note: 'Pick the baseline and completion measures for the pilot.',
+  },
+]
+
+const pipelineStages = [
+  { label: 'Inquiry', count: '0', description: 'Initial interest or referral' },
+  { label: 'Applied', count: '0', description: 'Google Form submitted' },
+  { label: 'Review', count: '0', description: 'Eligibility and fit check' },
+  { label: 'Approved', count: '0', description: 'Ready for onboarding' },
+  { label: 'Active', count: '0', description: 'Training has started' },
+  { label: 'Complete', count: '0', description: 'Pilot block finished' },
+]
+
+const priorities = [
+  'Confirm pilot cost per participant',
+  'Set the fall funding target',
+  'Finalize gym billing process',
+  'Choose outcome measures for baseline and completion',
+  'Review participant application responses weekly',
+]
+
+const weeklyRhythm = [
+  {
+    title: 'Monday',
+    detail: 'Review applications, funding status, and follow-ups.',
+  },
+  {
+    title: 'Midweek',
+    detail: 'Check CoachRX notes, session completion, and participant needs.',
+  },
+  {
+    title: 'Friday',
+    detail: 'Update board notes, donor impact language, and next actions.',
+  },
+]
+
+const externalTools = [
+  {
+    name: 'Participant Application',
+    purpose: 'Google Form intake',
+    url: 'https://forms.gle/XiRrN38kGjsYaFNb6',
+  },
+  {
+    name: 'Givebutter',
+    purpose: 'Donations and campaigns',
+    url: 'https://givebutter.com/general-fund-iz0pzq',
+  },
+  {
+    name: 'Squarespace',
+    purpose: 'Public website',
+    url: 'https://www.therenewedstrengthproject.org/',
+  },
+  {
+    name: 'CoachRX',
+    purpose: 'Training delivery and session notes',
+    url: 'https://www.coachrx.app/',
+  },
+]
+
+const impactMeasures = [
+  'People served',
+  'Sessions funded',
+  'Sessions completed',
+  'Dollars raised',
+  'Dollars deployed',
+  'Participant-defined restoration goals',
+]
+
+function SectionHeader({ eyebrow, title, description }) {
+  return (
+    <div className="mb-8">
+      <p className="uppercase tracking-widest text-slate-500 text-sm mb-2">
+        {eyebrow}
+      </p>
+
+      <h2 className="text-3xl md:text-4xl font-bold">
+        {title}
+      </h2>
+
+      {description && (
+        <p className="text-slate-400 mt-3 max-w-3xl leading-relaxed">
+          {description}
+        </p>
+      )}
+    </div>
+  )
+}
+
+function Panel({ children, className = '' }) {
+  return (
+    <div className={`bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 ${className}`}>
+      {children}
+    </div>
+  )
+}
+
 export default function Dashboard() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
 
-      {/* HERO */}
       <section className="border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-8 py-16">
-
+        <div className="max-w-7xl mx-auto px-6 md:px-8 py-16">
           <p className="uppercase tracking-[0.3em] text-slate-500 text-sm mb-4">
             The Renewed Strength Project
           </p>
 
-          <h1 className="text-6xl font-bold leading-tight max-w-4xl">
-            Founder Operating System
+          <h1 className="text-5xl md:text-6xl font-bold leading-tight max-w-4xl">
+            Founder Command Center
           </h1>
 
           <p className="text-slate-400 text-xl mt-8 max-w-3xl leading-relaxed">
-            Building survivorship restoration infrastructure intentionally,
-            patiently, and systemically.
+            A private operating hub for the fall pilot, core documents,
+            weekly priorities, and the systems that support local cancer
+            survivorship restoration work.
           </p>
-
         </div>
       </section>
 
-{/* FOUNDER COMMAND CENTER */}
+      <main className="max-w-7xl mx-auto px-6 md:px-8 py-10 space-y-8">
 
-<section className="max-w-7xl mx-auto px-8 py-10">
+        <section>
+          <SectionHeader
+            eyebrow="Fall Pilot"
+            title="Pilot Readiness Snapshot"
+            description="The current build is intentionally simple: five local participants, personal training as the first funded service, and existing tools doing the jobs they already do well."
+          />
 
-  <div className="mb-8">
-    <p className="uppercase tracking-widest text-slate-500 text-sm mb-2">
-      Live Operations
-    </p>
-
-    <h2 className="text-4xl font-bold">
-      Founder Command Center
-    </h2>
-
-    <p className="text-slate-400 mt-2">
-      Daily operational pulse of The Renewed Strength Project.
-    </p>
-  </div>
-
-  <div className="grid md:grid-cols-4 gap-4">
-
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-      <p className="text-slate-500 text-sm">
-        Active Participants
-      </p>
-      <p className="text-5xl font-bold mt-3">
-        12
-      </p>
-    </div>
-
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-      <p className="text-slate-500 text-sm">
-        Applications
-      </p>
-      <p className="text-5xl font-bold mt-3">
-        8
-      </p>
-    </div>
-
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-      <p className="text-slate-500 text-sm">
-        Waitlist
-      </p>
-      <p className="text-5xl font-bold mt-3">
-        3
-      </p>
-    </div>
-
-    <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-      <p className="text-slate-500 text-sm">
-        Sessions This Month
-      </p>
-      <p className="text-5xl font-bold mt-3">
-        41
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-
-
-
-
-{/* PARTICIPANT JOURNEY */}
-
-<section className="max-w-7xl mx-auto px-8 pb-8">
-
-  <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
-
-    <p className="uppercase tracking-widest text-slate-500 text-sm mb-4">
-      Participant Journey
-    </p>
-
-    <div className="grid md:grid-cols-5 gap-8 text-center">
-
-      <div>
-        <p className="text-4xl font-bold">20</p>
-        <p className="text-slate-500 mt-2">Referrals</p>
-      </div>
-
-      <div>
-        <p className="text-4xl font-bold">14</p>
-        <p className="text-slate-500 mt-2">Applications</p>
-      </div>
-
-      <div>
-        <p className="text-4xl font-bold">8</p>
-        <p className="text-slate-500 mt-2">Onboarding</p>
-      </div>
-
-      <div>
-        <p className="text-4xl font-bold">5</p>
-        <p className="text-slate-500 mt-2">Ready To Start</p>
-      </div>
-
-      <div>
-        <p className="text-4xl font-bold">12</p>
-        <p className="text-slate-500 mt-2">Active</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-{/* Todays Priorities */}
-
-<section className="max-w-7xl mx-auto px-8 pb-8">
-
-  <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
-
-    <p className="uppercase tracking-widest text-slate-500 text-sm mb-4">
-      Immediate Attention
-    </p>
-
-    <h2 className="text-3xl font-semibold mb-8">
-      Today's Priorities
-    </h2>
-
-    <div className="space-y-4">
-
-      <div className="border border-slate-800 rounded-2xl p-4">
-        Review New Applications
-      </div>
-
-      <div className="border border-slate-800 rounded-2xl p-4">
-        Schedule Assessments
-      </div>
-
-      <div className="border border-slate-800 rounded-2xl p-4">
-        Follow Up Participants
-      </div>
-
-      <div className="border border-slate-800 rounded-2xl p-4">
-        Board & Partnership Tasks
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-{/* ACTIVE PARTICIPANTS */}
-
-<section className="max-w-7xl mx-auto px-8 pb-8">
-
-  <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
-
-    <div className="flex items-center justify-between mb-8">
-
-      <div>
-        <p className="uppercase tracking-widest text-slate-500 text-sm mb-2">
-          Active Participants
-        </p>
-
-        <h2 className="text-3xl font-semibold">
-          Current Caseload
-        </h2>
-      </div>
-
-      <div className="text-slate-400">
-        1 Active Participant
-      </div>
-
-    </div>
-
-    <div className="grid gap-4">
-
-      <div className="border border-slate-800 rounded-2xl p-6">
-
-        <div className="flex justify-between items-start">
-
-          <div>
-            <h3 className="text-xl font-semibold">
-              Kent Becker
-            </h3>
-
-            <p className="text-slate-400 mt-1">
-              TRSP001
-            </p>
+          <div className="grid md:grid-cols-4 gap-4">
+            {pilotStats.map((stat) => (
+              <Panel key={stat.label} className="rounded-2xl">
+                <p className="text-slate-500 text-sm">
+                  {stat.label}
+                </p>
+                <p className="text-5xl font-bold mt-3">
+                  {stat.value}
+                </p>
+                <p className="text-slate-400 mt-3">
+                  {stat.detail}
+                </p>
+              </Panel>
+            ))}
           </div>
+        </section>
 
-          <div className="text-right">
-            <p className="text-sm text-slate-500">
-              Coach
-            </p>
+        <section className="grid lg:grid-cols-3 gap-8">
+          <Panel className="lg:col-span-2">
+            <SectionHeader
+              eyebrow="Launch Checklist"
+              title="What Must Be Ready"
+              description="A working view of the pieces that make the pilot real without adding participant accounts or a complex database too early."
+            />
 
-            <p>
-              Scott
-            </p>
-          </div>
+            <div className="grid md:grid-cols-2 gap-4">
+              {readinessItems.map((item) => (
+                <div
+                  key={item.title}
+                  className="border border-slate-800 rounded-2xl p-5 bg-slate-950"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="text-xl font-semibold">
+                      {item.title}
+                    </h3>
+                    <span className="text-xs uppercase tracking-widest text-[#d8a066] border border-[#d8a066]/40 rounded-full px-3 py-1">
+                      {item.status}
+                    </span>
+                  </div>
 
-        </div>
+                  <p className="text-slate-400 mt-3 leading-relaxed">
+                    {item.note}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Panel>
 
-        <div className="grid md:grid-cols-4 gap-4 mt-6">
+          <Panel>
+            <SectionHeader
+              eyebrow="This Week"
+              title="Priorities"
+            />
 
-          <div>
-            <p className="text-slate-500 text-sm">
-              Cancer Type
-            </p>
+            <div className="space-y-3">
+              {priorities.map((priority) => (
+                <div
+                  key={priority}
+                  className="border border-slate-800 rounded-2xl p-4 bg-slate-950 text-slate-300"
+                >
+                  {priority}
+                </div>
+              ))}
+            </div>
+          </Panel>
+        </section>
 
-            <p>
-              Non-Hodgkins Lymphoma
-            </p>
-          </div>
+        <section>
+          <Panel>
+            <SectionHeader
+              eyebrow="Participant Pipeline"
+              title="Fall Pilot Flow"
+              description="Keep this section at summary level until the dashboard has login protection and a real private data source. No names, diagnoses, or treatment details need to live here right now."
+            />
 
-          <div>
-            <p className="text-slate-500 text-sm">
-              Stage
-            </p>
+            <div className="grid md:grid-cols-6 gap-4">
+              {pipelineStages.map((stage) => (
+                <div
+                  key={stage.label}
+                  className="border border-slate-800 rounded-2xl p-5 bg-slate-950"
+                >
+                  <p className="text-4xl font-bold">
+                    {stage.count}
+                  </p>
+                  <h3 className="text-lg font-semibold mt-4">
+                    {stage.label}
+                  </h3>
+                  <p className="text-slate-500 text-sm mt-2 leading-relaxed">
+                    {stage.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Panel>
+        </section>
 
-            <p>
-              Stage 1
-            </p>
-          </div>
+        <section className="grid lg:grid-cols-2 gap-8">
+          <Panel>
+            <SectionHeader
+              eyebrow="Weekly Rhythm"
+              title="Operating Cadence"
+              description="A simple rhythm keeps the nonprofit moving without turning every task into a new system."
+            />
 
-          <div>
-            <p className="text-slate-500 text-sm">
-              Sessions
-            </p>
+            <div className="space-y-4">
+              {weeklyRhythm.map((item) => (
+                <div
+                  key={item.title}
+                  className="border border-slate-800 rounded-2xl p-5 bg-slate-950"
+                >
+                  <h3 className="text-xl font-semibold text-[#d8a066]">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-400 mt-2">
+                    {item.detail}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Panel>
 
-            <p>
-              2
-            </p>
-          </div>
+          <Panel>
+            <SectionHeader
+              eyebrow="External Tools"
+              title="Where The Work Lives"
+              description="These tools stay in place. The dashboard gives you one quiet place to reach them."
+            />
 
-          <div>
-            <p className="text-slate-500 text-sm">
-              Status
-            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              {externalTools.map((tool) => (
+                <a
+                  key={tool.name}
+                  href={tool.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-slate-800 rounded-2xl p-5 bg-slate-950 hover:border-[#d8a066] transition"
+                >
+                  <h3 className="text-xl font-semibold">
+                    {tool.name}
+                  </h3>
+                  <p className="text-slate-500 mt-2">
+                    {tool.purpose}
+                  </p>
+                </a>
+              ))}
+            </div>
+          </Panel>
+        </section>
 
-            <p>
-              Active Participant
-            </p>
-          </div>
+        <section className="grid lg:grid-cols-2 gap-8">
+          <Panel>
+            <SectionHeader
+              eyebrow="Impact Snapshot"
+              title="What To Track First"
+              description="For the pilot, track a few clear signals that help donors, board members, and future partners understand what their support made possible."
+            />
 
-        </div>
+            <div className="grid md:grid-cols-2 gap-4">
+              {impactMeasures.map((measure) => (
+                <div
+                  key={measure}
+                  className="border border-slate-800 rounded-2xl p-4 bg-slate-950 text-slate-300"
+                >
+                  {measure}
+                </div>
+              ))}
+            </div>
+          </Panel>
 
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section className="max-w-7xl mx-auto px-8 pb-8">
-
-  <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
-
-    <p className="uppercase tracking-widest text-slate-500 text-sm mb-4">
-      Program Health
-    </p>
-
-    <div className="grid md:grid-cols-4 gap-4">
-
-      <div className="border border-slate-800 rounded-2xl p-4">
-        <p className="text-slate-500 text-sm">Assessments Due</p>
-        <p className="text-3xl font-bold">0</p>
-      </div>
-
-      <div className="border border-slate-800 rounded-2xl p-4">
-        <p className="text-slate-500 text-sm">Pending Applications</p>
-        <p className="text-3xl font-bold">0</p>
-      </div>
-
-      <div className="border border-slate-800 rounded-2xl p-4">
-        <p className="text-slate-500 text-sm">Follow Ups Needed</p>
-        <p className="text-3xl font-bold">0</p>
-      </div>
-
-      <div className="border border-slate-800 rounded-2xl p-4">
-        <p className="text-slate-500 text-sm">Participants At Risk</p>
-        <p className="text-3xl font-bold">0</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-          {/* NORTH STAR */}
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+          <Panel>
             <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
               North Star
             </p>
@@ -321,92 +360,28 @@ export default function Dashboard() {
             </h2>
 
             <p className="text-slate-300 leading-relaxed text-lg">
-              Cancer treatment saves lives.
-              Survivorship restoration helps people live again.
+              Cancer treatment saves lives. Survivorship restoration helps
+              people live again.
             </p>
 
             <p className="text-slate-500 mt-6 leading-relaxed">
-              They survived treatment.
-              Now help them reclaim strength, confidence, function,
-              and participation in life.
+              The pilot exists to remove cost as a barrier to safe,
+              individualized personal training for people treated for cancer
+              in Northern Colorado.
             </p>
+          </Panel>
+        </section>
+
+        <section className="grid lg:grid-cols-2 gap-8">
+          <ParticipantFlow />
+          <div>
+            <TRSPRestorationFramework />
+            <SystemDomains />
           </div>
+        </section>
 
-
-{/* RESTORATION IN PROGRESS */}
-
-<section className="max-w-7xl mx-auto px-8 pb-12">
-
-  <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
-
-    <p className="uppercase tracking-widest text-slate-500 text-sm mb-4">
-      Restoration In Progress
-    </p>
-
-    <h2 className="text-3xl font-semibold mb-8">
-      Most Common Restoration Goals
-    </h2>
-
-    <div className="grid md:grid-cols-2 gap-4">
-
-      <div className="border border-slate-800 rounded-2xl p-5">
-        <p className="text-2xl mb-2">🥾</p>
-        <h3 className="font-semibold">
-          Return To Hiking
-        </h3>
-        <p className="text-slate-500 mt-2">
-          4 Participants
-        </p>
-      </div>
-
-      <div className="border border-slate-800 rounded-2xl p-5">
-        <p className="text-2xl mb-2">💼</p>
-        <h3 className="font-semibold">
-          Return To Work
-        </h3>
-        <p className="text-slate-500 mt-2">
-          3 Participants
-        </p>
-      </div>
-
-      <div className="border border-slate-800 rounded-2xl p-5">
-        <p className="text-2xl mb-2">👨‍👩‍👧</p>
-        <h3 className="font-semibold">
-          Play With Grandchildren
-        </h3>
-        <p className="text-slate-500 mt-2">
-          2 Participants
-        </p>
-      </div>
-
-      <div className="border border-slate-800 rounded-2xl p-5">
-        <p className="text-2xl mb-2">✈️</p>
-        <h3 className="font-semibold">
-          Travel Again
-        </h3>
-        <p className="text-slate-500 mt-2">
-          1 Participant
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-      {/* MAIN CONTENT */}
-      <section className="max-w-7xl mx-auto px-8 py-12">
-
-        <div className="grid lg:grid-cols-2 gap-8">
-
-            <ParticipantFlow />
-<TRSPRestorationFramework />       
-     <SystemDomains />
-        
-
-          {/* CURRENT PHASE */}
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+        <section className="grid lg:grid-cols-2 gap-8">
+          <Panel>
             <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
               Current Phase
             </p>
@@ -416,172 +391,38 @@ export default function Dashboard() {
             </h2>
 
             <p className="text-slate-400 text-lg">
-              Years 0–2
+              Years 0-2
             </p>
 
             <div className="mt-8 space-y-4">
-
-              <div className="border border-slate-800 rounded-2xl p-4">
+              <div className="border border-slate-800 rounded-2xl p-4 bg-slate-950">
                 <h3 className="font-semibold mb-2">
                   Primary Objective
                 </h3>
 
                 <p className="text-slate-400">
-                  Build systems. Learn operationally.
-                  Prove the model carefully.
+                  Build systems, learn operationally, and prove the model
+                  carefully with a local pilot.
                 </p>
               </div>
 
-              <div className="border border-slate-800 rounded-2xl p-4">
+              <div className="border border-slate-800 rounded-2xl p-4 bg-slate-950">
                 <h3 className="font-semibold mb-2">
                   Current Focus
                 </h3>
 
                 <ul className="space-y-2 text-slate-400">
-                  <li>• Participant onboarding</li>
-                  <li>• Assessments + outcomes</li>
-                  <li>• SOP development</li>
-                  <li>• Pilot participants</li>
-                  <li>• Partnership building</li>
+                  <li>Participant onboarding</li>
+                  <li>Funding the first five participants</li>
+                  <li>Gym payment workflow</li>
+                  <li>Assessment and outcome rhythm</li>
+                  <li>Partnership building</li>
                 </ul>
               </div>
-
             </div>
-          </div>
+          </Panel>
 
-
-          {/* EVOLUTION MAP */}
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 lg:col-span-2">
-            <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
-              Organizational Evolution
-            </p>
-
-            <h2 className="text-3xl font-semibold mb-10">
-              Long-Term Development Path
-            </h2>
-
-            <div className="grid md:grid-cols-4 gap-6">
-
-              <div className="border border-slate-800 rounded-2xl p-6">
-                <p className="text-slate-500 text-sm mb-2">
-                  YEARS 0–2
-                </p>
-
-                <h3 className="text-xl font-semibold mb-4">
-                  Foundation
-                </h3>
-
-                <ul className="space-y-2 text-slate-400 text-sm">
-                  <li>• Build systems</li>
-                  <li>• Pilot participants</li>
-                  <li>• Assessments</li>
-                  <li>• Partnerships</li>
-                </ul>
-              </div>
-
-              <div className="border border-slate-800 rounded-2xl p-6">
-                <p className="text-slate-500 text-sm mb-2">
-                  YEARS 2–5
-                </p>
-
-                <h3 className="text-xl font-semibold mb-4">
-                  Refinement
-                </h3>
-
-                <ul className="space-y-2 text-slate-400 text-sm">
-                  <li>• Coaching standards</li>
-                  <li>• Apprentice trainers</li>
-                  <li>• Outcomes reporting</li>
-                  <li>• Operational maturity</li>
-                </ul>
-              </div>
-
-              <div className="border border-slate-800 rounded-2xl p-6">
-                <p className="text-slate-500 text-sm mb-2">
-                  YEARS 5–8
-                </p>
-
-                <h3 className="text-xl font-semibold mb-4">
-                  Expansion
-                </h3>
-
-                <ul className="space-y-2 text-slate-400 text-sm">
-                  <li>• Full-time leadership</li>
-                  <li>• Staff development</li>
-                  <li>• Community systems</li>
-                  <li>• Regional credibility</li>
-                </ul>
-              </div>
-
-              <div className="border border-slate-800 rounded-2xl p-6">
-                <p className="text-slate-500 text-sm mb-2">
-                  YEARS 8–12
-                </p>
-
-                <h3 className="text-xl font-semibold mb-4">
-                  Restoration Space
-                </h3>
-
-                <ul className="space-y-2 text-slate-400 text-sm">
-                  <li>• Dedicated facility</li>
-                  <li>• Coaching culture</li>
-                  <li>• Survivorship ecosystem</li>
-                  <li>• Long-term sustainability</li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-
-
-          {/* REVENUE THRESHOLDS */}
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
-            <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
-              Revenue Thresholds
-            </p>
-
-            <h2 className="text-3xl font-semibold mb-8">
-              Organizational Unlocks
-            </h2>
-
-            <div className="space-y-4">
-
-              <div className="border border-slate-800 rounded-2xl p-4">
-                <p className="text-xl font-semibold">
-                  $25K
-                </p>
-
-                <p className="text-slate-400 mt-2">
-                  Stable pilot operations
-                </p>
-              </div>
-
-              <div className="border border-slate-800 rounded-2xl p-4">
-                <p className="text-xl font-semibold">
-                  $100K
-                </p>
-
-                <p className="text-slate-400 mt-2">
-                  Part-time founder compensation
-                </p>
-              </div>
-
-              <div className="border border-slate-800 rounded-2xl p-4">
-                <p className="text-xl font-semibold">
-                  $250K
-                </p>
-
-                <p className="text-slate-400 mt-2">
-                  Apprenticeship + staff development
-                </p>
-              </div>
-
-            </div>
-          </div>
-
-
-          {/* CULTURE */}
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+          <Panel>
             <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
               Cultural Direction
             </p>
@@ -591,7 +432,6 @@ export default function Dashboard() {
             </h2>
 
             <div className="grid grid-cols-2 gap-4">
-
               {[
                 'Calm',
                 'Capable',
@@ -604,18 +444,16 @@ export default function Dashboard() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="border border-slate-800 rounded-2xl p-4 text-center text-slate-300"
+                  className="border border-slate-800 rounded-2xl p-4 text-center text-slate-300 bg-slate-950"
                 >
                   {item}
                 </div>
               ))}
-
             </div>
-          </div>
+          </Panel>
+        </section>
 
-        </div>
-
-      </section>
+      </main>
 
     </div>
   )
