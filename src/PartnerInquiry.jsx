@@ -28,11 +28,13 @@ const handleSubmit = async (e) => {
       }
     );
 
-    const result = await response.json();
+console.log(response);
 
-    console.log(result);
+const text = await response.text();
 
-    alert("Thank you! Your partnership inquiry has been submitted.");
+console.log(text);
+
+alert("Finished!");
 
   } catch (error) {
     console.error(error);
