@@ -205,6 +205,26 @@ function buildImpactMeasures(dashboard) {
   ]
 }
 
+function buildFundingProgress(dashboard) {
+  const goal =
+    Number(dashboard.estimatedFundingGoal) ||
+    Number(dashboard.fundingRaised) + Number(dashboard.remainingGoal) ||
+    fallbackDashboard.estimatedFundingGoal
+  const raised = Math.max(Number(dashboard.fundingRaised) || 0, 0)
+  const remaining = Math.max(
+    Number(dashboard.remainingGoal) || goal - raised,
+    0,
+  )
+  const fundedPercent = goal > 0 ? Math.min((raised / goal) * 100, 100) : 0
+
+  return {
+    goal,
+    raised,
+    remaining,
+    fundedPercent,
+  }
+}
+
 function SectionHeader({ eyebrow, title, description }) {
   return (
     <div className="mb-8">
@@ -272,6 +292,7 @@ export default function Dashboard() {
   const pilotStats = useMemo(() => buildPilotStats(dashboard), [dashboard])
   const pipelineStages = useMemo(() => buildPipelineStages(dashboard), [dashboard])
   const impactMeasures = useMemo(() => buildImpactMeasures(dashboard), [dashboard])
+  const fundingProgress = useMemo(() => buildFundingProgress(dashboard), [dashboard])
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
@@ -330,6 +351,75 @@ export default function Dashboard() {
               </Panel>
             ))}
           </div>
+        </section>
+
+        <section>
+          <Panel>
+            <div className="grid lg:grid-cols-[1.3fr_1fr] gap-8 items-center">
+              <div>
+                <p className="uppercase tracking-widest text-slate-500 text-sm mb-3">
+                  Funding Progress
+                </p>
+
+                <h2 className="text-3xl md:text-4xl font-bold">
+                  Fall Pilot Funding
+                </h2>
+
+                <p className="text-slate-400 mt-3 max-w-2xl leading-relaxed">
+                  This shows how much has been raised toward the current pilot
+                  goal and how much is still needed to fully fund the first
+                  five local participants.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-3 gap-4">
+                <div className="border border-slate-800 rounded-2xl p-5 bg-slate-950">
+                  <p className="text-slate-500 text-sm">
+                    Goal
+                  </p>
+                  <p className="text-3xl font-bold mt-2">
+                    {formatCurrency(fundingProgress.goal)}
+                  </p>
+                </div>
+
+                <div className="border border-[#d8a066]/50 rounded-2xl p-5 bg-slate-950">
+                  <p className="text-slate-500 text-sm">
+                    Raised
+                  </p>
+                  <p className="text-3xl font-bold mt-2 text-[#d8a066]">
+                    {formatCurrency(fundingProgress.raised)}
+                  </p>
+                </div>
+
+                <div className="border border-slate-800 rounded-2xl p-5 bg-slate-950">
+                  <p className="text-slate-500 text-sm">
+                    Left To Raise
+                  </p>
+                  <p className="text-3xl font-bold mt-2">
+                    {formatCurrency(fundingProgress.remaining)}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <div className="flex items-center justify-between gap-4 text-sm text-slate-400 mb-3">
+                <span>
+                  {Math.round(fundingProgress.fundedPercent)}% funded
+                </span>
+                <span>
+                  {formatCurrency(fundingProgress.remaining)} remaining
+                </span>
+              </div>
+
+              <div className="h-4 rounded-full bg-slate-950 border border-slate-800 overflow-hidden">
+                <div
+                  className="h-full bg-[#d8a066] transition-all"
+                  style={{ width: `${fundingProgress.fundedPercent}%` }}
+                />
+              </div>
+            </div>
+          </Panel>
         </section>
 
         <section className="grid lg:grid-cols-3 gap-8">
