@@ -7,7 +7,7 @@ function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/mountains.jpg')"
+          backgroundImage: "url('/hero-bg.png')"
         }}
       />
 
@@ -18,13 +18,15 @@ function Hero() {
       <div className="max-w-5xl mx-auto px-6 relative z-10 pt-32">
 
         <h1 className="text-5xl md:text-7xl font-bold leading-tight max-w-4xl mb-8">
-          Reclaiming strength, function, and everyday life.
+          Helping restore what cancer treatment can take.
         </h1>
 
         <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mb-10">
-          Through individualized exercise support and meaningful human connection,
-          we help individuals rebuild confidence, resilience, and hope during
-          and after treatment.
+          Cancer and its treatment can affect strength, energy, confidence,
+          and the ability to do the things people love. The Renewed Strength
+          Project helps individuals treated for cancer access individualized,
+          evidence-informed training support focused on restoring function,
+          confidence, and participation in everyday life.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
@@ -64,18 +66,20 @@ function WhatWeDo() {
       <div className="max-w-4xl mx-auto px-6 relative z-10">
 
         <h2 className="text-4xl font-bold mb-8">
-          What We Do
+          Restoration Is The Goal
         </h2>
 
         <p className="text-lg leading-relaxed text-slate-300">
-          The Renewed Strength Project provides financial support for
-          individuals impacted by cancer to access professional,
-          evidence-based personal training.
+          The Renewed Strength Project provides financial support so
+          individuals treated for cancer can access professional,
+          restoration-focused personal training without cost becoming the
+          barrier.
         </p>
 
         <p className="text-lg leading-relaxed text-slate-300 mt-6">
-          Our goal is simple: help people maintain strength, function, and
-          quality of life during and after cancer treatment.
+          Personal training is the current tool. Restoration is the purpose:
+          helping each person work toward meaningful activities, roles, and
+          routines that cancer has disrupted.
         </p>
 
       </div>
@@ -98,12 +102,13 @@ function WhyItMatters() {
         <div className="space-y-6 text-lg leading-relaxed text-slate-300">
 
           <p>
-            Cancer impacts strength, energy, confidence, and daily life.
+            Cancer can change strength, energy, confidence, and daily life.
           </p>
 
           <p>
-            Research shows that guided exercise can significantly improve
-            outcomes, but access is often limited by cost.
+            Guided exercise can support strength, function, fatigue, and
+            quality of life, but access to qualified support is often limited
+            by cost.
           </p>
 
           <p>
@@ -129,9 +134,10 @@ function HowItWorks() {
           </h2>
 
           <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
-            The Renewed Strength Project exists to help individuals navigating
-            and recovering from cancer reconnect with strength, function,
-            confidence, and hope through individualized exercise support.
+            The Renewed Strength Project exists to help individuals treated
+            for cancer take the next supported step toward strength, function,
+            confidence, and the parts of life they want to participate in
+            again.
           </p>
 
         </div>
@@ -143,13 +149,13 @@ function HowItWorks() {
             <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-[#d8a066]"></div>
 
             <h3 className="text-3xl font-semibold mb-6">
-              Reach Out
+              Apply for Support
             </h3>
 
             <p className="text-slate-300 text-lg leading-relaxed">
               Participation begins when an individual chooses to take the first step.
               Whether someone is actively navigating treatment or years into survivorship,
-              the process starts with connection, conversation, and understanding.
+              the process starts with an application, connection, and understanding.
             </p>
 
           </div>
@@ -159,14 +165,14 @@ function HowItWorks() {
             <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-[#d8a066]"></div>
 
             <h3 className="text-3xl font-semibold mb-6">
-              Build a Plan Together
+              Connect and Review Fit
             </h3>
 
             <p className="text-slate-300 text-lg leading-relaxed">
               We take time to learn each person’s story, current challenges,
-              goals, treatment history, and physical capacity in order to
-              create an individualized path forward grounded in safety,
-              professionalism, and support.
+              goals, treatment history, and physical capacity. Together, we
+              determine whether the program is a safe and appropriate fit based
+              on current capacity and available funding.
             </p>
 
           </div>
@@ -176,14 +182,14 @@ function HowItWorks() {
             <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-[#d8a066]"></div>
 
             <h3 className="text-3xl font-semibold mb-6">
-              Rebuild Strength, Function, and Hope
+              Begin Restoration-Focused Training
             </h3>
 
             <p className="text-slate-300 text-lg leading-relaxed">
               As resources and program capacity allow, individuals may receive
               support to engage in evidence-informed exercise and personal
-              training designed to help restore autonomy, resilience,
-              confidence, and participation in everyday life during and after treatment.
+              training designed to help rebuild strength, function, confidence,
+              and participation in everyday life during and after treatment.
             </p>
 
             <p className="text-slate-400 text-base leading-relaxed mt-6">
@@ -227,8 +233,9 @@ function HowItWorks() {
 
           <p>
             Throughout that experience, one reality continued to repeat itself:
-            many individuals wanted access to evidence-based training support,
-            but simply could not afford it during treatment and recovery.
+            many individuals wanted support to rebuild strength and return to
+            meaningful parts of life, but simply could not afford qualified
+            training during treatment and recovery.
           </p>
 
           <div className="border border-[#d8a066]/30 bg-[#d8a066]/5 rounded-2xl p-8 my-12 backdrop-blur">
@@ -242,7 +249,8 @@ function HowItWorks() {
           <p>
             The Renewed Strength Project was created to help remove that barrier
             and improve access to individualized, professionally guided,
-            evidence-informed exercise support for individuals across the cancer continuum.
+            evidence-informed training support focused on restoration, not
+            performance alone.
           </p>
 
         </div>
@@ -261,13 +269,13 @@ function MissionStatement() {
       <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
 
         <p className="text-4xl md:text-6xl leading-[1.2] font-light text-white">
-          The goal of exercise oncology is not simply performance.
+          Personal training is the tool. Restoration is the goal.
         </p>
 
         <p className="text-xl text-slate-300 leading-relaxed mt-10">
-          It is helping individuals move through treatment and recovery
-          with greater resilience, function, and the ability to stay engaged
-          in everyday life.
+          We use individualized, evidence-informed movement to help people
+          work toward the strength, confidence, and participation that cancer
+          and treatment can disrupt.
         </p>
 
       </div>
@@ -284,7 +292,7 @@ function PhilosophySection() {
       <div className="max-w-4xl mx-auto px-6 relative z-10">
 
         <h2 className="text-4xl font-bold mb-10">
-          Evidence-Informed. Individualized. Safety-Driven.
+          Evidence-Informed. Individualized. Restoration-Focused.
         </h2>
 
         <div className="space-y-6 text-lg leading-relaxed text-slate-300">
@@ -297,18 +305,19 @@ function PhilosophySection() {
           <p>
             Our training approach is individualized, progressive, and rooted
             in safety. Every participant receives programming tailored to their
-            current capacity, treatment history, and functional baseline.
+            current capacity, treatment history, functional baseline, and
+            restoration goals.
           </p>
 
           <p>
             We emphasize structured progression, clinical awareness, and
-            appropriate supervision to support meaningful improvements in
-            strength, mobility, confidence, and quality of life.
+            appropriate supervision to support meaningful progress in strength,
+            mobility, confidence, and participation in daily life.
           </p>
 
           <p className="text-white italic pt-6 text-xl leading-relaxed">
-            “Safe, structured, evidence-informed movement is not optional in
-            recovery — it is foundational.”
+            “The work is not about promising everything back. It is about
+            helping restore what can be restored, safely and with care.”
           </p>
 
         </div>
@@ -326,24 +335,25 @@ function ImpactSection() {
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
 
         <h2 className="text-4xl font-bold mb-8">
-          Help Someone Rebuild Their Strength
+          Help Launch Restoration Support This Fall
         </h2>
 
         <div className="space-y-6 text-lg leading-relaxed text-slate-300 mb-12">
 
           <p>
-            We are currently launching our first group of participants.
+            We are preparing to launch our first local group of participants
+            in Loveland and Northern Colorado.
           </p>
 
           <p>
-            Your support directly funds access to professional,
-            evidence-based personal training for individuals navigating cancer.
+            Your support funds access to professional, evidence-informed
+            personal training used as a pathway toward restoration.
           </p>
 
           <p>
-            Your donation directly supports programs that help individuals
-            navigating cancer treatment regain strength, improve function,
-            and rebuild confidence.
+            Each gift helps remove cost as a barrier for individuals treated
+            for cancer who are working to rebuild strength, function, and
+            participation in the things that matter to them.
           </p>
 
         </div>
