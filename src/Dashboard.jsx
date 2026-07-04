@@ -21,6 +21,10 @@ const fallbackDashboard = {
   remainingGoal: 7500,
   intakeComplete: 0,
   outcomeComplete: 0,
+  partnerNewRequests: 0,
+  partnerActiveConversations: 0,
+  partnerFollowUpsDue: 0,
+  partnerTotalInquiries: 0,
 }
 
 function formatCurrency(value) {
@@ -293,6 +297,9 @@ export default function Dashboard() {
   const pipelineStages = useMemo(() => buildPipelineStages(dashboard), [dashboard])
   const impactMeasures = useMemo(() => buildImpactMeasures(dashboard), [dashboard])
   const fundingProgress = useMemo(() => buildFundingProgress(dashboard), [dashboard])
+  const partnerNewRequests = Number(dashboard.partnerNewRequests) || 0
+  const partnerActiveConversations = Number(dashboard.partnerActiveConversations) || 0
+  const partnerFollowUpsDue = Number(dashboard.partnerFollowUpsDue) || 0
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
@@ -417,6 +424,57 @@ export default function Dashboard() {
                   className="h-full bg-[#d8a066] transition-all"
                   style={{ width: `${fundingProgress.fundedPercent}%` }}
                 />
+              </div>
+            </div>
+          </Panel>
+        </section>
+
+        <section>
+          <Panel>
+            <div className="grid lg:grid-cols-[1.2fr_1fr] gap-8 items-center">
+              <div>
+                <p className="uppercase tracking-widest text-slate-500 text-sm mb-3">
+                  Partnership Requests
+                </p>
+
+                <h2 className="text-3xl md:text-4xl font-bold">
+                  New Community Partner Interest
+                </h2>
+
+                <p className="text-slate-400 mt-3 max-w-2xl leading-relaxed">
+                  Partner inquiries submitted through the website will appear
+                  in the Google Sheet and surface here so follow-up does not
+                  get missed.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-3 gap-4">
+                <div className="border border-[#d8a066]/50 rounded-2xl p-5 bg-slate-950">
+                  <p className="text-slate-500 text-sm">
+                    New Requests
+                  </p>
+                  <p className="text-4xl font-bold mt-2 text-[#d8a066]">
+                    {formatNumber(partnerNewRequests)}
+                  </p>
+                </div>
+
+                <div className="border border-slate-800 rounded-2xl p-5 bg-slate-950">
+                  <p className="text-slate-500 text-sm">
+                    Conversations
+                  </p>
+                  <p className="text-4xl font-bold mt-2">
+                    {formatNumber(partnerActiveConversations)}
+                  </p>
+                </div>
+
+                <div className="border border-slate-800 rounded-2xl p-5 bg-slate-950">
+                  <p className="text-slate-500 text-sm">
+                    Follow Ups Due
+                  </p>
+                  <p className="text-4xl font-bold mt-2">
+                    {formatNumber(partnerFollowUpsDue)}
+                  </p>
+                </div>
               </div>
             </div>
           </Panel>
