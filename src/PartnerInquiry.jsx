@@ -17,29 +17,25 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbyjFSeuEKzv-Z9MEDBEaJy4-HzybFBvRL_Ms8k78_ODct7bMFGPRgK0nRSLWFfk9Bzx/exec",
-      {
-        method: "POST",
-        body: JSON.stringify(formData),
-      }
-    );
+    const response = await fetch("/api/partner", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-console.log(response);
+    const text = await response.json();
 
-const text = await response.text();
+    console.log(text);
 
-console.log(text);
-
-alert("Finished!");
+    alert("Success! The API received your form.");
 
   } catch (error) {
     console.error(error);
-
-    alert("Something went wrong. Please try again.");
+    alert("Something went wrong.");
   }
 };
-
   return (
     <div className="bg-slate-950 text-white min-h-screen">
 
