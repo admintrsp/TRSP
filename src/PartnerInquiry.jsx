@@ -1,7 +1,24 @@
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 export default function PartnerInquiry() {
+const [formData, setFormData] = useState({
+  organization: "",
+  contact: "",
+  email: "",
+  phone: "",
+  organizationType: "",
+  partnershipInterest: [],
+  message: "",
+});
+
+const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log("Form submitted");
+  };
+
   return (
     <div className="bg-slate-950 text-white min-h-screen">
 
@@ -207,7 +224,10 @@ export default function PartnerInquiry() {
 
     <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-10">
 
-<form className="space-y-8">
+<form
+  onSubmit={handleSubmit}
+  className="space-y-8"
+>
 
   <div className="grid md:grid-cols-2 gap-6">
 
@@ -216,11 +236,18 @@ export default function PartnerInquiry() {
         Organization Name *
       </label>
 
-      <input
-        type="text"
-        placeholder="Renewed Strength Project"
-        className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none"
-      />
+<input
+  type="text"
+  placeholder="Renewed Strength Project"
+  value={formData.organization}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      organization: e.target.value,
+    })
+  }
+  className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none"
+/>
     </div>
 
     <div>
@@ -228,12 +255,18 @@ export default function PartnerInquiry() {
         Contact Name *
       </label>
 
-      <input
-        type="text"
-        placeholder="Jane Smith"
-        className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none"
-      />
-    </div>
+<input
+  type="text"
+  placeholder="Jane Smith"
+  value={formData.contact}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      contact: e.target.value,
+    })
+  }
+  className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none"
+/>    </div>
 
   </div>
 <div className="grid md:grid-cols-2 gap-6">
@@ -243,23 +276,37 @@ export default function PartnerInquiry() {
       Email Address *
     </label>
 
-    <input
-      type="email"
-      placeholder="name@organization.org"
-      className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none"
-    />
-  </div>
+<input
+  type="email"
+  placeholder="name@organization.org"
+  value={formData.email}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      email: e.target.value,
+    })
+  }
+  className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none"
+/> 
+ </div>
 
   <div>
     <label className="block text-sm font-semibold text-slate-300 mb-2">
       Phone Number
     </label>
 
-    <input
-      type="tel"
-      placeholder="(970) 555-1234"
-      className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none"
-    />
+<input
+  type="tel"
+  placeholder="(970) 555-1234"
+  value={formData.phone}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      phone: e.target.value,
+    })
+  }
+  className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none"
+/>
   </div>
 
 </div>
@@ -381,7 +428,7 @@ export default function PartnerInquiry() {
 
 </form>
 
-    </div>
+ </div>
 
   </div>
 
