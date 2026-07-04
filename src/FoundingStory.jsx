@@ -43,6 +43,19 @@ export default function FoundingStory() {
 
           </div>
 
+          <figure className="mt-16">
+            <img
+              src="/our-story-family-colorado.png"
+              alt="The Anderson family in a Colorado mountain setting"
+              className="w-full max-h-[720px] object-cover object-center rounded-3xl border border-slate-800 shadow-2xl shadow-black/30"
+            />
+
+            <figcaption className="mt-4 text-sm text-slate-500 leading-relaxed max-w-3xl">
+              The Renewed Strength Project grew from both family experience and
+              professional purpose in Northern Colorado.
+            </figcaption>
+          </figure>
+
         </div>
 
       </section>
@@ -184,8 +197,9 @@ export default function FoundingStory() {
 
               <p>
                 My professional interests increasingly focused on exercise
-                oncology while studying under Dr. C. Fairman at the University
-                of South Carolina.
+                oncology while studying at the University of South Carolina
+                under Dr. C. Fairman, whose work helped shape the way I think
+                about structured exercise, cancer treatment, and restoration.
               </p>
 
               <p>
