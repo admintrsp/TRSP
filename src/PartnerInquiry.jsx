@@ -36,6 +36,16 @@ const handleSubmit = async (e) => {
     alert("Something went wrong.");
   }
 };
+
+const partnershipOptions = [
+  "Sponsor Participant Scholarships",
+  "Healthcare Referral Partnership",
+  "Corporate Sponsorship",
+  "Volunteer Opportunities",
+  "In-Kind Goods or Services",
+  "I'd Like to Explore Opportunities",
+];
+
   return (
     <div className="bg-slate-950 text-white min-h-screen">
 
@@ -334,11 +344,18 @@ const handleSubmit = async (e) => {
     I Represent A...
   </label>
 
-  <select
-    className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none"
-    defaultValue=""
-  >
-    <option value="" disabled>
+<select
+  value={formData.organizationType}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      organizationType: e.target.value,
+    })
+  }
+  className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none"
+>    
+<option value="" disabled>
+
       Select Organization Type
     </option>
 
@@ -361,40 +378,32 @@ const handleSubmit = async (e) => {
     How would you like to partner?
   </label>
 
-  <div className="grid md:grid-cols-2 gap-4">
+<div className="grid md:grid-cols-2 gap-4">
+  {partnershipOptions.map((option) => (
+    <label
+      key={option}
+      className="flex items-center gap-3 bg-slate-950 border border-slate-700 rounded-xl p-4 hover:border-[#d8a066] cursor-pointer transition"
+    >
+      <input
+        type="checkbox"
+        checked={formData.partnershipInterest.includes(option)}
+        onChange={(e) => {
+          setFormData({
+            ...formData,
+            partnershipInterest: e.target.checked
+              ? [...formData.partnershipInterest, option]
+              : formData.partnershipInterest.filter(
+                  (item) => item !== option
+                ),
+          });
+        }}
+        className="accent-[#d8a066]"
+      />
 
-    <label className="flex items-center gap-3 bg-slate-950 border border-slate-700 rounded-xl p-4 hover:border-[#d8a066] cursor-pointer transition">
-      <input type="checkbox" className="accent-[#d8a066]" />
-      <span>Sponsor Participant Scholarships</span>
+      <span>{option}</span>
     </label>
-
-    <label className="flex items-center gap-3 bg-slate-950 border border-slate-700 rounded-xl p-4 hover:border-[#d8a066] cursor-pointer transition">
-      <input type="checkbox" className="accent-[#d8a066]" />
-      <span>Healthcare Referral Partnership</span>
-    </label>
-
-    <label className="flex items-center gap-3 bg-slate-950 border border-slate-700 rounded-xl p-4 hover:border-[#d8a066] cursor-pointer transition">
-      <input type="checkbox" className="accent-[#d8a066]" />
-      <span>Corporate Sponsorship</span>
-    </label>
-
-    <label className="flex items-center gap-3 bg-slate-950 border border-slate-700 rounded-xl p-4 hover:border-[#d8a066] cursor-pointer transition">
-      <input type="checkbox" className="accent-[#d8a066]" />
-      <span>Volunteer Opportunities</span>
-    </label>
-
-    <label className="flex items-center gap-3 bg-slate-950 border border-slate-700 rounded-xl p-4 hover:border-[#d8a066] cursor-pointer transition">
-      <input type="checkbox" className="accent-[#d8a066]" />
-      <span>In-Kind Goods or Services</span>
-    </label>
-
-    <label className="flex items-center gap-3 bg-slate-950 border border-slate-700 rounded-xl p-4 hover:border-[#d8a066] cursor-pointer transition">
-      <input type="checkbox" className="accent-[#d8a066]" />
-      <span>I'd Like to Explore Opportunities</span>
-    </label>
-
-  </div>
-
+  ))}
+</div>
 </div>
 <div>
 
@@ -402,11 +411,18 @@ const handleSubmit = async (e) => {
     What inspired you to reach out?
   </label>
 
-  <textarea
-    rows="6"
-    placeholder="Tell us a little about your organization and what inspired your interest in partnering with the Renewed Strength Project..."
-    className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none resize-none"
-  />
+<textarea
+  rows="6"
+  placeholder="Tell us a little about your organization..."
+  value={formData.message}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      message: e.target.value,
+    })
+  }
+  className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none resize-none"
+/>
 
 </div>
 
