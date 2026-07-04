@@ -39,11 +39,12 @@ export default function CommunityPartners() {
     Become a Partner
   </Link>
 
-  <button
+  <Link
+    to="/partner-inquiry"
     className="inline-flex items-center justify-center border border-slate-700 hover:border-[#d8a066] text-white px-8 py-4 rounded-2xl transition duration-300"
   >
     Schedule a Conversation
-  </button>
+  </Link>
 
          </div>
 
@@ -668,9 +669,12 @@ support makes possible as our organization grows.        </p>
 
     <div className="flex flex-wrap justify-center gap-6 mb-16">
 
-      <button className="bg-[#d8a066] hover:bg-[#c89453] transition px-10 py-5 rounded-xl text-slate-950 font-semibold text-lg">
+      <Link
+        to="/partner-inquiry"
+        className="bg-[#d8a066] hover:bg-[#c89453] transition px-10 py-5 rounded-xl text-slate-950 font-semibold text-lg"
+      >
         Start the Conversation
-      </button>
+      </Link>
 
       <button className="border border-slate-700 hover:border-[#d8a066] hover:text-[#d8a066] transition px-10 py-5 rounded-xl text-lg">
         Download Partnership Guide
