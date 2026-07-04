@@ -24,9 +24,9 @@ function Hero() {
         <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mb-10">
           Cancer and its treatment can affect strength, energy, confidence,
           and the ability to do the things people love. The Renewed Strength
-          Project helps individuals treated for cancer access individualized,
-          evidence-informed training support focused on restoring function,
-          confidence, and participation in everyday life.
+          Project helps individuals treated for cancer in Northern Colorado
+          access individualized, evidence-informed training support focused on
+          restoring function, confidence, and participation in everyday life.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
@@ -81,6 +81,43 @@ function WhatWeDo() {
           helping each person work toward meaningful activities, roles, and
           routines that cancer has disrupted.
         </p>
+
+      </div>
+    </section>
+  )
+}
+
+function WhoWeHelp() {
+  return (
+    <section className="relative overflow-hidden py-24 bg-gradient-to-b from-[#111827] via-slate-900 to-[#161616] border-t border-slate-800/40 text-white">
+
+      <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
+
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
+
+        <h2 className="text-4xl font-bold mb-8">
+          Who We Help
+        </h2>
+
+        <div className="space-y-6 text-lg leading-relaxed text-slate-300">
+
+          <p>
+            We support individuals treated for cancer who are working to
+            rebuild strength, function, confidence, and participation in daily
+            life.
+          </p>
+
+          <p>
+            Support is individualized and based on each person’s current
+            capacity, goals, program fit, and available funding.
+          </p>
+
+          <p className="text-slate-400">
+            For the first pilot, The Renewed Strength Project is focused on
+            Loveland and Northern Colorado.
+          </p>
+
+        </div>
 
       </div>
     </section>
@@ -195,6 +232,11 @@ function HowItWorks() {
             <p className="text-slate-400 text-base leading-relaxed mt-6">
               Because the program is intentionally individualized and relationship-driven,
               availability may vary based on current capacity and funding.
+            </p>
+
+            <p className="text-slate-500 text-base leading-relaxed mt-4">
+              When appropriate, participation may include medical clearance or
+              additional screening to support safe programming.
             </p>
 
           </div>
@@ -339,6 +381,10 @@ function ImpactSection() {
         </h2>
 
         <div className="space-y-6 text-lg leading-relaxed text-slate-300 mb-12">
+
+          <p className="text-2xl text-white font-semibold">
+            Help fund 5 local participants this fall.
+          </p>
 
           <p>
             We are preparing to launch our first local group of participants
@@ -487,6 +533,7 @@ export default function App() {
       <Navbar />
       <Hero />
       <WhatWeDo />
+      <WhoWeHelp />
       <WhyItMatters />
       <HowItWorks />
       <WhyRenewedStrengthExists />
