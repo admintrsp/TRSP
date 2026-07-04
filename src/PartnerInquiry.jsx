@@ -21,9 +21,6 @@ const handleSubmit = async (e) => {
       "https://script.google.com/macros/s/AKfycbyjFSeuEKzv-Z9MEDBEaJy4-HzybFBvRL_Ms8k78_ODct7bMFGPRgK0nRSLWFfk9Bzx/exec",
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify(formData),
       }
     );
