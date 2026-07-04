@@ -141,7 +141,7 @@ const externalTools = [
   {
     name: 'Participant Application',
     purpose: 'Google Form intake',
-    url: 'https://forms.gle/XiRrN38kGjsYaFNb6',
+    url: '/apply',
   },
   {
     name: 'Participant Info',

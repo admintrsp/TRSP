@@ -16,6 +16,7 @@ import ScrollToTop from './components/ScrollToTop.jsx'
 import Dashboard from './Dashboard.jsx'
 import CommunityPartners from './CommunityPartners.jsx'
 import PartnerInquiry from "./PartnerInquiry";
+import Apply from "./Apply.jsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -32,6 +33,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/community-partners" element={<CommunityPartners />} />
         <Route path="/partner-inquiry" element={<PartnerInquiry />} />
+        <Route path="/apply" element={<Apply />} />
 
       </Routes>
 

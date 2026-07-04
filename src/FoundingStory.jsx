@@ -254,9 +254,7 @@ export default function FoundingStory() {
             <div className="flex flex-col sm:flex-row gap-4">
 
               <a
-                href="https://forms.gle/XiRrN38kGjsYaFNb6"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/apply"
                 className="bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 font-semibold px-8 py-5 rounded-2xl transition duration-300 text-lg text-center"
               >
                 Apply for Support

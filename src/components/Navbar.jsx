@@ -99,10 +99,8 @@ transition duration-300"          >
             Contact
           </a>
 
-          <a
-            href="https://forms.gle/XiRrN38kGjsYaFNb6"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/apply"
             className="border border-slate-700 hover:border-[#d8a066] text-white
 px-5 py-3
 min-w-[110px]
@@ -110,7 +108,7 @@ text-center
 rounded-2xl
 transition duration-300"          >
             Apply
-          </a>
+          </Link>
 
           <a
             href="https://givebutter.com/general-fund-iz0pzq"
@@ -154,15 +152,13 @@ transition duration-300"          >
               Contact
             </a>
 
-            <a
-              href="https://forms.gle/XiRrN38kGjsYaFNb6"
+            <Link
+              to="/apply"
               onClick={() => setIsMenuOpen(false)}
-              target="_blank"
-              rel="noopener noreferrer"
               className="border border-slate-700 text-white px-4 py-4 rounded-2xl text-center"
             >
               Apply
-            </a>
+            </Link>
 
             <a
               href="https://givebutter.com/general-fund-iz0pzq"

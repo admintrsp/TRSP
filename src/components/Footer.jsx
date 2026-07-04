@@ -67,14 +67,12 @@ export default function Footer() {
                 Community Partners
               </Link>
 
-              <a
-                href="https://forms.gle/XiRrN38kGjsYaFNb6"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/apply"
                 className="block text-slate-400 hover:text-[#d8a066] transition"
               >
                 Apply
-              </a>
+              </Link>
 
             </div>
 
