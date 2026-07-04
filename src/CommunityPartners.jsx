@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import { Link } from "react-router-dom";
 
 export default function CommunityPartners() {
   return (
@@ -29,15 +30,20 @@ export default function CommunityPartners() {
             impacted by cancer throughout Northern Colorado.
           </p>
 
-          <div className="flex flex-wrap gap-4">
+<div className="flex flex-wrap gap-4">
 
-            <button className="bg-[#d8a066] hover:bg-[#c89453] transition px-8 py-4 rounded-xl text-slate-950 font-semibold">
-              Become a Partner
-            </button>
+  <Link
+    to="/partner-inquiry"
+    className="inline-flex items-center justify-center bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 font-semibold px-8 py-4 rounded-2xl transition duration-300"
+  >
+    Become a Partner
+  </Link>
 
-            <button className="border border-slate-700 hover:border-[#d8a066] hover:text-[#d8a066] transition px-8 py-4 rounded-xl">
-              Schedule a Conversation
-            </button>
+  <button
+    className="inline-flex items-center justify-center border border-slate-700 hover:border-[#d8a066] text-white px-8 py-4 rounded-2xl transition duration-300"
+  >
+    Schedule a Conversation
+  </button>
 
          </div>
 
