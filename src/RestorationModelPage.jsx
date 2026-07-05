@@ -67,7 +67,7 @@ export default function RestorationModelPage() {
     <div className="bg-slate-950 text-white min-h-screen">
       <Navbar />
 
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-[#071124] to-[#111827] pt-40 pb-24 px-6 border-b border-slate-800/40">
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-[#071124] to-[#111827] pt-32 md:pt-40 pb-20 md:pb-24 px-5 sm:px-6 border-b border-slate-800/40">
         <div className="absolute inset-0 bg-[#d8a066]/5 blur-3xl"></div>
 
         <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-[0.95fr_1.05fr] gap-12 items-center">
@@ -76,7 +76,7 @@ export default function RestorationModelPage() {
               Restoration Model
             </p>
 
-            <h1 className="text-5xl md:text-6xl font-bold mb-8 max-w-4xl leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8 max-w-4xl leading-tight">
               Personal training is the tool. Restoration is the goal.
             </h1>
 

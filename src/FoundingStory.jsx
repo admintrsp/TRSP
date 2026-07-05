@@ -14,7 +14,7 @@ export default function FoundingStory() {
             Our Founding Story
           </p>
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight max-w-5xl mb-10">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight max-w-5xl mb-10">
             Built Through Experience.
             <span className="block text-[#d8a066]">
               Guided by Purpose.

@@ -100,7 +100,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/60 z-50">
-      <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 h-20 md:h-24 flex items-center justify-between">
         <Link
           to="/"
           className="flex items-center gap-3"
@@ -109,10 +109,10 @@ export default function Navbar() {
           <img
             src="/rsp-logo.png"
             alt="RSP Logo"
-            className="w-10 h-10 flex-shrink-0 object-contain"
+            className="w-9 h-9 md:w-10 md:h-10 flex-shrink-0 object-contain"
           />
 
-          <span className="text-white font-semibold text-xl tracking-tight">
+          <span className="text-white font-semibold text-lg md:text-xl tracking-tight">
             Renewed Strength
             <br />
             Project
@@ -125,12 +125,12 @@ export default function Navbar() {
           aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden text-white hover:text-[#d8a066] transition"
+            className="md:hidden text-white hover:text-[#d8a066] transition"
         >
           {isMenuOpen ? (
-            <X size={38} strokeWidth={2.25} />
+            <X size={34} strokeWidth={2.25} />
           ) : (
-            <Menu size={38} strokeWidth={2.25} />
+            <Menu size={34} strokeWidth={2.25} />
           )}
         </button>
 
@@ -207,9 +207,9 @@ export default function Navbar() {
         {isMenuOpen && (
           <div
             ref={navRef}
-            className="md:hidden absolute top-full left-0 w-full bg-slate-950/98 backdrop-blur-xl border-b border-slate-800 px-6 py-6"
+            className="md:hidden absolute top-full left-0 w-full max-h-[calc(100vh-5rem)] overflow-y-auto bg-slate-950/98 backdrop-blur-xl border-b border-slate-800 px-5 py-5"
           >
-            <div className="space-y-5">
+            <div className="space-y-4">
               {navGroups.map((group) => (
                 <div
                   key={group.label}
@@ -235,7 +235,7 @@ export default function Navbar() {
               <a
                 href="mailto:info@therenewedstrengthproject.org"
                 onClick={closeMenus}
-                className="block border border-slate-700 text-white px-4 py-4 rounded-2xl text-center"
+                className="block border border-slate-700 text-white px-4 py-3 rounded-2xl text-center"
               >
                 Contact
               </a>
@@ -245,7 +245,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMenus}
-                className="block bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 font-semibold px-5 py-4 rounded-2xl transition duration-300 text-center"
+                className="block bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 font-semibold px-5 py-3 rounded-2xl transition duration-300 text-center"
               >
                 Donate
               </a>

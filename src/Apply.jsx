@@ -128,13 +128,13 @@ export default function Apply() {
     <div className="bg-slate-950 text-white min-h-screen">
       <Navbar />
 
-      <section className="pt-40 pb-20 px-6">
+      <section className="pt-32 md:pt-40 pb-16 md:pb-20 px-5 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <p className="text-[#d8a066] uppercase tracking-[0.25em] mb-6">
             Apply For Support
           </p>
 
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
             Take the next supported step toward restoration.
           </h1>
 

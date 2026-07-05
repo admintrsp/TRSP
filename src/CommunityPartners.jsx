@@ -17,7 +17,7 @@ export default function CommunityPartners() {
             Community Partnerships
           </p>
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-8">
             Become a
             <span className="block text-[#d8a066]">
               Community Partner
@@ -610,7 +610,7 @@ support makes possible as our organization grows.        </p>
       Let's Build Something Meaningful Together
     </p>
 
-    <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-8">
+    <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-8">
       Every Meaningful Partnership
       <span className="block text-[#d8a066]">
         Begins With A Conversation.

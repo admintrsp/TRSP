@@ -37,14 +37,14 @@ function Hero() {
 
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/20 to-slate-950"></div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 pt-36 pb-20 grid lg:grid-cols-[0.95fr_1.05fr] gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10 pt-32 md:pt-36 pb-16 md:pb-20 grid lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-12 items-center">
 
         <div>
           <p className="text-[#d8a066] uppercase tracking-[0.3em] text-sm font-semibold mb-6">
             Northern Colorado Cancer Exercise Support
           </p>
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight max-w-4xl mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight max-w-4xl mb-8">
             Helping restore what cancer treatment can take.
           </h1>
 
@@ -84,7 +84,7 @@ function Hero() {
             <img
               src="/homepage-restoration-training.png"
               alt="Trainer supporting an individual during restoration-focused strength training"
-              className="w-full aspect-[4/3] object-cover"
+              className="w-full aspect-[4/3] sm:aspect-[4/3] object-cover"
             />
           </div>
         </div>
@@ -236,7 +236,7 @@ function HowItWorks() {
 
         <div className="text-center mb-20">
 
-          <h2 className="text-5xl font-bold mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8">
             You Are Not Alone
           </h2>
 
