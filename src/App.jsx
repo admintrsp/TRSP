@@ -1,5 +1,26 @@
+import { useEffect, useMemo, useState } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+
+const fallbackImpact = {
+  participantsPlanned: 5,
+  fundingRaised: 2132,
+  fundingGoal: 7500,
+  remainingGoal: 5368,
+  sessionsNeeded: 80,
+}
+
+function formatCurrency(value) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+  }).format(Number(value) || 0)
+}
+
+function formatNumber(value) {
+  return new Intl.NumberFormat('en-US').format(Number(value) || 0)
+}
      
 function Hero() {
   return (
@@ -418,6 +439,49 @@ function PhilosophySection() {
 }
 
 function ImpactSection() {
+  const [impact, setImpact] = useState(fallbackImpact)
+  const [dataStatus, setDataStatus] = useState('Pilot funding snapshot')
+
+  useEffect(() => {
+    let isMounted = true
+
+    async function loadImpact() {
+      try {
+        const response = await fetch('/api/impact')
+
+        if (!response.ok) {
+          throw new Error('Impact data unavailable')
+        }
+
+        const data = await response.json()
+
+        if (!isMounted) return
+
+        setImpact({ ...fallbackImpact, ...(data.impact || {}) })
+        setDataStatus(data.source === 'live' ? 'Live funding snapshot' : 'Pilot funding snapshot')
+      } catch (error) {
+        console.error(error)
+
+        if (!isMounted) return
+
+        setImpact(fallbackImpact)
+        setDataStatus('Pilot funding snapshot')
+      }
+    }
+
+    loadImpact()
+
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
+  const percentFunded = useMemo(() => {
+    if (!impact.fundingGoal) return 0
+
+    return Math.min((impact.fundingRaised / impact.fundingGoal) * 100, 100)
+  }, [impact.fundingGoal, impact.fundingRaised])
+
   return (
     <section className="relative overflow-hidden py-32 bg-gradient-to-b from-[#161616] via-slate-900 to-slate-950 border-t border-slate-800/40 text-white">
 
@@ -432,7 +496,7 @@ function ImpactSection() {
         <div className="space-y-6 text-lg leading-relaxed text-slate-300 mb-12">
 
           <p className="text-2xl text-white font-semibold">
-            Help fund 5 local participants this fall.
+            Help fund {formatNumber(impact.participantsPlanned)} local participants this fall.
           </p>
 
           <p>
@@ -451,6 +515,65 @@ function ImpactSection() {
             participation in the things that matter to them.
           </p>
 
+        </div>
+
+        <div className="bg-slate-950/80 border border-slate-800 rounded-3xl p-6 md:p-8 mb-10 text-left shadow-2xl shadow-black/30">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-6">
+            <div>
+              <p className="text-[#d8a066] uppercase tracking-[0.25em] text-xs font-semibold mb-3">
+                {dataStatus}
+              </p>
+
+              <h3 className="text-3xl font-bold">
+                {formatCurrency(impact.fundingRaised)} raised toward {formatCurrency(impact.fundingGoal)}
+              </h3>
+            </div>
+
+            <div className="text-slate-300 md:text-right">
+              <p className="text-2xl font-bold text-white">
+                {Math.round(percentFunded)}%
+              </p>
+              <p>
+                funded
+              </p>
+            </div>
+          </div>
+
+          <div className="h-4 bg-slate-800 rounded-full overflow-hidden mb-6">
+            <div
+              className="h-full bg-[#d8a066] rounded-full transition-all duration-700"
+              style={{ width: `${percentFunded}%` }}
+            ></div>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-4">
+            <div className="border border-slate-800 rounded-2xl p-5 bg-slate-900/80">
+              <p className="text-3xl font-bold">
+                {formatCurrency(impact.remainingGoal)}
+              </p>
+              <p className="text-slate-400 mt-2">
+                left to raise
+              </p>
+            </div>
+
+            <div className="border border-slate-800 rounded-2xl p-5 bg-slate-900/80">
+              <p className="text-3xl font-bold">
+                {formatNumber(impact.participantsPlanned)}
+              </p>
+              <p className="text-slate-400 mt-2">
+                participants planned
+              </p>
+            </div>
+
+            <div className="border border-slate-800 rounded-2xl p-5 bg-slate-900/80">
+              <p className="text-3xl font-bold">
+                {formatNumber(impact.sessionsNeeded)}
+              </p>
+              <p className="text-slate-400 mt-2">
+                sessions to fund
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="grid sm:grid-cols-3 gap-6 mb-12 text-left">
