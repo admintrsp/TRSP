@@ -108,8 +108,8 @@ export default function RestorationModelPage() {
 
             <div className="relative overflow-hidden rounded-3xl border border-slate-700/60 shadow-2xl shadow-black/40 bg-slate-900">
               <img
-                src="/homepage-restoration-training.png"
-                alt="Restoration-focused strength training support"
+                src="/restoration-model-movement.png"
+                alt="Participant practicing a functional movement with trainer support"
                 className="w-full aspect-[4/3] object-cover"
               />
             </div>

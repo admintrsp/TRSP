@@ -118,8 +118,8 @@ export default function ParticipantProgram() {
 
             <div className="relative overflow-hidden rounded-3xl border border-slate-700/60 shadow-2xl shadow-black/40 bg-slate-900">
               <img
-                src="/homepage-guided-training.png"
-                alt="Guided restoration-focused strength training"
+                src="/participant-program-support.png"
+                alt="Trainer and participant discussing restoration-focused support"
                 className="w-full aspect-[4/3] object-cover"
               />
             </div>
