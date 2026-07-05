@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -403,7 +404,14 @@ export default function Apply() {
               <p className="text-center text-sm text-slate-500 leading-relaxed max-w-xl mx-auto">
                 Information submitted here is used to review program fit and
                 communicate about next steps. Application submission does not
-                guarantee participation.
+                guarantee participation. You can review our{" "}
+                <Link
+                  to="/privacy"
+                  className="text-[#d8a066] hover:text-[#e6b684] underline underline-offset-4"
+                >
+                  privacy and data use note
+                </Link>
+                .
               </p>
             </form>
           </div>

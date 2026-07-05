@@ -74,6 +74,13 @@ export default function Footer() {
                 Apply
               </Link>
 
+              <Link
+                to="/privacy"
+                className="block text-slate-400 hover:text-[#d8a066] transition"
+              >
+                Privacy
+              </Link>
+
             </div>
 
           </div>
@@ -123,9 +130,7 @@ export default function Footer() {
           </p>
 
           <p>
-            © 2026 Renewed Strength Project
-
-    A Colorado 501(c)(3) nonprofit organization.
+            A Colorado 501(c)(3) nonprofit organization.
           </p>
 
         </div>
