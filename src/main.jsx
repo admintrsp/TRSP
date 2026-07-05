@@ -17,6 +17,8 @@ import Dashboard from './Dashboard.jsx'
 import CommunityPartners from './CommunityPartners.jsx'
 import PartnerInquiry from "./PartnerInquiry";
 import Apply from "./Apply.jsx";
+import ParticipantProgram from "./ParticipantProgram.jsx";
+import RestorationModelPage from "./RestorationModelPage.jsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -34,6 +36,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/community-partners" element={<CommunityPartners />} />
         <Route path="/partner-inquiry" element={<PartnerInquiry />} />
         <Route path="/apply" element={<Apply />} />
+        <Route path="/participant-program" element={<ParticipantProgram />} />
+        <Route path="/restoration-model" element={<RestorationModelPage />} />
 
       </Routes>
 

@@ -16,8 +16,8 @@ const navGroups = [
   {
     label: 'Our Impact',
     items: [
-      { label: 'Participant Program', to: '/apply' },
-      { label: 'Restoration Model', to: '/evidence' },
+      { label: 'Participant Program', to: '/participant-program' },
+      { label: 'Restoration Model', to: '/restoration-model' },
       { label: 'Apply', to: '/apply' },
     ],
   },
