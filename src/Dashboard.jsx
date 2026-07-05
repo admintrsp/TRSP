@@ -257,7 +257,7 @@ function Panel({ children, className = '' }) {
   )
 }
 
-export default function Dashboard() {
+export default function Dashboard({ onSignOut }) {
   const [dashboard, setDashboard] = useState(fallbackDashboard)
   const [dataStatus, setDataStatus] = useState('Loading live data...')
   const [lastUpdated, setLastUpdated] = useState('')
@@ -267,7 +267,12 @@ export default function Dashboard() {
 
     async function loadDashboardData() {
       try {
-        const response = await fetch('/api/dashboard')
+        const dashboardToken = window.sessionStorage.getItem('trsp_dashboard_token')
+        const response = await fetch('/api/dashboard', {
+          headers: {
+            Authorization: `Bearer ${dashboardToken || ''}`,
+          },
+        })
         if (!response.ok) {
           throw new Error('Live dashboard data is unavailable.')
         }
@@ -329,6 +334,16 @@ export default function Dashboard() {
               <span>
                 Last updated {new Date(lastUpdated).toLocaleString()}
               </span>
+            )}
+
+            {onSignOut && (
+              <button
+                type="button"
+                onClick={onSignOut}
+                className="border border-slate-700 hover:border-[#d8a066] text-slate-300 hover:text-[#d8a066] rounded-full px-4 py-2 transition"
+              >
+                Sign Out
+              </button>
             )}
           </div>
         </div>

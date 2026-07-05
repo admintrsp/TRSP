@@ -6,6 +6,27 @@ export default async function handler(req, res) {
     });
   }
 
+  const expectedToken =
+    process.env.DASHBOARD_ACCESS_TOKEN || process.env.DASHBOARD_ACCESS_CODE;
+  const providedToken = String(req.headers.authorization || "").replace(
+    /^Bearer\s+/i,
+    "",
+  );
+
+  if (!expectedToken) {
+    return res.status(500).json({
+      success: false,
+      error: "Missing DASHBOARD_ACCESS_CODE",
+    });
+  }
+
+  if (!providedToken || providedToken !== expectedToken) {
+    return res.status(401).json({
+      success: false,
+      error: "Dashboard access required",
+    });
+  }
+
   const scriptUrl = process.env.GOOGLE_DASHBOARD_SCRIPT_URL;
 
   if (!scriptUrl) {
