@@ -3,7 +3,7 @@ import Footer from './components/Footer'
      
 function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden flex items-center bg-black text-white">
+    <section className="relative min-h-screen overflow-hidden flex items-center bg-slate-950 text-white">
 
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -16,42 +16,92 @@ function Hero() {
 
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/20 to-slate-950"></div>
 
-      <div className="max-w-5xl mx-auto px-6 relative z-10 pt-32">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 pt-36 pb-20 grid lg:grid-cols-[0.95fr_1.05fr] gap-12 items-center">
 
-        <h1 className="text-5xl md:text-7xl font-bold leading-tight max-w-4xl mb-8">
-          Helping restore what cancer treatment can take.
-        </h1>
+        <div>
+          <p className="text-[#d8a066] uppercase tracking-[0.3em] text-sm font-semibold mb-6">
+            Northern Colorado Cancer Exercise Support
+          </p>
 
-        <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mb-10">
-          Cancer and its treatment can affect strength, energy, confidence,
-          and the ability to do the things people love. The Renewed Strength
-          Project helps individuals treated for cancer in Northern Colorado
-          access individualized, evidence-informed training support focused on
-          restoring function, confidence, and participation in everyday life.
-        </p>
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight max-w-4xl mb-8">
+            Helping restore what cancer treatment can take.
+          </h1>
 
-        <div className="flex flex-col sm:flex-row gap-4">
+          <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mb-10">
+            Cancer and its treatment can affect strength, energy, confidence,
+            and the ability to do the things people love. The Renewed Strength
+            Project helps individuals treated for cancer in Northern Colorado
+            access individualized, evidence-informed training support focused on
+            restoring function, confidence, and participation in everyday life.
+          </p>
 
-          <a
-            href="/apply"
-            className="bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 font-semibold px-8 py-5 rounded-2xl transition duration-300 text-lg text-center"
-          >
-            Apply for Support
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4">
 
-          <a
-            href="https://givebutter.com/general-fund-iz0pzq"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border border-slate-500 hover:border-[#d8a066] hover:bg-white/5 text-white px-8 py-5 rounded-2xl transition duration-300 text-lg text-center"
-          >
-            Support the Mission
-          </a>
+            <a
+              href="/apply"
+              className="bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 font-semibold px-8 py-5 rounded-2xl transition duration-300 text-lg text-center"
+            >
+              Apply for Support
+            </a>
 
+            <a
+              href="https://givebutter.com/general-fund-iz0pzq"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-slate-500 hover:border-[#d8a066] hover:bg-white/5 text-white px-8 py-5 rounded-2xl transition duration-300 text-lg text-center"
+            >
+              Support the Mission
+            </a>
+
+          </div>
+        </div>
+
+        <div className="relative">
+          <div className="absolute -inset-4 bg-[#d8a066]/15 blur-3xl"></div>
+
+          <div className="relative overflow-hidden rounded-3xl border border-slate-700/60 shadow-2xl shadow-black/40 bg-slate-900">
+            <img
+              src="/homepage-restoration-training.png"
+              alt="Trainer supporting an individual during restoration-focused strength training"
+              className="w-full aspect-[4/3] object-cover"
+            />
+          </div>
         </div>
 
       </div>
 
+    </section>
+  )
+}
+
+function VisualRestorationSection() {
+  return (
+    <section className="relative overflow-hidden py-24 bg-gradient-to-b from-[#071124] via-slate-900 to-[#111827] text-white border-t border-slate-800/40">
+      <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-[1fr_0.9fr] gap-10 items-center">
+        <div className="overflow-hidden rounded-3xl border border-slate-800 bg-slate-950 shadow-2xl shadow-black/30">
+          <img
+            src="/homepage-guided-training.png"
+            alt="Guided strength training in a calm gym setting"
+            className="w-full aspect-[5/4] object-cover"
+          />
+        </div>
+
+        <div>
+          <p className="text-[#d8a066] uppercase tracking-[0.25em] text-sm font-semibold mb-5">
+            What Support Looks Like
+          </p>
+
+          <h2 className="text-4xl font-bold mb-6">
+            Safe, personal, and focused on life outside the gym.
+          </h2>
+
+          <p className="text-lg leading-relaxed text-slate-300">
+            Training is not the finish line. It is one tool used to help
+            people work toward strength, confidence, and the daily activities
+            cancer treatment can interrupt.
+          </p>
+        </div>
+      </div>
     </section>
   )
 }
@@ -496,6 +546,7 @@ export default function App() {
       <Navbar />
       <Hero />
       <WhatWeDo />
+      <VisualRestorationSection />
       <WhoWeHelp />
       <WhyItMatters />
       <HowItWorks />

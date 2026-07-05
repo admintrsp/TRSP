@@ -142,6 +142,35 @@ export default function Apply() {
             and whether The Renewed Strength Project may be a safe and
             appropriate fit based on current capacity and funding.
           </p>
+
+          <div className="mt-10 grid md:grid-cols-3 gap-4">
+            <div className="border border-slate-800 bg-slate-900/70 rounded-2xl p-5">
+              <p className="text-[#d8a066] font-semibold mb-2">
+                Local Pilot
+              </p>
+              <p className="text-slate-300 text-sm leading-relaxed">
+                Currently focused on Loveland and Northern Colorado.
+              </p>
+            </div>
+
+            <div className="border border-slate-800 bg-slate-900/70 rounded-2xl p-5">
+              <p className="text-[#d8a066] font-semibold mb-2">
+                No Cost To Apply
+              </p>
+              <p className="text-slate-300 text-sm leading-relaxed">
+                Support depends on program fit, safety, and available funding.
+              </p>
+            </div>
+
+            <div className="border border-slate-800 bg-slate-900/70 rounded-2xl p-5">
+              <p className="text-[#d8a066] font-semibold mb-2">
+                Simple Next Step
+              </p>
+              <p className="text-slate-300 text-sm leading-relaxed">
+                We review personally and follow up if more context is needed.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -369,6 +398,12 @@ export default function Apply() {
               <p className="text-center text-sm text-slate-400 leading-relaxed max-w-xl mx-auto">
                 Please do not include detailed medical records in this form.
                 We will follow up directly if more information is needed.
+              </p>
+
+              <p className="text-center text-sm text-slate-500 leading-relaxed max-w-xl mx-auto">
+                Information submitted here is used to review program fit and
+                communicate about next steps. Application submission does not
+                guarantee participation.
               </p>
             </form>
           </div>
