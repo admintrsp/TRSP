@@ -88,17 +88,15 @@ export default function CommunityPartners() {
     <div className="bg-[#f8f5ef] text-[#071f3a] min-h-screen">
       <Navbar />
 
-      <section className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-16 items-center">
-          <div>
+      <section className="pt-32 md:pt-36 pb-20 md:pb-28 px-5 sm:px-6">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-16 items-start">
+          <div className="max-w-2xl">
             <SectionLabel>Community Partnerships</SectionLabel>
             <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[0.98] tracking-tight">
               Help build the pathway back to life.
             </h1>
             <GoldDivider />
-          </div>
 
-          <div>
             <p className="text-xl md:text-2xl text-[#334155] leading-relaxed">
               Community partners make it possible for individuals affected by
               cancer to access restoration-focused training without financial
@@ -120,20 +118,21 @@ export default function CommunityPartners() {
                 Schedule a Conversation
               </Link>
             </div>
-
-            <figure className="relative mt-10">
-              <div className="absolute -right-4 -bottom-4 w-20 h-20 border-r border-b border-[#c98b2c]"></div>
-              <img
-                src="/loveland-heart.png"
-                alt="The red Loveland heart sculpture with the lake and mountains behind it"
-                className="relative w-full aspect-[5/4] object-cover object-center shadow-xl"
-              />
-              <figcaption className="mt-5 text-sm md:text-base text-[#6b7280] leading-relaxed">
-                Rooted in Loveland and serving individuals affected by cancer
-                across Northern Colorado.
-              </figcaption>
-            </figure>
           </div>
+
+          <figure className="relative">
+            <div className="absolute -left-4 -top-4 w-20 h-20 border-l border-t border-[#c98b2c]"></div>
+            <div className="absolute -right-4 -bottom-4 w-20 h-20 border-r border-b border-[#c98b2c]"></div>
+            <img
+              src="/loveland-heart.png"
+              alt="The red Loveland heart sculpture with the lake and mountains behind it"
+              className="relative w-full aspect-[4/3] object-cover object-center shadow-xl"
+            />
+            <figcaption className="mt-5 text-sm md:text-base text-[#6b7280] leading-relaxed">
+              Rooted in Loveland and serving individuals affected by cancer
+              across Northern Colorado.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
