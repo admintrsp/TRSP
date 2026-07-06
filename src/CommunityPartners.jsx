@@ -121,14 +121,18 @@ export default function CommunityPartners() {
               </Link>
             </div>
 
-            <div className="relative mt-10">
+            <figure className="relative mt-10">
               <div className="absolute -right-4 -bottom-4 w-20 h-20 border-r border-b border-[#c98b2c]"></div>
               <img
-                src="/trsp-founder-headshot-original.jpeg"
-                alt="Scott Anderson standing outside in a professional portrait"
+                src="/loveland-heart.png"
+                alt="The red Loveland heart sculpture with the lake and mountains behind it"
                 className="relative w-full aspect-[16/9] object-cover shadow-xl"
               />
-            </div>
+              <figcaption className="mt-5 text-sm md:text-base text-[#6b7280] leading-relaxed">
+                Rooted in Loveland and serving individuals affected by cancer
+                across Northern Colorado.
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
