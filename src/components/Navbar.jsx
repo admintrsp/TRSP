@@ -182,7 +182,7 @@ export default function Navbar() {
             href={donateUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#071f3a] hover:bg-[#0d2f57] focus:bg-[#0d2f57] focus:outline-none text-white font-semibold px-5 py-3 rounded-sm transition"
+            className="bg-[#d8a066] hover:bg-[#c98b2c] focus:bg-[#c98b2c] focus:outline-none text-[#071f3a] font-semibold px-5 py-3 rounded-sm transition"
           >
             Donate
           </a>
@@ -226,7 +226,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMenus}
-                className="block bg-[#071f3a] hover:bg-[#0d2f57] text-white font-semibold px-5 py-3 transition text-center"
+                className="block bg-[#d8a066] hover:bg-[#c98b2c] text-[#071f3a] font-semibold px-5 py-3 transition text-center"
               >
                 Donate
               </a>
