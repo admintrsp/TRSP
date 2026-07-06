@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import { ChevronDown, Menu, X } from 'lucide-react'
 
 const donateUrl = 'https://givebutter.com/general-fund-iz0pzq'
+const partnerGuideUrl = '/TRSP_Partner_Guide_Website_Edition_v1_2_ConsistentMargins.pdf'
 
 const navGroups = [
   {
@@ -26,6 +27,7 @@ const navGroups = [
     items: [
       { label: 'Donate', href: donateUrl },
       { label: 'Community Partners', to: '/community-partners' },
+      { label: 'Partner Guide', href: partnerGuideUrl },
       { label: 'Volunteer / Future', to: '/partner-inquiry' },
     ],
   },
