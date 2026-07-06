@@ -173,12 +173,13 @@ export default function Navbar() {
             )
           })}
 
-          <a
-            href="mailto:info@therenewedstrengthproject.org"
+          <Link
+            to="/contact"
+            onClick={closeMenus}
             className="text-[#071f3a] hover:text-[#c98b2c] focus:text-[#c98b2c] focus:outline-none px-4 py-3 transition"
           >
             Contact
-          </a>
+          </Link>
 
           <a
             href={donateUrl}
@@ -215,13 +216,13 @@ export default function Navbar() {
                 </div>
               ))}
 
-              <a
-                href="mailto:info@therenewedstrengthproject.org"
+              <Link
+                to="/contact"
                 onClick={closeMenus}
                 className="block border border-[#e6dac8] bg-white text-[#071f3a] px-4 py-3 text-center"
               >
                 Contact
-              </a>
+              </Link>
 
               <a
                 href={donateUrl}

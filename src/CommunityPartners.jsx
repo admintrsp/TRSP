@@ -124,13 +124,13 @@ export default function CommunityPartners() {
             <div className="absolute -left-4 -top-4 w-20 h-20 border-l border-t border-[#c98b2c]"></div>
             <div className="absolute -right-4 -bottom-4 w-20 h-20 border-r border-b border-[#c98b2c]"></div>
             <img
-              src="/loveland-heart.png"
-              alt="The red Loveland heart sculpture with the lake and mountains behind it"
+              src="/trsp-founder-headshot-original.jpeg"
+              alt="Scott Anderson standing outside in a professional portrait"
               className="relative w-full aspect-[4/3] object-cover object-center shadow-xl"
             />
             <figcaption className="mt-5 text-sm md:text-base text-[#6b7280] leading-relaxed">
-              Rooted in Loveland and serving individuals affected by cancer
-              across Northern Colorado.
+              Partnership helps turn a local mission into accessible support
+              for individuals affected by cancer.
             </figcaption>
           </figure>
         </div>
