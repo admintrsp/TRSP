@@ -126,7 +126,7 @@ export default function CommunityPartners() {
               <img
                 src="/loveland-heart.png"
                 alt="The red Loveland heart sculpture with the lake and mountains behind it"
-                className="relative w-full aspect-[16/9] object-cover shadow-xl"
+                className="relative w-full aspect-[5/4] object-cover object-center shadow-xl"
               />
               <figcaption className="mt-5 text-sm md:text-base text-[#6b7280] leading-relaxed">
                 Rooted in Loveland and serving individuals affected by cancer
