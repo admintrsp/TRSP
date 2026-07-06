@@ -246,8 +246,8 @@ function EvidencePurposePossibility() {
         </div>
 
         <img
-          src="/trsp-strength-lift-original.jpeg"
-          alt="A person completing a strong deadlift in a training facility"
+          src="/trsp-winter-confidence-original.jpeg"
+          alt="A person standing with arms raised on a frozen Colorado lake beneath mountain peaks"
           className="w-full aspect-[4/3] object-cover border border-[#d8a066]/40"
         />
       </div>
