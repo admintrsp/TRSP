@@ -86,7 +86,7 @@ function Hero() {
           <div className="absolute -right-5 -bottom-5 w-28 h-28 border-r border-b border-[#c98b2c]"></div>
 
           <img
-            src="/trsp-alpine-lake-return.jpeg"
+            src="/trsp-hero-alpine-lake-original.jpeg"
             alt="A quiet alpine lake beneath Colorado mountain walls"
             className="relative w-full aspect-[4/3] object-cover shadow-2xl"
           />
@@ -246,7 +246,7 @@ function EvidencePurposePossibility() {
         </div>
 
         <img
-          src="/trsp-strength-deadlift.jpeg"
+          src="/trsp-strength-lift-original.jpeg"
           alt="A person completing a strong deadlift in a training facility"
           className="w-full aspect-[4/3] object-cover border border-[#d8a066]/40"
         />

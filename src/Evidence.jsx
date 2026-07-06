@@ -57,7 +57,7 @@ export default function Evidence() {
           <div className="relative">
             <div className="absolute -right-5 -bottom-5 w-24 h-24 border-r border-b border-[#c98b2c]"></div>
             <img
-              src="/trsp-alpine-lake-evidence.jpeg"
+              src="/trsp-evidence-alpine-wall-original.jpeg"
               alt="A still alpine lake beneath a Colorado mountain wall"
               className="relative w-full aspect-[4/3] object-cover shadow-2xl"
             />

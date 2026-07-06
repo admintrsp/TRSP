@@ -74,7 +74,7 @@ export default function RestorationModelPage() {
             <div className="absolute -left-5 -top-5 w-24 h-24 border-l border-t border-[#c98b2c]"></div>
             <div className="absolute -right-5 -bottom-5 w-24 h-24 border-r border-b border-[#c98b2c]"></div>
             <img
-              src="/trsp-training-focus.jpeg"
+              src="/trsp-strength-lift-original.jpeg"
               alt="A focused strength training moment in a gym"
               className="relative w-full aspect-[4/3] object-cover shadow-2xl"
             />

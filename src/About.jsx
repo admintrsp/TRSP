@@ -50,8 +50,8 @@ export default function About() {
             <div className="relative mt-10">
               <div className="absolute -left-4 -top-4 w-20 h-20 border-l border-t border-[#c98b2c]"></div>
               <img
-                src="/trsp-lake-restoration.jpeg"
-                alt="A person resting beside a clear alpine lake"
+                src="/trsp-valley-lake-original.jpeg"
+                alt="A bright Colorado valley and alpine lake"
                 className="relative w-full aspect-[16/9] object-cover shadow-xl"
               />
             </div>

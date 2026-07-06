@@ -124,8 +124,8 @@ export default function CommunityPartners() {
             <div className="relative mt-10">
               <div className="absolute -right-4 -bottom-4 w-20 h-20 border-r border-b border-[#c98b2c]"></div>
               <img
-                src="/trsp-columbine-detail.jpeg"
-                alt="Colorado wildflowers growing among mountain rocks"
+                src="/trsp-founder-headshot-original.jpeg"
+                alt="Scott Anderson standing outside in a professional portrait"
                 className="relative w-full aspect-[16/9] object-cover shadow-xl"
               />
             </div>
