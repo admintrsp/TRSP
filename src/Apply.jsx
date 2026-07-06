@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import SEO from "./components/SEO";
 
 const initialFormData = {
   firstName: "",
@@ -16,6 +17,7 @@ const initialFormData = {
   availability: "",
   additionalNotes: "",
   consent: false,
+  website: "",
 };
 
 const fieldClass =
@@ -41,19 +43,21 @@ function SectionLabel({ children }) {
   );
 }
 
-function TextField({ label, name, type = "text", value, onChange, required = false, placeholder }) {
+function TextField({ label, name, type = "text", value, onChange, required = false, placeholder, autoComplete }) {
   return (
     <div>
-      <label className={labelClass}>
+      <label htmlFor={name} className={labelClass}>
         {label} {required && "*"}
       </label>
       <input
+        id={name}
         type={type}
         name={name}
         value={value}
         onChange={onChange}
         required={required}
         placeholder={placeholder}
+        autoComplete={autoComplete}
         className={fieldClass}
       />
     </div>
@@ -63,10 +67,11 @@ function TextField({ label, name, type = "text", value, onChange, required = fal
 function SelectField({ label, name, value, onChange, required = false, children }) {
   return (
     <div>
-      <label className={labelClass}>
+      <label htmlFor={name} className={labelClass}>
         {label} {required && "*"}
       </label>
       <select
+        id={name}
         name={name}
         value={value}
         onChange={onChange}
@@ -103,6 +108,12 @@ export default function Apply() {
     setErrorMessage("");
 
     try {
+      if (!formData.consent || formData.restorationGoal.trim().length < 10) {
+        setErrorMessage("Please complete the required fields before submitting.");
+        setIsSubmitting(false);
+        return;
+      }
+
       const response = await fetch("/api/apply", {
         method: "POST",
         headers: {
@@ -133,9 +144,18 @@ export default function Apply() {
 
   return (
     <div className="bg-[#f8f5ef] text-[#071f3a] min-h-screen">
+      <SEO
+        title="Apply for Cancer Exercise Support"
+        description="Apply for TRSP participant support in Northern Colorado. Applications help us understand goals, current needs, medical context, safety considerations, and available pilot funding."
+        path="/apply"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Apply", path: "/apply" },
+        ]}
+      />
       <Navbar />
 
-      <section className="pt-36 md:pt-40 pb-20 px-5 sm:px-6">
+      <section id="main-content" tabIndex="-1" className="pt-36 md:pt-40 pb-20 px-5 sm:px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16">
           <div>
             <SectionLabel>Apply For Support</SectionLabel>
@@ -198,7 +218,11 @@ export default function Apply() {
           <div className="bg-white border border-[#e6dac8] p-8 md:p-10 shadow-xl shadow-[#071f3a]/5">
             <form onSubmit={handleSubmit} className="space-y-8">
               {successMessage && (
-                <div className="bg-emerald-50 border border-emerald-300 p-6">
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className="bg-emerald-50 border border-emerald-300 p-6"
+                >
                   <h2 className="text-emerald-800 text-xl font-semibold mb-2">
                     Application Received
                   </h2>
@@ -209,7 +233,7 @@ export default function Apply() {
               )}
 
               {errorMessage && (
-                <div className="bg-red-50 border border-red-300 p-6">
+                <div role="alert" className="bg-red-50 border border-red-300 p-6">
                   <h2 className="text-red-800 text-xl font-semibold mb-2">
                     Submission Issue
                   </h2>
@@ -222,11 +246,11 @@ export default function Apply() {
               <div>
                 <SectionLabel>Contact Information</SectionLabel>
                 <div className="grid md:grid-cols-2 gap-6">
-                  <TextField label="First Name" name="firstName" value={formData.firstName} onChange={handleChange} required />
-                  <TextField label="Last Name" name="lastName" value={formData.lastName} onChange={handleChange} required />
-                  <TextField label="Email" name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="name@example.com" />
-                  <TextField label="Phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} required placeholder="(970) 555-1234" />
-                  <TextField label="City" name="city" value={formData.city} onChange={handleChange} required placeholder="Loveland" />
+                  <TextField label="First Name" name="firstName" value={formData.firstName} onChange={handleChange} required autoComplete="given-name" />
+                  <TextField label="Last Name" name="lastName" value={formData.lastName} onChange={handleChange} required autoComplete="family-name" />
+                  <TextField label="Email" name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="name@example.com" autoComplete="email" />
+                  <TextField label="Phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} required placeholder="(970) 555-1234" autoComplete="tel" />
+                  <TextField label="City" name="city" value={formData.city} onChange={handleChange} required placeholder="Loveland" autoComplete="address-level2" />
                   <SelectField label="Preferred Contact" name="preferredContact" value={formData.preferredContact} onChange={handleChange} required>
                     {options.preferredContact.map((option) => (
                       <option key={option}>{option}</option>
@@ -253,10 +277,11 @@ export default function Apply() {
               </div>
 
               <div>
-                <label className={labelClass}>
+                <label htmlFor="restorationGoal" className={labelClass}>
                   What are you hoping to restore or work toward? *
                 </label>
                 <textarea
+                  id="restorationGoal"
                   name="restorationGoal"
                   rows="5"
                   value={formData.restorationGoal}
@@ -268,10 +293,11 @@ export default function Apply() {
               </div>
 
               <div>
-                <label className={labelClass}>
+                <label htmlFor="availability" className={labelClass}>
                   General availability
                 </label>
                 <textarea
+                  id="availability"
                   name="availability"
                   rows="3"
                   value={formData.availability}
@@ -282,10 +308,11 @@ export default function Apply() {
               </div>
 
               <div>
-                <label className={labelClass}>
+                <label htmlFor="additionalNotes" className={labelClass}>
                   Anything else you would like us to know?
                 </label>
                 <textarea
+                  id="additionalNotes"
                   name="additionalNotes"
                   rows="4"
                   value={formData.additionalNotes}
@@ -294,8 +321,25 @@ export default function Apply() {
                 />
               </div>
 
-              <label className="flex items-start gap-3 bg-[#fbfaf7] border border-[#e6dac8] p-5">
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="website">Website</label>
                 <input
+                  id="website"
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleChange}
+                  tabIndex="-1"
+                  autoComplete="off"
+                />
+              </div>
+
+              <label
+                htmlFor="consent"
+                className="flex items-start gap-3 bg-[#fbfaf7] border border-[#e6dac8] p-5"
+              >
+                <input
+                  id="consent"
                   type="checkbox"
                   name="consent"
                   checked={formData.consent}

@@ -1,12 +1,13 @@
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import SEO from './components/SEO'
 
 const resources = [
   {
     name: 'American College of Sports Medicine',
     description:
       'International exercise oncology guidelines and evidence-informed recommendations for individuals living with and beyond cancer.',
-    url: '/acsm-exercise-guidelines.jpg',
+    url: 'https://acsm.org/physical-activity-guidelines-cancer-infographic/',
   },
   {
     name: 'American Cancer Society',
@@ -37,9 +38,18 @@ function GoldDivider() {
 export default function Evidence() {
   return (
     <div className="bg-[#f8f5ef] text-[#071f3a] min-h-screen">
+      <SEO
+        title="Evidence-Informed Exercise Oncology Support"
+        description="TRSP uses evidence-informed exercise oncology principles while recognizing that movement support should be individualized to diagnosis, treatment status, symptoms, and healthcare guidance."
+        path="/evidence"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Evidence', path: '/evidence' },
+        ]}
+      />
       <Navbar />
 
-      <section className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
+      <section id="main-content" tabIndex="-1" className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[0.98fr_1.02fr] gap-12 lg:gap-16 items-center">
           <div>
             <SectionLabel>Evidence & Research</SectionLabel>
@@ -54,41 +64,14 @@ export default function Evidence() {
             </p>
           </div>
 
-          <a
-            href="/acsm-exercise-guidelines.jpg"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open ACSM cancer exercise guidelines"
-            className="group relative block"
-          >
+          <div className="relative">
             <div className="absolute -right-5 -bottom-5 w-24 h-24 border-r border-b border-[#c98b2c]"></div>
-            <div className="relative bg-white border border-[#e6dac8] shadow-2xl shadow-[#071f3a]/10 transition group-hover:border-[#c98b2c]">
-              <div className="p-4 md:p-5 bg-white">
-                <img
-                  src="/acsm-exercise-guidelines.jpg"
-                  alt="ACSM exercise guidelines for health-related outcomes in those with cancer"
-                  className="w-full aspect-[4/3] object-contain bg-white"
-                />
-              </div>
-
-              <div className="border-t border-[#e6dac8] p-6">
-                <p className="text-[#c98b2c] uppercase tracking-[0.22em] text-xs font-bold mb-3">
-                  ACSM Cancer Exercise Guidelines
-                </p>
-                <h2 className="font-serif text-3xl text-[#071f3a] leading-tight">
-                  View the guideline infographic.
-                </h2>
-                <p className="text-[#4b5563] leading-relaxed mt-3">
-                  A reference from the American College of Sports Medicine on
-                  exercise and health-related outcomes for individuals with
-                  cancer.
-                </p>
-                <span className="inline-flex mt-5 text-[#c98b2c] font-semibold">
-                  Open Guidelines
-                </span>
-              </div>
-            </div>
-          </a>
+            <img
+              src="/trsp-evidence-alpine-wall-original.jpeg"
+              alt="A still alpine lake beneath a Colorado mountain wall"
+              className="relative w-full aspect-[4/3] object-cover shadow-2xl"
+            />
+          </div>
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import SEO from "./components/SEO"
 
 function SectionLabel({ children }) {
   return (
@@ -49,9 +50,18 @@ const sections = [
 export default function Privacy() {
   return (
     <div className="bg-[#f8f5ef] text-[#071f3a] min-h-screen">
+      <SEO
+        title="Privacy and Data Use"
+        description="Plain-language privacy and data-use information for TRSP website forms, participant applications, partner inquiries, and nonprofit follow-up."
+        path="/privacy"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Privacy", path: "/privacy" },
+        ]}
+      />
       <Navbar />
 
-      <section className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
+      <section id="main-content" tabIndex="-1" className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <SectionLabel>Privacy & Data Use</SectionLabel>
           <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[0.98] tracking-tight max-w-4xl">

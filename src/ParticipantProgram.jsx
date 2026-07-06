@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import SEO from './components/SEO'
 
 const supportItems = [
   'Individuals affected by cancer in Loveland and Northern Colorado',
@@ -72,9 +73,18 @@ function GoldDivider() {
 export default function ParticipantProgram() {
   return (
     <div className="bg-[#f8f5ef] text-[#071f3a] min-h-screen">
+      <SEO
+        title="Participant Program"
+        description="TRSP's Loveland and Northern Colorado pilot helps eligible individuals affected by cancer access individualized, restoration-focused personal training support when funding and safety fit align."
+        path="/participant-program"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Participant Program', path: '/participant-program' },
+        ]}
+      />
       <Navbar />
 
-      <section className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
+      <section id="main-content" tabIndex="-1" className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-16 items-center">
           <div>
             <SectionLabel>Participant Program</SectionLabel>

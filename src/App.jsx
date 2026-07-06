@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import SEO from './components/SEO'
 
 const donateUrl = 'https://givebutter.com/general-fund-iz0pzq'
 const partnerGuideUrl = '/TRSP_Partner_Guide_Website_Edition_v1_2_ConsistentMargins.pdf'
@@ -39,7 +40,11 @@ function GoldDivider() {
 
 function Hero() {
   return (
-    <section className="bg-[#f8f5ef] text-[#071f3a] pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
+    <section
+      id="main-content"
+      tabIndex="-1"
+      className="bg-[#f8f5ef] text-[#071f3a] pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6"
+    >
       <div className="max-w-7xl mx-auto grid lg:grid-cols-[1.02fr_0.98fr] gap-12 lg:gap-16 items-center">
         <div>
           <SectionLabel>A Pathway Back To Life</SectionLabel>
@@ -246,8 +251,9 @@ function EvidencePurposePossibility() {
         </div>
 
         <img
-          src="/trsp-winter-confidence-original.jpeg"
-          alt="A person standing with arms raised on a frozen Colorado lake beneath mountain peaks"
+          src="/trsp-strength-lift-original.jpeg"
+          alt="A person completing a strong deadlift in a training facility"
+          loading="lazy"
           className="w-full aspect-[4/3] object-cover border border-[#d8a066]/40"
         />
       </div>
@@ -372,7 +378,14 @@ function ImpactSection() {
             </div>
           </div>
 
-          <div className="h-3 bg-[#e9dfd2] overflow-hidden mb-8">
+          <div
+            role="progressbar"
+            aria-label="Pilot funding progress"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow={Math.round(percentFunded)}
+            className="h-3 bg-[#e9dfd2] overflow-hidden mb-8"
+          >
             <div
               className="h-full bg-[#c98b2c] transition-all duration-700"
               style={{ width: `${percentFunded}%` }}
@@ -479,6 +492,11 @@ function FinalCta() {
 export default function App() {
   return (
     <div className="font-sans bg-[#f8f5ef]">
+      <SEO
+        title="Cancer Exercise Support in Northern Colorado"
+        description="The Renewed Strength Project removes financial barriers to individualized, evidence-informed strength and movement coaching for individuals affected by cancer in Loveland, Fort Collins, Windsor, Greeley, and Northern Colorado."
+        path="/"
+      />
       <Navbar />
       <Hero />
       <WhyWeExist />

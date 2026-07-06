@@ -97,9 +97,17 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-[#f8f5ef]/95 backdrop-blur-xl border-b border-[#e6dac8] z-50">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 h-20 md:h-24 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3" onClick={closeMenus}>
+    <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-[#071f3a] focus:px-4 focus:py-3 focus:text-white focus:outline-none focus:ring-2 focus:ring-[#d8a066]"
+      >
+        Skip to main content
+      </a>
+
+      <nav className="fixed top-0 left-0 w-full bg-[#f8f5ef]/95 backdrop-blur-xl border-b border-[#e6dac8] z-50">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 h-20 md:h-24 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-3" onClick={closeMenus}>
           <img
             src="/rsp-logo.png"
             alt="Renewed Strength Project logo"
@@ -111,7 +119,7 @@ export default function Navbar() {
             <br />
             Project
           </span>
-        </Link>
+          </Link>
 
         <button
           ref={buttonRef}
@@ -236,7 +244,8 @@ export default function Navbar() {
             </div>
           </div>
         )}
-      </div>
-    </nav>
+        </div>
+      </nav>
+    </>
   )
 }

@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import SEO from "./components/SEO"
 
 function SectionLabel({ children }) {
   return (
@@ -16,9 +17,18 @@ function GoldDivider() {
 export default function FoundingStory() {
   return (
     <div className="bg-[#f8f5ef] text-[#071f3a] min-h-screen">
+      <SEO
+        title="Our Story"
+        description="The founding story of The Renewed Strength Project, a Loveland-based nonprofit shaped by personal experience, professional purpose, and a commitment to remove financial barriers after cancer treatment."
+        path="/founding-story"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Our Story", path: "/founding-story" },
+        ]}
+      />
       <Navbar />
 
-      <section className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
+      <section id="main-content" tabIndex="-1" className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-center">
           <div>
             <SectionLabel>Our Founding Story</SectionLabel>

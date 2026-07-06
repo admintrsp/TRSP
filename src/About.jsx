@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import SEO from './components/SEO'
 
 const principles = [
   'No financial barriers',
@@ -24,9 +25,18 @@ function GoldDivider() {
 export default function About() {
   return (
     <div className="bg-[#f8f5ef] text-[#071f3a] min-h-screen">
+      <SEO
+        title="Mission and About"
+        description="Learn how The Renewed Strength Project helps individuals affected by cancer in Northern Colorado access individualized, restoration-focused strength and movement support without financial barriers."
+        path="/about"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Mission and About', path: '/about' },
+        ]}
+      />
       <Navbar />
 
-      <section className="pt-36 md:pt-44 pb-20 md:pb-28 px-5 sm:px-6">
+      <section id="main-content" tabIndex="-1" className="pt-36 md:pt-44 pb-20 md:pb-28 px-5 sm:px-6">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-20 items-center">
           <div className="max-w-2xl">
             <SectionLabel>Our Mission</SectionLabel>

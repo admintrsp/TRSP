@@ -1,21 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Dashboard from './Dashboard.jsx'
+import SEO from './components/SEO'
 
 const storageKey = 'trsp_dashboard_token'
 
 export default function DashboardGate() {
   const [accessCode, setAccessCode] = useState('')
-  const [token, setToken] = useState('')
+  const [token, setToken] = useState(() => {
+    if (typeof window === 'undefined') return ''
+
+    return window.sessionStorage.getItem(storageKey) || ''
+  })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
-
-  useEffect(() => {
-    const savedToken = window.sessionStorage.getItem(storageKey)
-
-    if (savedToken) {
-      setToken(savedToken)
-    }
-  }, [])
 
   async function handleSubmit(event) {
     event.preventDefault()
@@ -59,6 +56,12 @@ export default function DashboardGate() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center px-6">
+      <SEO
+        title="Private Dashboard"
+        description="Private TRSP dashboard access."
+        path="/dashboard"
+        noindex
+      />
       <div className="w-full max-w-xl">
         <div className="border border-slate-800 bg-slate-900 rounded-3xl p-8 md:p-10 shadow-2xl shadow-black/30">
           <p className="text-[#d8a066] uppercase tracking-[0.25em] text-sm font-semibold mb-5">
@@ -76,11 +79,15 @@ export default function DashboardGate() {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-semibold text-slate-300 mb-2">
+              <label
+                htmlFor="dashboard-access-code"
+                className="block text-sm font-semibold text-slate-300 mb-2"
+              >
                 Access Code
               </label>
 
               <input
+                id="dashboard-access-code"
                 type="password"
                 value={accessCode}
                 onChange={(event) => setAccessCode(event.target.value)}
@@ -91,7 +98,7 @@ export default function DashboardGate() {
             </div>
 
             {errorMessage && (
-              <p className="text-red-300 text-sm leading-relaxed">
+              <p role="alert" className="text-red-300 text-sm leading-relaxed">
                 {errorMessage}
               </p>
             )}

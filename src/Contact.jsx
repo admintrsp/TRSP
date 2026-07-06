@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import SEO from "./components/SEO"
 
 const emailAddress = "info@therenewedstrengthproject.org"
 
@@ -19,9 +20,18 @@ function GoldDivider() {
 export default function Contact() {
   return (
     <div className="bg-[#f8f5ef] text-[#071f3a] min-h-screen">
+      <SEO
+        title="Contact"
+        description="Contact The Renewed Strength Project in Loveland, Colorado for participant support, community partnership, provider referral questions, or general nonprofit inquiries."
+        path="/contact"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]}
+      />
       <Navbar />
 
-      <section className="pt-32 md:pt-36 pb-20 md:pb-28 px-5 sm:px-6">
+      <section id="main-content" tabIndex="-1" className="pt-32 md:pt-36 pb-20 md:pb-28 px-5 sm:px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-16 items-start">
           <div className="max-w-2xl">
             <SectionLabel>Contact</SectionLabel>
@@ -34,6 +44,12 @@ export default function Contact() {
               Rooted in Loveland and serving individuals affected by cancer
               across Northern Colorado, The Renewed Strength Project is here
               to help you take the next appropriate step.
+            </p>
+
+            <p className="text-base md:text-lg text-[#4b5563] leading-relaxed mt-6">
+              Current outreach is focused on Loveland, Fort Collins, Windsor,
+              Greeley, Larimer County, and surrounding Northern Colorado
+              communities.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4 mt-10">
@@ -64,7 +80,7 @@ export default function Contact() {
             <div className="absolute -left-4 -top-4 w-20 h-20 border-l border-t border-[#c98b2c]"></div>
             <div className="absolute -right-4 -bottom-4 w-20 h-20 border-r border-b border-[#c98b2c]"></div>
             <img
-              src="/loveland-heart.png"
+              src="/loveland-heart.webp"
               alt="The red Loveland heart sculpture with the lake and mountains behind it"
               className="relative w-full aspect-[4/3] object-cover object-center shadow-xl"
             />
@@ -109,13 +125,14 @@ export default function Contact() {
             </div>
 
             <div className="border border-[#e6dac8] bg-[#fbfaf7] p-8">
-              <h3 className="font-serif text-3xl mb-4">General Questions</h3>
+              <h3 className="font-serif text-3xl mb-4">Provider Referrals</h3>
               <p className="text-[#4b5563] leading-relaxed mb-6">
-                For media, volunteering, local outreach, or general questions
-                about The Renewed Strength Project.
+                For healthcare providers, clinics, or care teams who want to
+                ask about referral fit, medical clearance, or program
+                boundaries.
               </p>
               <a href={`mailto:${emailAddress}`} className="font-semibold text-[#071f3a] hover:text-[#c98b2c]">
-                Email us
+                Email provider questions
               </a>
             </div>
 

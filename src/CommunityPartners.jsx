@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import SEO from "./components/SEO"
 
 function SectionLabel({ children }) {
   return (
@@ -86,9 +87,18 @@ const partnerSlots = [
 export default function CommunityPartners() {
   return (
     <div className="bg-[#f8f5ef] text-[#071f3a] min-h-screen">
+      <SEO
+        title="Community Partners"
+        description="Partner with The Renewed Strength Project to help fund individualized, evidence-informed exercise support for individuals affected by cancer in Loveland, Fort Collins, and Northern Colorado."
+        path="/community-partners"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Community Partners", path: "/community-partners" },
+        ]}
+      />
       <Navbar />
 
-      <section className="pt-32 md:pt-36 pb-20 md:pb-28 px-5 sm:px-6">
+      <section id="main-content" tabIndex="-1" className="pt-32 md:pt-36 pb-20 md:pb-28 px-5 sm:px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-16 items-start">
           <div className="max-w-2xl">
             <SectionLabel>Community Partnerships</SectionLabel>

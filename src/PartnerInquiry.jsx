@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import SEO from "./components/SEO"
 
 function SectionLabel({ children }) {
   return (
@@ -20,6 +21,7 @@ const fieldClass =
 export default function PartnerInquiry() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [successMessage, setSuccessMessage] = useState("")
+  const [errorMessage, setErrorMessage] = useState("")
   const [formData, setFormData] = useState({
     organization: "",
     contact: "",
@@ -28,6 +30,7 @@ export default function PartnerInquiry() {
     organizationType: "",
     partnershipInterest: [],
     message: "",
+    website: "",
   })
 
   const partnershipOptions = [
@@ -42,8 +45,22 @@ export default function PartnerInquiry() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSuccessMessage("")
+    setErrorMessage("")
 
     try {
+      if (
+        !formData.organization.trim() ||
+        !formData.contact.trim() ||
+        !formData.email.trim() ||
+        !formData.organizationType ||
+        formData.partnershipInterest.length === 0
+      ) {
+        setErrorMessage("Please complete the required fields before submitting.")
+        setIsSubmitting(false)
+        return
+      }
+
       const response = await fetch("/api/partner", {
         method: "POST",
         headers: {
@@ -52,7 +69,11 @@ export default function PartnerInquiry() {
         body: JSON.stringify(formData),
       })
 
-      await response.json()
+      const data = await response.json()
+
+      if (!response.ok || data.success === false) {
+        throw new Error(data.error || "Partner inquiry could not be submitted.")
+      }
 
       setSuccessMessage(
         "Thank you! Your partnership inquiry has been received. A member of our leadership team will contact you within two business days."
@@ -66,10 +87,13 @@ export default function PartnerInquiry() {
         organizationType: "",
         partnershipInterest: [],
         message: "",
+        website: "",
       })
     } catch (error) {
       console.error(error)
-      alert("Something went wrong.")
+      setErrorMessage(
+        "Something went wrong while submitting the inquiry. Please try again or email info@therenewedstrengthproject.org."
+      )
     } finally {
       setIsSubmitting(false)
     }
@@ -77,9 +101,18 @@ export default function PartnerInquiry() {
 
   return (
     <div className="bg-[#f8f5ef] text-[#071f3a] min-h-screen">
+      <SEO
+        title="Partnership Inquiry"
+        description="Start a community partnership inquiry with TRSP to support individualized exercise and restoration-focused coaching for individuals affected by cancer in Northern Colorado."
+        path="/partner-inquiry"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Partnership Inquiry", path: "/partner-inquiry" },
+        ]}
+      />
       <Navbar />
 
-      <section className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
+      <section id="main-content" tabIndex="-1" className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16">
           <div>
             <SectionLabel>Community Partnership Inquiry</SectionLabel>
@@ -155,7 +188,11 @@ export default function PartnerInquiry() {
           <div className="bg-white border border-[#e6dac8] p-6 sm:p-8 md:p-10">
             <form onSubmit={handleSubmit} className="space-y-8">
               {successMessage && (
-                <div className="border border-emerald-600 bg-emerald-50 p-6">
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className="border border-emerald-600 bg-emerald-50 p-6"
+                >
                   <h3 className="text-emerald-800 text-xl font-semibold mb-2">
                     Thank you
                   </h3>
@@ -165,15 +202,33 @@ export default function PartnerInquiry() {
                 </div>
               )}
 
+              {errorMessage && (
+                <div role="alert" className="border border-red-300 bg-red-50 p-6">
+                  <h3 className="text-red-800 text-xl font-semibold mb-2">
+                    Submission Issue
+                  </h3>
+                  <p className="text-red-900 leading-relaxed">
+                    {errorMessage}
+                  </p>
+                </div>
+              )}
+
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-[#334155] mb-2">
+                  <label
+                    htmlFor="organization"
+                    className="block text-sm font-semibold text-[#334155] mb-2"
+                  >
                     Organization Name *
                   </label>
                   <input
+                    id="organization"
+                    name="organization"
                     type="text"
                     placeholder="Organization name"
                     value={formData.organization}
+                    required
+                    autoComplete="organization"
                     onChange={(e) =>
                       setFormData({
                         ...formData,
@@ -185,13 +240,20 @@ export default function PartnerInquiry() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-[#334155] mb-2">
+                  <label
+                    htmlFor="contact"
+                    className="block text-sm font-semibold text-[#334155] mb-2"
+                  >
                     Contact Name *
                   </label>
                   <input
+                    id="contact"
+                    name="contact"
                     type="text"
                     placeholder="Jane Smith"
                     value={formData.contact}
+                    required
+                    autoComplete="name"
                     onChange={(e) =>
                       setFormData({
                         ...formData,
@@ -205,13 +267,20 @@ export default function PartnerInquiry() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-[#334155] mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-semibold text-[#334155] mb-2"
+                  >
                     Email Address *
                   </label>
                   <input
+                    id="email"
+                    name="email"
                     type="email"
                     placeholder="name@organization.org"
                     value={formData.email}
+                    required
+                    autoComplete="email"
                     onChange={(e) =>
                       setFormData({
                         ...formData,
@@ -223,13 +292,19 @@ export default function PartnerInquiry() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-[#334155] mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-semibold text-[#334155] mb-2"
+                  >
                     Phone Number
                   </label>
                   <input
+                    id="phone"
+                    name="phone"
                     type="tel"
                     placeholder="(970) 555-1234"
                     value={formData.phone}
+                    autoComplete="tel"
                     onChange={(e) =>
                       setFormData({
                         ...formData,
@@ -242,11 +317,17 @@ export default function PartnerInquiry() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-[#334155] mb-2">
+                <label
+                  htmlFor="organizationType"
+                  className="block text-sm font-semibold text-[#334155] mb-2"
+                >
                   I Represent A...
                 </label>
                 <select
+                  id="organizationType"
+                  name="organizationType"
                   value={formData.organizationType}
+                  required
                   onChange={(e) =>
                     setFormData({
                       ...formData,
@@ -271,16 +352,19 @@ export default function PartnerInquiry() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-[#334155] mb-4">
+                <p className="block text-sm font-semibold text-[#334155] mb-4">
                   How would you like to partner?
-                </label>
+                </p>
                 <div className="grid md:grid-cols-2 gap-4">
-                  {partnershipOptions.map((option) => (
+                  {partnershipOptions.map((option, index) => (
                     <label
                       key={option}
+                      htmlFor={`partnershipInterest-${index}`}
                       className="flex items-center gap-3 border border-[#e6dac8] bg-[#fbfaf7] p-4 hover:border-[#c98b2c] cursor-pointer transition"
                     >
                       <input
+                        id={`partnershipInterest-${index}`}
+                        name="partnershipInterest"
                         type="checkbox"
                         checked={formData.partnershipInterest.includes(option)}
                         onChange={(e) => {
@@ -302,10 +386,15 @@ export default function PartnerInquiry() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-[#334155] mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-semibold text-[#334155] mb-2"
+                >
                   What inspired you to reach out?
                 </label>
                 <textarea
+                  id="message"
+                  name="message"
                   rows="6"
                   placeholder="Tell us a little about your organization..."
                   value={formData.message}
@@ -316,6 +405,24 @@ export default function PartnerInquiry() {
                     })
                   }
                   className={`${fieldClass} resize-none`}
+                />
+              </div>
+
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="partner-website">Website</label>
+                <input
+                  id="partner-website"
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      website: e.target.value,
+                    })
+                  }
+                  tabIndex="-1"
+                  autoComplete="off"
                 />
               </div>
 

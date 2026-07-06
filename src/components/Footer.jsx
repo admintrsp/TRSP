@@ -34,6 +34,12 @@ export default function Footer() {
             <p className="text-[#d8a066] uppercase tracking-[0.25em] text-xs font-bold mt-8">
               A Colorado 501(c)(3) nonprofit organization
             </p>
+
+            <p className="text-slate-300 text-sm leading-relaxed max-w-md mt-4">
+              Donations support charitable program access and may be
+              tax-deductible as allowed by law. Please consult your tax advisor
+              for individual guidance.
+            </p>
           </div>
 
           <div>

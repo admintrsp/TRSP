@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import SEO from './components/SEO'
 
 const restorationExamples = [
   'Walking farther with more confidence',
@@ -38,9 +39,18 @@ function GoldDivider() {
 export default function RestorationModelPage() {
   return (
     <div className="bg-[#f8f5ef] text-[#071f3a] min-h-screen">
+      <SEO
+        title="Restoration Model"
+        description="TRSP's restoration model connects individualized strength and movement coaching with goals shaped by a person's capacity, medical context, symptoms, and life after cancer disruption."
+        path="/restoration-model"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Restoration Model', path: '/restoration-model' },
+        ]}
+      />
       <Navbar />
 
-      <section className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
+      <section id="main-content" tabIndex="-1" className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-16 items-center">
           <div>
             <SectionLabel>Restoration Model</SectionLabel>
