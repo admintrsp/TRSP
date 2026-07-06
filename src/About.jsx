@@ -26,36 +26,40 @@ export default function About() {
     <div className="bg-[#f8f5ef] text-[#071f3a] min-h-screen">
       <Navbar />
 
-      <section className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-16 items-center">
-          <div>
+      <section className="pt-36 md:pt-44 pb-20 md:pb-28 px-5 sm:px-6">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-20 items-center">
+          <div className="max-w-2xl">
             <SectionLabel>Our Mission</SectionLabel>
             <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[0.98] tracking-tight">
               A pathway back to life.
             </h1>
-          </div>
+            <GoldDivider />
 
-          <div className="text-lg md:text-xl text-[#4b5563] leading-relaxed">
-            <p>
+            <p className="text-lg md:text-xl text-[#4b5563] leading-relaxed">
               The Renewed Strength Project is a Northern Colorado 501(c)(3)
               nonprofit helping individuals affected by cancer access
               restoration-focused training without cost becoming the barrier.
             </p>
 
-            <p className="font-serif text-3xl md:text-4xl leading-snug text-[#071f3a] mt-8">
+            <p className="font-serif text-3xl md:text-4xl leading-snug text-[#071f3a] mt-8 border-l border-[#c98b2c] pl-6">
               We do not train people to exercise. We help people return to the
               lives they have been fighting for.
             </p>
-
-            <div className="relative mt-10">
-              <div className="absolute -left-4 -top-4 w-20 h-20 border-l border-t border-[#c98b2c]"></div>
-              <img
-                src="/trsp-valley-lake-original.jpeg"
-                alt="A bright Colorado valley and alpine lake"
-                className="relative w-full aspect-[16/9] object-cover shadow-xl"
-              />
-            </div>
           </div>
+
+          <figure className="relative">
+            <div className="absolute -left-4 -top-4 w-20 h-20 border-l border-t border-[#c98b2c]"></div>
+            <div className="absolute -right-4 -bottom-4 w-24 h-24 border-r border-b border-[#c98b2c]"></div>
+            <img
+              src="/trsp-forest-path-original.jpeg"
+              alt="A forest trail through Colorado evergreens"
+              className="relative w-full aspect-[4/5] md:aspect-[5/4] lg:aspect-[4/5] object-cover object-center shadow-2xl"
+            />
+            <figcaption className="mt-5 text-sm md:text-base text-[#6b7280] leading-relaxed max-w-xl">
+              Restoration is a pathway toward strength, confidence,
+              independence, and participation in life.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
