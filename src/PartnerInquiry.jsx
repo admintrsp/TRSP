@@ -1,508 +1,344 @@
-import { useState } from "react";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import { useState } from "react"
+import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
+
+function SectionLabel({ children }) {
+  return (
+    <p className="text-[#c98b2c] uppercase tracking-[0.28em] text-xs font-bold mb-5">
+      {children}
+    </p>
+  )
+}
+
+function GoldDivider() {
+  return <div className="w-16 h-px bg-[#c98b2c] my-8"></div>
+}
+
+const fieldClass =
+  "w-full border border-[#d8c8b2] bg-white px-4 py-3 text-[#071f3a] placeholder:text-[#9ca3af] focus:border-[#c98b2c] focus:outline-none"
 
 export default function PartnerInquiry() {
-const [isSubmitting, setIsSubmitting] = useState(false);
-const [successMessage, setSuccessMessage] = useState("");
-const [formData, setFormData] = useState({
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [successMessage, setSuccessMessage] = useState("")
+  const [formData, setFormData] = useState({
+    organization: "",
+    contact: "",
+    email: "",
+    phone: "",
+    organizationType: "",
+    partnershipInterest: [],
+    message: "",
+  })
 
-  organization: "",
-  contact: "",
-  email: "",
-  phone: "",
-  organizationType: "",
-  partnershipInterest: [],
-  message: "",
-});
+  const partnershipOptions = [
+    "Sponsor Participant Scholarships",
+    "Healthcare Referral Partnership",
+    "Corporate Sponsorship",
+    "Volunteer Opportunities",
+    "In-Kind Goods or Services",
+    "I'd Like to Explore Opportunities",
+  ]
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsSubmitting(true)
 
-  try {
-    const response = await fetch("/api/partner", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch("/api/partner", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
 
-    const text = await response.json();
+      await response.json()
 
-    console.log(text);
+      setSuccessMessage(
+        "Thank you! Your partnership inquiry has been received. A member of our leadership team will contact you within two business days."
+      )
 
-setSuccessMessage(
-  "Thank you! Your partnership inquiry has been received. A member of our leadership team will contact you within two business days."
-);
-
-setFormData({
-  organization: "",
-  contact: "",
-  email: "",
-  phone: "",
-  organizationType: "",
-  partnershipInterest: [],
-  message: "",
-});
-
-  } catch (error) {
-    console.error(error);
-    alert("Something went wrong.");
-  } finally {
-  setIsSubmitting(false);
-}
-};
-
-const partnershipOptions = [
-  "Sponsor Participant Scholarships",
-  "Healthcare Referral Partnership",
-  "Corporate Sponsorship",
-  "Volunteer Opportunities",
-  "In-Kind Goods or Services",
-  "I'd Like to Explore Opportunities",
-];
+      setFormData({
+        organization: "",
+        contact: "",
+        email: "",
+        phone: "",
+        organizationType: "",
+        partnershipInterest: [],
+        message: "",
+      })
+    } catch (error) {
+      console.error(error)
+      alert("Something went wrong.")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
-    <div className="bg-slate-950 text-white min-h-screen">
-
+    <div className="bg-[#f8f5ef] text-[#071f3a] min-h-screen">
       <Navbar />
 
-      <section className="pt-40 pb-24 px-6">
+      <section className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16">
+          <div>
+            <SectionLabel>Community Partnership Inquiry</SectionLabel>
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[0.98] tracking-tight">
+              Let’s build something meaningful together.
+            </h1>
+            <GoldDivider />
+          </div>
 
-        <div className="max-w-3xl mx-auto">
-
-          <p className="text-[#d8a066] uppercase tracking-[0.25em] mb-6">
-            Community Partnership Inquiry
-          </p>
-
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-            Let's Build Something
-            <br />
-            <span className="text-[#d8a066]">
-              Meaningful Together.
-            </span>
-          </h1>
-
-          <p className="text-xl text-slate-300 mt-8 leading-relaxed">
-            Thank you for your interest in partnering with the Renewed Strength Project.
-            Please complete the form below and we'll reach out within two business days.
-          </p>
-
+          <div className="space-y-6 text-lg md:text-xl text-[#334155] leading-relaxed">
+            <p>
+              Thank you for your interest in partnering with The Renewed
+              Strength Project. This form helps us understand your organization
+              and the kind of impact you are hoping to create.
+            </p>
+            <p>
+              Partnership starts with a conversation. After you submit this
+              inquiry, we will follow up within two business days.
+            </p>
+          </div>
         </div>
-
       </section>
-{/* WHY PARTNER */}
 
-<section className="py-24 px-6 bg-slate-900">
+      <section className="bg-white py-24 md:py-32 px-5 sm:px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-4xl">
+            <SectionLabel>Why Partner With Us</SectionLabel>
+            <h2 className="font-serif text-4xl md:text-6xl leading-tight">
+              Your partnership helps remove financial barriers locally.
+            </h2>
+          </div>
 
-  <div className="max-w-6xl mx-auto">
-
-    <div className="text-center mb-16">
-
-      <p className="text-[#d8a066] uppercase tracking-[0.25em] text-sm mb-4 font-semibold">
-        Why Partner With Us
-      </p>
-
-      <h2 className="text-4xl md:text-5xl font-bold mb-6">
-        Your Partnership
-        <span className="block text-[#d8a066]">
-          Makes A Local Impact
-        </span>
-      </h2>
-
-    </div>
-
-    <div className="grid md:grid-cols-3 gap-8">
-
-      <div className="bg-slate-950 border border-slate-800 rounded-3xl p-8">
-
-        <h3 className="text-2xl font-bold mb-4 text-[#d8a066]">
-          Local Impact
-        </h3>
-
-        <p className="text-slate-300 leading-relaxed">
-          Every partnership helps remove financial barriers for individuals
-          impacted by cancer throughout Northern Colorado.
-        </p>
-
-      </div>
-
-      <div className="bg-slate-950 border border-slate-800 rounded-3xl p-8">
-
-        <h3 className="text-2xl font-bold mb-4 text-[#d8a066]">
-          Evidence-Informed
-        </h3>
-
-        <p className="text-slate-300 leading-relaxed">
-          Our programs are grounded in current exercise oncology research
-          and delivered by qualified professionals.
-        </p>
-
-      </div>
-
-      <div className="bg-slate-950 border border-slate-800 rounded-3xl p-8">
-
-        <h3 className="text-2xl font-bold mb-4 text-[#d8a066]">
-          Meaningful Partnership
-        </h3>
-
-        <p className="text-slate-300 leading-relaxed">
-          We believe in building long-term relationships that create lasting
-          benefits for participants, partners, and our community.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-{/* WHAT HAPPENS NEXT */}
-
-<section className="py-24 px-6 bg-slate-950">
-
-  <div className="max-w-5xl mx-auto">
-
-    <div className="text-center mb-16">
-
-      <p className="text-[#d8a066] uppercase tracking-[0.25em] text-sm mb-4 font-semibold">
-        What Happens Next
-      </p>
-
-      <h2 className="text-4xl md:text-5xl font-bold mb-6">
-        A Simple
-        <span className="block text-[#d8a066]">
-          Partnership Process
-        </span>
-      </h2>
-
-      <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-        We believe partnerships should begin with a conversation—not a commitment.
-        Here's what you can expect after submitting your inquiry.
-      </p>
-
-    </div>
-
-    <div className="grid md:grid-cols-3 gap-8">
-
-      <div className="bg-slate-900 rounded-3xl border border-slate-800 p-8 text-center">
-
-        <div className="text-5xl font-bold text-[#d8a066] mb-6">
-          1
+          <div className="grid md:grid-cols-3 gap-px bg-[#d8a066]/50 border border-[#d8a066]/50 mt-14">
+            {[
+              {
+                title: "Local Impact",
+                copy:
+                  "Support individuals affected by cancer throughout Northern Colorado.",
+              },
+              {
+                title: "Evidence-Informed",
+                copy:
+                  "Help expand access to individualized, restoration-focused training.",
+              },
+              {
+                title: "Meaningful Partnership",
+                copy:
+                  "Build long-term relationships that create practical community impact.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="bg-white p-8">
+                <h3 className="font-serif text-3xl mb-4">{item.title}</h3>
+                <p className="text-[#4b5563] leading-relaxed">{item.copy}</p>
+              </div>
+            ))}
+          </div>
         </div>
+      </section>
 
-        <h3 className="text-2xl font-bold mb-4">
-          Submit Your Inquiry
-        </h3>
+      <section className="bg-[#f8f5ef] py-24 md:py-32 px-5 sm:px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <SectionLabel>Partnership Inquiry</SectionLabel>
+            <h2 className="font-serif text-4xl md:text-6xl leading-tight">
+              Start the conversation.
+            </h2>
+            <p className="text-lg text-[#4b5563] leading-relaxed max-w-3xl mx-auto mt-6">
+              We would love to learn more about your organization and explore
+              how we can create meaningful impact together.
+            </p>
+          </div>
 
-        <p className="text-slate-300 leading-relaxed">
-          Tell us a little about your organization and your interest in supporting our mission.
-        </p>
+          <div className="bg-white border border-[#e6dac8] p-6 sm:p-8 md:p-10">
+            <form onSubmit={handleSubmit} className="space-y-8">
+              {successMessage && (
+                <div className="border border-emerald-600 bg-emerald-50 p-6">
+                  <h3 className="text-emerald-800 text-xl font-semibold mb-2">
+                    Thank you
+                  </h3>
+                  <p className="text-emerald-900 leading-relaxed">
+                    {successMessage}
+                  </p>
+                </div>
+              )}
 
-      </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-semibold text-[#334155] mb-2">
+                    Organization Name *
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Organization name"
+                    value={formData.organization}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        organization: e.target.value,
+                      })
+                    }
+                    className={fieldClass}
+                  />
+                </div>
 
-      <div className="bg-slate-900 rounded-3xl border border-slate-800 p-8 text-center">
+                <div>
+                  <label className="block text-sm font-semibold text-[#334155] mb-2">
+                    Contact Name *
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Jane Smith"
+                    value={formData.contact}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        contact: e.target.value,
+                      })
+                    }
+                    className={fieldClass}
+                  />
+                </div>
+              </div>
 
-        <div className="text-5xl font-bold text-[#d8a066] mb-6">
-          2
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-semibold text-[#334155] mb-2">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="name@organization.org"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        email: e.target.value,
+                      })
+                    }
+                    className={fieldClass}
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-[#334155] mb-2">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="(970) 555-1234"
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        phone: e.target.value,
+                      })
+                    }
+                    className={fieldClass}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-[#334155] mb-2">
+                  I Represent A...
+                </label>
+                <select
+                  value={formData.organizationType}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      organizationType: e.target.value,
+                    })
+                  }
+                  className={fieldClass}
+                >
+                  <option value="" disabled>
+                    Select Organization Type
+                  </option>
+                  <option>Business</option>
+                  <option>Healthcare Organization</option>
+                  <option>Nonprofit Organization</option>
+                  <option>Foundation</option>
+                  <option>Educational Institution</option>
+                  <option>Faith Community</option>
+                  <option>Government Agency</option>
+                  <option>Civic Organization</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-[#334155] mb-4">
+                  How would you like to partner?
+                </label>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {partnershipOptions.map((option) => (
+                    <label
+                      key={option}
+                      className="flex items-center gap-3 border border-[#e6dac8] bg-[#fbfaf7] p-4 hover:border-[#c98b2c] cursor-pointer transition"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={formData.partnershipInterest.includes(option)}
+                        onChange={(e) => {
+                          setFormData({
+                            ...formData,
+                            partnershipInterest: e.target.checked
+                              ? [...formData.partnershipInterest, option]
+                              : formData.partnershipInterest.filter(
+                                  (item) => item !== option
+                                ),
+                          })
+                        }}
+                        className="accent-[#c98b2c]"
+                      />
+                      <span className="text-[#334155]">{option}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-[#334155] mb-2">
+                  What inspired you to reach out?
+                </label>
+                <textarea
+                  rows="6"
+                  placeholder="Tell us a little about your organization..."
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      message: e.target.value,
+                    })
+                  }
+                  className={`${fieldClass} resize-none`}
+                />
+              </div>
+
+              <div className="pt-4 space-y-5">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#071f3a] hover:bg-[#0d2f57] disabled:bg-[#9ca3af] disabled:cursor-not-allowed text-white font-semibold text-lg py-4 rounded-sm transition"
+                >
+                  {isSubmitting ? "Submitting..." : "Start the Conversation"}
+                </button>
+
+                <p className="text-center text-sm text-[#6b7280] leading-relaxed max-w-xl mx-auto">
+                  The information you share will only be used to respond to
+                  your partnership inquiry and support TRSP operations.
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
-
-        <h3 className="text-2xl font-bold mb-4">
-          We'll Reach Out
-        </h3>
-
-        <p className="text-slate-300 leading-relaxed">
-          A member of our leadership team will contact you within two business days to learn more.
-        </p>
-
-      </div>
-
-      <div className="bg-slate-900 rounded-3xl border border-slate-800 p-8 text-center">
-
-        <div className="text-5xl font-bold text-[#d8a066] mb-6">
-          3
-        </div>
-
-        <h3 className="text-2xl font-bold mb-4">
-          Build Something Meaningful
-        </h3>
-
-        <p className="text-slate-300 leading-relaxed">
-          Together we'll explore opportunities that align with your organization and create lasting community impact.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-{/* PARTNERSHIP INQUIRY FORM */}
-
-<section className="py-24 px-6 bg-gradient-to-b from-slate-900 to-slate-950">
-
-  <div className="max-w-3xl mx-auto">
-
-    <div className="text-center mb-14">
-
-      <p className="text-[#d8a066] uppercase tracking-[0.25em] text-sm font-semibold mb-4">
-        Partnership Inquiry
-      </p>
-
-      <h2 className="text-4xl md:text-5xl font-bold mb-6">
-        Start the
-        <span className="block text-[#d8a066]">
-          Conversation
-        </span>
-      </h2>
-
-      <p className="text-slate-300 text-lg leading-relaxed">
-        We'd love to learn more about your organization and explore how we
-        can create meaningful impact together.
-      </p>
-
-    </div>
-
-    <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-10">
-
-<form
-  onSubmit={handleSubmit}
-  className="space-y-8"
->
-    {successMessage && (
-  <div className="bg-emerald-900/30 border border-emerald-500 rounded-2xl p-6">
-    <h3 className="text-emerald-400 text-xl font-semibold mb-2">
-      Thank You!
-    </h3>
-
-    <p className="text-slate-200 leading-relaxed">
-      {successMessage}
-    </p>
-  </div>
-)}
-
-  <div className="grid md:grid-cols-2 gap-6">
-
-    <div>
-      <label className="block text-sm font-semibold text-slate-300 mb-2">
-        Organization Name *
-      </label>
-
-<input
-  type="text"
-  placeholder="Renewed Strength Project"
-  value={formData.organization}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      organization: e.target.value,
-    })
-  }
-  className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none"
-/>
-    </div>
-
-    <div>
-      <label className="block text-sm font-semibold text-slate-300 mb-2">
-        Contact Name *
-      </label>
-
-<input
-  type="text"
-  placeholder="Jane Smith"
-  value={formData.contact}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      contact: e.target.value,
-    })
-  }
-  className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none"
-/>    </div>
-
-  </div>
-<div className="grid md:grid-cols-2 gap-6">
-
-  <div>
-    <label className="block text-sm font-semibold text-slate-300 mb-2">
-      Email Address *
-    </label>
-
-<input
-  type="email"
-  placeholder="name@organization.org"
-  value={formData.email}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      email: e.target.value,
-    })
-  }
-  className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none"
-/> 
- </div>
-
-  <div>
-    <label className="block text-sm font-semibold text-slate-300 mb-2">
-      Phone Number
-    </label>
-
-<input
-  type="tel"
-  placeholder="(970) 555-1234"
-  value={formData.phone}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      phone: e.target.value,
-    })
-  }
-  className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none"
-/>
-  </div>
-
-</div>
-
-<div>
-
-  <label className="block text-sm font-semibold text-slate-300 mb-2">
-    I Represent A...
-  </label>
-
-<select
-  value={formData.organizationType}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      organizationType: e.target.value,
-    })
-  }
-  className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none"
->    
-<option value="" disabled>
-
-      Select Organization Type
-    </option>
-
-    <option>Business</option>
-    <option>Healthcare Organization</option>
-    <option>Nonprofit Organization</option>
-    <option>Foundation</option>
-    <option>Educational Institution</option>
-    <option>Faith Community</option>
-    <option>Government Agency</option>
-    <option>Civic Organization</option>
-    <option>Other</option>
-
-  </select>
-
-</div>
-<div>
-
-  <label className="block text-sm font-semibold text-slate-300 mb-4">
-    How would you like to partner?
-  </label>
-
-<div className="grid md:grid-cols-2 gap-4">
-  {partnershipOptions.map((option) => (
-    <label
-      key={option}
-      className="flex items-center gap-3 bg-slate-950 border border-slate-700 rounded-xl p-4 hover:border-[#d8a066] cursor-pointer transition"
-    >
-      <input
-        type="checkbox"
-        checked={formData.partnershipInterest.includes(option)}
-        onChange={(e) => {
-          setFormData({
-            ...formData,
-            partnershipInterest: e.target.checked
-              ? [...formData.partnershipInterest, option]
-              : formData.partnershipInterest.filter(
-                  (item) => item !== option
-                ),
-          });
-        }}
-        className="accent-[#d8a066]"
-      />
-
-      <span>{option}</span>
-    </label>
-  ))}
-</div>
-</div>
-<div>
-
-  <label className="block text-sm font-semibold text-slate-300 mb-2">
-    What inspired you to reach out?
-  </label>
-
-<textarea
-  rows="6"
-  placeholder="Tell us a little about your organization..."
-  value={formData.message}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      message: e.target.value,
-    })
-  }
-  className="w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none resize-none"
-/>
-
-</div>
-
-<div className="pt-6 space-y-5">
-
-<button
-  type="submit"
-  disabled={isSubmitting}
-  className="
-      w-full
-      bg-[#d8a066]
-      hover:bg-[#e6b684]
-      disabled:bg-slate-600
-      disabled:cursor-not-allowed
-      text-slate-950
-      font-semibold
-      text-lg
-      py-4
-      rounded-2xl
-      transition-all
-      duration-300
-      shadow-lg
-      hover:shadow-[#d8a066]/30
-    "
-  >
-{isSubmitting
-  ? "Submitting..."
-  : "Start the Conversation"}
-    </button>
-
-  <p className="text-center text-sm text-slate-400 leading-relaxed max-w-xl mx-auto">
-    We respect your privacy. The information you share will only be used
-    to respond to your partnership inquiry and will never be sold or
-    shared with third parties.
-    <br /><br />
-    We believe every meaningful partnership begins with a conversation,
-    and we're grateful you're considering joining our mission.
-  </p>
-
-</div>
-
-</form>
-
- </div>
-
-  </div>
-
-</section>
+      </section>
 
       <Footer />
-
     </div>
-  );
+  )
 }

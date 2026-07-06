@@ -19,7 +19,9 @@ const initialFormData = {
 };
 
 const fieldClass =
-  "w-full rounded-xl bg-slate-950 border border-slate-700 px-4 py-3 text-white focus:border-[#d8a066] focus:outline-none";
+  "w-full bg-white border border-[#d8cab7] px-4 py-3 text-[#071f3a] placeholder:text-[#8a8175] focus:border-[#c98b2c] focus:outline-none";
+
+const labelClass = "block text-sm font-semibold text-[#071f3a] mb-2";
 
 const options = {
   preferredContact: ["Email", "Phone", "Text"],
@@ -31,13 +33,20 @@ const options = {
   ],
 };
 
+function SectionLabel({ children }) {
+  return (
+    <p className="text-[#c98b2c] uppercase tracking-[0.28em] text-xs font-bold mb-5">
+      {children}
+    </p>
+  );
+}
+
 function TextField({ label, name, type = "text", value, onChange, required = false, placeholder }) {
   return (
     <div>
-      <label className="block text-sm font-semibold text-slate-300 mb-2">
+      <label className={labelClass}>
         {label} {required && "*"}
       </label>
-
       <input
         type={type}
         name={name}
@@ -54,10 +63,9 @@ function TextField({ label, name, type = "text", value, onChange, required = fal
 function SelectField({ label, name, value, onChange, required = false, children }) {
   return (
     <div>
-      <label className="block text-sm font-semibold text-slate-300 mb-2">
+      <label className={labelClass}>
         {label} {required && "*"}
       </label>
-
       <select
         name={name}
         value={value}
@@ -82,7 +90,6 @@ export default function Apply() {
 
   function handleChange(event) {
     const { name, value, type, checked } = event.target;
-
     setFormData((current) => ({
       ...current,
       [name]: type === "checkbox" ? checked : value,
@@ -125,169 +132,102 @@ export default function Apply() {
   }
 
   return (
-    <div className="bg-slate-950 text-white min-h-screen">
+    <div className="bg-[#f8f5ef] text-[#071f3a] min-h-screen">
       <Navbar />
 
-      <section className="pt-32 md:pt-40 pb-16 md:pb-20 px-5 sm:px-6">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-[#d8a066] uppercase tracking-[0.25em] mb-6">
-            Apply For Support
-          </p>
+      <section className="pt-36 md:pt-40 pb-20 px-5 sm:px-6">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16">
+          <div>
+            <SectionLabel>Apply For Support</SectionLabel>
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[0.98] tracking-tight">
+              Take the next supported step toward restoration.
+            </h1>
+          </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
-            Take the next supported step toward restoration.
-          </h1>
+          <div>
+            <p className="text-xl md:text-2xl text-[#334155] leading-relaxed">
+              This application helps us understand your current needs, your
+              goals, and whether The Renewed Strength Project may be a safe
+              and appropriate fit based on current capacity and funding.
+            </p>
 
-          <p className="text-xl text-slate-300 mt-8 leading-relaxed max-w-3xl">
-            This application helps us understand your current needs, your goals,
-            and whether The Renewed Strength Project may be a safe and
-            appropriate fit based on current capacity and funding.
-          </p>
-
-          <div className="mt-10 grid md:grid-cols-3 gap-4">
-            <div className="border border-slate-800 bg-slate-900/70 rounded-2xl p-5">
-              <p className="text-[#d8a066] font-semibold mb-2">
-                Local Pilot
-              </p>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                Currently focused on Loveland and Northern Colorado.
-              </p>
-            </div>
-
-            <div className="border border-slate-800 bg-slate-900/70 rounded-2xl p-5">
-              <p className="text-[#d8a066] font-semibold mb-2">
-                No Cost To Apply
-              </p>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                Support depends on program fit, safety, and available funding.
-              </p>
-            </div>
-
-            <div className="border border-slate-800 bg-slate-900/70 rounded-2xl p-5">
-              <p className="text-[#d8a066] font-semibold mb-2">
-                Simple Next Step
-              </p>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                We review personally and follow up if more context is needed.
-              </p>
+            <div className="grid md:grid-cols-3 gap-px bg-[#d8a066]/50 border border-[#d8a066]/50 mt-10">
+              {[
+                ["Local Pilot", "Currently focused on Loveland and Northern Colorado."],
+                ["No Cost To Apply", "Support depends on program fit, safety, and available funding."],
+                ["Simple Next Step", "We review personally and follow up if more context is needed."],
+              ].map(([title, copy]) => (
+                <div key={title} className="bg-[#f8f5ef] p-5">
+                  <p className="font-serif text-2xl text-[#071f3a] mb-2">
+                    {title}
+                  </p>
+                  <p className="text-[#4b5563] text-sm leading-relaxed">
+                    {copy}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-slate-900">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+      <section className="bg-white py-20 px-5 sm:px-6">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
           {[
-            {
-              step: "1",
-              title: "Submit Application",
-              copy: "Share basic contact information and what you are hoping to work toward.",
-            },
-            {
-              step: "2",
-              title: "Review Fit",
-              copy: "We review applications personally and may follow up for more context.",
-            },
-            {
-              step: "3",
-              title: "Plan Next Steps",
-              copy: "If the program is a fit, we discuss clearance, scheduling, and available funding.",
-            },
-          ].map((item) => (
-            <div key={item.step} className="bg-slate-950 border border-slate-800 rounded-3xl p-8">
-              <div className="text-4xl font-bold text-[#d8a066] mb-5">
-                {item.step}
-              </div>
-              <h2 className="text-2xl font-bold mb-4">
-                {item.title}
+            ["01", "Submit Application", "Share basic contact information and what you are hoping to work toward."],
+            ["02", "Review Fit", "We review applications personally and may follow up for more context."],
+            ["03", "Plan Next Steps", "If the program is a fit, we discuss clearance, scheduling, and available funding."],
+          ].map(([step, title, copy]) => (
+            <div key={step} className="border border-[#e6dac8] bg-[#fbfaf7] p-8">
+              <p className="font-serif text-5xl text-[#c98b2c] mb-6">
+                {step}
+              </p>
+              <h2 className="font-serif text-3xl mb-4">
+                {title}
               </h2>
-              <p className="text-slate-400 leading-relaxed">
-                {item.copy}
+              <p className="text-[#4b5563] leading-relaxed">
+                {copy}
               </p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-gradient-to-b from-slate-900 to-slate-950">
+      <section className="bg-[#f8f5ef] py-24 px-5 sm:px-6">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-10">
+          <div className="bg-white border border-[#e6dac8] p-8 md:p-10 shadow-xl shadow-[#071f3a]/5">
             <form onSubmit={handleSubmit} className="space-y-8">
               {successMessage && (
-                <div className="bg-emerald-900/30 border border-emerald-500 rounded-2xl p-6">
-                  <h2 className="text-emerald-400 text-xl font-semibold mb-2">
+                <div className="bg-emerald-50 border border-emerald-300 p-6">
+                  <h2 className="text-emerald-800 text-xl font-semibold mb-2">
                     Application Received
                   </h2>
-                  <p className="text-slate-200 leading-relaxed">
+                  <p className="text-emerald-900 leading-relaxed">
                     {successMessage}
                   </p>
                 </div>
               )}
 
               {errorMessage && (
-                <div className="bg-red-900/30 border border-red-500 rounded-2xl p-6">
-                  <h2 className="text-red-300 text-xl font-semibold mb-2">
+                <div className="bg-red-50 border border-red-300 p-6">
+                  <h2 className="text-red-800 text-xl font-semibold mb-2">
                     Submission Issue
                   </h2>
-                  <p className="text-slate-200 leading-relaxed">
+                  <p className="text-red-900 leading-relaxed">
                     {errorMessage}
                   </p>
                 </div>
               )}
 
               <div>
-                <p className="text-[#d8a066] uppercase tracking-[0.25em] text-sm font-semibold mb-4">
-                  Contact Information
-                </p>
-
+                <SectionLabel>Contact Information</SectionLabel>
                 <div className="grid md:grid-cols-2 gap-6">
-                  <TextField
-                    label="First Name"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                  />
-                  <TextField
-                    label="Last Name"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    required
-                  />
-                  <TextField
-                    label="Email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="name@example.com"
-                  />
-                  <TextField
-                    label="Phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    placeholder="(970) 555-1234"
-                  />
-                  <TextField
-                    label="City"
-                    name="city"
-                    value={formData.city}
-                    onChange={handleChange}
-                    required
-                    placeholder="Loveland"
-                  />
-                  <SelectField
-                    label="Preferred Contact"
-                    name="preferredContact"
-                    value={formData.preferredContact}
-                    onChange={handleChange}
-                    required
-                  >
+                  <TextField label="First Name" name="firstName" value={formData.firstName} onChange={handleChange} required />
+                  <TextField label="Last Name" name="lastName" value={formData.lastName} onChange={handleChange} required />
+                  <TextField label="Email" name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="name@example.com" />
+                  <TextField label="Phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} required placeholder="(970) 555-1234" />
+                  <TextField label="City" name="city" value={formData.city} onChange={handleChange} required placeholder="Loveland" />
+                  <SelectField label="Preferred Contact" name="preferredContact" value={formData.preferredContact} onChange={handleChange} required>
                     {options.preferredContact.map((option) => (
                       <option key={option}>{option}</option>
                     ))}
@@ -296,30 +236,15 @@ export default function Apply() {
               </div>
 
               <div>
-                <p className="text-[#d8a066] uppercase tracking-[0.25em] text-sm font-semibold mb-4">
-                  Program Fit
-                </p>
-
+                <SectionLabel>Program Fit</SectionLabel>
                 <div className="grid md:grid-cols-2 gap-6">
-                  <SelectField
-                    label="Have you been treated for cancer?"
-                    name="cancerTreated"
-                    value={formData.cancerTreated}
-                    onChange={handleChange}
-                    required
-                  >
+                  <SelectField label="Have you been treated for cancer?" name="cancerTreated" value={formData.cancerTreated} onChange={handleChange} required>
                     {options.cancerTreated.map((option) => (
                       <option key={option}>{option}</option>
                     ))}
                   </SelectField>
 
-                  <SelectField
-                    label="Medical Clearance"
-                    name="clearanceStatus"
-                    value={formData.clearanceStatus}
-                    onChange={handleChange}
-                    required
-                  >
+                  <SelectField label="Medical Clearance" name="clearanceStatus" value={formData.clearanceStatus} onChange={handleChange} required>
                     {options.clearanceStatus.map((option) => (
                       <option key={option}>{option}</option>
                     ))}
@@ -328,10 +253,9 @@ export default function Apply() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-300 mb-2">
+                <label className={labelClass}>
                   What are you hoping to restore or work toward? *
                 </label>
-
                 <textarea
                   name="restorationGoal"
                   rows="5"
@@ -344,10 +268,9 @@ export default function Apply() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-300 mb-2">
+                <label className={labelClass}>
                   General availability
                 </label>
-
                 <textarea
                   name="availability"
                   rows="3"
@@ -359,10 +282,9 @@ export default function Apply() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-300 mb-2">
+                <label className={labelClass}>
                   Anything else you would like us to know?
                 </label>
-
                 <textarea
                   name="additionalNotes"
                   rows="4"
@@ -372,16 +294,16 @@ export default function Apply() {
                 />
               </div>
 
-              <label className="flex items-start gap-3 bg-slate-950 border border-slate-700 rounded-2xl p-5">
+              <label className="flex items-start gap-3 bg-[#fbfaf7] border border-[#e6dac8] p-5">
                 <input
                   type="checkbox"
                   name="consent"
                   checked={formData.consent}
                   onChange={handleChange}
                   required
-                  className="mt-1 accent-[#d8a066]"
+                  className="mt-1 accent-[#c98b2c]"
                 />
-                <span className="text-sm text-slate-300 leading-relaxed">
+                <span className="text-sm text-[#4b5563] leading-relaxed">
                   I understand this application does not guarantee program
                   participation. I agree that The Renewed Strength Project may
                   contact me about my application and next steps.
@@ -391,24 +313,21 @@ export default function Apply() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[#d8a066] hover:bg-[#e6b684] disabled:bg-slate-600 disabled:cursor-not-allowed text-slate-950 font-semibold text-lg py-4 rounded-2xl transition-all duration-300"
+                className="w-full bg-[#071f3a] hover:bg-[#0d2f57] disabled:bg-[#94a3b8] disabled:cursor-not-allowed text-white font-semibold text-lg py-4 transition"
               >
                 {isSubmitting ? "Submitting..." : "Submit Application"}
               </button>
 
-              <p className="text-center text-sm text-slate-400 leading-relaxed max-w-xl mx-auto">
+              <p className="text-center text-sm text-[#4b5563] leading-relaxed max-w-xl mx-auto">
                 Please do not include detailed medical records in this form.
                 We will follow up directly if more information is needed.
               </p>
 
-              <p className="text-center text-sm text-slate-500 leading-relaxed max-w-xl mx-auto">
+              <p className="text-center text-sm text-[#6b7280] leading-relaxed max-w-xl mx-auto">
                 Information submitted here is used to review program fit and
                 communicate about next steps. Application submission does not
                 guarantee participation. You can review our{" "}
-                <Link
-                  to="/privacy"
-                  className="text-[#d8a066] hover:text-[#e6b684] underline underline-offset-4"
-                >
+                <Link to="/privacy" className="text-[#c98b2c] hover:text-[#a66f22] underline underline-offset-4">
                   privacy and data use note
                 </Link>
                 .
