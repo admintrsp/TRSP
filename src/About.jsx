@@ -27,7 +27,7 @@ export default function About() {
       <Navbar />
 
       <section className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-16">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-16 items-center">
           <div>
             <SectionLabel>Our Mission</SectionLabel>
             <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[0.98] tracking-tight">
@@ -46,6 +46,15 @@ export default function About() {
               We do not train people to exercise. We help people return to the
               lives they have been fighting for.
             </p>
+
+            <div className="relative mt-10">
+              <div className="absolute -left-4 -top-4 w-20 h-20 border-l border-t border-[#c98b2c]"></div>
+              <img
+                src="/trsp-lake-restoration.jpeg"
+                alt="A person resting beside a clear alpine lake"
+                className="relative w-full aspect-[16/9] object-cover shadow-xl"
+              />
+            </div>
           </div>
         </div>
       </section>

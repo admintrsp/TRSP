@@ -39,14 +39,14 @@ export default function FoundingStory() {
               <div className="absolute -left-5 -top-5 w-24 h-24 border-l border-t border-[#c98b2c]"></div>
               <div className="absolute -right-5 -bottom-5 w-24 h-24 border-r border-b border-[#c98b2c]"></div>
               <img
-                src="/our-story-family-colorado.png"
-                alt="The Anderson family in a Colorado mountain setting"
+                src="/trsp-founder-mountain.jpeg"
+                alt="Scott and Kristin standing beside a mountain lake"
                 className="relative w-full aspect-[4/3] object-cover shadow-2xl"
               />
             </div>
             <figcaption className="mt-5 text-sm text-[#6b7280] leading-relaxed">
-              The Renewed Strength Project grew from both family experience and
-              professional purpose in Northern Colorado.
+              The Renewed Strength Project grew from personal experience,
+              professional purpose, and a love for life in Northern Colorado.
             </figcaption>
           </figure>
         </div>

@@ -86,8 +86,8 @@ function Hero() {
           <div className="absolute -right-5 -bottom-5 w-28 h-28 border-r border-b border-[#c98b2c]"></div>
 
           <img
-            src="/homepage-mountain-return-to-life.jpeg"
-            alt="A person standing on a Colorado mountain trail beneath a wide rocky summit"
+            src="/trsp-alpine-lake-return.jpeg"
+            alt="A quiet alpine lake beneath Colorado mountain walls"
             className="relative w-full aspect-[4/3] object-cover shadow-2xl"
           />
         </div>
@@ -246,8 +246,8 @@ function EvidencePurposePossibility() {
         </div>
 
         <img
-          src="/homepage-guided-training.png"
-          alt="Guided strength training in a calm setting"
+          src="/trsp-strength-deadlift.jpeg"
+          alt="A person completing a strong deadlift in a training facility"
           className="w-full aspect-[4/3] object-cover border border-[#d8a066]/40"
         />
       </div>

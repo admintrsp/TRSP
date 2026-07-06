@@ -40,17 +40,28 @@ export default function Evidence() {
       <Navbar />
 
       <section className="pt-36 md:pt-40 pb-20 md:pb-28 px-5 sm:px-6">
-        <div className="max-w-6xl mx-auto">
-          <SectionLabel>Evidence & Research</SectionLabel>
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[0.98] tracking-tight max-w-5xl">
-            Evidence-informed support for life after cancer disruption.
-          </h1>
-          <GoldDivider />
-          <p className="text-xl md:text-2xl text-[#4b5563] leading-relaxed max-w-4xl">
-            Exercise oncology is an evolving field supported by research on
-            appropriately prescribed physical activity, resistance training,
-            function, fatigue, quality of life, and supportive cancer care.
-          </p>
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-[0.98fr_1.02fr] gap-12 lg:gap-16 items-center">
+          <div>
+            <SectionLabel>Evidence & Research</SectionLabel>
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[0.98] tracking-tight max-w-5xl">
+              Evidence-informed support for life after cancer disruption.
+            </h1>
+            <GoldDivider />
+            <p className="text-xl md:text-2xl text-[#4b5563] leading-relaxed max-w-4xl">
+              Exercise oncology is an evolving field supported by research on
+              appropriately prescribed physical activity, resistance training,
+              function, fatigue, quality of life, and supportive cancer care.
+            </p>
+          </div>
+
+          <div className="relative">
+            <div className="absolute -right-5 -bottom-5 w-24 h-24 border-r border-b border-[#c98b2c]"></div>
+            <img
+              src="/trsp-alpine-lake-evidence.jpeg"
+              alt="A still alpine lake beneath a Colorado mountain wall"
+              className="relative w-full aspect-[4/3] object-cover shadow-2xl"
+            />
+          </div>
         </div>
       </section>
 
