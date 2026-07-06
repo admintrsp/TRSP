@@ -86,8 +86,8 @@ function Hero() {
           <div className="absolute -right-5 -bottom-5 w-28 h-28 border-r border-b border-[#c98b2c]"></div>
 
           <img
-            src="/homepage-restoration-training.png"
-            alt="Trainer supporting an individual during restoration-focused strength training"
+            src="/homepage-mountain-return-to-life.jpeg"
+            alt="A person standing on a Colorado mountain trail beneath a wide rocky summit"
             className="relative w-full aspect-[4/3] object-cover shadow-2xl"
           />
         </div>
