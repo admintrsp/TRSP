@@ -47,11 +47,7 @@ function NavItem({ item, className = '', onClick }) {
   }
 
   return (
-    <Link
-      to={item.to}
-      onClick={onClick}
-      className={className}
-    >
+    <Link to={item.to} onClick={onClick} className={className}>
       {item.label}
     </Link>
   )
@@ -99,20 +95,16 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/60 z-50">
+    <nav className="fixed top-0 left-0 w-full bg-[#f8f5ef]/95 backdrop-blur-xl border-b border-[#e6dac8] z-50">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 h-20 md:h-24 flex items-center justify-between">
-        <Link
-          to="/"
-          className="flex items-center gap-3"
-          onClick={closeMenus}
-        >
+        <Link to="/" className="flex items-center gap-3" onClick={closeMenus}>
           <img
             src="/rsp-logo.png"
-            alt="RSP Logo"
+            alt="Renewed Strength Project logo"
             className="w-9 h-9 md:w-10 md:h-10 flex-shrink-0 object-contain"
           />
 
-          <span className="text-white font-semibold text-lg md:text-xl tracking-tight">
+          <span className="text-[#071f3a] font-semibold text-lg md:text-xl tracking-tight leading-tight">
             Renewed Strength
             <br />
             Project
@@ -125,7 +117,7 @@ export default function Navbar() {
           aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-white hover:text-[#d8a066] transition"
+          className="md:hidden text-[#071f3a] hover:text-[#c98b2c] transition"
         >
           {isMenuOpen ? (
             <X size={34} strokeWidth={2.25} />
@@ -134,10 +126,7 @@ export default function Navbar() {
           )}
         </button>
 
-        <div
-          ref={navRef}
-          className="hidden md:flex items-center gap-3"
-        >
+        <div ref={navRef} className="hidden md:flex items-center gap-2">
           {navGroups.map((group) => {
             const isOpen = activeDropdown === group.label
 
@@ -152,32 +141,27 @@ export default function Navbar() {
                   type="button"
                   aria-haspopup="menu"
                   aria-expanded={isOpen}
-                  onClick={() =>
-                    setActiveDropdown(isOpen ? null : group.label)
-                  }
+                  onClick={() => setActiveDropdown(isOpen ? null : group.label)}
                   onFocus={() => setActiveDropdown(group.label)}
-                  className="inline-flex items-center gap-2 border border-slate-700 hover:border-[#d8a066] focus:border-[#d8a066] focus:outline-none text-white px-5 py-3 min-w-[135px] justify-center rounded-2xl transition duration-300"
+                  className="inline-flex items-center gap-2 text-[#071f3a] hover:text-[#c98b2c] focus:text-[#c98b2c] focus:outline-none px-4 py-3 transition"
                 >
                   {group.label}
                   <ChevronDown
-                    size={17}
+                    size={16}
                     strokeWidth={2.2}
                     className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div
-                    role="menu"
-                    className="absolute left-0 top-full pt-3 w-64"
-                  >
-                    <div className="rounded-2xl border border-slate-800 bg-slate-950/98 shadow-2xl shadow-black/40 p-2">
+                  <div role="menu" className="absolute left-0 top-full pt-3 w-64">
+                    <div className="border border-[#e6dac8] bg-[#f8f5ef] shadow-2xl shadow-[#071f3a]/10 p-2">
                       {group.items.map((item) => (
                         <NavItem
                           key={`${group.label}-${item.label}`}
                           item={item}
                           onClick={closeMenus}
-                          className="block rounded-xl px-4 py-3 text-sm text-slate-200 hover:bg-slate-900 hover:text-[#d8a066] focus:bg-slate-900 focus:text-[#d8a066] focus:outline-none transition"
+                          className="block px-4 py-3 text-sm text-[#071f3a] hover:bg-white hover:text-[#c98b2c] focus:bg-white focus:text-[#c98b2c] focus:outline-none transition"
                         />
                       ))}
                     </div>
@@ -189,7 +173,7 @@ export default function Navbar() {
 
           <a
             href="mailto:info@therenewedstrengthproject.org"
-            className="border border-slate-700 hover:border-[#d8a066] focus:border-[#d8a066] focus:outline-none text-white px-5 py-3 min-w-[110px] text-center rounded-2xl transition duration-300"
+            className="text-[#071f3a] hover:text-[#c98b2c] focus:text-[#c98b2c] focus:outline-none px-4 py-3 transition"
           >
             Contact
           </a>
@@ -198,7 +182,7 @@ export default function Navbar() {
             href={donateUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#d8a066] hover:bg-[#e6b684] focus:bg-[#e6b684] focus:outline-none text-slate-950 font-semibold px-5 py-3 min-w-[110px] text-center rounded-2xl transition duration-300"
+            className="bg-[#071f3a] hover:bg-[#0d2f57] focus:bg-[#0d2f57] focus:outline-none text-white font-semibold px-5 py-3 rounded-sm transition"
           >
             Donate
           </a>
@@ -207,15 +191,12 @@ export default function Navbar() {
         {isMenuOpen && (
           <div
             ref={navRef}
-            className="md:hidden absolute top-full left-0 w-full max-h-[calc(100vh-5rem)] overflow-y-auto bg-slate-950/98 backdrop-blur-xl border-b border-slate-800 px-5 py-5"
+            className="md:hidden absolute top-full left-0 w-full max-h-[calc(100vh-5rem)] overflow-y-auto bg-[#f8f5ef] border-b border-[#e6dac8] px-5 py-5"
           >
             <div className="space-y-4">
               {navGroups.map((group) => (
-                <div
-                  key={group.label}
-                  className="border border-slate-800 rounded-2xl p-4 bg-slate-950"
-                >
-                  <p className="text-[#d8a066] uppercase tracking-[0.2em] text-xs font-semibold mb-3">
+                <div key={group.label} className="border border-[#e6dac8] bg-white p-4">
+                  <p className="text-[#c98b2c] uppercase tracking-[0.2em] text-xs font-bold mb-3">
                     {group.label}
                   </p>
 
@@ -225,7 +206,7 @@ export default function Navbar() {
                         key={`${group.label}-${item.label}`}
                         item={item}
                         onClick={closeMenus}
-                        className="block text-white hover:text-[#d8a066] rounded-xl px-2 py-2 transition"
+                        className="block text-[#071f3a] hover:text-[#c98b2c] px-2 py-2 transition"
                       />
                     ))}
                   </div>
@@ -235,7 +216,7 @@ export default function Navbar() {
               <a
                 href="mailto:info@therenewedstrengthproject.org"
                 onClick={closeMenus}
-                className="block border border-slate-700 text-white px-4 py-3 rounded-2xl text-center"
+                className="block border border-[#e6dac8] bg-white text-[#071f3a] px-4 py-3 text-center"
               >
                 Contact
               </a>
@@ -245,7 +226,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMenus}
-                className="block bg-[#d8a066] hover:bg-[#e6b684] text-slate-950 font-semibold px-5 py-3 rounded-2xl transition duration-300 text-center"
+                className="block bg-[#071f3a] hover:bg-[#0d2f57] text-white font-semibold px-5 py-3 transition text-center"
               >
                 Donate
               </a>

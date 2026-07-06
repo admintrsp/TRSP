@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+:root {
+  color: #071f3a;
+  background: #f8f5ef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #f8f5ef;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f8f5ef;
+}
+
+::selection {
+  background: #d8a066;
+  color: #071f3a;
+}
