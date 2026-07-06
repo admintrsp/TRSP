@@ -6,7 +6,7 @@ const resources = [
     name: 'American College of Sports Medicine',
     description:
       'International exercise oncology guidelines and evidence-informed recommendations for individuals living with and beyond cancer.',
-    url: 'https://acsm.org/physical-activity-guidelines-cancer-infographic/',
+    url: '/acsm-exercise-guidelines.jpg',
   },
   {
     name: 'American Cancer Society',
@@ -54,14 +54,41 @@ export default function Evidence() {
             </p>
           </div>
 
-          <div className="relative">
+          <a
+            href="/acsm-exercise-guidelines.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open ACSM cancer exercise guidelines"
+            className="group relative block"
+          >
             <div className="absolute -right-5 -bottom-5 w-24 h-24 border-r border-b border-[#c98b2c]"></div>
-            <img
-              src="/trsp-evidence-alpine-wall-original.jpeg"
-              alt="A still alpine lake beneath a Colorado mountain wall"
-              className="relative w-full aspect-[4/3] object-cover shadow-2xl"
-            />
-          </div>
+            <div className="relative bg-white border border-[#e6dac8] shadow-2xl shadow-[#071f3a]/10 transition group-hover:border-[#c98b2c]">
+              <div className="p-4 md:p-5 bg-white">
+                <img
+                  src="/acsm-exercise-guidelines.jpg"
+                  alt="ACSM exercise guidelines for health-related outcomes in those with cancer"
+                  className="w-full aspect-[4/3] object-contain bg-white"
+                />
+              </div>
+
+              <div className="border-t border-[#e6dac8] p-6">
+                <p className="text-[#c98b2c] uppercase tracking-[0.22em] text-xs font-bold mb-3">
+                  ACSM Cancer Exercise Guidelines
+                </p>
+                <h2 className="font-serif text-3xl text-[#071f3a] leading-tight">
+                  View the guideline infographic.
+                </h2>
+                <p className="text-[#4b5563] leading-relaxed mt-3">
+                  A reference from the American College of Sports Medicine on
+                  exercise and health-related outcomes for individuals with
+                  cancer.
+                </p>
+                <span className="inline-flex mt-5 text-[#c98b2c] font-semibold">
+                  Open Guidelines
+                </span>
+              </div>
+            </div>
+          </a>
         </div>
       </section>
 
