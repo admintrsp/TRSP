@@ -111,30 +111,19 @@ function PrintPage({ children, className = '' }) {
   )
 }
 
-function PrintHeader({ eyebrow = 'For Our Community' }) {
-  return (
-    <header className="flex items-center justify-between gap-5">
-      <div className="flex items-center gap-4">
-        <img
-          src="/rsp-logo.png"
-          alt="The Renewed Strength Project logo"
-          className="h-[0.82in] w-[0.82in] object-contain"
-        />
+function PrintHeader({ eyebrow = '' }) {  return (
+    <header className="flex items-start justify-between gap-5">
+      <img
+        src="/rsp-logo.png"
+        alt="The Renewed Strength Project logo"
+        className="h-[0.95in] w-auto object-contain"
+      />
 
-        <div>
-          <p className="font-serif text-[24px] leading-[0.98] tracking-[0.04em] uppercase">
-            The Renewed
-            <br />
-            Strength Project
-          </p>
-          <p className="mt-2 text-[11px] uppercase tracking-[0.25em] text-[#c98b2c]">
-            Empowering Renewed Strength
-          </p>
-        </div>
-      </div>
-
-      <SectionLabel>{eyebrow}</SectionLabel>
-    </header>
+{eyebrow && (
+  <SectionLabel className="pt-2 text-[10px] tracking-[0.18em]">
+    {eyebrow}
+  </SectionLabel>
+)}    </header>
   )
 }
 
@@ -379,7 +368,7 @@ export function CommunityPartnerFlyerFront() {
       <PrintPage>
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="/trsp-donate-restoration-mountain.webp"
+src="/trsp-donate-restoration-mountain.webp"
             alt=""
             className="absolute right-0 top-0 h-[4.75in] w-[4.85in] object-cover"
           />
@@ -387,7 +376,7 @@ export function CommunityPartnerFlyerFront() {
         </div>
 
         <div className="relative z-10 h-full px-[0.38in] pt-[0.25in] pb-[0.82in]">
-          <PrintHeader />
+<PrintHeader eyebrow="" />
 
           <section className="mt-[0.32in] max-w-[4in]">
             <SectionLabel className="mb-2 text-[13px]">For Our Community</SectionLabel>
