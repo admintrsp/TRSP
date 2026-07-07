@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { Fragment, useEffect, useMemo, useState } from 'react'
 import ParticipantFlow from './ParticipantFlow.jsx'
 import SystemDomains from './SystemDomains'
 import TRSPRestorationFramework from './TRSPRestorationFramework'
@@ -988,7 +988,7 @@ function NextMoveCard({
   const [draft, setDraft] = useState(priority)
 
   return (
-    <article className="border border-[#e4d8c7] rounded-2xl bg-[#f8f5ef] p-5">
+    <article className="border border-[#e4d8c7] rounded-2xl bg-[#f8f5ef] p-5 text-[#071f3a]">
       {label && (
         <p className="text-xs uppercase tracking-[0.22em] text-[#c98b2c] mb-3">
           {label}
@@ -1979,36 +1979,73 @@ export default function Dashboard({ onSignOut }) {
         {activeView === 'headquarters' && (
           <>
         <section>
-          <Panel className="bg-[#071f3a] text-white border-[#071f3a]">
-            <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10">
-              <div>
-                <p className="uppercase tracking-[0.24em] text-[#d8a066] text-sm mb-4">
-                  Headquarters
-                </p>
-                <h2 className="font-serif text-4xl md:text-5xl leading-tight text-white">
-                  What deserves my attention today?
-                </h2>
-                <p className="mt-6 text-white/75 leading-relaxed text-lg">
-                  The goal is not to do everything. The goal is to take the
-                  next right move.
-                </p>
+          <div className="rounded-2xl border border-[#071f3a] bg-[#071f3a] p-6 md:p-8 shadow-[0_24px_70px_rgba(7,31,58,0.18)] text-white">
+            <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-8 lg:gap-10 items-start">
+              <div className="space-y-7">
+                <div>
+                  <p className="uppercase tracking-[0.24em] text-[#d8a066] text-sm mb-4">
+                    Headquarters
+                  </p>
+                  <h2 className="font-serif text-4xl md:text-5xl leading-tight text-white">
+                    What is the next right move for TRSP?
+                  </h2>
+                  <p className="mt-6 text-white/75 leading-relaxed text-lg max-w-xl">
+                    The goal is not to do everything. The goal is to take the
+                    next right move with clarity, care, and purpose.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-white/15 bg-white/10 p-5">
+                  <p className="uppercase tracking-[0.22em] text-[#d8a066] text-xs mb-4">
+                    Mission Operating Flow
+                  </p>
+                  <div className="flex flex-wrap items-center gap-2 text-sm text-white/85">
+                    {['Mission', 'Projects', 'Next Moves', "Today's Focus"].map((step, index) => (
+                      <Fragment key={step}>
+                        <span className="rounded-full border border-white/20 px-4 py-2">
+                          {step}
+                        </span>
+                        {index < 3 && (
+                          <span className="text-[#d8a066]" aria-hidden="true">
+                            /
+                          </span>
+                        )}
+                      </Fragment>
+                    ))}
+                  </div>
+                </div>
               </div>
 
-              {todaysFocus && (
-                <NextMoveCard
-                  priority={todaysFocus}
-                  label="Today's Focus"
-                  isEditing={editingNextMoveId === todaysFocus.id}
-                  onEdit={setEditingNextMoveId}
-                  onCancelEdit={() => setEditingNextMoveId('')}
-                  onSave={saveNextMove}
-                  onPin={toggleNextMovePin}
-                  onComplete={completeNextMove}
-                  onArchive={archiveNextMove}
-                />
-              )}
+              <div className="rounded-2xl bg-[#f8f5ef] p-2 shadow-[0_20px_50px_rgba(0,0,0,0.18)]">
+                {todaysFocus ? (
+                  <NextMoveCard
+                    priority={todaysFocus}
+                    label="Today's Focus"
+                    isEditing={editingNextMoveId === todaysFocus.id}
+                    onEdit={setEditingNextMoveId}
+                    onCancelEdit={() => setEditingNextMoveId('')}
+                    onSave={saveNextMove}
+                    onPin={toggleNextMovePin}
+                    onComplete={completeNextMove}
+                    onArchive={archiveNextMove}
+                  />
+                ) : (
+                  <div className="rounded-2xl border border-[#e4d8c7] bg-[#f8f5ef] p-6 text-[#071f3a]">
+                    <p className="uppercase tracking-[0.22em] text-[#c98b2c] text-xs mb-3">
+                      Today's Focus
+                    </p>
+                    <p className="font-serif text-3xl leading-tight">
+                      No active Next Moves yet.
+                    </p>
+                    <p className="mt-4 text-[#4b5563] leading-relaxed">
+                      Add a Next Move below to give Headquarters a clear first
+                      priority.
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
-          </Panel>
+          </div>
         </section>
 
         <section>
