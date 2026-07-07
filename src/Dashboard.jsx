@@ -126,17 +126,20 @@ const priorities = [
   'Review participant application responses weekly',
 ]
 
-const stewardshipStorageKey = 'trsp_stewardship_items_v1'
+const nextMoveStorageKey = 'trsp_next_moves_v1'
+const legacyNextMoveStorageKey = 'trsp_stewardship_items_v1'
+const projectStorageKey = 'trsp_next_move_projects_v1'
 
-const stewardshipSeedItems = [
+const nextMoveSeedItems = [
   {
-    id: 'stewardship-participant-partner-review',
+    id: 'next-move-participant-partner-review',
     title: 'Review new participant and partner activity',
     description: 'Make sure no person or local partner is waiting without a next step.',
     whyItMatters: 'Every delayed follow-up can become a missed opportunity for restoration or local support.',
     nextAction: 'Open the participant sheet and partner requests, then identify the one person who needs follow-up first.',
     project: 'Participant Experience',
-    category: 'Today',
+    category: 'Operate',
+    lane: 'Today',
     missionImpact: 5,
     foundationValue: 5,
     urgency: 4,
@@ -149,13 +152,14 @@ const stewardshipSeedItems = [
     archivedDate: '',
   },
   {
-    id: 'stewardship-confirm-pilot-funding',
+    id: 'next-move-confirm-pilot-funding',
     title: 'Confirm the pilot funding number',
     description: 'Keep the fall pilot goal clear so donor language and board updates stay honest.',
     whyItMatters: 'A clear funding target protects donor trust and makes the first five participant journeys easier to explain.',
     nextAction: 'Compare the Google Sheet funding raised value with Givebutter and update the dashboard if needed.',
     project: 'Fundraising',
-    category: 'On Deck',
+    category: 'Grow',
+    lane: 'On Deck',
     missionImpact: 4,
     foundationValue: 5,
     urgency: 4,
@@ -168,13 +172,14 @@ const stewardshipSeedItems = [
     archivedDate: '',
   },
   {
-    id: 'stewardship-gym-billing-workflow',
+    id: 'next-move-gym-billing-workflow',
     title: 'Finalize gym billing workflow',
     description: 'Protect the promise that participants do not pay for restorative support.',
     whyItMatters: 'The nonprofit promise depends on clean handoffs between the participant, gym, and TRSP funding.',
     nextAction: 'Confirm who invoices whom, when invoices are sent, and where payments are recorded.',
     project: 'Operational Architecture',
-    category: 'Waiting On',
+    category: 'Operate',
+    lane: 'Waiting On',
     missionImpact: 5,
     foundationValue: 4,
     urgency: 3,
@@ -187,13 +192,14 @@ const stewardshipSeedItems = [
     archivedDate: '',
   },
   {
-    id: 'stewardship-first-outcome-measures',
+    id: 'next-move-first-outcome-measures',
     title: 'Choose first outcome measures',
     description: 'Define what TRSP will learn from the pilot without overcomplicating the work.',
     whyItMatters: 'Simple outcome tracking helps TRSP learn responsibly and communicate impact without overpromising.',
     nextAction: 'Choose the first two measures to collect at baseline and completion.',
     project: 'Operational Architecture',
-    category: 'This Week',
+    category: 'Improve',
+    lane: 'This Week',
     missionImpact: 4,
     foundationValue: 5,
     urgency: 3,
@@ -206,13 +212,14 @@ const stewardshipSeedItems = [
     archivedDate: '',
   },
   {
-    id: 'stewardship-donor-impact-note',
+    id: 'next-move-donor-impact-note',
     title: 'Write one donor impact note',
     description: 'Capture one clear sentence about what restoration makes possible.',
-    whyItMatters: 'Language is part of stewardship; clear words help people understand the life behind the gift.',
+    whyItMatters: 'Language shapes the work; clear words help people understand the life behind the gift.',
     nextAction: 'Write one sentence that connects a donation to participation in meaningful life.',
     project: 'Founder Narrative',
-    category: 'Quick Win',
+    category: 'Build',
+    lane: 'Quick Win',
     missionImpact: 3,
     foundationValue: 3,
     urgency: 2,
@@ -223,6 +230,97 @@ const stewardshipSeedItems = [
     modifiedDate: '2026-07-06',
     completedDate: '',
     archivedDate: '',
+  },
+]
+
+const projectSeedItems = [
+  {
+    id: 'project-website',
+    title: 'Website',
+    purpose: 'Keep the public story clear, credible, warm, and aligned with the Partner Guide.',
+    status: 'Active',
+    priority: 4,
+    notes: '',
+  },
+  {
+    id: 'project-founder-narrative',
+    title: 'Founder Narrative',
+    purpose: 'Protect the why behind TRSP and make the origin story easier to share.',
+    status: 'Active',
+    priority: 4,
+    notes: '',
+  },
+  {
+    id: 'project-trsp-philosophy',
+    title: 'TRSP Philosophy',
+    purpose: 'Clarify the beliefs that guide programming, partnerships, and growth.',
+    status: 'Active',
+    priority: 5,
+    notes: '',
+  },
+  {
+    id: 'project-participant-experience',
+    title: 'Participant Experience',
+    purpose: 'Make applying, onboarding, training, and transition feel safe and human.',
+    status: 'Active',
+    priority: 5,
+    notes: '',
+  },
+  {
+    id: 'project-community-partners',
+    title: 'Community Partners',
+    purpose: 'Build local relationships that remove financial barriers for participants.',
+    status: 'Active',
+    priority: 4,
+    notes: '',
+  },
+  {
+    id: 'project-fundraising',
+    title: 'Fundraising',
+    purpose: 'Translate generosity into complete participant journeys.',
+    status: 'Active',
+    priority: 5,
+    notes: '',
+  },
+  {
+    id: 'project-operational-architecture',
+    title: 'Operational Architecture',
+    purpose: 'Keep the systems behind referrals, funding, coaching, and outcomes clear.',
+    status: 'Active',
+    priority: 5,
+    notes: '',
+  },
+  {
+    id: 'project-movement-library',
+    title: 'Movement Library',
+    purpose: 'Future home for exercise options, coaching standards, and programming notes.',
+    status: 'Future',
+    priority: 2,
+    notes: '',
+  },
+  {
+    id: 'project-grant-library',
+    title: 'Grant Library',
+    purpose: 'Prepare reusable language and evidence for future funding opportunities.',
+    status: 'Future',
+    priority: 3,
+    notes: '',
+  },
+  {
+    id: 'project-board-development',
+    title: 'Board Development',
+    purpose: 'Build healthy governance, accountability, and future leadership.',
+    status: 'Active',
+    priority: 3,
+    notes: '',
+  },
+  {
+    id: 'project-provider-outreach',
+    title: 'Provider Outreach',
+    purpose: 'Create a trusted pathway for provider awareness and future referral relationships.',
+    status: 'Future',
+    priority: 3,
+    notes: '',
   },
 ]
 
@@ -364,6 +462,7 @@ const notebookSections = [
   'Research',
   'Quotes',
   'Ideas',
+  'Future Ideas',
   'Future Concepts',
   'Questions',
   'Observations',
@@ -409,7 +508,7 @@ const legacySections = [
   },
   {
     title: 'Impact Reports',
-    description: 'Public accountability and the evidence of faithful stewardship.',
+    description: 'Public accountability and the evidence of faithful care.',
   },
   {
     title: 'Photos & Videos',
@@ -594,7 +693,7 @@ function buildFundingProgress(dashboard) {
   }
 }
 
-function getStewardshipScore(priority) {
+function getNextMoveScore(priority) {
   return (
     Number(priority.missionImpact) +
     Number(priority.foundationValue) +
@@ -610,14 +709,14 @@ function getTopPriority(items) {
   if (pinnedItem) return pinnedItem
 
   return [...activeItems].sort(
-    (first, second) => getStewardshipScore(second) - getStewardshipScore(first),
+    (first, second) => getNextMoveScore(second) - getNextMoveScore(first),
   )[0]
 }
 
-function getPrioritiesByCategory(items, category) {
+function getNextMovesByLane(items, lane) {
   return items.filter(
     (priority) =>
-      priority.workflowStatus === 'Active' && priority.category === category,
+      priority.workflowStatus === 'Active' && priority.lane === lane,
   )
 }
 
@@ -625,27 +724,100 @@ function getPrioritiesByWorkflow(items, workflowStatus) {
   return items.filter((priority) => priority.workflowStatus === workflowStatus)
 }
 
-function readStewardshipItems() {
-  if (typeof window === 'undefined') return stewardshipSeedItems
+function normalizeNextMove(move) {
+  const oldLaneValues = ['Today', 'On Deck', 'Waiting On', 'This Week', 'Quick Win']
+  const lane = move.lane || (oldLaneValues.includes(move.category) ? move.category : 'On Deck')
+  const category = oldLaneValues.includes(move.category)
+    ? 'Operate'
+    : move.category || 'Build'
+
+  return {
+    ...createNextMove(),
+    ...move,
+    category,
+    lane,
+  }
+}
+
+function readNextMoves() {
+  if (typeof window === 'undefined') return nextMoveSeedItems
 
   try {
-    const stored = window.localStorage.getItem(stewardshipStorageKey)
+    const stored = window.localStorage.getItem(nextMoveStorageKey)
+    const legacyStored = window.localStorage.getItem(legacyNextMoveStorageKey)
 
-    if (!stored) return stewardshipSeedItems
+    if (!stored && !legacyStored) return nextMoveSeedItems
 
-    return JSON.parse(stored)
+    return JSON.parse(stored || legacyStored).map(normalizeNextMove)
   } catch (error) {
     console.error(error)
 
-    return stewardshipSeedItems
+    return nextMoveSeedItems
   }
+}
+
+function readProjects() {
+  if (typeof window === 'undefined') return projectSeedItems
+
+  try {
+    const stored = window.localStorage.getItem(projectStorageKey)
+
+    if (!stored) return projectSeedItems
+
+    return projectSeedItems.map((project) => ({
+      ...project,
+      ...JSON.parse(stored).find((storedProject) => storedProject.id === project.id),
+    }))
+  } catch (error) {
+    console.error(error)
+
+    return projectSeedItems
+  }
+}
+
+function getProjectProgress(projectTitle, nextMoves) {
+  const projectMoves = nextMoves.filter((move) => move.project === projectTitle)
+
+  if (!projectMoves.length) return 0
+
+  const completeMoves = projectMoves.filter(
+    (move) => move.workflowStatus === 'Complete',
+  )
+
+  return Math.round((completeMoves.length / projectMoves.length) * 100)
 }
 
 function getTodayDate() {
   return new Date().toISOString().slice(0, 10)
 }
 
-function updateStewardshipItem(items, itemId, updates) {
+function createNextMove(overrides = {}) {
+  const timestamp = Date.now()
+
+  return {
+    id: `next-move-${timestamp}`,
+    title: '',
+    description: '',
+    whyItMatters: '',
+    nextAction: '',
+    project: 'Website',
+    category: 'Build',
+    lane: 'On Deck',
+    missionImpact: 3,
+    foundationValue: 3,
+    urgency: 3,
+    effort: 2,
+    workflowStatus: 'Active',
+    pinned: false,
+    createdDate: getTodayDate(),
+    modifiedDate: getTodayDate(),
+    completedDate: '',
+    archivedDate: '',
+    ...overrides,
+  }
+}
+
+function updateNextMove(items, itemId, updates) {
   return items.map((item) =>
     item.id === itemId
       ? {
@@ -802,7 +974,7 @@ function DashboardTabs({ activeView, onChange }) {
   )
 }
 
-function PriorityCard({
+function NextMoveCard({
   priority,
   label,
   isEditing = false,
@@ -864,6 +1036,19 @@ function PriorityCard({
               <select
                 value={draft.category}
                 onChange={(event) => setDraft({ ...draft, category: event.target.value })}
+                className="mt-2 w-full rounded-xl border border-[#e4d8c7] bg-white px-4 py-3"
+              >
+                <option>Build</option>
+                <option>Improve</option>
+                <option>Operate</option>
+                <option>Grow</option>
+              </select>
+            </label>
+            <label className="block">
+              <span className="text-xs uppercase tracking-[0.2em] text-[#c98b2c]">Lane</span>
+              <select
+                value={draft.lane}
+                onChange={(event) => setDraft({ ...draft, lane: event.target.value })}
                 className="mt-2 w-full rounded-xl border border-[#e4d8c7] bg-white px-4 py-3"
               >
                 <option>Today</option>
@@ -928,7 +1113,7 @@ function PriorityCard({
               </p>
             </div>
             <span className="shrink-0 rounded-full border border-[#c98b2c]/40 px-3 py-1 text-xs font-semibold text-[#c98b2c]">
-              {getStewardshipScore(priority)}
+              {getNextMoveScore(priority)}
             </span>
           </div>
           <div className="mt-5 border-l-2 border-[#c98b2c] pl-4">
@@ -974,12 +1159,145 @@ function PriorityCard({
               Complete
             </button>
             <button type="button" onClick={() => onArchive?.(priority.id)} className="rounded-full border border-[#d6c7b4] px-3 py-2 text-xs font-semibold">
-              Archive
+              Archive / No Longer Needed
             </button>
           </div>
         </>
       )}
     </article>
+  )
+}
+
+function ProjectCard({ project, nextMoves, onProjectNotesChange }) {
+  const projectMoves = nextMoves.filter((move) => move.project === project.title)
+  const activeMoves = projectMoves.filter((move) => move.workflowStatus === 'Active')
+  const progress = getProjectProgress(project.title, nextMoves)
+
+  return (
+    <article className="rounded-2xl border border-[#e4d8c7] bg-[#f8f5ef] p-5">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <p className="text-xs uppercase tracking-[0.22em] text-[#c98b2c] mb-2">
+            {project.status}
+          </p>
+          <h3 className="font-serif text-3xl leading-tight">
+            {project.title}
+          </h3>
+        </div>
+        <span className="rounded-full border border-[#c98b2c]/40 px-3 py-1 text-xs font-semibold text-[#c98b2c]">
+          Priority {project.priority}
+        </span>
+      </div>
+
+      <p className="mt-4 text-[#4b5563] leading-relaxed">
+        {project.purpose}
+      </p>
+
+      <div className="mt-5">
+        <div className="flex items-center justify-between text-sm text-[#4b5563]">
+          <span>Project progress</span>
+          <span>{progress}%</span>
+        </div>
+        <div className="mt-2 h-3 overflow-hidden rounded-full border border-[#e4d8c7] bg-white">
+          <div
+            className="h-full bg-[#c98b2c]"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      </div>
+
+      <div className="mt-5 space-y-2">
+        <p className="text-xs uppercase tracking-[0.22em] text-[#c98b2c]">
+          Next Moves
+        </p>
+        {activeMoves.length > 0 ? (
+          activeMoves.map((move) => (
+            <div key={move.id} className="rounded-xl bg-white border border-[#e4d8c7] p-3">
+              <p className="font-semibold">{move.title}</p>
+              <p className="text-sm text-[#4b5563] mt-1">{move.category} · {move.lane}</p>
+            </div>
+          ))
+        ) : (
+          <p className="rounded-xl bg-white border border-[#e4d8c7] p-3 text-sm text-[#4b5563]">
+            No active Next Moves yet.
+          </p>
+        )}
+      </div>
+
+      <label className="mt-5 block">
+        <span className="text-xs uppercase tracking-[0.22em] text-[#c98b2c]">
+          Project Notes
+        </span>
+        <textarea
+          value={project.notes || ''}
+          onChange={(event) => onProjectNotesChange(project.id, event.target.value)}
+          rows="3"
+          placeholder="Add the next thought, link, or reminder for this project..."
+          className="mt-2 w-full rounded-xl border border-[#e4d8c7] bg-white px-4 py-3 text-[#071f3a] placeholder:text-[#6b7280] focus:border-[#c98b2c] focus:outline-none"
+        />
+      </label>
+    </article>
+  )
+}
+
+function QuickCapture({ onCapture }) {
+  const [isOpen, setIsOpen] = useState(false)
+  const [idea, setIdea] = useState('')
+
+  function handleCapture() {
+    if (!idea.trim()) return
+
+    onCapture(idea.trim())
+    setIdea('')
+    setIsOpen(false)
+  }
+
+  return (
+    <div className="rounded-2xl border border-[#e4d8c7] bg-[#f8f5ef] p-5">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <p className="text-xs uppercase tracking-[0.22em] text-[#c98b2c]">
+            Founder Notebook
+          </p>
+          <h3 className="font-serif text-2xl">Capture without leaving focus.</h3>
+        </div>
+        <button
+          type="button"
+          onClick={() => setIsOpen((current) => !current)}
+          className="rounded-full bg-[#071f3a] px-4 py-2 text-sm font-semibold text-white"
+        >
+          Capture Idea
+        </button>
+      </div>
+
+      {isOpen && (
+        <div className="mt-4">
+          <textarea
+            value={idea}
+            onChange={(event) => setIdea(event.target.value)}
+            rows="3"
+            placeholder="Catch the idea, then return to the Next Move..."
+            className="w-full rounded-xl border border-[#e4d8c7] bg-white px-4 py-3 text-[#071f3a] placeholder:text-[#6b7280] focus:border-[#c98b2c] focus:outline-none"
+          />
+          <div className="mt-3 flex gap-2">
+            <button
+              type="button"
+              onClick={handleCapture}
+              className="rounded-full bg-[#071f3a] px-4 py-2 text-sm font-semibold text-white"
+            >
+              Save Idea
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsOpen(false)}
+              className="rounded-full border border-[#d6c7b4] px-4 py-2 text-sm font-semibold"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
   )
 }
 
@@ -1096,7 +1414,7 @@ function LegacyPage() {
   )
 }
 
-function StewardshipArchive({ title, items, defaultOpen = false }) {
+function NextMoveArchive({ title, items, defaultOpen = false }) {
   const [isOpen, setIsOpen] = useState(defaultOpen)
 
   if (!items.length) return null
@@ -1382,8 +1700,11 @@ export default function Dashboard({ onSignOut }) {
   const [lastUpdated, setLastUpdated] = useState('')
   const [blueprint, setBlueprint] = useState(readBlueprintState)
   const [notebook, setNotebook] = useState(readNotebook)
-  const [stewardshipItems, setStewardshipItems] = useState(readStewardshipItems)
-  const [editingStewardshipId, setEditingStewardshipId] = useState('')
+  const [nextMoves, setNextMoves] = useState(readNextMoves)
+  const [projects, setProjects] = useState(readProjects)
+  const [editingNextMoveId, setEditingNextMoveId] = useState('')
+  const [isAddingNextMove, setIsAddingNextMove] = useState(false)
+  const [newNextMove, setNewNextMove] = useState(null)
   const [activeView, setActiveView] = useState(getDashboardViewFromHash)
   const [todaysReflection] = useState(
     () => reflectionPrinciples[Math.floor(Math.random() * reflectionPrinciples.length)],
@@ -1430,20 +1751,20 @@ export default function Dashboard({ onSignOut }) {
   const impactMeasures = useMemo(() => buildImpactMeasures(dashboard), [dashboard])
   const fundingProgress = useMemo(() => buildFundingProgress(dashboard), [dashboard])
   const todaysFocus = useMemo(
-    () => getTopPriority(stewardshipItems),
-    [stewardshipItems],
+    () => getTopPriority(nextMoves),
+    [nextMoves],
   )
-  const activeStewardshipItems = useMemo(
-    () => getPrioritiesByWorkflow(stewardshipItems, 'Active'),
-    [stewardshipItems],
+  const activeNextMoves = useMemo(
+    () => getPrioritiesByWorkflow(nextMoves, 'Active'),
+    [nextMoves],
   )
-  const completedStewardshipItems = useMemo(
-    () => getPrioritiesByWorkflow(stewardshipItems, 'Complete'),
-    [stewardshipItems],
+  const completedNextMoves = useMemo(
+    () => getPrioritiesByWorkflow(nextMoves, 'Complete'),
+    [nextMoves],
   )
-  const archivedStewardshipItems = useMemo(
-    () => getPrioritiesByWorkflow(stewardshipItems, 'Archived'),
-    [stewardshipItems],
+  const archivedNextMoves = useMemo(
+    () => getPrioritiesByWorkflow(nextMoves, 'Archived'),
+    [nextMoves],
   )
   const partnerNewRequests = Number(dashboard.partnerNewRequests) || 0
   const partnerActiveConversations = Number(dashboard.partnerActiveConversations) || 0
@@ -1459,10 +1780,14 @@ export default function Dashboard({ onSignOut }) {
 
   useEffect(() => {
     window.localStorage.setItem(
-      stewardshipStorageKey,
-      JSON.stringify(stewardshipItems),
+      nextMoveStorageKey,
+      JSON.stringify(nextMoves),
     )
-  }, [stewardshipItems])
+  }, [nextMoves])
+
+  useEffect(() => {
+    window.localStorage.setItem(projectStorageKey, JSON.stringify(projects))
+  }, [projects])
 
   useEffect(() => {
     function handleHashChange() {
@@ -1518,15 +1843,55 @@ export default function Dashboard({ onSignOut }) {
     }))
   }
 
-  function saveStewardshipItem(itemId, updates) {
-    setStewardshipItems((current) =>
-      updateStewardshipItem(current, itemId, updates),
-    )
-    setEditingStewardshipId('')
+  function captureIdea(idea) {
+    const entry = `${getTodayDate()} - ${idea}`
+
+    setNotebook((current) => ({
+      ...current,
+      'Future Ideas': current['Future Ideas']
+        ? `${entry}\n${current['Future Ideas']}`
+        : entry,
+    }))
   }
 
-  function toggleStewardshipPin(itemId) {
-    setStewardshipItems((current) =>
+  function updateProjectNotes(projectId, notes) {
+    setProjects((current) =>
+      current.map((project) =>
+        project.id === projectId
+          ? {
+              ...project,
+              notes,
+            }
+          : project,
+      ),
+    )
+  }
+
+  function startAddingNextMove() {
+    setNewNextMove(createNextMove())
+    setIsAddingNextMove(true)
+  }
+
+  function cancelAddingNextMove() {
+    setNewNextMove(null)
+    setIsAddingNextMove(false)
+  }
+
+  function addNextMove(nextMove) {
+    setNextMoves((current) => [nextMove, ...current])
+    setNewNextMove(null)
+    setIsAddingNextMove(false)
+  }
+
+  function saveNextMove(itemId, updates) {
+    setNextMoves((current) =>
+      updateNextMove(current, itemId, updates),
+    )
+    setEditingNextMoveId('')
+  }
+
+  function toggleNextMovePin(itemId) {
+    setNextMoves((current) =>
       current.map((item) => ({
         ...item,
         pinned:
@@ -1540,9 +1905,9 @@ export default function Dashboard({ onSignOut }) {
     )
   }
 
-  function completeStewardshipItem(itemId) {
-    setStewardshipItems((current) =>
-      updateStewardshipItem(current, itemId, {
+  function completeNextMove(itemId) {
+    setNextMoves((current) =>
+      updateNextMove(current, itemId, {
         workflowStatus: 'Complete',
         pinned: false,
         completedDate: getTodayDate(),
@@ -1550,9 +1915,9 @@ export default function Dashboard({ onSignOut }) {
     )
   }
 
-  function archiveStewardshipItem(itemId) {
-    setStewardshipItems((current) =>
-      updateStewardshipItem(current, itemId, {
+  function archiveNextMove(itemId) {
+    setNextMoves((current) =>
+      updateNextMove(current, itemId, {
         workflowStatus: 'Archived',
         pinned: false,
         archivedDate: getTodayDate(),
@@ -1624,22 +1989,22 @@ export default function Dashboard({ onSignOut }) {
                   What deserves my attention today?
                 </h2>
                 <p className="mt-6 text-white/75 leading-relaxed text-lg">
-                  The goal is not to do everything. The goal is to faithfully
-                  steward the next thing.
+                  The goal is not to do everything. The goal is to take the
+                  next right move.
                 </p>
               </div>
 
               {todaysFocus && (
-                <PriorityCard
+                <NextMoveCard
                   priority={todaysFocus}
                   label="Today's Focus"
-                  isEditing={editingStewardshipId === todaysFocus.id}
-                  onEdit={setEditingStewardshipId}
-                  onCancelEdit={() => setEditingStewardshipId('')}
-                  onSave={saveStewardshipItem}
-                  onPin={toggleStewardshipPin}
-                  onComplete={completeStewardshipItem}
-                  onArchive={archiveStewardshipItem}
+                  isEditing={editingNextMoveId === todaysFocus.id}
+                  onEdit={setEditingNextMoveId}
+                  onCancelEdit={() => setEditingNextMoveId('')}
+                  onSave={saveNextMove}
+                  onPin={toggleNextMovePin}
+                  onComplete={completeNextMove}
+                  onArchive={archiveNextMove}
                 />
               )}
             </div>
@@ -1677,21 +2042,67 @@ export default function Dashboard({ onSignOut }) {
           </Panel>
         </section>
 
+        <section>
+          <QuickCapture onCapture={captureIdea} />
+        </section>
+
+        <section>
+          <Panel>
+            <div className="flex flex-wrap items-start justify-between gap-4 mb-8">
+              <SectionHeader
+                eyebrow="Projects"
+                title="Projects generate the Next Moves."
+                description="TRSP Headquarters starts with mission, organizes the work by project, then surfaces the next right move."
+              />
+              <button
+                type="button"
+                onClick={startAddingNextMove}
+                className="rounded-full bg-[#071f3a] px-5 py-3 text-sm font-semibold text-white"
+              >
+                Add Next Move
+              </button>
+            </div>
+
+            {isAddingNextMove && newNextMove && (
+              <div className="mb-6">
+                <NextMoveCard
+                  priority={newNextMove}
+                  label="New Next Move"
+                  isEditing
+                  onCancelEdit={cancelAddingNextMove}
+                  onSave={(_, draft) => addNextMove(draft)}
+                />
+              </div>
+            )}
+
+            <div className="grid lg:grid-cols-2 gap-5">
+              {projects.map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  nextMoves={nextMoves}
+                  onProjectNotesChange={updateProjectNotes}
+                />
+              ))}
+            </div>
+          </Panel>
+        </section>
+
         <section className="grid lg:grid-cols-3 gap-8">
           <Panel>
             <SectionHeader eyebrow="On Deck" title="Next in Line" />
             <div className="space-y-4">
-              {getPrioritiesByCategory(stewardshipItems, 'On Deck').map((priority) => (
-                <PriorityCard
+              {getNextMovesByLane(nextMoves, 'On Deck').map((priority) => (
+                <NextMoveCard
                   key={priority.id}
                   priority={priority}
-                  isEditing={editingStewardshipId === priority.id}
-                  onEdit={setEditingStewardshipId}
-                  onCancelEdit={() => setEditingStewardshipId('')}
-                  onSave={saveStewardshipItem}
-                  onPin={toggleStewardshipPin}
-                  onComplete={completeStewardshipItem}
-                  onArchive={archiveStewardshipItem}
+                  isEditing={editingNextMoveId === priority.id}
+                  onEdit={setEditingNextMoveId}
+                  onCancelEdit={() => setEditingNextMoveId('')}
+                  onSave={saveNextMove}
+                  onPin={toggleNextMovePin}
+                  onComplete={completeNextMove}
+                  onArchive={archiveNextMove}
                 />
               ))}
             </div>
@@ -1700,17 +2111,17 @@ export default function Dashboard({ onSignOut }) {
           <Panel>
             <SectionHeader eyebrow="Waiting On" title="Blocked or Pending" />
             <div className="space-y-4">
-              {getPrioritiesByCategory(stewardshipItems, 'Waiting On').map((priority) => (
-                <PriorityCard
+              {getNextMovesByLane(nextMoves, 'Waiting On').map((priority) => (
+                <NextMoveCard
                   key={priority.id}
                   priority={priority}
-                  isEditing={editingStewardshipId === priority.id}
-                  onEdit={setEditingStewardshipId}
-                  onCancelEdit={() => setEditingStewardshipId('')}
-                  onSave={saveStewardshipItem}
-                  onPin={toggleStewardshipPin}
-                  onComplete={completeStewardshipItem}
-                  onArchive={archiveStewardshipItem}
+                  isEditing={editingNextMoveId === priority.id}
+                  onEdit={setEditingNextMoveId}
+                  onCancelEdit={() => setEditingNextMoveId('')}
+                  onSave={saveNextMove}
+                  onPin={toggleNextMovePin}
+                  onComplete={completeNextMove}
+                  onArchive={archiveNextMove}
                 />
               ))}
             </div>
@@ -1719,17 +2130,17 @@ export default function Dashboard({ onSignOut }) {
           <Panel>
             <SectionHeader eyebrow="Quick Wins" title="Small Faithful Moves" />
             <div className="space-y-4">
-              {getPrioritiesByCategory(stewardshipItems, 'Quick Win').map((priority) => (
-                <PriorityCard
+              {getNextMovesByLane(nextMoves, 'Quick Win').map((priority) => (
+                <NextMoveCard
                   key={priority.id}
                   priority={priority}
-                  isEditing={editingStewardshipId === priority.id}
-                  onEdit={setEditingStewardshipId}
-                  onCancelEdit={() => setEditingStewardshipId('')}
-                  onSave={saveStewardshipItem}
-                  onPin={toggleStewardshipPin}
-                  onComplete={completeStewardshipItem}
-                  onArchive={archiveStewardshipItem}
+                  isEditing={editingNextMoveId === priority.id}
+                  onEdit={setEditingNextMoveId}
+                  onCancelEdit={() => setEditingNextMoveId('')}
+                  onSave={saveNextMove}
+                  onPin={toggleNextMovePin}
+                  onComplete={completeNextMove}
+                  onArchive={archiveNextMove}
                 />
               ))}
             </div>
@@ -1740,17 +2151,17 @@ export default function Dashboard({ onSignOut }) {
           <Panel>
             <SectionHeader eyebrow="This Week" title="Operational Priorities" />
             <div className="space-y-3">
-              {getPrioritiesByCategory(stewardshipItems, 'This Week').map((priority) => (
-                <PriorityCard
+              {getNextMovesByLane(nextMoves, 'This Week').map((priority) => (
+                <NextMoveCard
                   key={priority.id}
                   priority={priority}
-                  isEditing={editingStewardshipId === priority.id}
-                  onEdit={setEditingStewardshipId}
-                  onCancelEdit={() => setEditingStewardshipId('')}
-                  onSave={saveStewardshipItem}
-                  onPin={toggleStewardshipPin}
-                  onComplete={completeStewardshipItem}
-                  onArchive={archiveStewardshipItem}
+                  isEditing={editingNextMoveId === priority.id}
+                  onEdit={setEditingNextMoveId}
+                  onCancelEdit={() => setEditingNextMoveId('')}
+                  onSave={saveNextMove}
+                  onPin={toggleNextMovePin}
+                  onComplete={completeNextMove}
+                  onArchive={archiveNextMove}
                 />
               ))}
               {priorities.map((priority) => (
@@ -1782,35 +2193,35 @@ export default function Dashboard({ onSignOut }) {
         <section>
           <Panel>
             <SectionHeader
-              eyebrow="Stewardship Items"
+              eyebrow="Next Moves"
               title="Active work, completed work, and archived work."
               description="Active items inform Today's Focus, On Deck, Waiting On, and Quick Wins. Completed and archived items stay preserved without taking over the morning."
             />
 
             <div className="grid lg:grid-cols-2 gap-5">
-              {activeStewardshipItems.map((priority) => (
-                <PriorityCard
+              {activeNextMoves.map((priority) => (
+                <NextMoveCard
                   key={priority.id}
                   priority={priority}
-                  isEditing={editingStewardshipId === priority.id}
-                  onEdit={setEditingStewardshipId}
-                  onCancelEdit={() => setEditingStewardshipId('')}
-                  onSave={saveStewardshipItem}
-                  onPin={toggleStewardshipPin}
-                  onComplete={completeStewardshipItem}
-                  onArchive={archiveStewardshipItem}
+                  isEditing={editingNextMoveId === priority.id}
+                  onEdit={setEditingNextMoveId}
+                  onCancelEdit={() => setEditingNextMoveId('')}
+                  onSave={saveNextMove}
+                  onPin={toggleNextMovePin}
+                  onComplete={completeNextMove}
+                  onArchive={archiveNextMove}
                 />
               ))}
             </div>
 
             <div className="mt-6 grid lg:grid-cols-2 gap-5">
-              <StewardshipArchive
+              <NextMoveArchive
                 title="Completed"
-                items={completedStewardshipItems}
+                items={completedNextMoves}
               />
-              <StewardshipArchive
+              <NextMoveArchive
                 title="Archived"
-                items={archivedStewardshipItems}
+                items={archivedNextMoves}
               />
             </div>
           </Panel>
@@ -2044,7 +2455,7 @@ export default function Dashboard({ onSignOut }) {
                 <SectionHeader
                   eyebrow="Funding"
                   title="Weekly Funding Position"
-                  description="The current funding picture stays close to operations because every participant slot depends on clear stewardship of the pilot budget."
+                  description="The current funding picture stays close to operations because every participant slot depends on clear care for the pilot budget."
                 />
               </div>
 
