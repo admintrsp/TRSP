@@ -169,6 +169,159 @@ const externalTools = [
   },
 ]
 
+const blueprintStorageKey = 'trsp_organizational_blueprint_v1'
+
+const blueprintStatuses = ['Not Started', 'Draft', 'Revision', 'Complete']
+
+const blueprintPhases = [
+  {
+    title: 'Phase I — Foundation',
+    items: [
+      ['Founder’s Narrative', 'Why TRSP exists and the story behind the organization.'],
+      ['TRSP Philosophy', 'The beliefs that guide every decision.'],
+      ['Core Beliefs', 'The fundamental principles that define TRSP.'],
+      ['Organizational Values', 'The values that shape culture, decisions, and partnerships.'],
+    ],
+  },
+  {
+    title: 'Phase II — Framework',
+    items: [
+      ['Restoration Model', 'Explains how restoration happens.'],
+      ['Participant Journey', 'Explains what participants experience.'],
+      ['Coaching Philosophy', 'Defines how TRSP coaches and meets people where they are.'],
+      ['Training Standards Manual', 'Future trainer onboarding and quality control.'],
+    ],
+  },
+  {
+    title: 'Phase III — Public Website',
+    items: [
+      ['Homepage Messaging', 'Clarifies why TRSP exists.'],
+      ['Our Philosophy Page', 'Public explanation of TRSP’s beliefs.'],
+      ['Restoration Model Page', 'Public explanation of the restoration framework.'],
+      ['Participant Program Page', 'Explains the participant experience.'],
+      ['Donate Experience', 'Keeps the donation journey aligned with TRSP’s brand.'],
+      ['Community Partner Page', 'Explains business/community sponsorship.'],
+      ['Provider Information', 'Explains referral pathway and provider trust.'],
+    ],
+  },
+  {
+    title: 'Phase IV — Organizational Development',
+    items: [
+      ['Board Handbook', 'Board expectations, governance, and orientation.'],
+      ['Volunteer Handbook', 'Future volunteer onboarding.'],
+      ['Participant Handbook', 'Program expectations and participant guidance.'],
+      ['Annual Impact Report', 'Public accountability and donor communication.'],
+      ['Grant Narrative Library', 'Reusable grant language and supporting narratives.'],
+      ['Partnership Packet', 'Materials for local businesses and community partners.'],
+      ['Media Kit', 'Logos, photos, boilerplate, and press information.'],
+    ],
+  },
+  {
+    title: 'Phase V — Long-Term Vision',
+    items: [
+      ['3-Year Strategic Plan', 'Near-term growth priorities.'],
+      ['10-Year Strategic Plan', 'Long-term organizational direction.'],
+      ['Facility Vision', 'Future home for TRSP.'],
+      ['Expansion Roadmap', 'Scaling trainers, participants, partnerships, and services.'],
+    ],
+  },
+]
+
+const livingIdeas = [
+  'Cancer takes.',
+  'Now what?',
+  'Meet people where they are.',
+  'Movement is the vehicle. Restoration is the destination.',
+  'Recovery is individualized.',
+  'Everyone deserves the opportunity to pursue restoration.',
+  'You can only grow as much as you recover.',
+  'Cancer is a diagnosis, not who someone is.',
+  'People are often capable of more than they believe.',
+  'Help people return to the life they love.',
+]
+
+function makeBlueprintId(phaseTitle, documentTitle) {
+  return `${phaseTitle}-${documentTitle}`
+    .toLowerCase()
+    .replace(/—/g, '-')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+}
+
+const blueprintDocuments = blueprintPhases.flatMap((phase) =>
+  phase.items.map(([title, purpose]) => ({
+    id: makeBlueprintId(phase.title, title),
+    phaseTitle: phase.title,
+    title,
+    purpose,
+  })),
+)
+
+function createInitialBlueprintState() {
+  return blueprintDocuments.reduce((accumulator, document) => {
+    accumulator[document.id] = {
+      status: 'Not Started',
+      notes: '',
+    }
+
+    return accumulator
+  }, {})
+}
+
+function readBlueprintState() {
+  if (typeof window === 'undefined') return createInitialBlueprintState()
+
+  try {
+    const stored = window.localStorage.getItem(blueprintStorageKey)
+
+    if (!stored) return createInitialBlueprintState()
+
+    return {
+      ...createInitialBlueprintState(),
+      ...JSON.parse(stored),
+    }
+  } catch (error) {
+    console.error(error)
+
+    return createInitialBlueprintState()
+  }
+}
+
+function getBlueprintWeight(status) {
+  if (status === 'Complete') return 1
+  if (status === 'Revision') return 0.7
+  if (status === 'Draft') return 0.4
+
+  return 0
+}
+
+function calculateBlueprintProgress(items) {
+  if (!items.length) return 0
+
+  const total = items.reduce(
+    (sum, item) => sum + getBlueprintWeight(item.status),
+    0,
+  )
+
+  return Math.round((total / items.length) * 100)
+}
+
+function getBlueprintStatusClass(status) {
+  if (status === 'Complete') {
+    return 'border-[#d8a066] bg-[#d8a066] text-slate-950'
+  }
+
+  if (status === 'Revision') {
+    return 'border-[#d8a066] bg-[#d8a066]/15 text-[#d8a066]'
+  }
+
+  if (status === 'Draft') {
+    return 'border-slate-700 bg-slate-950 text-slate-200'
+  }
+
+  return 'border-slate-800 bg-slate-950 text-slate-500'
+}
+
 function buildImpactMeasures(dashboard) {
   const totalSessions =
     dashboard.totalSessionsNeeded ||
@@ -257,10 +410,256 @@ function Panel({ children, className = '' }) {
   )
 }
 
+function BlueprintProgress({ value, label }) {
+  return (
+    <div>
+      <div className="flex items-center justify-between gap-4 text-sm text-slate-400 mb-3">
+        <span>{label}</span>
+        <span className="text-[#d8a066]">{value}%</span>
+      </div>
+      <div
+        role="progressbar"
+        aria-label={label}
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow={value}
+        className="h-3 rounded-full bg-slate-950 border border-slate-800 overflow-hidden"
+      >
+        <div
+          className="h-full bg-[#d8a066] transition-all"
+          style={{ width: `${value}%` }}
+        />
+      </div>
+    </div>
+  )
+}
+
+function BlueprintDocumentCard({
+  document,
+  value,
+  onStatusChange,
+  onNotesChange,
+}) {
+  return (
+    <article className="border border-slate-800 rounded-2xl p-5 bg-slate-950">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h4 className="font-semibold text-xl">
+            {document.title}
+          </h4>
+          <p className="text-slate-500 mt-2 leading-relaxed">
+            {document.purpose}
+          </p>
+        </div>
+
+        <span
+          className={`shrink-0 text-[0.65rem] uppercase tracking-widest font-semibold border rounded-full px-3 py-1 ${getBlueprintStatusClass(value.status)}`}
+        >
+          {value.status}
+        </span>
+      </div>
+
+      <div className="mt-5">
+        <p className="text-slate-500 uppercase tracking-widest text-xs mb-3">
+          Status
+        </p>
+        <div className="grid grid-cols-2 gap-2">
+          {blueprintStatuses.map((status) => (
+            <button
+              key={status}
+              type="button"
+              onClick={() => onStatusChange(document.id, status)}
+              className={`border rounded-full px-3 py-2 text-xs font-semibold transition ${
+                value.status === status
+                  ? getBlueprintStatusClass(status)
+                  : 'border-slate-800 bg-slate-950 text-slate-500 hover:border-[#d8a066] hover:text-[#d8a066]'
+              }`}
+            >
+              {status}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <label className="block mt-5">
+        <span className="text-slate-500 uppercase tracking-widest text-xs mb-3 block">
+          Notes
+        </span>
+        <textarea
+          value={value.notes}
+          onChange={(event) => onNotesChange(document.id, event.target.value)}
+          rows="3"
+          placeholder="Add a draft link, next step, reminder, or thought..."
+          className="w-full rounded-2xl border border-slate-800 bg-slate-900 px-4 py-3 text-slate-200 placeholder:text-slate-600 focus:border-[#d8a066] focus:outline-none"
+        />
+      </label>
+    </article>
+  )
+}
+
+function OrganizationalBlueprint({
+  blueprint,
+  onStatusChange,
+  onNotesChange,
+  onReset,
+}) {
+  const documentsWithState = blueprintDocuments.map((document) => ({
+    ...document,
+    status: blueprint[document.id]?.status || 'Not Started',
+    notes: blueprint[document.id]?.notes || '',
+  }))
+  const overallProgress = calculateBlueprintProgress(documentsWithState)
+
+  return (
+    <section>
+      <Panel className="border-[#d8a066]/35 bg-gradient-to-br from-slate-900 to-slate-950">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 mb-10">
+          <div>
+            <p className="uppercase tracking-[0.25em] text-[#d8a066] text-sm mb-4">
+              TRSP Organizational Blueprint
+            </p>
+            <h2 className="font-serif text-4xl md:text-5xl leading-tight">
+              A living roadmap for building, documenting, and protecting the
+              heart of The Renewed Strength Project.
+            </h2>
+          </div>
+
+          <div className="border border-slate-800 rounded-2xl p-6 bg-slate-950">
+            <p className="text-slate-500 uppercase tracking-widest text-sm mb-3">
+              Overall Blueprint
+            </p>
+            <p className="font-serif text-6xl text-[#d8a066]">
+              {overallProgress}%
+            </p>
+            <p className="text-slate-400 mt-3 leading-relaxed">
+              Saved locally in this browser for now.
+            </p>
+            <div className="mt-6">
+              <BlueprintProgress value={overallProgress} label="Overall blueprint progress" />
+            </div>
+            <button
+              type="button"
+              onClick={onReset}
+              className="mt-6 border border-slate-700 hover:border-[#d8a066] text-slate-400 hover:text-[#d8a066] rounded-full px-4 py-2 text-sm transition"
+            >
+              Reset Blueprint Notes
+            </button>
+          </div>
+        </div>
+
+        <div className="border border-[#d8a066]/30 rounded-2xl bg-slate-950 p-6 md:p-8 mb-10">
+          <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
+            Founder Note
+          </p>
+          <div className="space-y-4 text-slate-300 leading-relaxed text-lg">
+            <p className="font-serif text-3xl text-white leading-snug">
+              Cancer treatment saves lives. But many people are left wondering:
+              Now what?
+            </p>
+            <p>
+              Cancer takes strength, confidence, independence, participation,
+              and identity.
+            </p>
+            <p>
+              The Renewed Strength Project exists to help people pursue the
+              restoration of what cancer has taken through individualized,
+              evidence-informed movement and compassionate coaching.
+            </p>
+            <p className="border-l border-[#d8a066] pl-5 font-serif text-2xl text-white leading-snug">
+              Everyone deserves the opportunity to pursue restoration.
+              Everyone deserves to be met where they are.
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-10">
+          {blueprintPhases.map((phase) => {
+            const phaseDocuments = phase.items.map(([title, purpose]) => {
+              const id = makeBlueprintId(phase.title, title)
+
+              return {
+                id,
+                title,
+                purpose,
+                status: blueprint[id]?.status || 'Not Started',
+                notes: blueprint[id]?.notes || '',
+              }
+            })
+            const phaseProgress = calculateBlueprintProgress(phaseDocuments)
+
+            return (
+              <div key={phase.title}>
+                <div className="grid lg:grid-cols-[0.82fr_1.18fr] gap-6 mb-5">
+                  <div>
+                    <p className="text-[#d8a066] uppercase tracking-widest text-sm mb-3">
+                      {phase.title}
+                    </p>
+                    <h3 className="font-serif text-3xl">
+                      Document foundation
+                    </h3>
+                  </div>
+                  <div className="self-end">
+                    <BlueprintProgress value={phaseProgress} label={`${phase.title} progress`} />
+                  </div>
+                </div>
+
+                <div className="grid lg:grid-cols-2 gap-4">
+                  {phaseDocuments.map((document) => (
+                    <BlueprintDocumentCard
+                      key={document.id}
+                      document={document}
+                      value={{
+                        status: document.status,
+                        notes: document.notes,
+                      }}
+                      onStatusChange={onStatusChange}
+                      onNotesChange={onNotesChange}
+                    />
+                  ))}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        <div className="mt-12 border-y border-[#d8a066]/40 py-8">
+          <div className="grid lg:grid-cols-[0.75fr_1.25fr] gap-8">
+            <div>
+              <p className="text-[#d8a066] uppercase tracking-widest text-sm mb-4">
+                Living Ideas
+              </p>
+              <h3 className="font-serif text-4xl leading-tight">
+                Founder’s notebook.
+              </h3>
+              <p className="text-slate-400 mt-4 leading-relaxed">
+                Not tasks. Just language and instincts worth keeping close.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-3">
+              {livingIdeas.map((idea) => (
+                <div
+                  key={idea}
+                  className="border border-slate-800 rounded-2xl bg-slate-950 p-4"
+                >
+                  <p className="font-serif text-xl text-slate-200 leading-snug">
+                    {idea}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Panel>
+    </section>
+  )
+}
+
 export default function Dashboard({ onSignOut }) {
   const [dashboard, setDashboard] = useState(fallbackDashboard)
   const [dataStatus, setDataStatus] = useState('Loading live data...')
   const [lastUpdated, setLastUpdated] = useState('')
+  const [blueprint, setBlueprint] = useState(readBlueprintState)
 
   useEffect(() => {
     let isMounted = true
@@ -305,6 +704,40 @@ export default function Dashboard({ onSignOut }) {
   const partnerNewRequests = Number(dashboard.partnerNewRequests) || 0
   const partnerActiveConversations = Number(dashboard.partnerActiveConversations) || 0
   const partnerFollowUpsDue = Number(dashboard.partnerFollowUpsDue) || 0
+
+  useEffect(() => {
+    window.localStorage.setItem(blueprintStorageKey, JSON.stringify(blueprint))
+  }, [blueprint])
+
+  function updateBlueprintStatus(documentId, status) {
+    setBlueprint((current) => ({
+      ...current,
+      [documentId]: {
+        ...current[documentId],
+        status,
+      },
+    }))
+  }
+
+  function updateBlueprintNotes(documentId, notes) {
+    setBlueprint((current) => ({
+      ...current,
+      [documentId]: {
+        ...current[documentId],
+        notes,
+      },
+    }))
+  }
+
+  function resetBlueprint() {
+    const shouldReset = window.confirm(
+      'Reset all Organizational Blueprint statuses and notes in this browser?',
+    )
+
+    if (shouldReset) {
+      setBlueprint(createInitialBlueprintState())
+    }
+  }
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
@@ -676,6 +1109,13 @@ export default function Dashboard({ onSignOut }) {
             </p>
           </Panel>
         </section>
+
+        <OrganizationalBlueprint
+          blueprint={blueprint}
+          onStatusChange={updateBlueprintStatus}
+          onNotesChange={updateBlueprintNotes}
+          onReset={resetBlueprint}
+        />
 
         <section className="grid lg:grid-cols-2 gap-8">
           <ParticipantFlow />
