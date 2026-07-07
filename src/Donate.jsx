@@ -4,6 +4,8 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SEO from './components/SEO'
 
+const givebutterUrl = 'https://givebutter.com/general-fund-iz0pzq'
+
 const lifeExamples = [
   'Carry groceries',
   'Play with grandchildren',
@@ -145,9 +147,26 @@ export default function Donate() {
             the TRSP mission.
           </p>
 
-          <div className="mt-10 border border-[#e6dac8] bg-[#fbfaf7] p-4 sm:p-6">
+          <div className="mt-10 border border-[#e6dac8] bg-[#fbfaf7] p-6 sm:p-8">
             {/* TODO: In Givebutter campaign settings, set the post-payment redirect URL to /thank-you if supported. */}
-            <div className="givebutter-widget"></div>
+            <div className="givebutter-widget min-h-20"></div>
+
+            <div className="border-t border-[#e6dac8] pt-8 mt-8">
+              <p className="text-[#4b5563] leading-relaxed max-w-2xl">
+                If the embedded form does not load, you can still make a secure
+                donation through Givebutter.
+              </p>
+
+              <a
+                href={givebutterUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex mt-6 bg-[#071f3a] hover:bg-[#0d2f57] text-white font-semibold px-8 py-4 rounded-sm transition"
+              >
+                Donate Securely on Givebutter
+              </a>
+            </div>
+
             <noscript>
               <p className="text-[#4b5563] leading-relaxed">
                 JavaScript is required to load the embedded donation form.
