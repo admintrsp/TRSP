@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
 import { ChevronDown, Menu, X } from 'lucide-react'
 
-const donateUrl = 'https://givebutter.com/general-fund-iz0pzq'
 const partnerGuideUrl = '/TRSP_Partner_Guide_Website_Edition_v1_2_ConsistentMargins.pdf'
 
 const navGroups = [
@@ -26,7 +25,7 @@ const navGroups = [
   {
     label: 'Get Involved',
     items: [
-      { label: 'Donate', href: donateUrl },
+      { label: 'Donate', to: '/donate' },
       { label: 'Community Partners', to: '/community-partners' },
       { label: 'Partner Guide', href: partnerGuideUrl },
       { label: 'Volunteer / Future', to: '/partner-inquiry' },
@@ -190,14 +189,13 @@ export default function Navbar() {
             Contact
           </Link>
 
-          <a
-            href={donateUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/donate"
+            onClick={closeMenus}
             className="bg-[#d8a066] hover:bg-[#c98b2c] focus:bg-[#c98b2c] focus:outline-none text-[#071f3a] font-semibold px-5 py-3 rounded-sm transition"
           >
             Donate
-          </a>
+          </Link>
         </div>
 
         {isMenuOpen && (
@@ -233,15 +231,13 @@ export default function Navbar() {
                 Contact
               </Link>
 
-              <a
-                href={donateUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/donate"
                 onClick={closeMenus}
                 className="block bg-[#d8a066] hover:bg-[#c98b2c] text-[#071f3a] font-semibold px-5 py-3 transition text-center"
               >
                 Donate
-              </a>
+              </Link>
             </div>
           </div>
         )}

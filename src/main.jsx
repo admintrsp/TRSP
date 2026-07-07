@@ -22,6 +22,8 @@ import RestorationModelPage from "./RestorationModelPage.jsx";
 import Privacy from "./Privacy.jsx";
 import Contact from "./Contact.jsx";
 import OurPhilosophy from "./OurPhilosophy.jsx";
+import Donate from "./Donate.jsx";
+import ThankYou from "./ThankYou.jsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -44,6 +46,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/restoration-model" element={<RestorationModelPage />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/donate" element={<Donate />} />
+        <Route path="/thank-you" element={<ThankYou />} />
 
       </Routes>
 

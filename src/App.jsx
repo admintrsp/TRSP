@@ -3,7 +3,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SEO from './components/SEO'
 
-const donateUrl = 'https://givebutter.com/general-fund-iz0pzq'
+const donateUrl = '/donate'
 const partnerGuideUrl = '/TRSP_Partner_Guide_Website_Edition_v1_2_ConsistentMargins.pdf'
 
 const fallbackImpact = {
@@ -77,8 +77,6 @@ function Hero() {
 
             <a
               href={donateUrl}
-              target="_blank"
-              rel="noopener noreferrer"
               className="border border-[#c98b2c] text-[#071f3a] hover:bg-[#c98b2c] hover:text-white font-semibold px-8 py-4 rounded-sm transition text-center"
             >
               Support the Mission
@@ -485,8 +483,6 @@ function FinalCta() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
           <a
             href={donateUrl}
-            target="_blank"
-            rel="noopener noreferrer"
             className="bg-[#d8a066] hover:bg-[#e4b77d] text-[#071f3a] font-semibold px-8 py-4 rounded-sm transition"
           >
             Donate

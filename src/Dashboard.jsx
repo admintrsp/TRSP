@@ -158,9 +158,9 @@ const externalTools = [
     url: 'https://www.coachrx.app/',
   },
   {
-    name: 'Givebutter',
-    purpose: 'Donations and campaigns',
-    url: 'https://givebutter.com/general-fund-iz0pzq',
+    name: 'Donation Page',
+    purpose: 'TRSP donation experience and Givebutter processing',
+    url: '/donate',
   },
   {
     name: 'Squarespace',

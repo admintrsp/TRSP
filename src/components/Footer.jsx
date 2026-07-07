@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom'
 
-const donateUrl = 'https://givebutter.com/general-fund-iz0pzq'
-
 export default function Footer() {
   return (
     <footer className="bg-[#071f3a] text-white">
@@ -95,14 +93,12 @@ export default function Footer() {
               </a>
             </div>
 
-            <a
-              href={donateUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/donate"
               className="inline-flex mt-8 bg-[#d8a066] hover:bg-[#e4b77d] transition px-6 py-3 rounded-sm text-[#071f3a] font-semibold"
             >
               Donate
-            </a>
+            </Link>
           </div>
         </div>
 
