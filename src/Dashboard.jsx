@@ -126,6 +126,61 @@ const priorities = [
   'Review participant application responses weekly',
 ]
 
+const stewardshipPriorities = [
+  {
+    title: 'Review new participant and partner activity',
+    description: 'Make sure no person or local partner is waiting without a next step.',
+    missionImpact: 5,
+    foundationValue: 5,
+    urgency: 4,
+    effort: 2,
+    status: 'Today',
+  },
+  {
+    title: 'Confirm the pilot funding number',
+    description: 'Keep the fall pilot goal clear so donor language and board updates stay honest.',
+    missionImpact: 4,
+    foundationValue: 5,
+    urgency: 4,
+    effort: 2,
+    status: 'On Deck',
+  },
+  {
+    title: 'Finalize gym billing workflow',
+    description: 'Protect the promise that participants do not pay for restorative support.',
+    missionImpact: 5,
+    foundationValue: 4,
+    urgency: 3,
+    effort: 3,
+    status: 'Waiting On',
+  },
+  {
+    title: 'Choose first outcome measures',
+    description: 'Define what TRSP will learn from the pilot without overcomplicating the work.',
+    missionImpact: 4,
+    foundationValue: 5,
+    urgency: 3,
+    effort: 3,
+    status: 'This Week',
+  },
+  {
+    title: 'Write one donor impact note',
+    description: 'Capture one clear sentence about what restoration makes possible.',
+    missionImpact: 3,
+    foundationValue: 3,
+    urgency: 2,
+    effort: 1,
+    status: 'Quick Win',
+  },
+]
+
+const recentWins = [
+  'Donation experience now stays inside the TRSP website.',
+  'Participant application can write into the dashboard system.',
+  'Community partner requests can be surfaced and handled.',
+  'The Organizational Blueprint is preserved as a living document tracker.',
+]
+
 const weeklyRhythm = [
   {
     title: 'Monday',
@@ -175,7 +230,7 @@ const blueprintStatuses = ['Not Started', 'Draft', 'Revision', 'Complete']
 
 const blueprintPhases = [
   {
-    title: 'Phase I — Foundation',
+    title: 'Foundation',
     items: [
       ['Founder’s Narrative', 'Why TRSP exists and the story behind the organization.'],
       ['TRSP Philosophy', 'The beliefs that guide every decision.'],
@@ -184,7 +239,7 @@ const blueprintPhases = [
     ],
   },
   {
-    title: 'Phase II — Framework',
+    title: 'Framework',
     items: [
       ['Restoration Model', 'Explains how restoration happens.'],
       ['Participant Journey', 'Explains what participants experience.'],
@@ -193,7 +248,7 @@ const blueprintPhases = [
     ],
   },
   {
-    title: 'Phase III — Public Website',
+    title: 'Website',
     items: [
       ['Homepage Messaging', 'Clarifies why TRSP exists.'],
       ['Our Philosophy Page', 'Public explanation of TRSP’s beliefs.'],
@@ -205,7 +260,7 @@ const blueprintPhases = [
     ],
   },
   {
-    title: 'Phase IV — Organizational Development',
+    title: 'Operations',
     items: [
       ['Board Handbook', 'Board expectations, governance, and orientation.'],
       ['Volunteer Handbook', 'Future volunteer onboarding.'],
@@ -217,7 +272,7 @@ const blueprintPhases = [
     ],
   },
   {
-    title: 'Phase V — Long-Term Vision',
+    title: 'Growth',
     items: [
       ['3-Year Strategic Plan', 'Near-term growth priorities.'],
       ['10-Year Strategic Plan', 'Long-term organizational direction.'],
@@ -238,6 +293,71 @@ const livingIdeas = [
   'Cancer is a diagnosis, not who someone is.',
   'People are often capable of more than they believe.',
   'Help people return to the life they love.',
+]
+
+const notebookStorageKey = 'trsp_founder_notebook_v1'
+
+const notebookSections = [
+  'Thoughts',
+  'Language',
+  'Research',
+  'Quotes',
+  'Ideas',
+  'Future Concepts',
+  'Questions',
+  'Observations',
+  'Lessons',
+]
+
+const legacySections = [
+  {
+    title: 'Founder Narrative',
+    description: 'The story future leaders should understand before they change anything.',
+  },
+  {
+    title: 'TRSP Philosophy',
+    description: 'The beliefs that protect the soul of the organization.',
+  },
+  {
+    title: 'Core Beliefs',
+    description: 'The principles that should outlive any single season of growth.',
+  },
+  {
+    title: 'Values',
+    description: 'The cultural standards that shape decisions, partnerships, and care.',
+  },
+  {
+    title: 'Letters to Future Staff',
+    description: 'Notes for the people who may one day carry this work forward.',
+  },
+  {
+    title: 'Lessons Learned',
+    description: 'What the pilot, participants, donors, and partners are teaching TRSP.',
+  },
+  {
+    title: 'Major Decisions',
+    description: 'The why behind important organizational choices.',
+  },
+  {
+    title: 'Milestones',
+    description: 'Moments worth remembering as TRSP grows.',
+  },
+  {
+    title: 'History',
+    description: 'How the organization began and how it changed over time.',
+  },
+  {
+    title: 'Impact Reports',
+    description: 'Public accountability and the evidence of faithful stewardship.',
+  },
+  {
+    title: 'Photos & Videos',
+    description: 'Visual memory from the people, places, and moments that shaped TRSP.',
+  },
+  {
+    title: 'Future Vision',
+    description: 'The dream beyond the pilot: facility, expansion, and long-term restoration work.',
+  },
 ]
 
 function makeBlueprintId(phaseTitle, documentTitle) {
@@ -382,6 +502,52 @@ function buildFundingProgress(dashboard) {
   }
 }
 
+function getStewardshipScore(priority) {
+  return (
+    Number(priority.missionImpact) +
+    Number(priority.foundationValue) +
+    Number(priority.urgency) -
+    Number(priority.effort)
+  )
+}
+
+function getTopPriority(items) {
+  return [...items].sort(
+    (first, second) => getStewardshipScore(second) - getStewardshipScore(first),
+  )[0]
+}
+
+function getPrioritiesByStatus(status) {
+  return stewardshipPriorities.filter((priority) => priority.status === status)
+}
+
+function createInitialNotebook() {
+  return notebookSections.reduce((notebook, section) => {
+    notebook[section] = ''
+
+    return notebook
+  }, {})
+}
+
+function readNotebook() {
+  if (typeof window === 'undefined') return createInitialNotebook()
+
+  try {
+    const stored = window.localStorage.getItem(notebookStorageKey)
+
+    if (!stored) return createInitialNotebook()
+
+    return {
+      ...createInitialNotebook(),
+      ...JSON.parse(stored),
+    }
+  } catch (error) {
+    console.error(error)
+
+    return createInitialNotebook()
+  }
+}
+
 function SectionHeader({ eyebrow, title, description }) {
   return (
     <div className="mb-8">
@@ -412,39 +578,49 @@ function Panel({ children, className = '' }) {
 
 const dashboardViews = [
   {
-    id: 'overview',
-    label: 'Today / Overview',
-    description: 'Pilot status, funding, partner signal, and the north star.',
+    id: 'headquarters',
+    label: 'Headquarters',
+    description: 'What deserves my attention today?',
   },
   {
     id: 'operations',
     label: 'Operations',
-    description: 'Weekly rhythm, launch readiness, participant flow, and tools.',
+    description: 'What needs to happen this week?',
+  },
+  {
+    id: 'architecture',
+    label: 'Operational Architecture',
+    description: 'How does TRSP work?',
   },
   {
     id: 'blueprint',
     label: 'Blueprint Library',
-    description: 'Core documents, assets, and founder notebook.',
+    description: 'What are we building?',
   },
   {
-    id: 'framework',
-    label: 'Frameworks',
-    description: 'Restoration model, participant flow, and operating principles.',
+    id: 'notebook',
+    label: 'Founder Notebook',
+    description: 'What am I thinking?',
+  },
+  {
+    id: 'legacy',
+    label: 'Legacy',
+    description: 'What should future leaders know?',
   },
   {
     id: 'resources',
     label: 'Resources',
-    description: 'The links and tools that support the work.',
+    description: 'Where does the work live?',
   },
 ]
 
 function getDashboardViewFromHash() {
-  if (typeof window === 'undefined') return 'overview'
+  if (typeof window === 'undefined') return 'headquarters'
 
   const hashView = window.location.hash.replace('#dashboard-', '')
   const viewExists = dashboardViews.some((view) => view.id === hashView)
 
-  return viewExists ? hashView : 'overview'
+  return viewExists ? hashView : 'headquarters'
 }
 
 function DashboardTabs({ activeView, onChange }) {
@@ -456,7 +632,7 @@ function DashboardTabs({ activeView, onChange }) {
       <p className="px-2 pb-3 text-xs uppercase tracking-[0.24em] text-[#c98b2c]">
         Headquarters Chapters
       </p>
-      <div className="grid gap-3 md:grid-cols-5">
+      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-7">
         {dashboardViews.map((view) => {
           const isActive = activeView === view.id
 
@@ -487,6 +663,124 @@ function DashboardTabs({ activeView, onChange }) {
         })}
       </div>
     </nav>
+  )
+}
+
+function PriorityCard({ priority, label }) {
+  return (
+    <article className="border border-[#e4d8c7] rounded-2xl bg-[#f8f5ef] p-5">
+      {label && (
+        <p className="text-xs uppercase tracking-[0.22em] text-[#c98b2c] mb-3">
+          {label}
+        </p>
+      )}
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h3 className="font-serif text-2xl leading-tight">
+            {priority.title}
+          </h3>
+          <p className="text-[#4b5563] mt-3 leading-relaxed">
+            {priority.description}
+          </p>
+        </div>
+        <span className="shrink-0 rounded-full border border-[#c98b2c]/40 px-3 py-1 text-xs font-semibold text-[#c98b2c]">
+          {getStewardshipScore(priority)}
+        </span>
+      </div>
+      <div className="mt-5 grid grid-cols-4 gap-2 text-center text-xs text-[#4b5563]">
+        <div className="rounded-xl bg-white border border-[#e4d8c7] p-2">
+          <span className="block text-[#071f3a] font-semibold">{priority.missionImpact}</span>
+          Mission
+        </div>
+        <div className="rounded-xl bg-white border border-[#e4d8c7] p-2">
+          <span className="block text-[#071f3a] font-semibold">{priority.foundationValue}</span>
+          Foundation
+        </div>
+        <div className="rounded-xl bg-white border border-[#e4d8c7] p-2">
+          <span className="block text-[#071f3a] font-semibold">{priority.urgency}</span>
+          Urgency
+        </div>
+        <div className="rounded-xl bg-white border border-[#e4d8c7] p-2">
+          <span className="block text-[#071f3a] font-semibold">{priority.effort}</span>
+          Effort
+        </div>
+      </div>
+    </article>
+  )
+}
+
+function NotebookPage({ notebook, onNotebookChange }) {
+  return (
+    <section>
+      <Panel>
+        <SectionHeader
+          eyebrow="Founder Notebook"
+          title="A place for language, questions, and unfinished thoughts."
+          description="This is not task management. It is a quiet place to hold ideas while the organization is still becoming."
+        />
+
+        <div className="grid lg:grid-cols-3 gap-5">
+          {notebookSections.map((section) => (
+            <label
+              key={section}
+              className="block rounded-2xl border border-[#e4d8c7] bg-[#f8f5ef] p-5"
+            >
+              <span className="block font-serif text-2xl leading-tight">
+                {section}
+              </span>
+              <textarea
+                value={notebook[section] || ''}
+                onChange={(event) => onNotebookChange(section, event.target.value)}
+                rows="7"
+                placeholder="Write what should not be lost..."
+                className="mt-4 w-full rounded-2xl border border-[#e4d8c7] bg-white px-4 py-3 text-[#071f3a] placeholder:text-[#6b7280] focus:border-[#c98b2c] focus:outline-none"
+              />
+            </label>
+          ))}
+        </div>
+      </Panel>
+    </section>
+  )
+}
+
+function LegacyPage() {
+  return (
+    <section>
+      <Panel className="overflow-hidden">
+        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10">
+          <div>
+            <p className="uppercase tracking-[0.24em] text-[#c98b2c] text-sm mb-4">
+              Legacy
+            </p>
+            <h2 className="font-serif text-4xl md:text-5xl leading-tight">
+              Institutional memory for the people who may carry TRSP forward.
+            </h2>
+            <div className="mt-8 h-px w-24 bg-[#c98b2c]" />
+            <p className="mt-8 text-[#4b5563] leading-relaxed text-lg">
+              This chapter protects the why, the lessons, the decisions, and
+              the story behind the work. It should feel archival, not
+              administrative.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {legacySections.map((section) => (
+              <article
+                key={section.title}
+                className="rounded-2xl border border-[#e4d8c7] bg-[#f8f5ef] p-5"
+              >
+                <h3 className="font-serif text-2xl leading-tight">
+                  {section.title}
+                </h3>
+                <p className="mt-3 text-[#4b5563] leading-relaxed">
+                  {section.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </Panel>
+    </section>
   )
 }
 
@@ -740,6 +1034,7 @@ export default function Dashboard({ onSignOut }) {
   const [dataStatus, setDataStatus] = useState('Loading live data...')
   const [lastUpdated, setLastUpdated] = useState('')
   const [blueprint, setBlueprint] = useState(readBlueprintState)
+  const [notebook, setNotebook] = useState(readNotebook)
   const [activeView, setActiveView] = useState(getDashboardViewFromHash)
 
   useEffect(() => {
@@ -782,6 +1077,10 @@ export default function Dashboard({ onSignOut }) {
   const pipelineStages = useMemo(() => buildPipelineStages(dashboard), [dashboard])
   const impactMeasures = useMemo(() => buildImpactMeasures(dashboard), [dashboard])
   const fundingProgress = useMemo(() => buildFundingProgress(dashboard), [dashboard])
+  const todaysFocus = useMemo(
+    () => getTopPriority(stewardshipPriorities),
+    [],
+  )
   const partnerNewRequests = Number(dashboard.partnerNewRequests) || 0
   const partnerActiveConversations = Number(dashboard.partnerActiveConversations) || 0
   const partnerFollowUpsDue = Number(dashboard.partnerFollowUpsDue) || 0
@@ -789,6 +1088,10 @@ export default function Dashboard({ onSignOut }) {
   useEffect(() => {
     window.localStorage.setItem(blueprintStorageKey, JSON.stringify(blueprint))
   }, [blueprint])
+
+  useEffect(() => {
+    window.localStorage.setItem(notebookStorageKey, JSON.stringify(notebook))
+  }, [notebook])
 
   useEffect(() => {
     function handleHashChange() {
@@ -835,6 +1138,13 @@ export default function Dashboard({ onSignOut }) {
     if (shouldReset) {
       setBlueprint(createInitialBlueprintState())
     }
+  }
+
+  function updateNotebook(section, value) {
+    setNotebook((current) => ({
+      ...current,
+      [section]: value,
+    }))
   }
 
   return (
@@ -884,8 +1194,91 @@ export default function Dashboard({ onSignOut }) {
       <main className="max-w-7xl mx-auto px-6 md:px-8 py-10 space-y-8">
         <DashboardTabs activeView={activeView} onChange={changeDashboardView} />
 
-        {activeView === 'overview' && (
+        {activeView === 'headquarters' && (
           <>
+        <section>
+          <Panel className="bg-[#071f3a] text-white border-[#071f3a]">
+            <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10">
+              <div>
+                <p className="uppercase tracking-[0.24em] text-[#d8a066] text-sm mb-4">
+                  Headquarters
+                </p>
+                <h2 className="font-serif text-4xl md:text-5xl leading-tight text-white">
+                  What deserves my attention today?
+                </h2>
+                <p className="mt-6 text-white/75 leading-relaxed text-lg">
+                  The goal is not to do everything. The goal is to faithfully
+                  steward the next thing.
+                </p>
+              </div>
+
+              <PriorityCard priority={todaysFocus} label="Today's Focus" />
+            </div>
+          </Panel>
+        </section>
+
+        <section className="grid lg:grid-cols-3 gap-8">
+          <Panel>
+            <SectionHeader eyebrow="On Deck" title="Next in Line" />
+            <div className="space-y-4">
+              {getPrioritiesByStatus('On Deck').map((priority) => (
+                <PriorityCard key={priority.title} priority={priority} />
+              ))}
+            </div>
+          </Panel>
+
+          <Panel>
+            <SectionHeader eyebrow="Waiting On" title="Blocked or Pending" />
+            <div className="space-y-4">
+              {getPrioritiesByStatus('Waiting On').map((priority) => (
+                <PriorityCard key={priority.title} priority={priority} />
+              ))}
+            </div>
+          </Panel>
+
+          <Panel>
+            <SectionHeader eyebrow="Quick Wins" title="Small Faithful Moves" />
+            <div className="space-y-4">
+              {getPrioritiesByStatus('Quick Win').map((priority) => (
+                <PriorityCard key={priority.title} priority={priority} />
+              ))}
+            </div>
+          </Panel>
+        </section>
+
+        <section className="grid lg:grid-cols-2 gap-8">
+          <Panel>
+            <SectionHeader eyebrow="This Week" title="Operational Priorities" />
+            <div className="space-y-3">
+              {getPrioritiesByStatus('This Week').map((priority) => (
+                <PriorityCard key={priority.title} priority={priority} />
+              ))}
+              {priorities.map((priority) => (
+                <div
+                  key={priority}
+                  className="border border-[#e4d8c7] rounded-2xl p-4 bg-[#f8f5ef] text-[#334155]"
+                >
+                  {priority}
+                </div>
+              ))}
+            </div>
+          </Panel>
+
+          <Panel>
+            <SectionHeader eyebrow="Recent Wins" title="Evidence of Movement" />
+            <div className="space-y-3">
+              {recentWins.map((win) => (
+                <div
+                  key={win}
+                  className="border-l-2 border-[#c98b2c] bg-[#f8f5ef] px-5 py-4 text-[#334155]"
+                >
+                  {win}
+                </div>
+              ))}
+            </div>
+          </Panel>
+        </section>
+
         <section>
           <SectionHeader
             eyebrow="Fall Pilot"
@@ -1109,6 +1502,49 @@ export default function Dashboard({ onSignOut }) {
 
         <section>
           <Panel>
+            <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
+              <div>
+                <SectionHeader
+                  eyebrow="Funding"
+                  title="Weekly Funding Position"
+                  description="The current funding picture stays close to operations because every participant slot depends on clear stewardship of the pilot budget."
+                />
+              </div>
+
+              <div>
+                <div className="grid sm:grid-cols-3 gap-4">
+                  <div className="border border-[#e4d8c7] rounded-2xl p-5 bg-[#f8f5ef]">
+                    <p className="text-[#6b7280] text-sm">Goal</p>
+                    <p className="text-3xl font-bold mt-2">
+                      {formatCurrency(fundingProgress.goal)}
+                    </p>
+                  </div>
+                  <div className="border border-[#d8a066]/50 rounded-2xl p-5 bg-[#f8f5ef]">
+                    <p className="text-[#6b7280] text-sm">Raised</p>
+                    <p className="text-3xl font-bold mt-2 text-[#d8a066]">
+                      {formatCurrency(fundingProgress.raised)}
+                    </p>
+                  </div>
+                  <div className="border border-[#e4d8c7] rounded-2xl p-5 bg-[#f8f5ef]">
+                    <p className="text-[#6b7280] text-sm">Remaining</p>
+                    <p className="text-3xl font-bold mt-2">
+                      {formatCurrency(fundingProgress.remaining)}
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-6 h-4 rounded-full bg-[#f8f5ef] border border-[#e4d8c7] overflow-hidden">
+                  <div
+                    className="h-full bg-[#d8a066] transition-all"
+                    style={{ width: `${fundingProgress.fundedPercent}%` }}
+                  />
+                </div>
+              </div>
+            </div>
+          </Panel>
+        </section>
+
+        <section>
+          <Panel>
             <SectionHeader
               eyebrow="Participant Pipeline"
               title="Fall Pilot Flow"
@@ -1251,8 +1687,41 @@ export default function Dashboard({ onSignOut }) {
           />
         )}
 
-        {activeView === 'framework' && (
+        {activeView === 'architecture' && (
           <>
+        <section>
+          <Panel>
+            <SectionHeader
+              eyebrow="Operational Architecture"
+              title="How TRSP functions as a system."
+              description="This chapter is not a task list. It is the working map of how people, funding, referral pathways, coaching, documentation, and restoration connect."
+            />
+
+            <div className="grid md:grid-cols-3 gap-4">
+              {[
+                ['Referral Pathway', 'How someone moves from awareness or referral into a supportive conversation.'],
+                ['Participant Lifecycle', 'How a participant moves from inquiry to assessment, coaching, progress tracking, and transition.'],
+                ['Funding Flow', 'How generosity becomes paid training access without cost falling on the participant.'],
+                ['Restoration Process', 'How individualized movement supports meaningful return to life.'],
+                ['Documentation System', 'How forms, notes, outcomes, and operational records stay organized.'],
+                ['Future Architecture', 'Where trainer onboarding, portals, calendars, and reporting can grow later.'],
+              ].map(([title, description]) => (
+                <article
+                  key={title}
+                  className="rounded-2xl border border-[#e4d8c7] bg-[#f8f5ef] p-5"
+                >
+                  <h3 className="font-serif text-2xl leading-tight">
+                    {title}
+                  </h3>
+                  <p className="mt-3 text-[#4b5563] leading-relaxed">
+                    {description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </Panel>
+        </section>
+
         <section className="grid lg:grid-cols-2 gap-8">
           <ParticipantFlow />
           <div>
@@ -1334,6 +1803,17 @@ export default function Dashboard({ onSignOut }) {
           </Panel>
         </section>
           </>
+        )}
+
+        {activeView === 'notebook' && (
+          <NotebookPage
+            notebook={notebook}
+            onNotebookChange={updateNotebook}
+          />
+        )}
+
+        {activeView === 'legacy' && (
+          <LegacyPage />
         )}
 
         {activeView === 'resources' && (

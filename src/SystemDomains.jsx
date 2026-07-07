@@ -153,13 +153,13 @@ export default function SystemDomains() {
   }
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 mt-8">
+    <div className="bg-white border border-[#e4d8c7] rounded-2xl p-8 mt-8 shadow-[0_18px_50px_rgba(7,31,58,0.07)]">
 
-      <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
+      <p className="text-[#c98b2c] uppercase tracking-[0.24em] text-sm mb-4">
         Operational Architecture
       </p>
 
-      <h2 className="text-3xl font-semibold mb-10">
+      <h2 className="font-serif text-3xl md:text-4xl font-normal mb-10 text-[#071f3a]">
         Expandable System Domains
       </h2>
 
@@ -169,28 +169,28 @@ export default function SystemDomains() {
 
           <div
             key={domain.title}
-className="border border-slate-800 hover:border-[#d8a066] transition-all rounded-2xl overflow-hidden"          >
+className="border border-[#e4d8c7] hover:border-[#c98b2c] transition-all rounded-2xl overflow-hidden"          >
 
             <button
               onClick={() => toggleDomain(index)}
-              className="w-full text-left p-6 bg-slate-950 hover:bg-slate-900 transition-all"
+              className="w-full text-left p-6 bg-[#f8f5ef] hover:bg-white transition-all"
             >
 
               <div className="flex items-center justify-between">
 
                 <div>
 
-                  <h3 className="text-2xl font-semibold">
+                  <h3 className="font-serif text-2xl text-[#071f3a]">
                     {domain.title}
                   </h3>
 
-                  <p className="text-slate-400 mt-2">
+                  <p className="text-[#4b5563] mt-2">
                     {domain.purpose}
                   </p>
 
                 </div>
 
-                <div className="text-slate-500 text-2xl">
+                <div className="text-[#c98b2c] text-2xl">
                   {openIndex === index ? '−' : '+'}
                 </div>
 
@@ -200,7 +200,7 @@ className="border border-slate-800 hover:border-[#d8a066] transition-all rounded
 
             {openIndex === index && (
 
-              <div className="border-t border-slate-800 bg-slate-900 p-6">
+              <div className="border-t border-[#e4d8c7] bg-white p-6">
 
                 <h4 className="text-lg font-semibold mb-4">
                   Operational Links
@@ -215,9 +215,9 @@ className="border border-slate-800 hover:border-[#d8a066] transition-all rounded
     href={link.url}
     target="_blank"
     rel="noopener noreferrer"
-className="border border-slate-800 rounded-xl p-4 hover:border-[#d8a066] transition-all block"  >
+className="border border-[#e4d8c7] rounded-xl p-4 hover:border-[#c98b2c] transition-all block bg-[#f8f5ef]"  >
 
-    <p className="text-slate-300">
+    <p className="text-[#071f3a]">
       {link.name}
     </p>
 
