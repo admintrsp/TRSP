@@ -308,7 +308,7 @@ function calculateBlueprintProgress(items) {
 
 function getBlueprintStatusClass(status) {
   if (status === 'Complete') {
-    return 'border-[#d8a066] bg-[#d8a066] text-slate-950'
+    return 'border-[#d8a066] bg-[#d8a066] text-[#071f3a]'
   }
 
   if (status === 'Revision') {
@@ -316,10 +316,10 @@ function getBlueprintStatusClass(status) {
   }
 
   if (status === 'Draft') {
-    return 'border-slate-700 bg-slate-950 text-slate-200'
+    return 'border-[#d6c7b4] bg-[#f8f5ef] text-[#071f3a]'
   }
 
-  return 'border-slate-800 bg-slate-950 text-slate-500'
+  return 'border-[#e4d8c7] bg-[#f8f5ef] text-[#6b7280]'
 }
 
 function buildImpactMeasures(dashboard) {
@@ -385,16 +385,16 @@ function buildFundingProgress(dashboard) {
 function SectionHeader({ eyebrow, title, description }) {
   return (
     <div className="mb-8">
-      <p className="uppercase tracking-widest text-slate-500 text-sm mb-2">
+      <p className="uppercase tracking-[0.24em] text-[#c98b2c] text-sm mb-3">
         {eyebrow}
       </p>
 
-      <h2 className="text-3xl md:text-4xl font-bold">
+      <h2 className="font-serif text-3xl md:text-4xl font-normal leading-tight">
         {title}
       </h2>
 
       {description && (
-        <p className="text-slate-400 mt-3 max-w-3xl leading-relaxed">
+        <p className="text-[#4b5563] mt-3 max-w-3xl leading-relaxed">
           {description}
         </p>
       )}
@@ -404,7 +404,7 @@ function SectionHeader({ eyebrow, title, description }) {
 
 function Panel({ children, className = '' }) {
   return (
-    <div className={`bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 ${className}`}>
+    <div className={`bg-white border border-[#e4d8c7] rounded-2xl p-6 md:p-8 shadow-[0_18px_50px_rgba(7,31,58,0.07)] ${className}`}>
       {children}
     </div>
   )
@@ -413,7 +413,7 @@ function Panel({ children, className = '' }) {
 const dashboardViews = [
   {
     id: 'overview',
-    label: 'Overview',
+    label: 'Today / Overview',
     description: 'Pilot status, funding, partner signal, and the north star.',
   },
   {
@@ -423,13 +423,18 @@ const dashboardViews = [
   },
   {
     id: 'blueprint',
-    label: 'Organizational Blueprint',
+    label: 'Blueprint Library',
     description: 'Core documents, assets, and founder notebook.',
   },
   {
     id: 'framework',
-    label: 'Framework',
+    label: 'Frameworks',
     description: 'Restoration model, participant flow, and operating principles.',
+  },
+  {
+    id: 'resources',
+    label: 'Resources',
+    description: 'The links and tools that support the work.',
   },
 ]
 
@@ -446,9 +451,12 @@ function DashboardTabs({ activeView, onChange }) {
   return (
     <nav
       aria-label="Founder dashboard sections"
-      className="rounded-3xl border border-slate-800 bg-slate-900/80 p-3"
+      className="rounded-2xl border border-[#e4d8c7] bg-white p-3 shadow-[0_18px_50px_rgba(7,31,58,0.06)]"
     >
-      <div className="grid gap-3 md:grid-cols-4">
+      <p className="px-2 pb-3 text-xs uppercase tracking-[0.24em] text-[#c98b2c]">
+        Headquarters Chapters
+      </p>
+      <div className="grid gap-3 md:grid-cols-5">
         {dashboardViews.map((view) => {
           const isActive = activeView === view.id
 
@@ -460,8 +468,8 @@ function DashboardTabs({ activeView, onChange }) {
               aria-pressed={isActive}
               className={`rounded-2xl border p-4 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8a066] ${
                 isActive
-                  ? 'border-[#d8a066] bg-[#d8a066] text-slate-950'
-                  : 'border-slate-800 bg-slate-950 text-slate-300 hover:border-[#d8a066] hover:text-[#d8a066]'
+                  ? 'border-[#071f3a] bg-[#071f3a] text-white'
+                  : 'border-[#e4d8c7] bg-[#f8f5ef] text-[#334155] hover:border-[#c98b2c] hover:text-[#071f3a]'
               }`}
             >
               <span className="block text-sm font-semibold">
@@ -469,7 +477,7 @@ function DashboardTabs({ activeView, onChange }) {
               </span>
               <span
                 className={`mt-2 block text-xs leading-relaxed ${
-                  isActive ? 'text-slate-800' : 'text-slate-500'
+                  isActive ? 'text-white/75' : 'text-[#6b7280]'
                 }`}
               >
                 {view.description}
@@ -485,7 +493,7 @@ function DashboardTabs({ activeView, onChange }) {
 function BlueprintProgress({ value, label }) {
   return (
     <div>
-      <div className="flex items-center justify-between gap-4 text-sm text-slate-400 mb-3">
+      <div className="flex items-center justify-between gap-4 text-sm text-[#4b5563] mb-3">
         <span>{label}</span>
         <span className="text-[#d8a066]">{value}%</span>
       </div>
@@ -495,7 +503,7 @@ function BlueprintProgress({ value, label }) {
         aria-valuemin="0"
         aria-valuemax="100"
         aria-valuenow={value}
-        className="h-3 rounded-full bg-slate-950 border border-slate-800 overflow-hidden"
+        className="h-3 rounded-full bg-[#f8f5ef] border border-[#e4d8c7] overflow-hidden"
       >
         <div
           className="h-full bg-[#d8a066] transition-all"
@@ -513,13 +521,13 @@ function BlueprintDocumentCard({
   onNotesChange,
 }) {
   return (
-    <article className="border border-slate-800 rounded-2xl p-5 bg-slate-950">
+    <article className="border border-[#e4d8c7] rounded-2xl p-5 bg-[#f8f5ef]">
       <div className="flex items-start justify-between gap-4">
         <div>
           <h4 className="font-semibold text-xl">
             {document.title}
           </h4>
-          <p className="text-slate-500 mt-2 leading-relaxed">
+          <p className="text-[#6b7280] mt-2 leading-relaxed">
             {document.purpose}
           </p>
         </div>
@@ -532,7 +540,7 @@ function BlueprintDocumentCard({
       </div>
 
       <div className="mt-5">
-        <p className="text-slate-500 uppercase tracking-widest text-xs mb-3">
+        <p className="text-[#6b7280] uppercase tracking-widest text-xs mb-3">
           Status
         </p>
         <div className="grid grid-cols-2 gap-2">
@@ -544,7 +552,7 @@ function BlueprintDocumentCard({
               className={`border rounded-full px-3 py-2 text-xs font-semibold transition ${
                 value.status === status
                   ? getBlueprintStatusClass(status)
-                  : 'border-slate-800 bg-slate-950 text-slate-500 hover:border-[#d8a066] hover:text-[#d8a066]'
+                  : 'border-[#e4d8c7] bg-[#f8f5ef] text-[#6b7280] hover:border-[#d8a066] hover:text-[#d8a066]'
               }`}
             >
               {status}
@@ -554,7 +562,7 @@ function BlueprintDocumentCard({
       </div>
 
       <label className="block mt-5">
-        <span className="text-slate-500 uppercase tracking-widest text-xs mb-3 block">
+        <span className="text-[#6b7280] uppercase tracking-widest text-xs mb-3 block">
           Notes
         </span>
         <textarea
@@ -562,7 +570,7 @@ function BlueprintDocumentCard({
           onChange={(event) => onNotesChange(document.id, event.target.value)}
           rows="3"
           placeholder="Add a draft link, next step, reminder, or thought..."
-          className="w-full rounded-2xl border border-slate-800 bg-slate-900 px-4 py-3 text-slate-200 placeholder:text-slate-600 focus:border-[#d8a066] focus:outline-none"
+          className="w-full rounded-2xl border border-[#e4d8c7] bg-white px-4 py-3 text-[#071f3a] placeholder:text-[#4b5563] focus:border-[#d8a066] focus:outline-none"
         />
       </label>
     </article>
@@ -584,7 +592,7 @@ function OrganizationalBlueprint({
 
   return (
     <section>
-      <Panel className="border-[#d8a066]/35 bg-gradient-to-br from-slate-900 to-slate-950">
+      <Panel className="border-[#d8a066]/35 bg-gradient-to-br from-white to-[#f8f5ef]">
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 mb-10">
           <div>
             <p className="uppercase tracking-[0.25em] text-[#d8a066] text-sm mb-4">
@@ -596,14 +604,14 @@ function OrganizationalBlueprint({
             </h2>
           </div>
 
-          <div className="border border-slate-800 rounded-2xl p-6 bg-slate-950">
-            <p className="text-slate-500 uppercase tracking-widest text-sm mb-3">
+          <div className="border border-[#e4d8c7] rounded-2xl p-6 bg-[#f8f5ef]">
+            <p className="text-[#6b7280] uppercase tracking-widest text-sm mb-3">
               Overall Blueprint
             </p>
             <p className="font-serif text-6xl text-[#d8a066]">
               {overallProgress}%
             </p>
-            <p className="text-slate-400 mt-3 leading-relaxed">
+            <p className="text-[#4b5563] mt-3 leading-relaxed">
               Saved locally in this browser for now.
             </p>
             <div className="mt-6">
@@ -612,19 +620,19 @@ function OrganizationalBlueprint({
             <button
               type="button"
               onClick={onReset}
-              className="mt-6 border border-slate-700 hover:border-[#d8a066] text-slate-400 hover:text-[#d8a066] rounded-full px-4 py-2 text-sm transition"
+              className="mt-6 border border-[#d6c7b4] hover:border-[#d8a066] text-[#4b5563] hover:text-[#d8a066] rounded-full px-4 py-2 text-sm transition"
             >
               Reset Blueprint Notes
             </button>
           </div>
         </div>
 
-        <div className="border border-[#d8a066]/30 rounded-2xl bg-slate-950 p-6 md:p-8 mb-10">
-          <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
+        <div className="border border-[#d8a066]/30 rounded-2xl bg-[#f8f5ef] p-6 md:p-8 mb-10">
+          <p className="text-[#6b7280] uppercase tracking-widest text-sm mb-4">
             Founder Note
           </p>
-          <div className="space-y-4 text-slate-300 leading-relaxed text-lg">
-            <p className="font-serif text-3xl text-white leading-snug">
+          <div className="space-y-4 text-[#334155] leading-relaxed text-lg">
+            <p className="font-serif text-3xl text-[#071f3a] leading-snug">
               Cancer treatment saves lives. But many people are left wondering:
               Now what?
             </p>
@@ -637,7 +645,7 @@ function OrganizationalBlueprint({
               restoration of what cancer has taken through individualized,
               evidence-informed movement and compassionate coaching.
             </p>
-            <p className="border-l border-[#d8a066] pl-5 font-serif text-2xl text-white leading-snug">
+            <p className="border-l border-[#d8a066] pl-5 font-serif text-2xl text-[#071f3a] leading-snug">
               Everyone deserves the opportunity to pursue restoration.
               Everyone deserves to be met where they are.
             </p>
@@ -703,7 +711,7 @@ function OrganizationalBlueprint({
               <h3 className="font-serif text-4xl leading-tight">
                 Founder’s notebook.
               </h3>
-              <p className="text-slate-400 mt-4 leading-relaxed">
+              <p className="text-[#4b5563] mt-4 leading-relaxed">
                 Not tasks. Just language and instincts worth keeping close.
               </p>
             </div>
@@ -712,9 +720,9 @@ function OrganizationalBlueprint({
               {livingIdeas.map((idea) => (
                 <div
                   key={idea}
-                  className="border border-slate-800 rounded-2xl bg-slate-950 p-4"
+                  className="border border-[#e4d8c7] rounded-2xl bg-[#f8f5ef] p-4"
                 >
-                  <p className="font-serif text-xl text-slate-200 leading-snug">
+                  <p className="font-serif text-xl text-[#071f3a] leading-snug">
                     {idea}
                   </p>
                 </div>
@@ -830,44 +838,45 @@ export default function Dashboard({ onSignOut }) {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen bg-[#f8f5ef] text-[#071f3a]">
 
-      <section className="border-b border-slate-800">
+      <section className="border-b border-[#e4d8c7]">
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-16">
-          <p className="uppercase tracking-[0.3em] text-slate-500 text-sm mb-4">
-            The Renewed Strength Project
-          </p>
+          <div className="bg-[#071f3a] text-white rounded-2xl p-8 md:p-12 shadow-[0_24px_70px_rgba(7,31,58,0.2)]">
+            <p className="uppercase tracking-[0.3em] text-[#d8a066] text-sm mb-4">
+              The Renewed Strength Project
+            </p>
 
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight max-w-4xl">
-            Founder Command Center
-          </h1>
+            <h1 className="font-serif text-5xl md:text-7xl font-normal leading-tight max-w-4xl text-white">
+              TRSP Headquarters
+            </h1>
 
-          <p className="text-slate-400 text-xl mt-8 max-w-3xl leading-relaxed">
-            A private operating hub for the fall pilot, core documents,
-            weekly priorities, and the systems that support local cancer
-            treatment restoration work.
-          </p>
+            <p className="text-white/75 text-xl mt-8 max-w-3xl leading-relaxed">
+              The private place where The Renewed Strength Project is built,
+              documented, and guided forward.
+            </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-slate-400">
-            <span className="border border-[#d8a066]/40 text-[#d8a066] rounded-full px-4 py-2">
-              {dataStatus}
-            </span>
-
-            {lastUpdated && (
-              <span>
-                Last updated {new Date(lastUpdated).toLocaleString()}
+            <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-white/70">
+              <span className="border border-[#d8a066]/60 text-[#d8a066] rounded-full px-4 py-2">
+                {dataStatus}
               </span>
-            )}
 
-            {onSignOut && (
-              <button
-                type="button"
-                onClick={onSignOut}
-                className="border border-slate-700 hover:border-[#d8a066] text-slate-300 hover:text-[#d8a066] rounded-full px-4 py-2 transition"
-              >
-                Sign Out
-              </button>
-            )}
+              {lastUpdated && (
+                <span>
+                  Last updated {new Date(lastUpdated).toLocaleString()}
+                </span>
+              )}
+
+              {onSignOut && (
+                <button
+                  type="button"
+                  onClick={onSignOut}
+                  className="border border-white/25 hover:border-[#d8a066] text-white/80 hover:text-[#d8a066] rounded-full px-4 py-2 transition"
+                >
+                  Sign Out
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </section>
@@ -887,13 +896,13 @@ export default function Dashboard({ onSignOut }) {
           <div className="grid md:grid-cols-4 gap-4">
             {pilotStats.map((stat) => (
               <Panel key={stat.label} className="rounded-2xl">
-                <p className="text-slate-500 text-sm">
+                <p className="text-[#6b7280] text-sm">
                   {stat.label}
                 </p>
                 <p className="text-5xl font-bold mt-3">
                   {stat.value}
                 </p>
-                <p className="text-slate-400 mt-3">
+                <p className="text-[#4b5563] mt-3">
                   {stat.detail}
                 </p>
               </Panel>
@@ -905,7 +914,7 @@ export default function Dashboard({ onSignOut }) {
           <Panel>
             <div className="grid lg:grid-cols-[1.3fr_1fr] gap-8 items-center">
               <div>
-                <p className="uppercase tracking-widest text-slate-500 text-sm mb-3">
+                <p className="uppercase tracking-widest text-[#6b7280] text-sm mb-3">
                   Funding Progress
                 </p>
 
@@ -913,7 +922,7 @@ export default function Dashboard({ onSignOut }) {
                   Fall Pilot Funding
                 </h2>
 
-                <p className="text-slate-400 mt-3 max-w-2xl leading-relaxed">
+                <p className="text-[#4b5563] mt-3 max-w-2xl leading-relaxed">
                   This shows how much has been raised toward the current pilot
                   goal and how much is still needed to fully fund the first
                   five local participants.
@@ -921,8 +930,8 @@ export default function Dashboard({ onSignOut }) {
               </div>
 
               <div className="grid sm:grid-cols-3 gap-4">
-                <div className="border border-slate-800 rounded-2xl p-5 bg-slate-950">
-                  <p className="text-slate-500 text-sm">
+                <div className="border border-[#e4d8c7] rounded-2xl p-5 bg-[#f8f5ef]">
+                  <p className="text-[#6b7280] text-sm">
                     Goal
                   </p>
                   <p className="text-3xl font-bold mt-2">
@@ -930,8 +939,8 @@ export default function Dashboard({ onSignOut }) {
                   </p>
                 </div>
 
-                <div className="border border-[#d8a066]/50 rounded-2xl p-5 bg-slate-950">
-                  <p className="text-slate-500 text-sm">
+                <div className="border border-[#d8a066]/50 rounded-2xl p-5 bg-[#f8f5ef]">
+                  <p className="text-[#6b7280] text-sm">
                     Raised
                   </p>
                   <p className="text-3xl font-bold mt-2 text-[#d8a066]">
@@ -939,8 +948,8 @@ export default function Dashboard({ onSignOut }) {
                   </p>
                 </div>
 
-                <div className="border border-slate-800 rounded-2xl p-5 bg-slate-950">
-                  <p className="text-slate-500 text-sm">
+                <div className="border border-[#e4d8c7] rounded-2xl p-5 bg-[#f8f5ef]">
+                  <p className="text-[#6b7280] text-sm">
                     Left To Raise
                   </p>
                   <p className="text-3xl font-bold mt-2">
@@ -951,7 +960,7 @@ export default function Dashboard({ onSignOut }) {
             </div>
 
             <div className="mt-8">
-              <div className="flex items-center justify-between gap-4 text-sm text-slate-400 mb-3">
+              <div className="flex items-center justify-between gap-4 text-sm text-[#4b5563] mb-3">
                 <span>
                   {Math.round(fundingProgress.fundedPercent)}% funded
                 </span>
@@ -960,7 +969,7 @@ export default function Dashboard({ onSignOut }) {
                 </span>
               </div>
 
-              <div className="h-4 rounded-full bg-slate-950 border border-slate-800 overflow-hidden">
+              <div className="h-4 rounded-full bg-[#f8f5ef] border border-[#e4d8c7] overflow-hidden">
                 <div
                   className="h-full bg-[#d8a066] transition-all"
                   style={{ width: `${fundingProgress.fundedPercent}%` }}
@@ -974,7 +983,7 @@ export default function Dashboard({ onSignOut }) {
           <Panel>
             <div className="grid lg:grid-cols-[1.2fr_1fr] gap-8 items-center">
               <div>
-                <p className="uppercase tracking-widest text-slate-500 text-sm mb-3">
+                <p className="uppercase tracking-widest text-[#6b7280] text-sm mb-3">
                   Partnership Requests
                 </p>
 
@@ -982,7 +991,7 @@ export default function Dashboard({ onSignOut }) {
                   New Community Partner Interest
                 </h2>
 
-                <p className="text-slate-400 mt-3 max-w-2xl leading-relaxed">
+                <p className="text-[#4b5563] mt-3 max-w-2xl leading-relaxed">
                   Partner inquiries submitted through the website will appear
                   in the Google Sheet and surface here so follow-up does not
                   get missed.
@@ -990,8 +999,8 @@ export default function Dashboard({ onSignOut }) {
               </div>
 
               <div className="grid sm:grid-cols-3 gap-4">
-                <div className="border border-[#d8a066]/50 rounded-2xl p-5 bg-slate-950">
-                  <p className="text-slate-500 text-sm">
+                <div className="border border-[#d8a066]/50 rounded-2xl p-5 bg-[#f8f5ef]">
+                  <p className="text-[#6b7280] text-sm">
                     New Requests
                   </p>
                   <p className="text-4xl font-bold mt-2 text-[#d8a066]">
@@ -999,8 +1008,8 @@ export default function Dashboard({ onSignOut }) {
                   </p>
                 </div>
 
-                <div className="border border-slate-800 rounded-2xl p-5 bg-slate-950">
-                  <p className="text-slate-500 text-sm">
+                <div className="border border-[#e4d8c7] rounded-2xl p-5 bg-[#f8f5ef]">
+                  <p className="text-[#6b7280] text-sm">
                     Conversations
                   </p>
                   <p className="text-4xl font-bold mt-2">
@@ -1008,8 +1017,8 @@ export default function Dashboard({ onSignOut }) {
                   </p>
                 </div>
 
-                <div className="border border-slate-800 rounded-2xl p-5 bg-slate-950">
-                  <p className="text-slate-500 text-sm">
+                <div className="border border-[#e4d8c7] rounded-2xl p-5 bg-[#f8f5ef]">
+                  <p className="text-[#6b7280] text-sm">
                     Follow Ups Due
                   </p>
                   <p className="text-4xl font-bold mt-2">
@@ -1023,7 +1032,7 @@ export default function Dashboard({ onSignOut }) {
 
         <section>
           <Panel>
-            <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
+            <p className="text-[#6b7280] uppercase tracking-widest text-sm mb-4">
               North Star
             </p>
 
@@ -1031,12 +1040,12 @@ export default function Dashboard({ onSignOut }) {
               Why This Exists
             </h2>
 
-            <p className="text-slate-300 leading-relaxed text-lg">
+            <p className="text-[#334155] leading-relaxed text-lg">
               Cancer treatment saves lives. Restoration helps people work
               toward the life and activities they value.
             </p>
 
-            <p className="text-slate-500 mt-6 leading-relaxed">
+            <p className="text-[#6b7280] mt-6 leading-relaxed">
               The pilot exists to remove cost as a barrier to safe,
               individualized personal training for people treated for cancer
               in Northern Colorado.
@@ -1060,7 +1069,7 @@ export default function Dashboard({ onSignOut }) {
               {readinessItems.map((item) => (
                 <div
                   key={item.title}
-                  className="border border-slate-800 rounded-2xl p-5 bg-slate-950"
+                  className="border border-[#e4d8c7] rounded-2xl p-5 bg-[#f8f5ef]"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <h3 className="text-xl font-semibold">
@@ -1071,7 +1080,7 @@ export default function Dashboard({ onSignOut }) {
                     </span>
                   </div>
 
-                  <p className="text-slate-400 mt-3 leading-relaxed">
+                  <p className="text-[#4b5563] mt-3 leading-relaxed">
                     {item.note}
                   </p>
                 </div>
@@ -1089,7 +1098,7 @@ export default function Dashboard({ onSignOut }) {
               {priorities.map((priority) => (
                 <div
                   key={priority}
-                  className="border border-slate-800 rounded-2xl p-4 bg-slate-950 text-slate-300"
+                  className="border border-[#e4d8c7] rounded-2xl p-4 bg-[#f8f5ef] text-[#334155]"
                 >
                   {priority}
                 </div>
@@ -1110,7 +1119,7 @@ export default function Dashboard({ onSignOut }) {
               {pipelineStages.map((stage) => (
                 <div
                   key={stage.label}
-                  className="border border-slate-800 rounded-2xl p-5 bg-slate-950"
+                  className="border border-[#e4d8c7] rounded-2xl p-5 bg-[#f8f5ef]"
                 >
                   <p className="text-4xl font-bold">
                     {formatNumber(stage.count)}
@@ -1118,7 +1127,7 @@ export default function Dashboard({ onSignOut }) {
                   <h3 className="text-lg font-semibold mt-4">
                     {stage.label}
                   </h3>
-                  <p className="text-slate-500 text-sm mt-2 leading-relaxed">
+                  <p className="text-[#6b7280] text-sm mt-2 leading-relaxed">
                     {stage.description}
                   </p>
                 </div>
@@ -1139,12 +1148,12 @@ export default function Dashboard({ onSignOut }) {
               {weeklyRhythm.map((item) => (
                 <div
                   key={item.title}
-                  className="border border-slate-800 rounded-2xl p-5 bg-slate-950"
+                  className="border border-[#e4d8c7] rounded-2xl p-5 bg-[#f8f5ef]"
                 >
                   <h3 className="text-xl font-semibold text-[#d8a066]">
                     {item.title}
                   </h3>
-                  <p className="text-slate-400 mt-2">
+                  <p className="text-[#4b5563] mt-2">
                     {item.detail}
                   </p>
                 </div>
@@ -1166,12 +1175,12 @@ export default function Dashboard({ onSignOut }) {
                   href={tool.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-slate-800 rounded-2xl p-5 bg-slate-950 hover:border-[#d8a066] transition"
+                  className="border border-[#e4d8c7] rounded-2xl p-5 bg-[#f8f5ef] hover:border-[#d8a066] transition"
                 >
                   <h3 className="text-xl font-semibold">
                     {tool.name}
                   </h3>
-                  <p className="text-slate-500 mt-2">
+                  <p className="text-[#6b7280] mt-2">
                     {tool.purpose}
                   </p>
                 </a>
@@ -1192,15 +1201,15 @@ export default function Dashboard({ onSignOut }) {
               {impactMeasures.map((measure) => (
                 <div
                   key={measure.label}
-                  className="border border-slate-800 rounded-2xl p-5 bg-slate-950"
+                  className="border border-[#e4d8c7] rounded-2xl p-5 bg-[#f8f5ef]"
                 >
-                  <p className="text-slate-500 text-sm">
+                  <p className="text-[#6b7280] text-sm">
                     {measure.label}
                   </p>
                   <p className="text-3xl font-bold mt-2">
                     {measure.value}
                   </p>
-                  <p className="text-slate-500 mt-2">
+                  <p className="text-[#6b7280] mt-2">
                     {measure.detail}
                   </p>
                 </div>
@@ -1209,7 +1218,7 @@ export default function Dashboard({ onSignOut }) {
           </Panel>
 
           <Panel>
-            <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
+            <p className="text-[#6b7280] uppercase tracking-widest text-sm mb-4">
               North Star
             </p>
 
@@ -1217,12 +1226,12 @@ export default function Dashboard({ onSignOut }) {
               Why This Exists
             </h2>
 
-            <p className="text-slate-300 leading-relaxed text-lg">
+            <p className="text-[#334155] leading-relaxed text-lg">
               Cancer treatment saves lives. Restoration helps people work
               toward the life and activities they value.
             </p>
 
-            <p className="text-slate-500 mt-6 leading-relaxed">
+            <p className="text-[#6b7280] mt-6 leading-relaxed">
               The pilot exists to remove cost as a barrier to safe,
               individualized personal training for people treated for cancer
               in Northern Colorado.
@@ -1254,7 +1263,7 @@ export default function Dashboard({ onSignOut }) {
 
         <section className="grid lg:grid-cols-2 gap-8">
           <Panel>
-            <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
+            <p className="text-[#6b7280] uppercase tracking-widest text-sm mb-4">
               Current Phase
             </p>
 
@@ -1262,28 +1271,28 @@ export default function Dashboard({ onSignOut }) {
               Foundation Era
             </h2>
 
-            <p className="text-slate-400 text-lg">
+            <p className="text-[#4b5563] text-lg">
               Years 0-2
             </p>
 
             <div className="mt-8 space-y-4">
-              <div className="border border-slate-800 rounded-2xl p-4 bg-slate-950">
+              <div className="border border-[#e4d8c7] rounded-2xl p-4 bg-[#f8f5ef]">
                 <h3 className="font-semibold mb-2">
                   Primary Objective
                 </h3>
 
-                <p className="text-slate-400">
+                <p className="text-[#4b5563]">
                   Build systems, learn operationally, and prove the model
                   carefully with a local pilot.
                 </p>
               </div>
 
-              <div className="border border-slate-800 rounded-2xl p-4 bg-slate-950">
+              <div className="border border-[#e4d8c7] rounded-2xl p-4 bg-[#f8f5ef]">
                 <h3 className="font-semibold mb-2">
                   Current Focus
                 </h3>
 
-                <ul className="space-y-2 text-slate-400">
+                <ul className="space-y-2 text-[#4b5563]">
                   <li>Participant onboarding</li>
                   <li>Funding the first five participants</li>
                   <li>Gym payment workflow</li>
@@ -1295,7 +1304,7 @@ export default function Dashboard({ onSignOut }) {
           </Panel>
 
           <Panel>
-            <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
+            <p className="text-[#6b7280] uppercase tracking-widest text-sm mb-4">
               Cultural Direction
             </p>
 
@@ -1316,7 +1325,7 @@ export default function Dashboard({ onSignOut }) {
               ].map((item) => (
                 <div
                   key={item}
-                  className="border border-slate-800 rounded-2xl p-4 text-center text-slate-300 bg-slate-950"
+                  className="border border-[#e4d8c7] rounded-2xl p-4 text-center text-[#334155] bg-[#f8f5ef]"
                 >
                   {item}
                 </div>
@@ -1325,6 +1334,40 @@ export default function Dashboard({ onSignOut }) {
           </Panel>
         </section>
           </>
+        )}
+
+        {activeView === 'resources' && (
+          <section>
+            <Panel>
+              <SectionHeader
+                eyebrow="Resources"
+                title="Where The Work Lives"
+                description="A quieter home for the existing dashboard links and tools. Nothing is removed from the operating view; this chapter simply gathers them in one place."
+              />
+
+              <div className="grid md:grid-cols-2 gap-4">
+                {externalTools.map((tool) => (
+                  <a
+                    key={tool.name}
+                    href={tool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group border border-[#e4d8c7] rounded-2xl p-5 bg-[#f8f5ef] hover:border-[#c98b2c] transition"
+                  >
+                    <p className="text-xs uppercase tracking-[0.22em] text-[#c98b2c] mb-3">
+                      Tool Link
+                    </p>
+                    <h3 className="font-serif text-2xl leading-tight group-hover:text-[#c98b2c] transition">
+                      {tool.name}
+                    </h3>
+                    <p className="text-[#4b5563] mt-3 leading-relaxed">
+                      {tool.purpose}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </Panel>
+          </section>
         )}
 
       </main>
