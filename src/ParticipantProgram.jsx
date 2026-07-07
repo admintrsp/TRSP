@@ -147,9 +147,9 @@ export default function ParticipantProgram() {
             <div className="absolute -right-5 -bottom-5 w-24 h-24 border-r border-b border-[#c98b2c]"></div>
 
             <img
-              src="/trsp-forest-path-original.jpeg"
-              alt="A quiet forest trail representing the path forward"
-              className="relative w-full aspect-[4/3] object-cover shadow-2xl"
+              src="/trsp-participant-family-program.webp"
+              alt="A family together at a cancer awareness event"
+              className="relative w-full aspect-[4/3] object-cover object-top shadow-2xl"
             />
           </div>
         </div>
