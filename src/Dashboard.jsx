@@ -126,52 +126,113 @@ const priorities = [
   'Review participant application responses weekly',
 ]
 
-const stewardshipPriorities = [
+const stewardshipStorageKey = 'trsp_stewardship_items_v1'
+
+const stewardshipSeedItems = [
   {
+    id: 'stewardship-participant-partner-review',
     title: 'Review new participant and partner activity',
     description: 'Make sure no person or local partner is waiting without a next step.',
+    whyItMatters: 'Every delayed follow-up can become a missed opportunity for restoration or local support.',
+    nextAction: 'Open the participant sheet and partner requests, then identify the one person who needs follow-up first.',
+    project: 'Participant Experience',
+    category: 'Today',
     missionImpact: 5,
     foundationValue: 5,
     urgency: 4,
     effort: 2,
-    status: 'Today',
+    workflowStatus: 'Active',
+    pinned: false,
+    createdDate: '2026-07-06',
+    modifiedDate: '2026-07-06',
+    completedDate: '',
+    archivedDate: '',
   },
   {
+    id: 'stewardship-confirm-pilot-funding',
     title: 'Confirm the pilot funding number',
     description: 'Keep the fall pilot goal clear so donor language and board updates stay honest.',
+    whyItMatters: 'A clear funding target protects donor trust and makes the first five participant journeys easier to explain.',
+    nextAction: 'Compare the Google Sheet funding raised value with Givebutter and update the dashboard if needed.',
+    project: 'Fundraising',
+    category: 'On Deck',
     missionImpact: 4,
     foundationValue: 5,
     urgency: 4,
     effort: 2,
-    status: 'On Deck',
+    workflowStatus: 'Active',
+    pinned: false,
+    createdDate: '2026-07-06',
+    modifiedDate: '2026-07-06',
+    completedDate: '',
+    archivedDate: '',
   },
   {
+    id: 'stewardship-gym-billing-workflow',
     title: 'Finalize gym billing workflow',
     description: 'Protect the promise that participants do not pay for restorative support.',
+    whyItMatters: 'The nonprofit promise depends on clean handoffs between the participant, gym, and TRSP funding.',
+    nextAction: 'Confirm who invoices whom, when invoices are sent, and where payments are recorded.',
+    project: 'Operational Architecture',
+    category: 'Waiting On',
     missionImpact: 5,
     foundationValue: 4,
     urgency: 3,
     effort: 3,
-    status: 'Waiting On',
+    workflowStatus: 'Active',
+    pinned: false,
+    createdDate: '2026-07-06',
+    modifiedDate: '2026-07-06',
+    completedDate: '',
+    archivedDate: '',
   },
   {
+    id: 'stewardship-first-outcome-measures',
     title: 'Choose first outcome measures',
     description: 'Define what TRSP will learn from the pilot without overcomplicating the work.',
+    whyItMatters: 'Simple outcome tracking helps TRSP learn responsibly and communicate impact without overpromising.',
+    nextAction: 'Choose the first two measures to collect at baseline and completion.',
+    project: 'Operational Architecture',
+    category: 'This Week',
     missionImpact: 4,
     foundationValue: 5,
     urgency: 3,
     effort: 3,
-    status: 'This Week',
+    workflowStatus: 'Active',
+    pinned: false,
+    createdDate: '2026-07-06',
+    modifiedDate: '2026-07-06',
+    completedDate: '',
+    archivedDate: '',
   },
   {
+    id: 'stewardship-donor-impact-note',
     title: 'Write one donor impact note',
     description: 'Capture one clear sentence about what restoration makes possible.',
+    whyItMatters: 'Language is part of stewardship; clear words help people understand the life behind the gift.',
+    nextAction: 'Write one sentence that connects a donation to participation in meaningful life.',
+    project: 'Founder Narrative',
+    category: 'Quick Win',
     missionImpact: 3,
     foundationValue: 3,
     urgency: 2,
     effort: 1,
-    status: 'Quick Win',
+    workflowStatus: 'Active',
+    pinned: false,
+    createdDate: '2026-07-06',
+    modifiedDate: '2026-07-06',
+    completedDate: '',
+    archivedDate: '',
   },
+]
+
+const reflectionPrinciples = [
+  'Cancer is a diagnosis, not who someone is.',
+  'Exercise is the vehicle. Restoration is the destination.',
+  'You can only grow as much as you recover.',
+  'Everyone deserves to be met where they are.',
+  'People are often capable of more than they believe.',
+  'The goal is not gym performance. The goal is participation in life.',
 ]
 
 const recentWins = [
@@ -360,6 +421,37 @@ const legacySections = [
   },
 ]
 
+const legacyEntries = [
+  {
+    decision: 'Why Restoration?',
+    why: 'TRSP is not simply about exercise access. Restoration names the deeper purpose: helping people pursue meaningful life after cancer disruption.',
+    alternatives: 'Fitness, recovery, rehab, survivorship support.',
+    date: '2026-07-06',
+    status: 'Guiding Principle',
+  },
+  {
+    decision: 'Why 16 Sessions?',
+    why: 'A defined pilot block creates enough time for relationship, assessment, coaching, and progression while keeping the first funding target understandable.',
+    alternatives: 'Open-ended support, 8 sessions, 12 sessions, subscription model.',
+    date: '2026-07-06',
+    status: 'Pilot Decision',
+  },
+  {
+    decision: 'Why Northern Colorado?',
+    why: 'The first version of TRSP should stay local enough to be relational, accountable, and operationally learnable.',
+    alternatives: 'Statewide launch, virtual-first model, broader cancer support network.',
+    date: '2026-07-06',
+    status: 'Foundation Era',
+  },
+  {
+    decision: 'Why Community Funding?',
+    why: 'Community funding allows participants to access individualized movement support without personal cost deciding whether restoration is possible.',
+    alternatives: 'Insurance, direct-pay, membership, partial scholarship model.',
+    date: '2026-07-06',
+    status: 'Operating Model',
+  },
+]
+
 function makeBlueprintId(phaseTitle, documentTitle) {
   return `${phaseTitle}-${documentTitle}`
     .toLowerCase()
@@ -512,13 +604,57 @@ function getStewardshipScore(priority) {
 }
 
 function getTopPriority(items) {
-  return [...items].sort(
+  const activeItems = items.filter((item) => item.workflowStatus === 'Active')
+  const pinnedItem = activeItems.find((item) => item.pinned)
+
+  if (pinnedItem) return pinnedItem
+
+  return [...activeItems].sort(
     (first, second) => getStewardshipScore(second) - getStewardshipScore(first),
   )[0]
 }
 
-function getPrioritiesByStatus(status) {
-  return stewardshipPriorities.filter((priority) => priority.status === status)
+function getPrioritiesByCategory(items, category) {
+  return items.filter(
+    (priority) =>
+      priority.workflowStatus === 'Active' && priority.category === category,
+  )
+}
+
+function getPrioritiesByWorkflow(items, workflowStatus) {
+  return items.filter((priority) => priority.workflowStatus === workflowStatus)
+}
+
+function readStewardshipItems() {
+  if (typeof window === 'undefined') return stewardshipSeedItems
+
+  try {
+    const stored = window.localStorage.getItem(stewardshipStorageKey)
+
+    if (!stored) return stewardshipSeedItems
+
+    return JSON.parse(stored)
+  } catch (error) {
+    console.error(error)
+
+    return stewardshipSeedItems
+  }
+}
+
+function getTodayDate() {
+  return new Date().toISOString().slice(0, 10)
+}
+
+function updateStewardshipItem(items, itemId, updates) {
+  return items.map((item) =>
+    item.id === itemId
+      ? {
+          ...item,
+          ...updates,
+          modifiedDate: getTodayDate(),
+        }
+      : item,
+  )
 }
 
 function createInitialNotebook() {
@@ -666,7 +802,19 @@ function DashboardTabs({ activeView, onChange }) {
   )
 }
 
-function PriorityCard({ priority, label }) {
+function PriorityCard({
+  priority,
+  label,
+  isEditing = false,
+  onEdit,
+  onCancelEdit,
+  onSave,
+  onPin,
+  onComplete,
+  onArchive,
+}) {
+  const [draft, setDraft] = useState(priority)
+
   return (
     <article className="border border-[#e4d8c7] rounded-2xl bg-[#f8f5ef] p-5">
       {label && (
@@ -674,37 +822,163 @@ function PriorityCard({ priority, label }) {
           {label}
         </p>
       )}
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <h3 className="font-serif text-2xl leading-tight">
-            {priority.title}
-          </h3>
-          <p className="text-[#4b5563] mt-3 leading-relaxed">
-            {priority.description}
-          </p>
+      {isEditing ? (
+        <div className="space-y-4">
+          <label className="block">
+            <span className="text-xs uppercase tracking-[0.2em] text-[#c98b2c]">Title</span>
+            <input
+              value={draft.title}
+              onChange={(event) => setDraft({ ...draft, title: event.target.value })}
+              className="mt-2 w-full rounded-xl border border-[#e4d8c7] bg-white px-4 py-3"
+            />
+          </label>
+          <label className="block">
+            <span className="text-xs uppercase tracking-[0.2em] text-[#c98b2c]">Description</span>
+            <textarea
+              value={draft.description}
+              onChange={(event) => setDraft({ ...draft, description: event.target.value })}
+              rows="3"
+              className="mt-2 w-full rounded-xl border border-[#e4d8c7] bg-white px-4 py-3"
+            />
+          </label>
+          <label className="block">
+            <span className="text-xs uppercase tracking-[0.2em] text-[#c98b2c]">Next Action</span>
+            <textarea
+              value={draft.nextAction}
+              onChange={(event) => setDraft({ ...draft, nextAction: event.target.value })}
+              rows="2"
+              className="mt-2 w-full rounded-xl border border-[#e4d8c7] bg-white px-4 py-3"
+            />
+          </label>
+          <div className="grid md:grid-cols-2 gap-3">
+            <label className="block">
+              <span className="text-xs uppercase tracking-[0.2em] text-[#c98b2c]">Project</span>
+              <input
+                value={draft.project}
+                onChange={(event) => setDraft({ ...draft, project: event.target.value })}
+                className="mt-2 w-full rounded-xl border border-[#e4d8c7] bg-white px-4 py-3"
+              />
+            </label>
+            <label className="block">
+              <span className="text-xs uppercase tracking-[0.2em] text-[#c98b2c]">Category</span>
+              <select
+                value={draft.category}
+                onChange={(event) => setDraft({ ...draft, category: event.target.value })}
+                className="mt-2 w-full rounded-xl border border-[#e4d8c7] bg-white px-4 py-3"
+              >
+                <option>Today</option>
+                <option>On Deck</option>
+                <option>Waiting On</option>
+                <option>This Week</option>
+                <option>Quick Win</option>
+              </select>
+            </label>
+          </div>
+          <div className="grid grid-cols-4 gap-2">
+            {[
+              ['missionImpact', 'Mission'],
+              ['foundationValue', 'Foundation'],
+              ['urgency', 'Urgency'],
+              ['effort', 'Effort'],
+            ].map(([key, name]) => (
+              <label key={key} className="block">
+                <span className="text-xs text-[#6b7280]">{name}</span>
+                <input
+                  type="number"
+                  min="1"
+                  max="5"
+                  value={draft[key]}
+                  onChange={(event) =>
+                    setDraft({ ...draft, [key]: Number(event.target.value) })
+                  }
+                  className="mt-1 w-full rounded-xl border border-[#e4d8c7] bg-white px-3 py-2"
+                />
+              </label>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => onSave(priority.id, draft)}
+              className="rounded-full bg-[#071f3a] px-4 py-2 text-sm font-semibold text-white"
+            >
+              Save
+            </button>
+            <button
+              type="button"
+              onClick={onCancelEdit}
+              className="rounded-full border border-[#d6c7b4] px-4 py-2 text-sm font-semibold"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
-        <span className="shrink-0 rounded-full border border-[#c98b2c]/40 px-3 py-1 text-xs font-semibold text-[#c98b2c]">
-          {getStewardshipScore(priority)}
-        </span>
-      </div>
-      <div className="mt-5 grid grid-cols-4 gap-2 text-center text-xs text-[#4b5563]">
-        <div className="rounded-xl bg-white border border-[#e4d8c7] p-2">
-          <span className="block text-[#071f3a] font-semibold">{priority.missionImpact}</span>
-          Mission
-        </div>
-        <div className="rounded-xl bg-white border border-[#e4d8c7] p-2">
-          <span className="block text-[#071f3a] font-semibold">{priority.foundationValue}</span>
-          Foundation
-        </div>
-        <div className="rounded-xl bg-white border border-[#e4d8c7] p-2">
-          <span className="block text-[#071f3a] font-semibold">{priority.urgency}</span>
-          Urgency
-        </div>
-        <div className="rounded-xl bg-white border border-[#e4d8c7] p-2">
-          <span className="block text-[#071f3a] font-semibold">{priority.effort}</span>
-          Effort
-        </div>
-      </div>
+      ) : (
+        <>
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.22em] text-[#c98b2c] mb-2">
+                {priority.project}
+              </p>
+              <h3 className="font-serif text-2xl leading-tight">
+                {priority.title}
+              </h3>
+              <p className="text-[#4b5563] mt-3 leading-relaxed">
+                {priority.description}
+              </p>
+            </div>
+            <span className="shrink-0 rounded-full border border-[#c98b2c]/40 px-3 py-1 text-xs font-semibold text-[#c98b2c]">
+              {getStewardshipScore(priority)}
+            </span>
+          </div>
+          <div className="mt-5 border-l-2 border-[#c98b2c] pl-4">
+            <p className="text-sm font-semibold text-[#071f3a]">
+              Why this matters
+            </p>
+            <p className="text-[#4b5563] mt-1 leading-relaxed">
+              {priority.whyItMatters}
+            </p>
+            <p className="text-sm font-semibold text-[#071f3a] mt-4">
+              Next action
+            </p>
+            <p className="text-[#4b5563] mt-1 leading-relaxed">
+              {priority.nextAction}
+            </p>
+          </div>
+          <div className="mt-5 grid grid-cols-4 gap-2 text-center text-xs text-[#4b5563]">
+            <div className="rounded-xl bg-white border border-[#e4d8c7] p-2">
+              <span className="block text-[#071f3a] font-semibold">{priority.missionImpact}</span>
+              Mission
+            </div>
+            <div className="rounded-xl bg-white border border-[#e4d8c7] p-2">
+              <span className="block text-[#071f3a] font-semibold">{priority.foundationValue}</span>
+              Foundation
+            </div>
+            <div className="rounded-xl bg-white border border-[#e4d8c7] p-2">
+              <span className="block text-[#071f3a] font-semibold">{priority.urgency}</span>
+              Urgency
+            </div>
+            <div className="rounded-xl bg-white border border-[#e4d8c7] p-2">
+              <span className="block text-[#071f3a] font-semibold">{priority.effort}</span>
+              Effort
+            </div>
+          </div>
+          <div className="mt-5 flex flex-wrap gap-2">
+            <button type="button" onClick={() => onPin?.(priority.id)} className="rounded-full border border-[#d6c7b4] px-3 py-2 text-xs font-semibold">
+              {priority.pinned ? 'Unpin' : 'Pin'}
+            </button>
+            <button type="button" onClick={() => onEdit?.(priority.id)} className="rounded-full border border-[#d6c7b4] px-3 py-2 text-xs font-semibold">
+              Edit
+            </button>
+            <button type="button" onClick={() => onComplete?.(priority.id)} className="rounded-full border border-[#d6c7b4] px-3 py-2 text-xs font-semibold">
+              Complete
+            </button>
+            <button type="button" onClick={() => onArchive?.(priority.id)} className="rounded-full border border-[#d6c7b4] px-3 py-2 text-xs font-semibold">
+              Archive
+            </button>
+          </div>
+        </>
+      )}
     </article>
   )
 }
@@ -779,8 +1053,81 @@ function LegacyPage() {
             ))}
           </div>
         </div>
+
+        <div className="mt-12 border-t border-[#e4d8c7] pt-8">
+          <p className="uppercase tracking-[0.24em] text-[#c98b2c] text-sm mb-5">
+            Major Decisions
+          </p>
+          <div className="grid lg:grid-cols-2 gap-5">
+            {legacyEntries.map((entry) => (
+              <article
+                key={entry.decision}
+                className="rounded-2xl border border-[#e4d8c7] bg-[#f8f5ef] p-6"
+              >
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <h3 className="font-serif text-3xl leading-tight">
+                    {entry.decision}
+                  </h3>
+                  <span className="rounded-full border border-[#c98b2c]/40 px-3 py-1 text-xs font-semibold text-[#c98b2c]">
+                    {entry.status}
+                  </span>
+                </div>
+                <p className="mt-5 text-sm font-semibold text-[#071f3a]">
+                  Why it was made
+                </p>
+                <p className="mt-1 text-[#4b5563] leading-relaxed">
+                  {entry.why}
+                </p>
+                <p className="mt-5 text-sm font-semibold text-[#071f3a]">
+                  Alternatives considered
+                </p>
+                <p className="mt-1 text-[#4b5563] leading-relaxed">
+                  {entry.alternatives}
+                </p>
+                <p className="mt-5 text-sm text-[#6b7280]">
+                  Recorded {entry.date}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
       </Panel>
     </section>
+  )
+}
+
+function StewardshipArchive({ title, items, defaultOpen = false }) {
+  const [isOpen, setIsOpen] = useState(defaultOpen)
+
+  if (!items.length) return null
+
+  return (
+    <div className="rounded-2xl border border-[#e4d8c7] bg-white p-5">
+      <button
+        type="button"
+        onClick={() => setIsOpen((current) => !current)}
+        className="flex w-full items-center justify-between text-left"
+      >
+        <span className="font-serif text-2xl">{title}</span>
+        <span className="text-[#c98b2c]">{isOpen ? 'Close' : 'Open'}</span>
+      </button>
+
+      {isOpen && (
+        <div className="mt-5 space-y-3">
+          {items.map((item) => (
+            <div
+              key={item.id}
+              className="rounded-2xl border border-[#e4d8c7] bg-[#f8f5ef] p-4"
+            >
+              <p className="font-semibold">{item.title}</p>
+              <p className="mt-1 text-sm text-[#4b5563]">
+                {item.project} · {item.completedDate || item.archivedDate || 'Stored'}
+              </p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   )
 }
 
@@ -1035,7 +1382,12 @@ export default function Dashboard({ onSignOut }) {
   const [lastUpdated, setLastUpdated] = useState('')
   const [blueprint, setBlueprint] = useState(readBlueprintState)
   const [notebook, setNotebook] = useState(readNotebook)
+  const [stewardshipItems, setStewardshipItems] = useState(readStewardshipItems)
+  const [editingStewardshipId, setEditingStewardshipId] = useState('')
   const [activeView, setActiveView] = useState(getDashboardViewFromHash)
+  const [todaysReflection] = useState(
+    () => reflectionPrinciples[Math.floor(Math.random() * reflectionPrinciples.length)],
+  )
 
   useEffect(() => {
     let isMounted = true
@@ -1078,8 +1430,20 @@ export default function Dashboard({ onSignOut }) {
   const impactMeasures = useMemo(() => buildImpactMeasures(dashboard), [dashboard])
   const fundingProgress = useMemo(() => buildFundingProgress(dashboard), [dashboard])
   const todaysFocus = useMemo(
-    () => getTopPriority(stewardshipPriorities),
-    [],
+    () => getTopPriority(stewardshipItems),
+    [stewardshipItems],
+  )
+  const activeStewardshipItems = useMemo(
+    () => getPrioritiesByWorkflow(stewardshipItems, 'Active'),
+    [stewardshipItems],
+  )
+  const completedStewardshipItems = useMemo(
+    () => getPrioritiesByWorkflow(stewardshipItems, 'Complete'),
+    [stewardshipItems],
+  )
+  const archivedStewardshipItems = useMemo(
+    () => getPrioritiesByWorkflow(stewardshipItems, 'Archived'),
+    [stewardshipItems],
   )
   const partnerNewRequests = Number(dashboard.partnerNewRequests) || 0
   const partnerActiveConversations = Number(dashboard.partnerActiveConversations) || 0
@@ -1092,6 +1456,13 @@ export default function Dashboard({ onSignOut }) {
   useEffect(() => {
     window.localStorage.setItem(notebookStorageKey, JSON.stringify(notebook))
   }, [notebook])
+
+  useEffect(() => {
+    window.localStorage.setItem(
+      stewardshipStorageKey,
+      JSON.stringify(stewardshipItems),
+    )
+  }, [stewardshipItems])
 
   useEffect(() => {
     function handleHashChange() {
@@ -1147,6 +1518,48 @@ export default function Dashboard({ onSignOut }) {
     }))
   }
 
+  function saveStewardshipItem(itemId, updates) {
+    setStewardshipItems((current) =>
+      updateStewardshipItem(current, itemId, updates),
+    )
+    setEditingStewardshipId('')
+  }
+
+  function toggleStewardshipPin(itemId) {
+    setStewardshipItems((current) =>
+      current.map((item) => ({
+        ...item,
+        pinned:
+          item.id === itemId
+            ? !item.pinned
+            : item.pinned && item.id !== itemId
+              ? false
+              : item.pinned,
+        modifiedDate: item.id === itemId ? getTodayDate() : item.modifiedDate,
+      })),
+    )
+  }
+
+  function completeStewardshipItem(itemId) {
+    setStewardshipItems((current) =>
+      updateStewardshipItem(current, itemId, {
+        workflowStatus: 'Complete',
+        pinned: false,
+        completedDate: getTodayDate(),
+      }),
+    )
+  }
+
+  function archiveStewardshipItem(itemId) {
+    setStewardshipItems((current) =>
+      updateStewardshipItem(current, itemId, {
+        workflowStatus: 'Archived',
+        pinned: false,
+        archivedDate: getTodayDate(),
+      }),
+    )
+  }
+
   return (
     <div className="min-h-screen bg-[#f8f5ef] text-[#071f3a]">
 
@@ -1161,9 +1574,13 @@ export default function Dashboard({ onSignOut }) {
               TRSP Headquarters
             </h1>
 
-            <p className="text-white/75 text-xl mt-8 max-w-3xl leading-relaxed">
-              The private place where The Renewed Strength Project is built,
-              documented, and guided forward.
+            <p className="text-white/80 text-2xl mt-8 max-w-3xl leading-relaxed font-serif">
+              Good morning, Scott.
+            </p>
+
+            <p className="text-white/75 text-xl mt-5 max-w-3xl leading-relaxed">
+              Cancer takes. Today we continue building a place where
+              restoration is possible.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-white/70">
@@ -1212,7 +1629,50 @@ export default function Dashboard({ onSignOut }) {
                 </p>
               </div>
 
-              <PriorityCard priority={todaysFocus} label="Today's Focus" />
+              {todaysFocus && (
+                <PriorityCard
+                  priority={todaysFocus}
+                  label="Today's Focus"
+                  isEditing={editingStewardshipId === todaysFocus.id}
+                  onEdit={setEditingStewardshipId}
+                  onCancelEdit={() => setEditingStewardshipId('')}
+                  onSave={saveStewardshipItem}
+                  onPin={toggleStewardshipPin}
+                  onComplete={completeStewardshipItem}
+                  onArchive={archiveStewardshipItem}
+                />
+              )}
+            </div>
+          </Panel>
+        </section>
+
+        <section>
+          <Panel>
+            <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-8">
+              <div>
+                <p className="uppercase tracking-[0.24em] text-[#c98b2c] text-sm mb-4">
+                  Our Mission
+                </p>
+                <h2 className="font-serif text-4xl leading-tight">
+                  Cancer takes.
+                </h2>
+                <p className="mt-6 text-[#4b5563] leading-relaxed text-lg">
+                  We help people pursue the restoration of what cancer has
+                  taken through individualized, evidence-informed movement and
+                  compassionate coaching.
+                </p>
+                <p className="mt-6 font-serif text-2xl text-[#071f3a]">
+                  Who needs us today?
+                </p>
+              </div>
+              <div className="rounded-2xl border border-[#e4d8c7] bg-[#f8f5ef] p-6">
+                <p className="uppercase tracking-[0.24em] text-[#c98b2c] text-sm mb-4">
+                  Today's Reflection
+                </p>
+                <p className="font-serif text-3xl leading-tight">
+                  {todaysReflection}
+                </p>
+              </div>
             </div>
           </Panel>
         </section>
@@ -1221,8 +1681,18 @@ export default function Dashboard({ onSignOut }) {
           <Panel>
             <SectionHeader eyebrow="On Deck" title="Next in Line" />
             <div className="space-y-4">
-              {getPrioritiesByStatus('On Deck').map((priority) => (
-                <PriorityCard key={priority.title} priority={priority} />
+              {getPrioritiesByCategory(stewardshipItems, 'On Deck').map((priority) => (
+                <PriorityCard
+                  key={priority.id}
+                  priority={priority}
+                  isEditing={editingStewardshipId === priority.id}
+                  onEdit={setEditingStewardshipId}
+                  onCancelEdit={() => setEditingStewardshipId('')}
+                  onSave={saveStewardshipItem}
+                  onPin={toggleStewardshipPin}
+                  onComplete={completeStewardshipItem}
+                  onArchive={archiveStewardshipItem}
+                />
               ))}
             </div>
           </Panel>
@@ -1230,8 +1700,18 @@ export default function Dashboard({ onSignOut }) {
           <Panel>
             <SectionHeader eyebrow="Waiting On" title="Blocked or Pending" />
             <div className="space-y-4">
-              {getPrioritiesByStatus('Waiting On').map((priority) => (
-                <PriorityCard key={priority.title} priority={priority} />
+              {getPrioritiesByCategory(stewardshipItems, 'Waiting On').map((priority) => (
+                <PriorityCard
+                  key={priority.id}
+                  priority={priority}
+                  isEditing={editingStewardshipId === priority.id}
+                  onEdit={setEditingStewardshipId}
+                  onCancelEdit={() => setEditingStewardshipId('')}
+                  onSave={saveStewardshipItem}
+                  onPin={toggleStewardshipPin}
+                  onComplete={completeStewardshipItem}
+                  onArchive={archiveStewardshipItem}
+                />
               ))}
             </div>
           </Panel>
@@ -1239,8 +1719,18 @@ export default function Dashboard({ onSignOut }) {
           <Panel>
             <SectionHeader eyebrow="Quick Wins" title="Small Faithful Moves" />
             <div className="space-y-4">
-              {getPrioritiesByStatus('Quick Win').map((priority) => (
-                <PriorityCard key={priority.title} priority={priority} />
+              {getPrioritiesByCategory(stewardshipItems, 'Quick Win').map((priority) => (
+                <PriorityCard
+                  key={priority.id}
+                  priority={priority}
+                  isEditing={editingStewardshipId === priority.id}
+                  onEdit={setEditingStewardshipId}
+                  onCancelEdit={() => setEditingStewardshipId('')}
+                  onSave={saveStewardshipItem}
+                  onPin={toggleStewardshipPin}
+                  onComplete={completeStewardshipItem}
+                  onArchive={archiveStewardshipItem}
+                />
               ))}
             </div>
           </Panel>
@@ -1250,8 +1740,18 @@ export default function Dashboard({ onSignOut }) {
           <Panel>
             <SectionHeader eyebrow="This Week" title="Operational Priorities" />
             <div className="space-y-3">
-              {getPrioritiesByStatus('This Week').map((priority) => (
-                <PriorityCard key={priority.title} priority={priority} />
+              {getPrioritiesByCategory(stewardshipItems, 'This Week').map((priority) => (
+                <PriorityCard
+                  key={priority.id}
+                  priority={priority}
+                  isEditing={editingStewardshipId === priority.id}
+                  onEdit={setEditingStewardshipId}
+                  onCancelEdit={() => setEditingStewardshipId('')}
+                  onSave={saveStewardshipItem}
+                  onPin={toggleStewardshipPin}
+                  onComplete={completeStewardshipItem}
+                  onArchive={archiveStewardshipItem}
+                />
               ))}
               {priorities.map((priority) => (
                 <div
@@ -1275,6 +1775,43 @@ export default function Dashboard({ onSignOut }) {
                   {win}
                 </div>
               ))}
+            </div>
+          </Panel>
+        </section>
+
+        <section>
+          <Panel>
+            <SectionHeader
+              eyebrow="Stewardship Items"
+              title="Active work, completed work, and archived work."
+              description="Active items inform Today's Focus, On Deck, Waiting On, and Quick Wins. Completed and archived items stay preserved without taking over the morning."
+            />
+
+            <div className="grid lg:grid-cols-2 gap-5">
+              {activeStewardshipItems.map((priority) => (
+                <PriorityCard
+                  key={priority.id}
+                  priority={priority}
+                  isEditing={editingStewardshipId === priority.id}
+                  onEdit={setEditingStewardshipId}
+                  onCancelEdit={() => setEditingStewardshipId('')}
+                  onSave={saveStewardshipItem}
+                  onPin={toggleStewardshipPin}
+                  onComplete={completeStewardshipItem}
+                  onArchive={archiveStewardshipItem}
+                />
+              ))}
+            </div>
+
+            <div className="mt-6 grid lg:grid-cols-2 gap-5">
+              <StewardshipArchive
+                title="Completed"
+                items={completedStewardshipItems}
+              />
+              <StewardshipArchive
+                title="Archived"
+                items={archivedStewardshipItems}
+              />
             </div>
           </Panel>
         </section>
@@ -1696,6 +2233,35 @@ export default function Dashboard({ onSignOut }) {
               title="How TRSP functions as a system."
               description="This chapter is not a task list. It is the working map of how people, funding, referral pathways, coaching, documentation, and restoration connect."
             />
+
+            <div className="mb-8 rounded-2xl bg-[#071f3a] p-6 text-white">
+              <p className="uppercase tracking-[0.24em] text-[#d8a066] text-sm mb-5">
+                Living Systems Map
+              </p>
+              <div className="flex flex-wrap items-center gap-3 text-center">
+                {[
+                  'Mission',
+                  'Funding',
+                  'Participants',
+                  'Assessments',
+                  'Training',
+                  'Outcomes',
+                  'Board',
+                  'Community',
+                  'Annual Report',
+                  'Legacy',
+                ].map((step, index, steps) => (
+                  <div key={step} className="flex items-center gap-3">
+                    <span className="rounded-full border border-white/20 px-4 py-2 text-sm">
+                      {step}
+                    </span>
+                    {index < steps.length - 1 && (
+                      <span className="text-[#d8a066]">↓</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
 
             <div className="grid md:grid-cols-3 gap-4">
               {[
