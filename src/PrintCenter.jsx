@@ -352,12 +352,12 @@ function FileBadge({ status }) {
 
 export function CommunityPartnerFlyerFront() {
   const restorationItems = [
-    { icon: Mountain, title: 'Return to Hiking' },
-    { icon: Briefcase, title: 'Return to Work' },
-    { icon: Heart, title: 'Regain Confidence' },
-    { icon: Dumbbell, title: 'Restore Strength' },
-    { icon: Users, title: 'Be Present with Family' },
-    { icon: TrendingUp, title: 'Improve Quality of Life' },
+    { icon: Mountain, title: 'Return to\nHiking' },
+    { icon: Briefcase, title: 'Return to\nWork' },
+    { icon: Heart, title: 'Regain\nConfidence' },
+    { icon: Dumbbell, title: 'Restore\nStrength' },
+    { icon: Users, title: 'Be Present\nwith Family' },
+    { icon: TrendingUp, title: 'Improve\nQuality of Life' },
   ]
 
   return (
@@ -372,24 +372,46 @@ export function CommunityPartnerFlyerFront() {
       <PrintToolbar title="Community Partner Flyer — Front" />
 
       <PrintPage>
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src="/trsp-donate-restoration-mountain.webp"
-            alt=""
-            className="absolute right-0 top-0 h-[4.75in] w-[4.75in] object-cover"
-          />
-          <div className="absolute right-[3.1in] top-0 h-[4.75in] w-[2.55in] bg-gradient-to-r from-[#fbfaf7] via-[#fbfaf7]/95 to-transparent" />
-        </div>
+        <div className="relative h-full overflow-hidden bg-[#fbfaf7] px-[0.32in] pt-[0.22in] pb-[0.82in]">
+          {/* Hero Image */}
+          <div className="absolute right-0 top-0 h-[4.35in] w-[5.2in] overflow-hidden">
+            <img
+              src="/trsp-donate-restoration-mountain.webp"
+              alt=""
+              className="h-full w-full object-cover"
+            />
+          </div>
 
-        <div className="relative z-10 h-full px-[0.36in] pt-[0.22in] pb-[0.76in]">
-          <PrintHeader />
+          {/* Soft blend from text into image */}
+          <div className="absolute left-[3.75in] top-0 h-[4.35in] w-[2.2in] bg-gradient-to-r from-[#fbfaf7] via-[#fbfaf7]/95 to-transparent" />
 
-          <section className="mt-[0.24in] max-w-[4.25in]">
-            <SectionLabel className="mb-2 text-[12px] tracking-[0.22em]">
+          {/* Header */}
+          <header className="relative z-10 flex items-center gap-4">
+            <img
+              src="/rsp-logo.png"
+              alt="The Renewed Strength Project logo"
+              className="h-[0.72in] w-[0.72in] object-contain"
+            />
+
+            <div>
+              <p className="font-serif text-[22px] uppercase leading-[0.95] tracking-[0.05em] text-[#071f3a]">
+                The Renewed
+                <br />
+                Strength Project
+              </p>
+              <p className="mt-2 text-[10px] uppercase tracking-[0.22em] text-[#c98b2c]">
+                Empowering Renewed Strength
+              </p>
+            </div>
+          </header>
+
+          {/* Hero Text */}
+          <section className="relative z-10 mt-[0.24in] w-[4.18in]">
+            <SectionLabel className="mb-2 text-[12px] tracking-[0.24em]">
               For Our Community
             </SectionLabel>
 
-            <h1 className="font-serif text-[49px] leading-[0.92] tracking-tight">
+            <h1 className="font-serif text-[50px] leading-[0.91] tracking-tight text-[#071f3a]">
               Help Someone
               <br />
               <span className="text-[#c98b2c]">
@@ -401,26 +423,33 @@ export function CommunityPartnerFlyerFront() {
 
             <div className="my-[0.12in] h-px w-[0.55in] bg-[#c98b2c]" />
 
-            <p className="text-[12.5px] leading-snug text-[#071f3a]">
+            <p className="text-[12.2px] leading-snug text-[#071f3a]">
               Cancer treatment saves lives. Recovery often leaves people
               without access to individualized exercise support.
             </p>
 
-            <p className="mt-2 text-[12.5px] leading-snug text-[#071f3a]">
+            <p className="mt-2 text-[12.2px] leading-snug text-[#071f3a]">
               <strong>The Renewed Strength Project</strong> is a Northern
               Colorado nonprofit providing evidence-informed one-on-one
               coaching that helps people affected by cancer pursue:
             </p>
 
-            <div className="mt-[0.15in] grid grid-cols-3 gap-2 text-center">
+            <div className="mt-[0.13in] grid grid-cols-3 text-center">
               {[
                 [Dumbbell, 'Strength'],
                 [Heart, 'Confidence'],
-                [Users, 'Participation in Life'],
+                [Users, 'Participation\nin Life'],
               ].map(([Icon, label]) => (
-                <div key={label} className="border-r border-[#e4d8c7] last:border-r-0">
-                  <Icon className="mx-auto text-[#c98b2c]" size={30} strokeWidth={1.8} />
-                  <p className="mt-1 text-[8.5px] font-extrabold uppercase tracking-[0.06em] leading-tight">
+                <div
+                  key={label}
+                  className="border-r border-[#e4d8c7] px-2 last:border-r-0"
+                >
+                  <Icon
+                    className="mx-auto text-[#c98b2c]"
+                    size={28}
+                    strokeWidth={1.8}
+                  />
+                  <p className="mt-1 whitespace-pre-line text-[8.5px] font-extrabold uppercase leading-tight tracking-[0.06em] text-[#071f3a]">
                     {label}
                   </p>
                 </div>
@@ -428,16 +457,19 @@ export function CommunityPartnerFlyerFront() {
             </div>
           </section>
 
-          <PrintSection title="Why We Exist" className="mt-[0.2in]">
+          {/* Why We Exist */}
+          <PrintSection title="Why We Exist" className="relative z-10 mt-[0.25in]">
             <div className="mt-[0.14in] grid grid-cols-3 gap-4">
               <PrintIconCard icon={Mountain} title="The Gap">
-                Recovery often leaves many people without access to
-                individualized exercise support once treatment ends.
+                Cancer treatment saves lives. Recovery often leaves many people
+                without access to individualized exercise support once treatment
+                ends.
               </PrintIconCard>
 
               <PrintIconCard icon={Users} title="Our Response">
-                We remove financial barriers by funding one-on-one coaching
-                designed around each participant&apos;s goals.
+                We remove financial barriers by funding evidence-informed
+                one-on-one coaching designed around each participant&apos;s
+                goals.
               </PrintIconCard>
 
               <PrintIconCard icon={MapPin} title="Why Local Matters">
@@ -447,17 +479,18 @@ export function CommunityPartnerFlyerFront() {
             </div>
           </PrintSection>
 
-          <section className="mt-[0.2in] grid grid-cols-[0.92fr_1.08fr] gap-[0.28in] border-t border-[#e4d8c7] pt-[0.15in]">
+          {/* Sponsorship + Outcomes */}
+          <section className="relative z-10 mt-[0.2in] grid grid-cols-[0.95fr_1.05fr] gap-[0.28in] border-t border-[#e4d8c7] pt-[0.15in]">
             <div>
               <SectionLabel className="mb-1 text-[11px] leading-tight">
                 Sponsor One Person&apos;s Restoration Journey
               </SectionLabel>
 
-              <p className="font-serif text-[46px] leading-none">
+              <p className="font-serif text-[50px] leading-none text-[#071f3a]">
                 $1,500
               </p>
 
-              <p className="mt-1 text-[11px] font-semibold">
+              <p className="mt-1 text-[11px] font-semibold text-[#071f3a]">
                 Your gift provides:
               </p>
 
@@ -477,11 +510,15 @@ export function CommunityPartnerFlyerFront() {
                 What Restoration Can Make Possible
               </SectionLabel>
 
-              <div className="grid grid-cols-3 gap-y-3 gap-x-2">
+              <div className="grid grid-cols-3 gap-x-2 gap-y-3">
                 {restorationItems.map(({ icon: Icon, title }) => (
                   <div key={title} className="text-center">
-                    <Icon className="mx-auto text-[#071f3a]" size={25} strokeWidth={1.65} />
-                    <p className="mt-1 text-[9px] font-bold leading-tight">
+                    <Icon
+                      className="mx-auto text-[#071f3a]"
+                      size={26}
+                      strokeWidth={1.65}
+                    />
+                    <p className="mt-1 whitespace-pre-line text-[9px] font-bold leading-tight text-[#071f3a]">
                       {title}
                     </p>
                   </div>
@@ -490,20 +527,24 @@ export function CommunityPartnerFlyerFront() {
             </div>
           </section>
 
-          <blockquote className="mt-[0.13in] rounded-lg bg-[#f3eee6] px-6 py-2.5 text-center font-serif text-[19px] italic leading-snug text-[#071f3a]">
+          {/* Quote */}
+          <blockquote className="relative z-10 mt-[0.13in] rounded-lg bg-[#f3eee6] px-6 py-2.5 text-center font-serif text-[19px] italic leading-snug text-[#071f3a]">
             We don&apos;t simply help people become stronger.
             <br />
-            We help them return to the life they&apos;ve been fighting for.
+            <span className="text-[21px]">
+              We help them return to the life they&apos;ve been fighting for.
+            </span>
           </blockquote>
 
-          <section className="mt-[0.11in] grid grid-cols-[1.18fr_0.82fr] gap-[0.25in] items-center">
+          {/* CTA */}
+          <section className="relative z-10 mt-[0.11in] grid grid-cols-[1.16fr_0.84fr] items-center gap-[0.24in]">
             <div className="flex items-center gap-4">
               <div className="grid h-[0.68in] w-[0.68in] shrink-0 place-items-center rounded-full bg-[#071f3a] text-[#d8a066]">
                 <Heart size={31} strokeWidth={1.7} />
               </div>
 
               <div>
-                <h2 className="font-serif text-[20px] leading-tight">
+                <h2 className="font-serif text-[20px] leading-tight text-[#071f3a]">
                   Ready to help someone find their way back?
                 </h2>
 
@@ -522,8 +563,8 @@ export function CommunityPartnerFlyerFront() {
       </PrintPage>
     </div>
   )
-}
-export function CommunityPartnerFlyerBack() {
+  
+}export function CommunityPartnerFlyerBack() {
   const timelineSteps = [
     {
       title: 'Conversation',
