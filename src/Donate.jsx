@@ -137,22 +137,26 @@ export default function Donate() {
       </section>
 
       <section className="bg-white py-24 md:py-32 px-5 sm:px-6">
-        <div className="max-w-4xl mx-auto">
-          <SectionLabel>Give Securely</SectionLabel>
-          <h2 className="font-serif text-4xl md:text-6xl leading-tight">
-            Make a gift.
-          </h2>
-          <p className="text-lg text-[#4b5563] leading-relaxed max-w-2xl mt-6">
-            Donations are processed securely by Givebutter while supporting
-            the TRSP mission.
-          </p>
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-3xl">
+            <SectionLabel>Give Securely</SectionLabel>
+            <h2 className="font-serif text-4xl md:text-6xl leading-tight">
+              Make a gift.
+            </h2>
+            <p className="text-lg text-[#4b5563] leading-relaxed max-w-2xl mt-6">
+              Donations are processed securely by Givebutter while supporting
+              the TRSP mission.
+            </p>
+          </div>
 
-          <div className="mt-10 border border-[#e6dac8] bg-[#fbfaf7] p-4 sm:p-6">
+          <div className="mt-10 max-w-[640px] mx-auto">
             {/* TODO: In Givebutter campaign settings, set the post-payment redirect URL to /thank-you if supported. */}
-            <givebutter-widget id="Lqb6R9"></givebutter-widget>
+            <div className="overflow-hidden rounded-[4px]">
+              <givebutter-widget id="Lqb6R9"></givebutter-widget>
+            </div>
 
-            <div className="border-t border-[#e6dac8] mt-8 pt-6 grid md:grid-cols-[1fr_auto] gap-6 items-center">
-              <div>
+            <div className="border border-[#e6dac8] bg-[#fbfaf7] mt-8 p-6 grid md:grid-cols-[1fr_auto] gap-5 items-center">
+              <div className="max-w-md">
                 <p className="text-sm text-[#4b5563] leading-relaxed max-w-2xl">
                   If the embedded form does not load, you can still give
                   securely through Givebutter.
