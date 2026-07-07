@@ -410,6 +410,78 @@ function Panel({ children, className = '' }) {
   )
 }
 
+const dashboardViews = [
+  {
+    id: 'overview',
+    label: 'Overview',
+    description: 'Pilot status, funding, partner signal, and the north star.',
+  },
+  {
+    id: 'operations',
+    label: 'Operations',
+    description: 'Weekly rhythm, launch readiness, participant flow, and tools.',
+  },
+  {
+    id: 'blueprint',
+    label: 'Organizational Blueprint',
+    description: 'Core documents, assets, and founder notebook.',
+  },
+  {
+    id: 'framework',
+    label: 'Framework',
+    description: 'Restoration model, participant flow, and operating principles.',
+  },
+]
+
+function getDashboardViewFromHash() {
+  if (typeof window === 'undefined') return 'overview'
+
+  const hashView = window.location.hash.replace('#dashboard-', '')
+  const viewExists = dashboardViews.some((view) => view.id === hashView)
+
+  return viewExists ? hashView : 'overview'
+}
+
+function DashboardTabs({ activeView, onChange }) {
+  return (
+    <nav
+      aria-label="Founder dashboard sections"
+      className="rounded-3xl border border-slate-800 bg-slate-900/80 p-3"
+    >
+      <div className="grid gap-3 md:grid-cols-4">
+        {dashboardViews.map((view) => {
+          const isActive = activeView === view.id
+
+          return (
+            <button
+              key={view.id}
+              type="button"
+              onClick={() => onChange(view.id)}
+              aria-pressed={isActive}
+              className={`rounded-2xl border p-4 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8a066] ${
+                isActive
+                  ? 'border-[#d8a066] bg-[#d8a066] text-slate-950'
+                  : 'border-slate-800 bg-slate-950 text-slate-300 hover:border-[#d8a066] hover:text-[#d8a066]'
+              }`}
+            >
+              <span className="block text-sm font-semibold">
+                {view.label}
+              </span>
+              <span
+                className={`mt-2 block text-xs leading-relaxed ${
+                  isActive ? 'text-slate-800' : 'text-slate-500'
+                }`}
+              >
+                {view.description}
+              </span>
+            </button>
+          )
+        })}
+      </div>
+    </nav>
+  )
+}
+
 function BlueprintProgress({ value, label }) {
   return (
     <div>
@@ -660,6 +732,7 @@ export default function Dashboard({ onSignOut }) {
   const [dataStatus, setDataStatus] = useState('Loading live data...')
   const [lastUpdated, setLastUpdated] = useState('')
   const [blueprint, setBlueprint] = useState(readBlueprintState)
+  const [activeView, setActiveView] = useState(getDashboardViewFromHash)
 
   useEffect(() => {
     let isMounted = true
@@ -708,6 +781,23 @@ export default function Dashboard({ onSignOut }) {
   useEffect(() => {
     window.localStorage.setItem(blueprintStorageKey, JSON.stringify(blueprint))
   }, [blueprint])
+
+  useEffect(() => {
+    function handleHashChange() {
+      setActiveView(getDashboardViewFromHash())
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange)
+    }
+  }, [])
+
+  function changeDashboardView(viewId) {
+    setActiveView(viewId)
+    window.history.replaceState(null, '', `#dashboard-${viewId}`)
+  }
 
   function updateBlueprintStatus(documentId, status) {
     setBlueprint((current) => ({
@@ -783,7 +873,10 @@ export default function Dashboard({ onSignOut }) {
       </section>
 
       <main className="max-w-7xl mx-auto px-6 md:px-8 py-10 space-y-8">
+        <DashboardTabs activeView={activeView} onChange={changeDashboardView} />
 
+        {activeView === 'overview' && (
+          <>
         <section>
           <SectionHeader
             eyebrow="Fall Pilot"
@@ -928,6 +1021,33 @@ export default function Dashboard({ onSignOut }) {
           </Panel>
         </section>
 
+        <section>
+          <Panel>
+            <p className="text-slate-500 uppercase tracking-widest text-sm mb-4">
+              North Star
+            </p>
+
+            <h2 className="text-3xl font-semibold mb-6">
+              Why This Exists
+            </h2>
+
+            <p className="text-slate-300 leading-relaxed text-lg">
+              Cancer treatment saves lives. Restoration helps people work
+              toward the life and activities they value.
+            </p>
+
+            <p className="text-slate-500 mt-6 leading-relaxed">
+              The pilot exists to remove cost as a barrier to safe,
+              individualized personal training for people treated for cancer
+              in Northern Colorado.
+            </p>
+          </Panel>
+        </section>
+          </>
+        )}
+
+        {activeView === 'operations' && (
+          <>
         <section className="grid lg:grid-cols-3 gap-8">
           <Panel className="lg:col-span-2">
             <SectionHeader
@@ -1110,13 +1230,20 @@ export default function Dashboard({ onSignOut }) {
           </Panel>
         </section>
 
-        <OrganizationalBlueprint
-          blueprint={blueprint}
-          onStatusChange={updateBlueprintStatus}
-          onNotesChange={updateBlueprintNotes}
-          onReset={resetBlueprint}
-        />
+          </>
+        )}
 
+        {activeView === 'blueprint' && (
+          <OrganizationalBlueprint
+            blueprint={blueprint}
+            onStatusChange={updateBlueprintStatus}
+            onNotesChange={updateBlueprintNotes}
+            onReset={resetBlueprint}
+          />
+        )}
+
+        {activeView === 'framework' && (
+          <>
         <section className="grid lg:grid-cols-2 gap-8">
           <ParticipantFlow />
           <div>
@@ -1197,6 +1324,8 @@ export default function Dashboard({ onSignOut }) {
             </div>
           </Panel>
         </section>
+          </>
+        )}
 
       </main>
 
