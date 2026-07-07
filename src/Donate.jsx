@@ -73,8 +73,8 @@ export default function Donate() {
             <div className="absolute -left-5 -top-5 w-24 h-24 border-l border-t border-[#c98b2c]"></div>
             <div className="absolute -right-5 -bottom-5 w-24 h-24 border-r border-b border-[#c98b2c]"></div>
             <img
-              src="/trsp-hero-alpine-lake-original.jpeg"
-              alt="A Colorado alpine lake and mountain landscape"
+              src="/trsp-donate-restoration-mountain.webp"
+              alt="A person standing with arms open below a Colorado mountain wall"
               className="relative w-full aspect-[4/3] object-cover shadow-2xl"
             />
           </figure>
