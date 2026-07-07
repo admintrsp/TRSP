@@ -3,25 +3,18 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SEO from './components/SEO'
 
-const restorationExamples = [
-  'Walking farther with more confidence',
-  'Carrying groceries or household items',
-  'Returning to work or daily routines',
-  'Playing with children or grandchildren',
-  'Hiking, recreation, or time outdoors',
-  'Feeling capable in the gym and in life',
-]
-
 const modelPillars = [
-  ['Safety', 'Training is guided by current capacity, treatment history, fatigue, pain, mobility, and appropriate progression.'],
-  ['Individualization', 'Each person begins from a different baseline. Programming reflects their body, goals, history, and current needs.'],
-  ['Restoration', 'The work helps people move toward the activities, roles, routines, and confidence that matter in daily life.'],
+  ['Context', 'The work begins with the person: goals, treatment history, current capacity, symptoms, fatigue, confidence, and provider guidance when appropriate.'],
+  ['Calibration', 'Training is adjusted to match the day, the season of recovery, and the person’s response rather than forcing a generic plan.'],
+  ['Progression', 'Progress is built thoughtfully through strength, mobility, conditioning, confidence, and functional capacity.'],
+  ['Transfer', 'The goal is for work in training to support life outside of training: routines, roles, recreation, and independence.'],
 ]
 
 const modelFlow = [
-  ['01', 'Start With Life', 'We ask what the person is hoping to get back to, not just what exercise they want to perform.'],
-  ['02', 'Build The Training Plan', 'Training decisions are shaped by goals, capacity, safety, fatigue, strength, mobility, and confidence.'],
-  ['03', 'Track Meaningful Progress', 'Progress is viewed through training measures and daily-life indicators, not one narrow performance number.'],
+  ['01', 'Understand The Starting Point', 'We clarify goals, current capacity, symptoms, limitations, confidence, and relevant medical context.'],
+  ['02', 'Set Restoration Priorities', 'The work is organized around what the person is trying to regain, maintain, or participate in again.'],
+  ['03', 'Coach The Plan', 'Sessions use appropriate strength, mobility, balance, conditioning, and recovery work based on the individual.'],
+  ['04', 'Adjust And Track', 'Progress is monitored and the plan changes as the person’s capacity, symptoms, goals, and life demands change.'],
 ]
 
 function SectionLabel({ children }) {
@@ -55,27 +48,27 @@ export default function RestorationModelPage() {
           <div>
             <SectionLabel>Restoration Model</SectionLabel>
             <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[0.98] tracking-tight">
-              Personal training is the tool. Restoration is the goal.
+              How restoration becomes a plan.
             </h1>
             <GoldDivider />
             <p className="text-xl md:text-2xl text-[#334155] leading-relaxed max-w-3xl">
-              The model connects safe, individualized movement with the bigger
-              reason people seek support: returning to meaningful parts of life
-              that cancer and treatment can disrupt.
+              The restoration model turns TRSP's philosophy into a structured,
+              individualized coaching framework for strength, movement,
+              confidence, and meaningful participation.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-10">
+              <Link
+                to="/our-philosophy"
+                className="border border-[#c98b2c] text-[#071f3a] hover:bg-[#c98b2c] hover:text-white font-semibold px-8 py-4 rounded-sm transition text-center"
+              >
+                Read Our Philosophy
+              </Link>
               <Link
                 to="/participant-program"
                 className="bg-[#071f3a] hover:bg-[#0d2f57] text-white font-semibold px-8 py-4 rounded-sm transition text-center"
               >
                 View Participant Program
-              </Link>
-              <Link
-                to="/apply"
-                className="border border-[#c98b2c] text-[#071f3a] hover:bg-[#c98b2c] hover:text-white font-semibold px-8 py-4 rounded-sm transition text-center"
-              >
-                Apply for Support
               </Link>
             </div>
           </div>
@@ -95,25 +88,23 @@ export default function RestorationModelPage() {
       <section className="bg-white py-24 md:py-32 px-5 sm:px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16">
           <div>
-            <SectionLabel>What Restoration Means</SectionLabel>
+            <SectionLabel>Framework</SectionLabel>
             <h2 className="font-serif text-4xl md:text-6xl leading-tight">
-              Meaningful capacity, not unrealistic promises.
+              A model for making movement personal, careful, and useful.
             </h2>
           </div>
           <div>
             <p className="text-lg text-[#4b5563] leading-relaxed">
-              Restoration does not mean promising that everything returns to
-              exactly what it was. It means supporting what can be rebuilt:
-              strength, confidence, function, autonomy, and participation.
+              The model is not a fixed exercise template. It is a decision-making
+              framework that helps coaching stay connected to the person’s
+              goals, current capacity, safety considerations, and daily life.
             </p>
-            <div className="grid sm:grid-cols-2 gap-px bg-[#d8a066]/50 border border-[#d8a066]/50 mt-10">
-              {restorationExamples.map((example) => (
-                <div key={example} className="bg-white p-5">
-                  <p className="text-[#4b5563] leading-relaxed">
-                    {example}
-                  </p>
-                </div>
-              ))}
+            <div className="mt-10 border-l border-[#c98b2c] pl-6">
+              <p className="font-serif text-2xl md:text-3xl leading-snug text-[#071f3a]">
+                Philosophy asks why restoration matters. The model explains how
+                support is organized. The participant program explains what the
+                experience looks like.
+              </p>
             </div>
           </div>
         </div>
@@ -125,7 +116,7 @@ export default function RestorationModelPage() {
           <h2 className="font-serif text-4xl md:text-6xl leading-tight max-w-4xl">
             Structured support with the person at the center.
           </h2>
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {modelPillars.map(([title, description]) => (
               <div key={title} className="border border-[#e6dac8] bg-[#fbfaf7] p-8">
                 <h3 className="font-serif text-3xl mb-4">
@@ -144,14 +135,15 @@ export default function RestorationModelPage() {
         <div className="max-w-6xl mx-auto">
           <SectionLabel>How The Model Works</SectionLabel>
           <h2 className="font-serif text-4xl md:text-6xl leading-tight max-w-4xl">
-            The question comes before the exercise.
+            A simple framework for thoughtful progression.
           </h2>
           <p className="text-lg text-slate-200 leading-relaxed max-w-3xl mt-8">
-            "What are you hoping to get back to?" keeps the work grounded.
-            Training choices should connect to the life goals that matter most.
+            The model helps coaching stay responsive. It gives the work a
+            clear structure while leaving room for the reality of cancer
+            treatment, fatigue, symptoms, confidence, and changing life demands.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {modelFlow.map(([label, title, description]) => (
               <div key={title} className="border border-[#d8a066]/40 p-8">
                 <p className="font-serif text-5xl text-[#d8a066] mb-8">
@@ -173,18 +165,18 @@ export default function RestorationModelPage() {
         <div className="max-w-5xl mx-auto text-center">
           <SectionLabel>Access Makes The Model Possible</SectionLabel>
           <h2 className="font-serif text-4xl md:text-6xl leading-tight">
-            Restoration starts with access.
+            See how the model becomes the participant experience.
           </h2>
           <p className="text-lg text-[#4b5563] leading-relaxed max-w-2xl mx-auto mt-8">
-            Your support helps remove cost as a barrier for individuals
-            affected by cancer who are working toward strength, confidence,
-            and the parts of life they value.
+            The participant program explains what happens after someone applies:
+            the conversation, assessment, goals, coaching, progress tracking,
+            and transition.
           </p>
           <Link
-            to="/apply"
+            to="/participant-program"
             className="inline-flex mt-10 bg-[#071f3a] hover:bg-[#0d2f57] text-white font-semibold px-8 py-4 rounded-sm transition"
           >
-            Apply for Support
+            View Participant Program
           </Link>
         </div>
       </section>

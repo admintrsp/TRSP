@@ -103,33 +103,48 @@ function Hero() {
 
 function WhyWeExist() {
   return (
-    <section className="bg-white py-24 md:py-32 px-5 sm:px-6 text-[#071f3a]">
+    <section className="bg-white py-20 md:py-28 px-5 sm:px-6 text-[#071f3a]">
       <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.82fr_1.18fr] gap-12 lg:gap-16">
         <div>
           <SectionLabel>Why We Exist</SectionLabel>
-          <h2 className="font-serif text-4xl md:text-6xl leading-tight">
-            Cancer can take more than strength.
+          <h2 className="font-serif text-4xl md:text-5xl leading-tight">
+            Cancer takes.
           </h2>
         </div>
 
         <div className="space-y-6 text-lg leading-relaxed text-[#4b5563]">
           <p>
-            Cancer and its treatment can disrupt confidence, energy,
-            independence, routines, family roles, work, recreation, and the
-            everyday activities that make life feel like life.
+            It can take strength, confidence, independence, routines, and the
+            activities that make life feel like life.
           </p>
 
           <p className="text-2xl md:text-3xl font-serif leading-snug text-[#071f3a] border-l border-[#c98b2c] pl-6">
-            Recovery is not measured only by the end of treatment. Recovery is
-            measured by the return of life.
+            We cannot restore everything cancer takes. But we believe every
+            person deserves the opportunity to pursue the restoration of what
+            they can.
           </p>
 
           <p>
-            The Renewed Strength Project exists to help remove one barrier to
-            that return: cost. Through donor support, individuals affected by
-            cancer can access qualified, individualized training without a
-            financial barrier deciding whether support is possible.
+            The Renewed Strength Project exists to help individuals affected by
+            cancer pursue restoration through individualized,
+            evidence-informed movement and compassionate coaching.
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <a
+              href="/our-philosophy"
+              className="bg-[#071f3a] hover:bg-[#0d2f57] text-white font-semibold px-7 py-4 rounded-sm transition text-center"
+            >
+              Learn About Our Philosophy
+            </a>
+
+            <a
+              href="/participant-program"
+              className="border border-[#c98b2c] text-[#071f3a] hover:bg-[#c98b2c] hover:text-white font-semibold px-7 py-4 rounded-sm transition text-center"
+            >
+              Explore the Participant Program
+            </a>
+          </div>
         </div>
       </div>
     </section>

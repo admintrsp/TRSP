@@ -12,40 +12,64 @@ const supportItems = [
 
 const programIncludes = [
   {
-    title: 'Individualized Training',
+    title: 'You Do Not Need To Be Fit',
     description:
-      'Support is shaped around current capacity, goals, treatment history, safety considerations, and what the person hopes to work toward.',
+      'The program is built for people starting from many different baselines. We meet you where you are, not where you think you should be.',
   },
   {
-    title: 'Purpose-Driven Goals',
+    title: 'Movement Is Individualized',
     description:
-      'The work connects training to real life: daily routines, family activities, recreation, work demands, confidence, and independence.',
+      'Training is adapted to your current capacity, goals, symptoms, treatment context, and provider guidance when appropriate.',
   },
   {
-    title: 'No Financial Barriers',
+    title: 'Progress Is Thoughtful',
     description:
-      'When funding and program fit align, The Renewed Strength Project helps cover training support so cost is not the reason someone cannot begin.',
+      'Progress may include strength, confidence, consistency, mobility, daily capacity, or a clearer path toward the life you are trying to restore.',
   },
 ]
 
 const steps = [
   {
     label: '01',
-    title: 'Apply for Support',
+    title: 'Inquiry',
     description:
-      'The process begins with a short application so we can learn where you are, what you are hoping to restore, and what support may be appropriate.',
+      'You begin by applying and sharing a little about where you are, what cancer has interrupted, and what you hope support could help restore.',
   },
   {
     label: '02',
-    title: 'Review Fit and Safety',
+    title: 'Conversation',
     description:
-      'We review each application personally and may follow up about goals, current capacity, medical clearance needs, and available funding.',
+      'We follow up personally to understand goals, current capacity, safety considerations, timing, funding availability, and whether the program is the right fit.',
   },
   {
     label: '03',
-    title: 'Plan the Next Step',
+    title: 'Assessment',
     description:
-      'If the program is a fit, we discuss timing, training structure, expectations, and the restoration goals that matter most.',
+      'If support moves forward, we establish a starting point through conversation, movement observation, and any needed healthcare-team context.',
+  },
+  {
+    label: '04',
+    title: 'Restoration Goals',
+    description:
+      'Together, we identify practical goals connected to life outside the gym: routines, confidence, independence, recreation, family, work, or daily capacity.',
+  },
+  {
+    label: '05',
+    title: 'Individualized Coaching',
+    description:
+      'Sessions are coached around the person in front of us. The plan may include strength, mobility, balance, conditioning, pacing, or confidence-building work.',
+  },
+  {
+    label: '06',
+    title: 'Progress Tracking',
+    description:
+      'We track meaningful changes and adjust the plan as capacity, symptoms, fatigue, goals, and life demands change.',
+  },
+  {
+    label: '07',
+    title: 'Transition',
+    description:
+      'As the funded support period ends, we help clarify next steps so the participant can continue with greater confidence and direction.',
   },
 ]
 
@@ -90,15 +114,15 @@ export default function ParticipantProgram() {
             <SectionLabel>Participant Program</SectionLabel>
 
             <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[0.98] tracking-tight">
-              Support for the life people are working to restore.
+              What participation actually looks like.
             </h1>
 
             <GoldDivider />
 
             <p className="text-xl md:text-2xl text-[#334155] leading-relaxed max-w-3xl">
-              The Renewed Strength Project helps individuals affected by cancer
-              access individualized, evidence-informed training support without
-              cost becoming the barrier.
+              From application to coaching, the participant program is designed
+              to be personal, thoughtful, and grounded in the restoration goals
+              that matter to each person.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-10">
@@ -110,10 +134,10 @@ export default function ParticipantProgram() {
               </Link>
 
               <Link
-                to="/restoration-model"
+                to="/our-philosophy"
                 className="border border-[#c98b2c] text-[#071f3a] hover:bg-[#c98b2c] hover:text-white font-semibold px-8 py-4 rounded-sm transition text-center"
               >
-                View Restoration Model
+                Read Our Philosophy
               </Link>
             </div>
           </div>
@@ -154,16 +178,17 @@ export default function ParticipantProgram() {
 
       <section className="bg-[#f8f5ef] py-24 md:py-32 px-5 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <SectionLabel>What Support May Include</SectionLabel>
+          <SectionLabel>Reassurance</SectionLabel>
           <h2 className="font-serif text-4xl md:text-6xl leading-tight max-w-4xl">
-            Personal training used as a pathway toward restoration.
+            You do not have to arrive ready. You just have to begin where you are.
           </h2>
           <GoldDivider />
 
           <p className="text-lg text-[#4b5563] leading-relaxed max-w-4xl">
-            The goal is not to promise a specific outcome. The goal is to
-            provide safe, structured support that helps each person work toward
-            meaningful function, confidence, and participation.
+            The program does not ask you to prove you are already strong,
+            confident, or fit. Movement is individualized, progress is
+            thoughtful, and healthcare providers are incorporated when
+            appropriate.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 mt-12">
@@ -207,12 +232,12 @@ export default function ParticipantProgram() {
 
       <section className="bg-white py-24 md:py-32 px-5 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <SectionLabel>The Path Forward</SectionLabel>
+          <SectionLabel>Participant Journey</SectionLabel>
           <h2 className="font-serif text-4xl md:text-6xl leading-tight max-w-4xl">
-            A simple pathway from application to supported training.
+            From first inquiry to a thoughtful transition.
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
             {steps.map((step) => (
               <div key={step.title} className="border border-[#e6dac8] bg-[#fbfaf7] p-8">
                 <p className="font-serif text-5xl text-[#c98b2c] mb-8">

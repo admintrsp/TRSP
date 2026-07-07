@@ -54,6 +54,9 @@ export default function Footer() {
               <Link to="/about" className="block text-slate-200 hover:text-[#d8a066] transition">
                 Our Mission
               </Link>
+              <Link to="/our-philosophy" className="block text-slate-200 hover:text-[#d8a066] transition">
+                Our Philosophy
+              </Link>
               <Link to="/founding-story" className="block text-slate-200 hover:text-[#d8a066] transition">
                 Our Story
               </Link>

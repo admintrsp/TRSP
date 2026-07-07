@@ -21,6 +21,7 @@ import ParticipantProgram from "./ParticipantProgram.jsx";
 import RestorationModelPage from "./RestorationModelPage.jsx";
 import Privacy from "./Privacy.jsx";
 import Contact from "./Contact.jsx";
+import OurPhilosophy from "./OurPhilosophy.jsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -34,6 +35,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/about" element={<About />} />
         <Route path="/evidence" element={<Evidence />} />
         <Route path="/founding-story" element={<FoundingStory />} />
+        <Route path="/our-philosophy" element={<OurPhilosophy />} />
         <Route path="/dashboard" element={<DashboardGate />} />
         <Route path="/community-partners" element={<CommunityPartners />} />
         <Route path="/partner-inquiry" element={<PartnerInquiry />} />

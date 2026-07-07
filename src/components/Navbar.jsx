@@ -10,6 +10,7 @@ const navGroups = [
     label: 'Our Story',
     items: [
       { label: 'Mission / About', to: '/about' },
+      { label: 'Our Philosophy', to: '/our-philosophy' },
       { label: 'Our Story', to: '/founding-story' },
       { label: 'Evidence', to: '/evidence' },
     ],
