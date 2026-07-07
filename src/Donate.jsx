@@ -147,27 +147,24 @@ export default function Donate() {
             the TRSP mission.
           </p>
 
-          <div className="mt-10 border border-[#e6dac8] bg-[#fbfaf7] p-8 sm:p-10">
+          <div className="mt-10 border border-[#e6dac8] bg-[#fbfaf7] p-4 sm:p-6">
             {/* TODO: In Givebutter campaign settings, set the post-payment redirect URL to /thank-you if supported. */}
-            <div className="givebutter-widget sr-only" aria-hidden="true"></div>
+            <givebutter-widget id="Lqb6R9"></givebutter-widget>
 
-            <div className="grid md:grid-cols-[1fr_auto] gap-8 items-center">
+            <div className="border-t border-[#e6dac8] mt-8 pt-6 grid md:grid-cols-[1fr_auto] gap-6 items-center">
               <div>
-                <h3 className="font-serif text-3xl text-[#071f3a] mb-4">
-                  Continue to secure giving.
-                </h3>
-                <p className="text-[#4b5563] leading-relaxed max-w-2xl">
-                  You will complete your donation securely through Givebutter,
-                  TRSP's payment processing partner.
+                <p className="text-sm text-[#4b5563] leading-relaxed max-w-2xl">
+                  If the embedded form does not load, you can still give
+                  securely through Givebutter.
                 </p>
               </div>
               <a
                 href={givebutterUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex justify-center bg-[#071f3a] hover:bg-[#0d2f57] text-white font-semibold px-8 py-4 rounded-sm transition text-center"
+                className="inline-flex justify-center border border-[#c98b2c] text-[#071f3a] hover:bg-[#c98b2c] hover:text-white font-semibold px-6 py-3 rounded-sm transition text-center"
               >
-                Donate Securely on Givebutter
+                Open Givebutter
               </a>
             </div>
 
