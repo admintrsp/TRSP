@@ -136,8 +136,8 @@ function PrintHeader() {
 
 function PrintFooter() {
   return (
-    <footer className="absolute bottom-0 left-0 right-0 bg-[#071f3a] text-white px-[0.38in] py-[0.12in]">
-      <div className="grid grid-cols-[0.9fr_1.1fr_0.85fr] items-center gap-5 text-[10.5px]">
+<footer className="absolute bottom-0 left-0 right-0 bg-[#071f3a] text-white px-[0.38in] py-[0.1in]">     
+<div className="grid grid-cols-[0.9fr_1.1fr_0.85fr] items-center gap-5 text-[10.5px]">
         <div className="flex items-center gap-3">
           <img src="/rsp-logo.png" alt="" className="h-[0.38in] w-[0.38in] object-contain" />
           <div>
@@ -370,8 +370,8 @@ export function CommunityPartnerFlyerFront() {
 
       <PrintPage>
         <div className="relative h-full overflow-hidden bg-[#fbfaf7] pb-[0.82in]">
-          <section className="relative h-[5.55in] overflow-hidden">
-            <img
+          <section className="relative h-[5.05in] overflow-hidden">          
+              <img
               src="/trsp-flyer-hero.jpeg"
               alt=""
               className="absolute right-0 top-0 h-full w-[52%] object-cover object-[45%_50%] brightness-[0.88] contrast-[1.08] saturate-[0.92]"
