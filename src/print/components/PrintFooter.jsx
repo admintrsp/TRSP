@@ -1,3 +1,5 @@
+import QRCodeBlock from './QRCodeBlock'
+
 const websiteUrl = 'therenewedstrengthproject.org'
 
 export default function PrintFooter() {
@@ -25,12 +27,9 @@ export default function PrintFooter() {
           </p>
         </div>
 
-        <div className="border-l border-[#d8a066]/70 pl-5">
-          <p className="text-[#d8a066] uppercase tracking-[0.18em] font-bold">
-            Learn More
-          </p>
-          <p className="mt-1 font-semibold">{websiteUrl}</p>
-        </div>
+<div className="border-l border-[#d8a066]/70 pl-5">
+  <QRCodeBlock />
+</div>
       </div>
     </footer>
   )
