@@ -2,8 +2,8 @@ import QRCodeBlock from './QRCodeBlock'
 
 const websiteUrl = 'therenewedstrengthproject.org'
 
-export default function PrintFooter() {
-  return (
+export default function PrintFooter({ showQr = false }) {
+    return (
 <footer className="absolute bottom-0 left-0 right-0 bg-[#071f3a] text-white px-[0.38in] py-[0.1in]">     
 <div className="grid grid-cols-[0.9fr_1.1fr_0.85fr] items-center gap-5 text-[10.5px]">
         <div className="flex items-center gap-3">
@@ -28,7 +28,16 @@ export default function PrintFooter() {
         </div>
 
 <div className="border-l border-[#d8a066]/70 pl-5">
-  <QRCodeBlock />
+  {showQr ? (
+    <QRCodeBlock />
+  ) : (
+    <>
+      <p className="text-[#d8a066] uppercase tracking-[0.18em] font-bold">
+        Learn More
+      </p>
+      <p className="mt-1 font-semibold">{websiteUrl}</p>
+    </>
+  )}
 </div>
       </div>
     </footer>
