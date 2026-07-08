@@ -31,8 +31,7 @@ function CommunityPartnerFlyerFrontPage() {
               <img
 src="/trsp-flyer-hero.jpeg"
   alt=""
-              className="absolute right-0 top-0 h-full w-[52%] object-cover object-[45%_50%] brightness-[0.88] contrast-[1.08] saturate-[0.92]"
-            />
+className="absolute right-0 top-0 h-full w-[52%] object-cover object-[45%_50%] print:object-[50%_50%] brightness-[0.88] contrast-[1.08] saturate-[0.92]"            />
 
             <div
               className="absolute top-0 left-[3.65in] h-full w-[2.5in]"
