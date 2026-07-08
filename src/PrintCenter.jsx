@@ -159,13 +159,22 @@ function PrintFooter() {
           </p>
         </div>
 
-        <div className="border-l border-[#d8a066]/70 pl-5">
-          <p className="text-[#d8a066] uppercase tracking-[0.18em] font-bold">
-            Learn More
-          </p>
-          <p className="mt-1 font-semibold">{websiteUrl}</p>
-        </div>
-      </div>
+<div className="border-l border-[#d8a066]/70 pl-5 flex items-center gap-3">
+  <img
+    src="/trsp-community-partner-qr.svg"
+    alt="QR code to learn more about becoming a Community Partner"
+    className="h-[0.68in] w-[0.68in] bg-white p-1"
+  />
+
+  <div>
+    <p className="text-[#d8a066] uppercase tracking-[0.14em] font-bold text-[9px]">
+      Become a Community Partner
+    </p>
+    <p className="mt-1 font-semibold text-[9.5px] leading-tight">
+      {websiteUrl}
+    </p>
+  </div>
+</div>      </div>
     </footer>
   )
 }
@@ -413,6 +422,7 @@ export function CommunityPartnerFlyerFront() {
                 <strong>The Renewed Strength Project</strong> removes financial
                 barriers to evidence-informed one-on-one coaching for individuals
                 affected by cancer.
+                We are a Northern Colorado nonprofit dedicated to helping individuals affected by cancer pursue strength, confidence, and participation in life through individualized exercise programming.
               </p>
 
               <div className="mt-[0.2in] grid max-w-[3.6in] grid-cols-3 text-center">
@@ -463,7 +473,7 @@ export function CommunityPartnerFlyerFront() {
                 <SectionLabel className="mb-2 text-[11px] leading-tight tracking-[0.22em]">
                   Sponsor One Participant&apos;s Restoration Journey                </SectionLabel>
                 <p className="font-serif text-[50px] leading-none text-[#071f3a]">$1,500</p>
-                <p className="mt-1 text-[11px] font-semibold text-[#071f3a]">Your gift provides:</p>
+                <p className="mt-1 text-[11px] font-semibold text-[#071f3a]">Your sponsorship provides:</p>
                 <CheckList
                   items={[
                     'Initial assessment',
@@ -712,8 +722,7 @@ export function CommunityPartnerFlyerBack() {
     </SectionLabel>
 
     <h2 className="font-serif text-[25px] leading-tight text-[#071f3a]">
-      Appropriately prescribed exercise can help restore life beyond treatment.
-    </h2>
+Exercise is one of the most effective tools available to help people recover from the physical and functional effects of cancer treatment.    </h2>
 
     <div className="mt-4 grid grid-cols-2 gap-x-5 gap-y-2">
       {[
