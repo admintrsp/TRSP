@@ -25,7 +25,8 @@ import OurPhilosophy from "./OurPhilosophy.jsx";
 import Donate from "./Donate.jsx";
 import ThankYou from "./ThankYou.jsx";
 import PrintCenter, {
-  CommunityPartnerLeaveBehind,
+  CommunityPartnerFlyerBack,
+  CommunityPartnerFlyerFront,
 } from "./PrintCenter.jsx";
 
 createRoot(document.getElementById('root')).render(
@@ -52,7 +53,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/donate" element={<Donate />} />
         <Route path="/thank-you" element={<ThankYou />} />
         <Route path="/print" element={<PrintCenter />} />
-        <Route path="/print/community-partner" element={<CommunityPartnerLeaveBehind />} />
+        <Route path="/print/community-partner-front" element={<CommunityPartnerFlyerFront />} />
+        <Route path="/print/community-partner-back" element={<CommunityPartnerFlyerBack />} />
 
       </Routes>
 
