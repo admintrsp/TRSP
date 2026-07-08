@@ -29,8 +29,8 @@ function CommunityPartnerFlyerFrontPage() {
         <div className="relative h-full overflow-hidden bg-[#fbfaf7] pb-[0.82in]">
           <section className="relative h-[5.05in] overflow-hidden">          
               <img
-              src="/trsp-flyer-hero.jpeg"
-              alt=""
+src="/trsp-hero-alpine-lake-original.jpeg"            
+  alt=""
               className="absolute right-0 top-0 h-full w-[52%] object-cover object-[45%_50%] brightness-[0.88] contrast-[1.08] saturate-[0.92]"
             />
 
