@@ -312,7 +312,7 @@ function CommunityPartnerFlyerBackPage() {
           </p>
         </section>
 
-        <PrintFooter />
+<PrintFooter showQr />
       </div>
     </PrintPage>
   )
