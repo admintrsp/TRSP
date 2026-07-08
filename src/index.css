@@ -44,6 +44,13 @@ textarea:focus-visible {
   margin: 0 auto;
   overflow: hidden;
 }
+.trsp-print-page:last-child {
+
+  page-break-after: auto;
+
+  break-after: auto;
+
+}
 
 @media screen {
   .trsp-print-stage {
