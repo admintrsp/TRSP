@@ -39,20 +39,13 @@ function CommunityPartnerFlyerFrontPage() {
 
   />
 
-  <div
-
-    className="absolute top-0 left-[3.65in] h-full w-[2.5in] print:left-[3.55in] print:w-[1.65in]"
-
-    style={{
-
-      background:
-
-        'linear-gradient(to right,#fbfaf7 0%,rgba(251,250,247,.98) 24%,rgba(251,250,247,.82) 50%,rgba(251,250,247,.32) 76%,transparent 100%)',
-
-    }}
-
-  />
-
+<div
+  className="absolute top-0 left-[3.75in] h-full w-[1.5in] print:left-[3.75in] print:w-[1.35in]"
+  style={{
+    background:
+      'linear-gradient(to right,#fbfaf7 0%,rgba(251,250,247,.94) 22%,rgba(251,250,247,.58) 55%,transparent 100%)',
+  }}
+/>
   <div className="relative z-10 w-[54%] px-[0.42in] pt-[0.34in]">              <PrintHeader />
 
               <SectionLabel className="mt-[0.34in] mb-3 text-[12px] tracking-[0.26em]">
