@@ -165,156 +165,158 @@ function CommunityPartnerFlyerFrontPage() {
 }
 
 function CommunityPartnerFlyerBackPage() {
-  const timelineSteps = [
-    {
-      title: 'Conversation',
-      copy: 'We listen first.',
-      icon: MessageCircle,
-    },
-    {
-      title: 'Assessment',
-      copy: 'We understand where you are today.',
-      icon: ClipboardCheck,
-    },
-    {
-      title: 'Personalized Plan',
-      copy: 'Built around your goals.',
-      icon: Target,
-    },
-    {
-      title: 'One-on-One Coaching',
-      copy: 'Evidence-informed exercise.',
-      icon: Users,
-    },
-    {
-      title: 'Measure Progress',
-      copy: 'We measure what matters.',
-      icon: TrendingUp,
-    },
-    {
-      title: 'Living Again',
-      copy: 'Return to the life they love.',
-      icon: Flag,
-    },
+  const journeySteps = [
+    [MessageCircle, 'Conversation', 'We listen first.'],
+    [ClipboardCheck, 'Assessment', 'Understand today.'],
+    [Target, 'Personal Plan', 'Built around you.'],
+    [Dumbbell, 'Coaching', 'One-on-one support.'],
+    [TrendingUp, 'Progress', 'Measure what matters.'],
+    [Flag, 'Living Again', 'Return to life.'],
   ]
 
   return (
-      <PrintPage>
-        <div className="relative h-full px-[0.38in] pt-[0.35in] pb-[0.82in]">
+    <PrintPage>
+      <div className="relative h-full bg-[#fbfaf7] px-[0.45in] pt-[0.45in] pb-[1.25in]">
+        <section>
+          <SectionLabel className="mb-3 text-[12px]">Our Program</SectionLabel>
+
+          <h1 className="font-serif text-[42px] leading-[0.95] text-[#071f3a]">
+            Every Restoration Journey
+            <br />
+            Begins with a Conversation.
+          </h1>
+
+          <div className="mt-5 h-px w-[1.2in] bg-[#c98b2c]" />
+
+          <p className="mt-5 max-w-[4.5in] text-[14px] leading-relaxed text-[#334155]">
+            Every participant&apos;s experience with cancer is different. We begin
+            by understanding the person, their goals, their treatment, and the
+            life they&apos;re working to return to.
+          </p>
+        </section>
+
+        <section className="mt-[0.42in]">
+          <div className="relative">
+            <div className="absolute left-[7%] right-[7%] top-[0.38in] h-px bg-[#d8a066]" />
+
+            <div className="relative grid grid-cols-6 gap-4">
+              {journeySteps.map(([Icon, title, copy], index) => (
+                <div key={title} className="text-center">
+                  <div className="relative mx-auto w-fit">
+                    <div className="grid h-[0.72in] w-[0.72in] place-items-center rounded-full border border-[#d8a066] bg-[#fbfaf7]">
+                      <Icon size={30} strokeWidth={1.6} className="text-[#071f3a]" />
+                    </div>
+
+                    <div className="absolute -top-2 -right-2 grid h-6 w-6 place-items-center rounded-full bg-[#c98b2c] text-[10px] font-bold text-white">
+                      {index + 1}
+                    </div>
+                  </div>
+
+                  <h3 className="mt-4 text-[10px] font-extrabold uppercase tracking-[0.08em] text-[#071f3a]">
+                    {title}
+                  </h3>
+
+                  <p className="mt-1 text-[10px] leading-snug text-[#475569]">
+                    {copy}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <div className="my-[0.34in] h-px bg-[#e4d8c7]" />
+
+        <section>
           <div className="flex items-center gap-4">
-            <Mountain className="text-[#c98b2c]" size={34} strokeWidth={1.4} />
-            <SectionLabel className="text-[13px]">Our Program</SectionLabel>
-            <PrintDivider className="flex-1" />
+            <div className="h-px flex-1 bg-[#c98b2c]" />
+            <SectionLabel className="text-[12px] tracking-[0.28em]">
+              We Believe
+            </SectionLabel>
+            <div className="h-px flex-1 bg-[#c98b2c]" />
           </div>
 
-          <section className="mt-[0.3in] grid grid-cols-[1.14fr_0.86fr] gap-[0.42in] items-start">
-            <div>
-              <h1 className="font-serif text-[42px] leading-[0.95]">
-                What Happens
-                <br />
-                When Someone Applies<span className="text-[#c98b2c]">.</span>
-              </h1>
-              <div className="my-[0.16in] h-px w-[1.1in] bg-[#c98b2c]" />
-              <p className="text-[14px] leading-snug text-[#071f3a]">
-                Every journey begins by understanding the person — not just
-                the diagnosis.
-              </p>
-            </div>
+          <div className="mt-[0.22in] grid grid-cols-3 gap-[0.34in]">
+            <PrintIconCard icon={Users} title="We See the Person">
+              Every participant&apos;s experience is unique. We begin by listening.
+            </PrintIconCard>
 
-            <blockquote className="border-l border-[#c98b2c] pl-[0.28in]">
-              <p className="font-serif text-[19px] italic leading-snug">
-                Our goal is simple:
-                <br />
-                help every participant pursue strength, confidence, and the
-                ability to live the life they love.
-              </p>
-              <div className="mt-[0.22in] h-px w-[1.35in] bg-[#c98b2c]" />
-            </blockquote>
-          </section>
+            <PrintIconCard icon={Target} title="We Coach with Purpose">
+              Every recommendation is individualized, safe, and evidence-informed.
+            </PrintIconCard>
 
-          <section className="mt-[0.44in]">
-            <PrintTimeline steps={timelineSteps} />
-          </section>
+            <PrintIconCard icon={Heart} title="We Measure What Matters">
+              Success is defined by participation in life, not simply numbers in the gym.
+            </PrintIconCard>
+          </div>
+        </section>
 
-          <section className="mt-[0.42in] rounded-xl bg-[#f3eee6] p-[0.22in]">
-            <div className="grid grid-cols-3 gap-[0.22in]">
-              <PrintIconCard icon={Users} title="Who We See">
-                We see the person. Not just the diagnosis. We listen, so we
-                can truly understand.
-              </PrintIconCard>
-              <PrintIconCard icon={Target} title="How We Coach">
-                Every program is individualized — your body, your treatment,
-                your goals, your life.
-              </PrintIconCard>
-              <PrintIconCard icon={Heart} title="How We Define Success">
-                Success is participation in life — measured by improvements
-                that matter most to each participant.
-              </PrintIconCard>
-            </div>
-          </section>
+        <div className="my-[0.32in] h-px bg-[#e4d8c7]" />
 
-          <section className="mt-[0.2in] grid grid-cols-[0.95fr_1.05fr] gap-[0.18in]">
-            <div className="rounded-xl border border-[#c98b2c] bg-white p-[0.22in]">
-              <div className="flex items-center gap-3">
-                <Users className="text-[#c98b2c]" size={34} strokeWidth={1.65} />
-                <h2 className="text-[16px] font-extrabold uppercase tracking-[0.07em]">
-                  Who We Serve
-                </h2>
-              </div>
-              <div className="mt-[0.14in] grid grid-cols-[1fr_1.05fr] gap-4">
-                <p className="text-[12px] leading-snug text-[#071f3a]">
-                  Individuals affected by cancer in Northern Colorado.
-                  <br />
-                  <br />
-                  <strong>Participants may be:</strong>
-                </p>
-                <CheckList
-                  items={[
-                    'During treatment',
-                    'Recovering after treatment',
-                    'Living with metastatic disease',
-                    'Working to regain function and confidence',
-                  ]}
-                />
-              </div>
-            </div>
+        <section className="grid grid-cols-[1.05fr_0.95fr] gap-[0.34in]">
+          <div>
+            <SectionLabel className="mb-3 text-[11px] tracking-[0.24em]">
+              Why Exercise Matters
+            </SectionLabel>
 
-            <div className="rounded-xl bg-[#071f3a] p-[0.22in] text-white">
-              <div className="flex items-center gap-4">
-                <img
-                  src="/rsp-logo.png"
-                  alt=""
-                  className="h-[0.62in] w-[0.62in] object-contain"
-                />
-                <div>
-                  <SectionLabel className="mb-2 text-[13px]">Our Promise</SectionLabel>
-                  <div className="h-px w-[0.65in] bg-[#d8a066]" />
-                </div>
-              </div>
-              <ul className="mt-[0.14in] space-y-2 text-[11px] leading-snug text-white/90">
-                {[
-                  "We don't promise miracles.",
-                  "We don't promise perfect health.",
-                  'We promise to meet every participant where they are.',
-                  'We promise compassionate coaching.',
-                  'We promise evidence-informed programming.',
-                  'We promise to walk beside people as they pursue the life cancer interrupted.',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <CheckCircle size={13} className="mt-0.5 shrink-0 text-[#d8a066]" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        </div>
+            <h2 className="font-serif text-[25px] leading-tight text-[#071f3a]">
+              Appropriately prescribed exercise can help restore life beyond treatment.
+            </h2>
+
+            <CheckList
+              items={[
+                'Improve physical function',
+                'Reduce cancer-related fatigue',
+                'Restore strength',
+                'Improve confidence',
+                'Improve quality of life',
+                'Increase participation in everyday life',
+              ]}
+            />
+          </div>
+
+          <div className="border-l border-[#e4d8c7] pl-[0.32in]">
+            <SectionLabel className="mb-3 text-[11px] tracking-[0.24em]">
+              Who We Serve
+            </SectionLabel>
+
+            <h2 className="font-serif text-[25px] leading-tight text-[#071f3a]">
+              Individuals affected by cancer in Northern Colorado.
+            </h2>
+
+            <CheckList
+              items={[
+                'During treatment',
+                'Recovering after treatment',
+                'Living with metastatic disease',
+                'Working to regain strength, confidence, and function',
+              ]}
+            />
+          </div>
+        </section>
+
+        <div className="my-[0.25in] h-px bg-[#e4d8c7]" />
+
+        <section className="text-center">
+          <SectionLabel className="mb-3 text-[12px] tracking-[0.28em]">
+            Our Belief
+          </SectionLabel>
+
+          <h2 className="font-serif text-[46px] leading-none tracking-tight text-[#071f3a]">
+            Cancer Takes.
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-[5.2in] font-serif text-[21px] leading-relaxed text-[#071f3a]">
+            We believe every person deserves the opportunity to pursue strength,
+            confidence, and participation in life.
+          </p>
+        </section>
 
         <PrintFooter />
-      </PrintPage>
+      </div>
+    </PrintPage>
   )
 }
-
 export function CommunityPartnerFlyerFront() {
   return (
     <div className="bg-[#f8f5ef]">
