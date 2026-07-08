@@ -40,11 +40,12 @@ textarea:focus-visible {
 .trsp-print-page {
   position: relative;
   width: 8.5in;
+  height: 11in;
   min-height: 11in;
   margin: 0 auto;
   overflow: hidden;
-}
-.trsp-print-page:last-child {
+  
+}.trsp-print-page:last-child {
 
   page-break-after: auto;
 
