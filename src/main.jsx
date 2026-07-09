@@ -24,13 +24,13 @@ import Contact from "./Contact.jsx";
 import OurPhilosophy from "./OurPhilosophy.jsx";
 import Donate from "./Donate.jsx";
 import ThankYou from "./ThankYou.jsx";
-import PrintCenter from "./PrintCenter.jsx";
 import {
   CommunityPartnerFlyerBack,
   CommunityPartnerFlyerFront,
   CommunityPartnerLeaveBehind,
 } from "./print/documents/CommunityPartnerFlyer.jsx";
-
+import PrintCenter from "./print/PrintCenter.jsx";
+import ParticipantFlyer from "./print/documents/ParticipantFlyer.jsx";
 createRoot(document.getElementById('root')).render(
   <StrictMode>
 
@@ -58,6 +58,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/print/community-partner" element={<CommunityPartnerLeaveBehind />} />
         <Route path="/print/community-partner-front" element={<CommunityPartnerFlyerFront />} />
         <Route path="/print/community-partner-back" element={<CommunityPartnerFlyerBack />} />
+        <Route path="/print/participant-flyer" element={<ParticipantFlyer />} />
 
       </Routes>
 

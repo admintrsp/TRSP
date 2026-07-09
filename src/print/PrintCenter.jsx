@@ -10,11 +10,12 @@ const printCards = [
     path: '/print/community-partner',
     status: 'Ready',
   },
-  {
-    title: 'Future Participant Flyer',
-    description: 'A simple handout for individuals affected by cancer and caregivers.',
-    status: 'Future',
-  },
+{
+  title: 'Participant Flyer',
+  description: 'A participant guide designed to restore hope and introduce The Renewed Strength Project.',
+  path: '/print/participant-flyer',
+  status: 'Ready',
+},
   {
     title: 'Future Provider One-Pager',
     description: 'A referral-oriented overview for clinicians and care teams.',
