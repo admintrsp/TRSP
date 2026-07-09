@@ -5,18 +5,6 @@ import SectionLabel from './components/SectionLabel'
 
 const printCards = [
   {
-    title: 'Community Partner Flyer — Front',
-    description: 'A public-facing first impression for sponsors and local partners.',
-    path: '/print/community-partner-front',
-    status: 'Ready',
-  },
-  {
-    title: 'Community Partner Flyer — Back',
-    description: 'A clear explanation of the participant journey and TRSP promise.',
-    path: '/print/community-partner-back',
-    status: 'Ready',
-  },
-  {
     title: 'Community Partner Leave-Behind',
     description: 'A two-page community partner piece with the front and back flyer together.',
     path: '/print/community-partner',
