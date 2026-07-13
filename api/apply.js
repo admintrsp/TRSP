@@ -1,3 +1,4 @@
+import { randomUUID } from 'node:crypto';
 import {
   getClientKey,
   hasUnexpectedFields,
@@ -84,25 +85,30 @@ export default async function handler(req, res) {
     return publicError(res);
   }
 
-  const scriptUrl = process.env.GOOGLE_PARTICIPANT_APPLICATION_SCRIPT_URL;
+  const intakeUrl = process.env.HEADQUARTERS_INTAKE_URL;
+  const intakeSecret = process.env.TRSP_PUBLIC_INTAKE_SECRET;
 
-  if (!scriptUrl) {
+  if (!intakeUrl || !intakeSecret) {
     return res.status(500).json({
       success: false,
-      error: "Missing GOOGLE_PARTICIPANT_APPLICATION_SCRIPT_URL",
+      error: "Application could not be submitted right now.",
     });
   }
 
+  const submissionKey = randomUUID();
+
   try {
-    const response = await fetch(scriptUrl, {
+    const response = await fetch(intakeUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "X-TRSP-Intake-Secret": intakeSecret,
+        "X-TRSP-Submission-Key": submissionKey,
       },
       body: JSON.stringify(payload),
     });
 
-    const data = await response.json();
+    const data = await response.json().catch(() => ({}));
 
     if (!response.ok || data.success === false) {
       return res.status(500).json({
@@ -111,7 +117,9 @@ export default async function handler(req, res) {
       });
     }
 
-    return res.status(200).json(data);
+    return res.status(200).json({
+      success: true,
+    });
   } catch (error) {
     console.error(error);
 
